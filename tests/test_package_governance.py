@@ -118,7 +118,41 @@ class PackageGovernanceTests(unittest.TestCase):
         payload = yaml.safe_load(path.read_text(encoding="utf-8"))
         payload["consumer_surfaces"] = payload["consumer_surfaces"][:1]
         path.write_text(yaml.safe_dump(payload, sort_keys=False), encoding="utf-8")
-        self.assert_has_error("must contain claude-ai and claude-code exactly")
+        self.assert_has_error("must contain claude-ai, claude-code, and codex exactly")
+
+    def test_consumer_surface_set_is_exact(self) -> None:
+        path = self.root / "plugins/bedrock/governance/registry.yaml"
+        payload = yaml.safe_load(path.read_text(encoding="utf-8"))
+        expected = {"claude-ai", "claude-code", "codex"}
+        self.assertEqual(expected, {row["id"] for row in payload["consumer_surfaces"]})
+        self.assertEqual([], validate_package_governance(self.root))
+        original = path.read_bytes()
+        valid_rows = payload["consumer_surfaces"]
+        cases = {
+            **{f"missing-{name}": [row for row in valid_rows if row["id"] != name]
+               for name in expected},
+            "stale-two-surface": [row for row in valid_rows if row["id"] != "codex"],
+            "unknown": valid_rows + [{"id": "unknown-host"}],
+        }
+        for label, rows in cases.items():
+            with self.subTest(case=label):
+                payload["consumer_surfaces"] = rows
+                path.write_text(yaml.safe_dump(payload, sort_keys=False), encoding="utf-8")
+                self.assert_has_error("must contain claude-ai, claude-code, and codex exactly")
+        path.write_bytes(original)
+        self.assertEqual([], validate_package_governance(self.root))
+
+    def test_rollout_schema_and_template_declare_three_surfaces(self) -> None:
+        governance = self.root / "plugins/bedrock/governance"
+        schema = json.loads((governance / "rollout-ledger.schema.json").read_text())
+        template = yaml.safe_load((governance / "rollout-ledger.template.yaml").read_text())
+        expected = ["claude-ai", "claude-code", "codex"]
+        self.assertEqual(expected, schema["properties"]["surfaces"]["items"]["properties"]["id"]["enum"])
+        self.assertCountEqual(expected, [row["id"] for row in template["surfaces"]])
+        for row in template["surfaces"]:
+            self.assertEqual("pending", row["status"])
+            self.assertIsNone(row["evidence"])
+            self.assertEqual("MANIFEST_VERSION and 14 skills", row["expected_identity"])
 
     def test_rejects_non_merge_commit_landing_method(self) -> None:
         path = self.root / "plugins/bedrock/governance/registry.yaml"
@@ -594,7 +628,7 @@ class PackageGovernanceTests(unittest.TestCase):
                     "owner": "operator",
                     "waiver": None,
                 }
-                for surface in ("claude-ai", "claude-code")
+                for surface in ("claude-ai", "claude-code", "codex")
             ],
             "rollback": {"triggered": False, "last_accepted_tag": None, "evidence": None},
             "status": "complete",
@@ -616,6 +650,41 @@ class PackageGovernanceTests(unittest.TestCase):
                 rollout_ledger=rollout_path,
             ),
         )
+
+    def test_rollout_rejects_inexact_surface_populations(self) -> None:
+        evidence_path, rollout_path = self.write_release_fixture()
+        def validate() -> list[str]:
+            return validate_package_governance(
+                self.root, release=True, release_evidence=evidence_path,
+                rollout_ledger=rollout_path,
+            )
+        self.assertEqual([], validate())
+        original = rollout_path.read_bytes()
+        rollout = yaml.safe_load(original)
+        rows = rollout["surfaces"]
+        expected = {"claude-ai", "claude-code", "codex"}
+        self.assertEqual(expected, {row["id"] for row in rows})
+        cases = {
+            **{f"missing-{name}": [row for row in rows if row["id"] != name]
+               for name in expected},
+            **{f"duplicate-{name}": rows + [next(row for row in rows if row["id"] == name)]
+               for name in expected},
+            "unknown": rows + [dict(rows[0], id="unknown-host")],
+            "stale-two-surface": [row for row in rows if row["id"] != "codex"],
+            "duplicate-replaces-missing": [rows[0], rows[1], rows[1]],
+            "unknown-replaces-codex": [dict(row, id="unknown-host") if row["id"] == "codex" else row for row in rows],
+        }
+        for label, population in cases.items():
+            with self.subTest(case=label):
+                rollout["surfaces"] = population
+                rollout_path.write_text(yaml.safe_dump(rollout, sort_keys=False), encoding="utf-8")
+                errors = validate()
+                self.assertTrue(any(
+                    "rollout must enumerate claude-ai, claude-code, and codex exactly once" in error
+                    for error in errors
+                ), errors)
+        rollout_path.write_bytes(original)
+        self.assertEqual([], validate())
 
     def test_release_mode_rejects_landing_before_acceptance(self) -> None:
         evidence_path, rollout_path = self.write_release_fixture(

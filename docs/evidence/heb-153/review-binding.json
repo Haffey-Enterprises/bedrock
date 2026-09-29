@@ -1,0 +1,31 @@
+{
+  "reviewer": "/root/heb153_review",
+  "independence": "Clean-context subagent; no parent conversation fork; read-only review; no source mutation.",
+  "reviewed_source_sha256": {
+    "plugins/bedrock/CHANGELOG.md": "d1c6a85f20b4c8bd194cc12bab7e7ff283d974820ee25dd51a13223d3090caec",
+    "plugins/bedrock/governance/COMPATIBILITY.md": "cabd64f4dc2c7f1dcb6fcf61cff326ed38e434fa8c2373315e931b5ad36595c2",
+    "plugins/bedrock/governance/registry.yaml": "b8156511abbde73204be882996f8aaf26c28a31a0b4ff4f968229d79af35ec03",
+    "plugins/bedrock/governance/rollout-ledger.schema.json": "49eb79739cef57e528d33440cd65efcb750333ec1408d9b143af31b7acc589b1",
+    "plugins/bedrock/governance/rollout-ledger.template.yaml": "a234593f64d9ac871899d9050ba3bcbe671eb2151e8ed048d1f054f52f113e54",
+    "scripts/validate_package_governance.py": "402742e597c601fe218c6397b1c6642104f710a88b6c402b3dd16e9ebd867a5c",
+    "tests/test_package_governance.py": "4ea111f1acf89cb307e78fdd42be53b316009903b462561334008ab1b99e6b20",
+    "plugins/bedrock/.claude-plugin/plugin.json": "e294a8c122b0343e8b813a3213b4d02ddf625811dcb78e1e9b32b023a2a98555"
+  },
+  "reviewed_evidence_sha256": {
+    "discrimination-control.json": "13686a35dcadc94bc7458e49203677ae5f351c2e32baa0f5236da02b84dbb7b4",
+    "governance-tests.txt": "1b7b13f9b78928011287d20c44585dc93819e211cb555dd67eb4f20b7b368431",
+    "meaningful-red.txt": "530651e13a28547c47d16c61f489719a5fae3d865be92295eeb0bd82118f3f3a",
+    "pre-removal-identity.json": "d1b079f7a8d1cd76c8a135ad6ed864e035391564eab7fa46a42d854610565474",
+    "unit-population.json": "9e4eafa418e83e9c1eb65234b3124d2030585a1c06e21815a9e8ddc2531a6dde",
+    "unit-tests.txt": "fd742a2bf276ab00932c24c735b68ff91ab53c610fef800e832eabd7d2b8ddff",
+    "validation-results.json": "0eb5b5d6cb6e78c64d4b618162935613032a695503d9f93f2bc54b2993da4016"
+  },
+  "limitations": [
+    "Registry set comparison retains inherited duplicate-row tolerance; rollout Counter enforces exact once.",
+    "Host receipt reviewed, not independently re-probed; no candidate installation or routing claim."
+  ],
+  "supplemental_evidence_sha256": {
+    "record.json": "2ded5f78747fddeb23affc98f164c80afce965055b6e37d2123451741528437c",
+    "host-capabilities.json": "028c5ead2dd564cb0369bc338978c672d6747d262910aaa99c01a2609bda3f03"
+  }
+}

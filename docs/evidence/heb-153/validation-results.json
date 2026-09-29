@@ -1,0 +1,115 @@
+[
+  {
+    "command": [
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+      "scripts/validate_agent_review_contracts.py"
+    ],
+    "cwd": "/Users/thaffey/.codex/worktrees/heb-154-integration/bedrock",
+    "returncode": 0,
+    "stdout": "PASS: agent/review contracts and fixtures validated\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+      "scripts/validate_application_test_debug_contracts.py"
+    ],
+    "cwd": "/Users/thaffey/.codex/worktrees/heb-154-integration/bedrock",
+    "returncode": 0,
+    "stdout": "PASS: application/test/debug contracts and fixtures validated\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+      "scripts/validate_authoring_contracts.py"
+    ],
+    "cwd": "/Users/thaffey/.codex/worktrees/heb-154-integration/bedrock",
+    "returncode": 0,
+    "stdout": "PASS: 5/5 HEB-117 interaction contracts validated\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+      "scripts/validate_frontend_contracts.py"
+    ],
+    "cwd": "/Users/thaffey/.codex/worktrees/heb-154-integration/bedrock",
+    "returncode": 0,
+    "stdout": "PASS: frontend profile, evidence, behavior, browser fixture, and contract markers\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+      "scripts/validate_infrastructure_delivery_contracts.py"
+    ],
+    "cwd": "/Users/thaffey/.codex/worktrees/heb-154-integration/bedrock",
+    "returncode": 0,
+    "stdout": "PASS: infrastructure/delivery contracts and fixtures validated\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+      "scripts/validate_package_governance.py"
+    ],
+    "cwd": "/Users/thaffey/.codex/worktrees/heb-154-integration/bedrock",
+    "returncode": 0,
+    "stdout": "PASS: package lifecycle, metadata, compatibility, policy, registry, and evidence contracts\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+      "scripts/validate_rule_trigger_audit.py",
+      "--require-complete"
+    ],
+    "cwd": "/Users/thaffey/.codex/worktrees/heb-154-integration/bedrock",
+    "returncode": 0,
+    "stdout": "PASS: HEB-136 rule-trigger audit ledger validated\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+      "scripts/validate_safety.py"
+    ],
+    "cwd": "/Users/thaffey/.codex/worktrees/heb-154-integration/bedrock",
+    "returncode": 0,
+    "stdout": "PASS: HEB-110 deterministic safety contracts\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+      "scripts/validate_plugin.py",
+      "--skip-host-cli"
+    ],
+    "cwd": "/Users/thaffey/.codex/worktrees/heb-154-integration/bedrock",
+    "returncode": 0,
+    "stdout": "PASS: 14/14 skills passed deterministic validation\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+      "scripts/sync_package_identity.py",
+      "--check"
+    ],
+    "cwd": "/Users/thaffey/.codex/worktrees/heb-154-integration/bedrock",
+    "returncode": 0,
+    "stdout": "PASS: 14 package identity carriers verified\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+      "scripts/validate_plugin.py"
+    ],
+    "cwd": "/Users/thaffey/.codex/worktrees/heb-154-integration/bedrock",
+    "returncode": 0,
+    "stdout": "PASS: 14/14 skills passed deterministic validation; plugin manifest passed strict host validation\n",
+    "stderr": ""
+  }
+]

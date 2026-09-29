@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "profile": "standard",
+  "scope": "Supplement to the HEB-153 scoped implementation review; record.json and host-capabilities.json only. No merge, release, cleanup or rollout approval.",
+  "checked_surfaces": [
+    "record.json: complete read; scope reconciliation, limitations, pending operator gate and seven source SHA-256 bindings checked.",
+    "host-capabilities.json: complete read; version, plugin help, successful list-help control and expected rejection of validate.",
+    "Current direct-file population under docs/evidence/heb-153 is nine files; prior review covered the other seven. Other evidence directories excluded."
+  ],
+  "gates": [
+    {
+      "name": "Evidence scope and source bindings",
+      "disposition": "passed",
+      "reason": "All seven source hashes in record.json match current bytes and the prior review binding. Exclusions and pending work remain explicit."
+    },
+    {
+      "name": "Codex validator limitation evidence",
+      "disposition": "passed",
+      "reason": "Retained CLI evidence identifies 0.158.0-alpha.2.1, accepts the list-help control, and rejects plugin validate with exit 2. Supports the observed CLI limitation; does not prove minimum-floor execution or every possible validation interface."
+    }
+  ],
+  "findings": [],
+  "verdict": "approve"
+}

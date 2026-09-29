@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "profile": "standard",
+  "scope": "Uncommitted HEB-153 delta against inherited base/HEAD 458d6806f06ae8a6af569d71126fb2035fb0b524 in codex/heb-161-candidate.",
+  "checked_surfaces": [
+    "Scope/architecture: complete seven-file tracked diff; exact third consumer surface codex; desktop floor >=0.153.4; unchanged manifest version 10.0.0.",
+    "Conformance/correctness: governance registry, COMPATIBILITY, rollout schema and template read whole; governance validator read whole; changed tests and their setup/release fixture read completely. Unchanged remainder of test source was not read.",
+    "System posture: explicit absence of Codex strict manifest validation, minimum CI pin, cloud support and routing proof; Classic below-floor application remains pending separate operator cleanup.",
+    "Evidence: all seven current files under docs/evidence/heb-153 read whole. Truncated combined reads were repeated without truncation.",
+    "Identity generation: sync_package_identity.py read whole; candidate manifest and generated carriers checked. Installed 9.1.0 evidence is correctly distinct from source candidate 10.0.0.",
+    "Excluded: application execution or mutation, fresh HEB-149 retrieval, live routing, release acceptance, installation/update, cleanup and post-removal verification."
+  ],
+  "gates": [
+    {
+      "name": "Scope and compatibility claims",
+      "disposition": "passed",
+      "reason": "Both literal assertions, registry/schema/template/COMPATIBILITY/tests/changelog implement the authorized surface addition and stated limitations."
+    },
+    {
+      "name": "Owning-validator discrimination",
+      "disposition": "passed",
+      "reason": "Independently ran read-only package governance validation and in-memory registry control: green returned no errors; removing only codex produced the exact enumeration error; restoring returned no errors."
+    },
+    {
+      "name": "Rollout population controls",
+      "disposition": "passed",
+      "reason": "Counter assertion rejects missing, duplicate, unknown and stale two-surface populations. New test asserts that specific owning-validator error for each mutation and checks green before and after. Retained governance report records 56 passing tests."
+    },
+    {
+      "name": "Regression evidence",
+      "disposition": "passed",
+      "reason": "Retained report records 178 passing tests across the listed top-level modules, excluding test_safety_integration.py, nested suites, standalone shared-core tests, Docker/Terraform integration and live routing. Report and population read whole; suite was not rerun by this reviewer."
+    },
+    {
+      "name": "Package identity and formatting",
+      "disposition": "passed",
+      "reason": "Independent sync_package_identity.py --check verifies 14 candidate carriers; git diff --check succeeds. Carrier inputs are unchanged, so regeneration is unnecessary."
+    },
+    {
+      "name": "Broader deterministic and strict-host evidence",
+      "disposition": "passed",
+      "reason": "Retained validation-results.json records passing domain/package validators and strict host validation. Strict validation is Claude host evidence, not a Codex validator claim."
+    },
+    {
+      "name": "Runtime, infrastructure, dependency, security and browser overlays",
+      "disposition": "not-relevant",
+      "reason": "The delta introduces no runtime, infrastructure, dependencies, authentication or browser behavior."
+    },
+    {
+      "name": "Release, installation, routing and cleanup acceptance",
+      "disposition": "not-relevant",
+      "reason": "Outside this explicitly bounded pre-removal implementation review; these actions and acceptance claims remain pending."
+    }
+  ],
+  "findings": [],
+  "verdict": "approve"
+}

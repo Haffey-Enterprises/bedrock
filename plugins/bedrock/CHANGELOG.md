@@ -5,6 +5,12 @@ records candidate and released changes; a version heading is not release proof.
 
 ## 10.0.0 — bounded agent construction candidate
 
+- Declare Codex (ChatGPT desktop), at codex-cli >=0.153.4, as the explicit third
+  consumer surface alongside claude-ai and claude-code; require each exactly
+  once in rollout. No Codex strict manifest validator, CI minimum pin, cloud-task
+  support, or routing proof is claimed. HEB-153 host cleanup and fresh-task
+  post-removal verification remain pending at this pre-removal checkpoint.
+
 - Reject fractional token usage and integer budget limits instead of truncating
   them. Bound best-effort parser candidates by unique normalized source spans,
   including malformed occurrences, while preserving fence-path precedence.

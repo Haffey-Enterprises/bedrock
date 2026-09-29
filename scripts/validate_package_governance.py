@@ -335,8 +335,8 @@ def _validate_registry(root: Path, errors: list[str]) -> dict[str, Any] | None:
         if not isinstance(row, dict) or any(not row.get(field) for field in ("id", "required_for", "version", "detection", "unavailable_behavior")):
             _error(errors, f"{path}:capabilities[{index}]", "capability declaration is incomplete")
     surfaces = {row.get("id") for row in registry.get("consumer_surfaces", []) if isinstance(row, dict)}
-    if surfaces != {"claude-ai", "claude-code"}:
-        _error(errors, path, "consumer surface enumeration must contain claude-ai and claude-code exactly")
+    if surfaces != {"claude-ai", "claude-code", "codex"}:
+        _error(errors, path, "consumer surface enumeration must contain claude-ai, claude-code, and codex exactly")
     prompt = registry.get("prompt_generation")
     if not isinstance(prompt, dict) or len(prompt.get("required_provenance", [])) < 3:
         _error(errors, path, "prompt generations require format, source, and digest provenance")
@@ -874,8 +874,8 @@ def _validate_release(
         if evidence and rollout.get("source_commit") != evidence.get("source_commit"):
             _error(errors, rollout_path, "rollout and release evidence source commits must match")
         surface_ids = [row.get("id") for row in rollout.get("surfaces", []) if isinstance(row, dict)]
-        if Counter(surface_ids) != Counter({"claude-ai": 1, "claude-code": 1}):
-            _error(errors, rollout_path, "rollout must enumerate claude-ai and claude-code exactly once")
+        if Counter(surface_ids) != Counter({"claude-ai": 1, "claude-code": 1, "codex": 1}):
+            _error(errors, rollout_path, "rollout must enumerate claude-ai, claude-code, and codex exactly once")
         for row in rollout.get("surfaces", []):
             if not isinstance(row, dict):
                 continue

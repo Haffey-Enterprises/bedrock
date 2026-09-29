@@ -1,0 +1,43 @@
+[
+  {
+    "command": [
+      "/Applications/ChatGPT.app/Contents/Resources/codex-cli/bin/codex",
+      "--version"
+    ],
+    "returncode": 0,
+    "stdout": "codex-cli 0.158.0-alpha.2.1\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/Applications/ChatGPT.app/Contents/Resources/codex-cli/bin/codex",
+      "plugin",
+      "--help"
+    ],
+    "returncode": 0,
+    "stdout": "Manage Codex plugins\n\nUsage: codex plugin [OPTIONS] <COMMAND>\n\nCommands:\n  add          Install a plugin from a configured or remote marketplace\n  list         List plugins available from configured and remote marketplaces\n  marketplace  Add, list, upgrade, or remove configured plugin marketplaces\n  remove       Uninstall a plugin and remove its local cache\n  help         Print this message or the help of the given subcommand(s)\n\nOptions:\n  -c, --config <key=value>\n          Override a configuration value that would otherwise be loaded from `~/.codex/config.toml`.\n          Use a dotted path (`foo.bar.baz`) to override nested values. The `value` portion is parsed\n          as TOML. If it fails to parse as TOML, the raw string is used as a literal.\n          \n          Examples: - `-c model=\"o3\"` - `-c 'sandbox_permissions=[\"disk-full-read-access\"]'` - `-c\n          shell_environment_policy.inherit=all`\n\n      --enable <FEATURE>\n          Enable a feature (repeatable). Equivalent to `-c features.<name>=true`\n\n      --disable <FEATURE>\n          Disable a feature (repeatable). Equivalent to `-c features.<name>=false`\n\n  -h, --help\n          Print help (see a summary with '-h')\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/Applications/ChatGPT.app/Contents/Resources/codex-cli/bin/codex",
+      "plugin",
+      "list",
+      "--help"
+    ],
+    "returncode": 0,
+    "stdout": "List plugins available from configured and remote marketplaces\n\nUsage: codex plugin list [OPTIONS]\n\nOptions:\n  -c, --config <key=value>\n          Override a configuration value that would otherwise be loaded from `~/.codex/config.toml`.\n          Use a dotted path (`foo.bar.baz`) to override nested values. The `value` portion is parsed\n          as TOML. If it fails to parse as TOML, the raw string is used as a literal.\n          \n          Examples: - `-c model=\"o3\"` - `-c 'sandbox_permissions=[\"disk-full-read-access\"]'` - `-c\n          shell_environment_policy.inherit=all`\n\n  -m, --marketplace <MARKETPLACE>\n          Only list plugins from this marketplace name\n\n      --enable <FEATURE>\n          Enable a feature (repeatable). Equivalent to `-c features.<name>=true`\n\n      --json\n          Output plugin list as JSON\n\n      --available\n          Include uninstalled marketplace plugins in the JSON output\n\n      --disable <FEATURE>\n          Disable a feature (repeatable). Equivalent to `-c features.<name>=false`\n\n  -h, --help\n          Print help (see a summary with '-h')\n\nExamples:\n  codex plugin list\n  codex plugin list --marketplace debug\n  codex plugin list --json\n  codex plugin list --available --json\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/Applications/ChatGPT.app/Contents/Resources/codex-cli/bin/codex",
+      "plugin",
+      "validate",
+      "--help"
+    ],
+    "returncode": 2,
+    "stdout": "",
+    "stderr": "error: unrecognized subcommand 'validate'\n\n  tip: a similar subcommand exists: 'list'\n\nUsage: codex plugin [OPTIONS] <COMMAND>\n\nFor more information, try '--help'.\n"
+  }
+]

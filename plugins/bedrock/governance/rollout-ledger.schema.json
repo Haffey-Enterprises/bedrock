@@ -18,7 +18,7 @@
         "additionalProperties": false,
         "required": ["id", "expected_action", "expected_identity", "status", "evidence", "owner"],
         "properties": {
-          "id": {"enum": ["claude-ai", "claude-code"]},
+          "id": {"enum": ["claude-ai", "claude-code", "codex"]},
           "expected_action": {"type": "string", "minLength": 1},
           "expected_identity": {"type": "string", "minLength": 1},
           "status": {"enum": ["pending", "verified", "failed", "waived"]},

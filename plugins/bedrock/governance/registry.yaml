@@ -91,6 +91,9 @@ consumer_surfaces:
   - id: claude-code
     propagation: Refresh or update the marketplace, update the plugin, and start a new session.
     verification: Inspect plugin details and verify the intended manifest identity and 14-skill inventory after reload.
+  - id: codex
+    propagation: Land the versioned change in the configured Git source, run codex plugin marketplace upgrade bedrock, and start a new ChatGPT desktop task; a full application restart is not required.
+    verification: Verify codex-cli >=0.153.4, the active package manifest identity and digest, and the complete 14-skill single-backed inventory through the loaded PACKAGE_IDENTITY.json carriers. Desktop only; no cloud-task or Codex routing proof is claimed. No strict Codex plugin-manifest validator or CI pin for this minimum is available. The co-installed below-floor ChatGPT Classic application remains a standing condition pending the HEB-153 operator cleanup gate.
 budgets:
   description_max_characters: 1024
   catalog_description_max_characters: 8192
