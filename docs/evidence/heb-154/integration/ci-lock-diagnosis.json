@@ -28,16 +28,16 @@
       "integrity": "sha256:27e7c4ce73432cc1fe426883b1046ed6e95ee857d03328bef403eec2d5daf66f"
     },
     {
-      "source": "raw/ci-lock-repair/offline-run.txt",
+      "source": "raw/ci-lock-repair/offline-run.txt.gz",
       "captured_at": "2026-09-29T14:33:20.935204-04:00",
-      "classification": "Repository-only CI/installation evidence; synthetic offline tests; no model requests",
-      "integrity": "sha256:4cc9ff2e76150ee10accf000c36478745f43b8ade0266595211271c51dd1646a"
+      "classification": "Repository-only CI/installation evidence; synthetic offline tests; no model requests; exact raw bytes compressed, readable copy removes extra EOF newlines",
+      "integrity": "sha256:17e42c5c9b3531cf9b727303bab149f3b248f38a3ebbccf47748bd6c0e8e9fa7"
     },
     {
-      "source": "raw/ci-lock-repair/wrong-hash-control.txt",
+      "source": "raw/ci-lock-repair/wrong-hash-control.txt.gz",
       "captured_at": "2026-09-29T14:33:20.935204-04:00",
-      "classification": "Repository-only CI/installation evidence; synthetic offline tests; no model requests",
-      "integrity": "sha256:315803b7f20098af2bc0f50f4be2e166136b5d769084f997a1236eb6d6dcdf5e"
+      "classification": "Repository-only CI/installation evidence; synthetic offline tests; no model requests; exact raw bytes compressed, readable copy removes extra EOF newlines",
+      "integrity": "sha256:99b6c4af8795a3010ab0cbcfcccce83554a9233f6a33ba852bf8915ab3ae0a42"
     }
   ],
   "hypotheses": [

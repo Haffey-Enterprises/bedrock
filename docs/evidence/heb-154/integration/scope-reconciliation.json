@@ -90,7 +90,7 @@
     },
     {
       "path": "docs/evidence/heb-154/integration/ci-lock-diagnosis.json",
-      "sha256": "cf5297da9d13ade0f5be422f9b51517a8e166322baecfa34c362e2e4ff520e4a",
+      "sha256": "67b59e8e995d68cf8861e8babe21d9fee691f874053aa510668e14f810b24edb",
       "basis": "Retained first CI failure, dependency-lock repair proof, diagnosis or independent review"
     },
     {
@@ -184,9 +184,19 @@
       "basis": "Retained first CI failure, dependency-lock repair proof, diagnosis or independent review"
     },
     {
+      "path": "docs/evidence/heb-154/integration/raw/ci-lock-repair/log-normalization.json",
+      "basis": "Transparent evidence normalization and failed publication check custody",
+      "sha256": "c7e9834c56fd1c1d181ffb49031e2ada7e7b7f0ba0de906649c2b505e6aa0091"
+    },
+    {
       "path": "docs/evidence/heb-154/integration/raw/ci-lock-repair/offline-run.txt",
-      "sha256": "4cc9ff2e76150ee10accf000c36478745f43b8ade0266595211271c51dd1646a",
+      "sha256": "6f4d101e1394336d0d0311336009bf8e960e98d39d5a125d16b4a7d51c229a76",
       "basis": "Retained first CI failure, dependency-lock repair proof, diagnosis or independent review"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/ci-lock-repair/offline-run.txt.gz",
+      "basis": "Retained first CI failure and reviewed fixture-lock repair proof",
+      "sha256": "17e42c5c9b3531cf9b727303bab149f3b248f38a3ebbccf47748bd6c0e8e9fa7"
     },
     {
       "path": "docs/evidence/heb-154/integration/raw/ci-lock-repair/pip-check.txt",
@@ -215,8 +225,13 @@
     },
     {
       "path": "docs/evidence/heb-154/integration/raw/ci-lock-repair/wrong-hash-control.txt",
-      "sha256": "315803b7f20098af2bc0f50f4be2e166136b5d769084f997a1236eb6d6dcdf5e",
+      "sha256": "eb2138026054e4cc6a40c2329155492eccd13557f640e726bb78d26f5c642dc0",
       "basis": "Retained first CI failure, dependency-lock repair proof, diagnosis or independent review"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/ci-lock-repair/wrong-hash-control.txt.gz",
+      "basis": "Retained first CI failure and reviewed fixture-lock repair proof",
+      "sha256": "99b6c4af8795a3010ab0cbcfcccce83554a9233f6a33ba852bf8915ab3ae0a42"
     },
     {
       "path": "docs/evidence/heb-154/integration/raw/ci-lock-repair/wrong-hash.txt",

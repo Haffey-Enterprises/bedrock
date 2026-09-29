@@ -1,0 +1,20 @@
+{
+  "date": "2026-09-29",
+  "reason": "Final diff check failed; shell incorrectly continued to commit/push. Superseded CI cancellation requested before live routing. Subsequent publication commands use set -e.",
+  "files": [
+    {
+      "readable_copy": "docs/evidence/heb-154/integration/raw/ci-lock-repair/offline-run.txt",
+      "exact_original": "docs/evidence/heb-154/integration/raw/ci-lock-repair/offline-run.txt.gz",
+      "original_sha256": "4cc9ff2e76150ee10accf000c36478745f43b8ade0266595211271c51dd1646a",
+      "readable_sha256": "6f4d101e1394336d0d0311336009bf8e960e98d39d5a125d16b4a7d51c229a76",
+      "normalization": "Remove only extra final newlines to satisfy Git whitespace check; exact original compressed bytes retained."
+    },
+    {
+      "readable_copy": "docs/evidence/heb-154/integration/raw/ci-lock-repair/wrong-hash-control.txt",
+      "exact_original": "docs/evidence/heb-154/integration/raw/ci-lock-repair/wrong-hash-control.txt.gz",
+      "original_sha256": "315803b7f20098af2bc0f50f4be2e166136b5d769084f997a1236eb6d6dcdf5e",
+      "readable_sha256": "eb2138026054e4cc6a40c2329155492eccd13557f640e726bb78d26f5c642dc0",
+      "normalization": "Remove only extra final newlines to satisfy Git whitespace check; exact original compressed bytes retained."
+    }
+  ]
+}
