@@ -1,0 +1,94 @@
+{
+  "schema_version": "1.0.0",
+  "symptom": "Two release routing answers described launcher source absent from the approved fixture prompt.",
+  "scope": "Claude Code 2.1.226 routing subprocess stdin on macOS; 26 completed of 189 planned live draws; no historic HTTP request capture.",
+  "mode": "offline-diagnosis",
+  "timeline": [
+    "Native Eastern date: 2026-09-29. Explicit user approval resolved the earlier routing and Linear approval block.",
+    "Single release run launched; after two suspect misses it was terminated with 26 completed draws.",
+    "Offline input controls reproduced launcher input in actual CLI text requests; DEVNULL removed that input. Regression failed before repair and passed after repair."
+  ],
+  "evidence": [
+    {
+      "source": "raw/routing-stdin/routing-release.json",
+      "captured_at": "2026-09-29T13:36:04.793112-04:00",
+      "classification": "Repository-only diagnostic evidence; synthetic credentials in local captures; no request headers retained",
+      "integrity": "sha256:a6e76db7a97e5e5a6ecd84461e6e516a16e28d948d849571fbd86c3ae05b5f0e"
+    },
+    {
+      "source": "raw/routing-stdin/text-wire-v2-inherited-regular-eof.json",
+      "captured_at": "2026-09-29T13:36:04.793112-04:00",
+      "classification": "Repository-only diagnostic evidence; synthetic credentials in local captures; no request headers retained",
+      "integrity": "sha256:831359b3d161d4b8274bec9cc6c8ddbb953eaec64c74454c7a66ad75747e95c3"
+    },
+    {
+      "source": "raw/routing-stdin/text-wire-v2-devnull.json",
+      "captured_at": "2026-09-29T13:36:04.793112-04:00",
+      "classification": "Repository-only diagnostic evidence; synthetic credentials in local captures; no request headers retained",
+      "integrity": "sha256:c9e0afb1456ecda025fcfaaa64fed3fbc4445ac63a12b8fd4c45e18618638476"
+    },
+    {
+      "source": "raw/routing-stdin/regression-red-repaired-fixture.txt",
+      "captured_at": "2026-09-29T13:36:04.793112-04:00",
+      "classification": "Repository-only diagnostic evidence; synthetic credentials in local captures; no request headers retained",
+      "integrity": "sha256:f31b2759b245058b16a8f2603f55b60ab707fd938f8563454f9e11b9d723c845"
+    },
+    {
+      "source": "raw/routing-stdin/regression-green.txt",
+      "captured_at": "2026-09-29T13:36:04.793112-04:00",
+      "classification": "Repository-only diagnostic evidence; synthetic credentials in local captures; no request headers retained",
+      "integrity": "sha256:266bf5309b1f940cc2f5c55ace40da223c75dfd69454b170662a63783450ed6f"
+    }
+  ],
+  "hypotheses": [
+    {
+      "iteration": 1,
+      "hypothesis": "The approved argv prompt included the launcher.",
+      "prediction": "The saved approved prompt or current generated fixture prompt contains the launcher authorization/code.",
+      "falsifier": "They are equal and contain only the intended routing catalog/request.",
+      "evidence": "Pre-containment full prompt equality check passed; launcher literal was absent. The captured localhost request later distinguishes argv from appended stdin.",
+      "disposition": "falsified",
+      "unexplained": [
+        "Original live HTTP body was not retained."
+      ]
+    },
+    {
+      "iteration": 2,
+      "hypothesis": "The CLI rereads inherited regular-file stdin even after Python consumed the launcher source.",
+      "prediction": "Actual CLI with a consumed heredoc includes launcher source, while DEVNULL retains only the argv task text (plus normal CLI context).",
+      "falsifier": "No launcher content appears in the inherited-input request, or it persists with DEVNULL.",
+      "evidence": "Network-denied stream-json capture parses the first Python line; DEVNULL emits no input. Normal-text localhost captures each contain one request: argv canary present in both, launcher source present only with inherited stdin. Plain Python child had read EOF, distinguishing CLI behavior.",
+      "disposition": "supported",
+      "unexplained": [
+        "Historic live request bytes and inflight final billing remain unavailable."
+      ]
+    },
+    {
+      "iteration": 3,
+      "hypothesis": "This deterministic stdin repair isolates both consumed regular files and pipes at the harness boundary.",
+      "prediction": "A synthetic CLI that rereads seekable fd0 or reads pipe input sees empty stdin through repaired run_case, while the prompt remains exact.",
+      "falsifier": "Canary survives the boundary or argv differs.",
+      "evidence": "Two meaningful pre-fix failures; 22 adapter tests pass after repair. Independent reviewer removed DEVNULL in a temporary copy and reproduced both failures.",
+      "disposition": "supported",
+      "unexplained": []
+    }
+  ],
+  "containment": "Terminated the release harness and its direct CLI child; no automatic retry or PR evaluation launched.",
+  "conclusion": {
+    "status": "root_cause_identified",
+    "confidence": "high",
+    "statement": "The harness inherited stdin into an argv-prompt CLI. Claude 2.1.226 reread consumed launcher source and appended it to the user prompt. This mechanism is directly reproduced offline and explains the distinctive live answers; exact original wire contents were not captured. All observed live results are ineligible as clean routing evidence."
+  },
+  "repair": {
+    "authorized": true,
+    "action": "Within the authorized integration/validation scope, set stdin=subprocess.DEVNULL in run_case and add process-boundary regression controls. No skill descriptions or fixture prompts changed."
+  },
+  "verification": [
+    "22 routing-adapter tests pass; independent removal of the fix causes both expected failures.",
+    "178 repository unittest methods pass on this repaired working tree; raw output retained. These counts overlap.",
+    "Actual CLI localhost capture demonstrated intended-task isolation for DEVNULL; no provider/model call was made in diagnosis.",
+    "Independent narrow review approves repair with no findings; overall candidate remains paused for live routing, CI and acceptance."
+  ],
+  "residual_risk": "Original release report: 24/26 passing, incomplete and contaminated; USD0.33017495 reported, interrupted-call final usage unknown. No claim covers all CLI context channels. Fresh release evaluation requires a new one-run authorization; PR allowance remains unused.",
+  "owner": "HEB-154 implementation; Tad owns further live allowance and release disposition"
+}

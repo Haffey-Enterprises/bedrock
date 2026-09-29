@@ -1,0 +1,1 @@
+PASS: 14/14 skills passed deterministic validation; plugin manifest passed strict host validation

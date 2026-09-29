@@ -1,0 +1,26 @@
+No broken requirements found.
+{
+  "schema_version": 1,
+  "repository": "https://github.com/T-Bone-Haff/bedrock",
+  "bedrock_revision": null,
+  "component": "agent-core",
+  "component_version": "0.2.0",
+  "wheel": "agent_core-0.2.0-py3-none-any.whl",
+  "wheel_sha256": "fdeba49630b213a12d437bdd6836585f39d96eeea619d8efe7fd8cfed368cfa0",
+  "requirements_sha256": "a7daaf5f9de005d868ec97784f24cd8aa16244c73451fdd159adacfc4ed47501",
+  "observed": {
+    "python": "3.10.20",
+    "executable": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/clean-core-310-repair/venv/bin/python",
+    "import_path": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/clean-core-310-repair/venv/lib/python3.10/site-packages/agent_core/__init__.py",
+    "core_version": "0.2.0",
+    "dependencies": {
+      "agent-core": "0.2.0",
+      "attrs": "26.1.0",
+      "jsonschema": "4.25.1",
+      "jsonschema-specifications": "2025.9.1",
+      "referencing": "0.37.0",
+      "rpds-py": "0.30.0",
+      "typing-extensions": "4.16.0"
+    }
+  }
+}

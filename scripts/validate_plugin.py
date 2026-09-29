@@ -39,6 +39,7 @@ else:  # Direct execution: python scripts/validate_plugin.py
 
 
 EXPECTED_SKILLS = (
+    "agent-builder",
     "agent-code",
     "app-delivery-pipeline",
     "application-code",

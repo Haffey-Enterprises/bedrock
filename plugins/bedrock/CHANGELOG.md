@@ -3,6 +3,23 @@
 The package manifest is the sole authority for the current version. This file
 records candidate and released changes; a version heading is not release proof.
 
+## 10.0.0 — bounded agent construction candidate
+
+- Add agent-builder 1.0.0 for checked fleet-agent construction; agent-code 2.0.0
+  retains LLM mechanism ownership. Portable core advances to 3.0.0.
+- Integrate shared Python agent-core 0.2.0 under the Bedrock MIT license. Its
+  reproducible wheel ships with agent-builder; projects explicitly install and
+  pin the wheel and dependencies in their own virtual environment. Updates
+  require project qualification.
+- Advance portable agent-execution evidence to 2.0.0: unknown totals remain
+  null, known subtotals and reserved exposure remain separate, absent responses
+  have no hash, and tool dispatches do not consume model-attempt limits.
+- Preserve the accepted one-provider bounded trial as repository history;
+  distribute only skill resources and shared Python components. No broader
+  provider claim or new specialist trial is implied.
+- Cold acceptance, bundled-release coordination, and explicit production
+  proceed remain required before release and rollout.
+
 ## 9.1.0 — claim-subject discrimination candidate
 
 - Require diagnostic readings to demonstrate that their instrument

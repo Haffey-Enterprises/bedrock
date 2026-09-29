@@ -1,0 +1,560 @@
+{
+  "schema_version": 2,
+  "adapter": "claude-code",
+  "profile": "release",
+  "generated_at": "2026-09-29T13:14:30.144857-04:00",
+  "suite_scope": "full",
+  "planned_case_ids": [
+    "adversarial-debug-misroute",
+    "adversarial-design-review-misroute",
+    "adversarial-implementation-misroute",
+    "agent-builder-debug-collision",
+    "agent-builder-mechanism-negative",
+    "agent-builder-one-shot",
+    "agent-builder-positive",
+    "agent-builder-prompt-only-negative",
+    "agent-builder-review-collision",
+    "agent-code-negative",
+    "agent-code-positive",
+    "app-delivery-pipeline-main-only-profile",
+    "app-delivery-pipeline-negative",
+    "app-delivery-pipeline-positive",
+    "app-delivery-pipeline-static-seam",
+    "application-code-negative",
+    "application-code-portable-profile",
+    "application-code-positive",
+    "author-construct-spec-negative",
+    "author-construct-spec-positive",
+    "author-decision-record-negative",
+    "author-decision-record-positive",
+    "author-execution-relay-instrument-discrimination",
+    "author-execution-relay-negative",
+    "author-execution-relay-positive",
+    "author-standard-negative",
+    "author-standard-positive",
+    "code-review-negative",
+    "code-review-positive",
+    "debug-active-harm",
+    "debug-claim-subject-discrimination",
+    "debug-negative",
+    "debug-nonreproducible-production",
+    "debug-positive",
+    "design-review-loop-direct-profile",
+    "design-review-loop-negative",
+    "design-review-loop-positive",
+    "frontend-code-browser-security-readiness",
+    "frontend-code-negative",
+    "frontend-code-portable-profile",
+    "frontend-code-positive",
+    "frontend-code-prototype-promotion",
+    "implicit-debug-regression",
+    "implicit-review-ship-readiness",
+    "implicit-standard-membership",
+    "infrastructure-code-actions-ownership",
+    "infrastructure-code-negative",
+    "infrastructure-code-portable-profile",
+    "infrastructure-code-positive",
+    "overlap-adr-model-vendor",
+    "overlap-debug-deployment",
+    "overlap-debug-frontend",
+    "overlap-frontend-backend-enforcement",
+    "overlap-relay-construct",
+    "overlap-review-frontend",
+    "overlap-review-terraform",
+    "overlap-test-agent-output",
+    "overlap-testing-frontend",
+    "testing-negative",
+    "testing-positive",
+    "testing-regression-after-diagnosis",
+    "testing-risk-strategy",
+    "testing-silent-success-counterfactual"
+  ],
+  "completed_case_ids": [
+    "agent-code-negative",
+    "agent-code-positive",
+    "app-delivery-pipeline-main-only-profile",
+    "app-delivery-pipeline-negative",
+    "app-delivery-pipeline-positive",
+    "app-delivery-pipeline-static-seam",
+    "application-code-negative",
+    "application-code-portable-profile",
+    "application-code-positive"
+  ],
+  "claude_cli_version": "2.1.226 (Claude Code)",
+  "requested_model": "haiku",
+  "resolved_models": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "runs_per_case": 3,
+  "max_budget_usd_per_case_run": 0.06,
+  "max_total_budget_usd": 3.0,
+  "budget_exhausted": false,
+  "timeout_seconds_per_case_run": 120,
+  "identity": {
+    "fixture_sha256": "ffa8329b6b554d702293b7c746198c706016ee31125992e6a9db8af20e109188",
+    "catalog_sha256": "d248130b4df9b4ead25c75a8cc87b597613a8b9127f702467b568721006504f2",
+    "policy_sha256": "4e3aedf467f4d353a9903a31f8dfd3fa9224f01eb449a473051177b5f626b67d"
+  },
+  "thresholds": {
+    "runs_per_case": 3,
+    "minimum_overall_pass_rate": 0.95,
+    "minimum_case_pass_rate": 0.6666666666,
+    "excluded_selection_limit": 0
+  },
+  "passed": 24,
+  "total": 26,
+  "total_cost_usd": 0.33017495,
+  "evaluation": {
+    "passed": false,
+    "overall_pass_rate": 0.9230769231,
+    "minimum_overall_pass_rate": 0.95,
+    "case_pass_rates": {
+      "agent-code-negative": 1.0,
+      "agent-code-positive": 1.0,
+      "app-delivery-pipeline-main-only-profile": 1.0,
+      "app-delivery-pipeline-negative": 1.0,
+      "app-delivery-pipeline-positive": 1.0,
+      "app-delivery-pipeline-static-seam": 1.0,
+      "application-code-negative": 1.0,
+      "application-code-portable-profile": 0.0,
+      "application-code-positive": 1.0
+    },
+    "minimum_case_pass_rate": 0.6666666666,
+    "excluded_selections": 0,
+    "excluded_selection_limit": 0,
+    "pass_rates_by_kind": {
+      "negative": 1.0,
+      "positive": 0.8823529412
+    },
+    "pass_rates_by_cue": {
+      "direct": 0.9130434783,
+      "implicit": 1.0
+    },
+    "gates": {
+      "overall": false,
+      "every_case": false,
+      "excluded_selection": true,
+      "budget": true
+    },
+    "suite_complete": false,
+    "retained_evidence_eligible": false
+  },
+  "results": [
+    {
+      "case": "agent-code-positive",
+      "kind": "positive",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 1,
+      "expected": "agent-code",
+      "selected": "agent-code",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request is for LLM-call implementation: adding a bounded tool loop and structured-output parser. The agent-code skill explicitly owns \"LLM-call implementation only, including structured-output parsing, bounded salvage and recovery, model transport, tool loops, budgets, and evidence.\" This is mechanism-only LLM-call work, which agent-builder explicitly excludes in favor of agent-code. The request does not involve building a complete checked agent or handoff verification\u2014only the core LLM-call machinery.",
+      "cost_usd": 0.01246675,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "agent-code-positive",
+      "kind": "positive",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 2,
+      "expected": "agent-code",
+      "selected": "agent-code",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request asks to add a bounded tool loop and structured-output parser to an agent service. The validated catalog explicitly authorizes agent-code for \"LLM-call implementation only, including structured-output parsing, bounded salvage and recovery, model transport, tool loops, budgets, and evidence\" when \"an LLM call is the code's central act.\" This operation is mechanism-only LLM-call work, which agent-builder explicitly excludes. Agent-code owns the implementation of these lower-level LLM-interaction components.",
+      "cost_usd": 0.0082835,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "agent-code-positive",
+      "kind": "positive",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 3,
+      "expected": "agent-code",
+      "selected": "agent-code",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request asks to implement bounded tool loops and structured-output parsing for an agent service. These are mechanism-level LLM-call implementation work explicitly enumerated in agent-code's scope (\"tool loops\" and \"structured-output parsing\"). The agent-builder catalog entry explicitly excludes \"mechanism-only LLM-call work (agent-code)\". This is the bounded implementation territory where LLM calls are the code's central act.",
+      "cost_usd": 0.009808500000000001,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "agent-code-negative",
+      "kind": "negative",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 1,
+      "expected": "application-code",
+      "selected": "application-code",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request explicitly asks to \"Add a conventional REST endpoint to our FastAPI service\" with no model calls. This is planned implementation of backend application behavior, including API boundaries (explicitly listed scope). The operation is not an LLM-call implementation (agent-code), new tests (testing), observed failure diagnosis (debug), infrastructure, or finished-diff review. The FastAPI endpoint implementation is conventional application-code work.",
+      "cost_usd": 0.0125445,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "agent-code-negative",
+      "kind": "negative",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 2,
+      "expected": "application-code",
+      "selected": "application-code",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "Adding a conventional REST endpoint to a FastAPI service is planned implementation of backend service behavior, explicitly within the scope of API boundaries. The request excludes LLM-call work (agent-code), testing, observed failures, and delivery workflows\u2014all the non-application-code exclusions. No model calls are involved.",
+      "cost_usd": 0.0071474,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "agent-code-negative",
+      "kind": "negative",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 3,
+      "expected": "application-code",
+      "selected": "application-code",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request is to author a conventional backend REST endpoint in a FastAPI service. This is planned implementation of application behavior (API boundaries), with no LLM calls involved. The catalog description for application-code explicitly covers \"conventional backend service and application behavior, including API boundaries\" and authorizes \"planned implementation or restructuring.\" The exclusions (agent-code for LLM-central work, testing for new tests alone, debug for observed failures, etc.) do not apply.",
+      "cost_usd": 0.0080874,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "app-delivery-pipeline-positive",
+      "kind": "positive",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 1,
+      "expected": "app-delivery-pipeline",
+      "selected": "app-delivery-pipeline",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request explicitly asks to author a GitHub Actions workflow for building a service image, pushing it, deploying it, and verifying rollout. This is application-artifact CI/CD including build, artifact, promotion, deploy, and rollout workflow operations. The app-delivery-pipeline description authorizes \"portable application build, test, artifact, provenance, promotion, deploy, preview, migration, and rollout workflows\" and binds GitHub Actions under the Haffey profile. No Terraform or infrastructure plan/apply jobs or executor relays are involved.",
+      "cost_usd": 0.0122075,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "app-delivery-pipeline-positive",
+      "kind": "positive",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 2,
+      "expected": "app-delivery-pipeline",
+      "selected": "app-delivery-pipeline",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request is to author a GitHub Actions workflow for application artifact CI/CD: building a service image, pushing (artifact promotion), deploying, and verifying rollout. This is portable application build, promotion, deploy, and rollout workflow authorship, which is explicitly within app-delivery-pipeline's scope. The skill's exclusions (infrastructure mutation, application behavior code, existing failures, finished-diff review) do not apply. This is not infrastructure-code because there is no Terraform or infrastructure plan/apply operation, and it is not an executor handoff.",
+      "cost_usd": 0.0084662,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "app-delivery-pipeline-positive",
+      "kind": "positive",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 3,
+      "expected": "app-delivery-pipeline",
+      "selected": "app-delivery-pipeline",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "User requests authorship of a GitHub Actions workflow for application artifact build, push/promotion, deployment, and rollout verification. This operation is explicitly authorized by app-delivery-pipeline's scope: \"author or conform portable application build, test, artifact, provenance, promotion, deploy, preview, migration, and rollout workflows.\" The Haffey profile binds GitHub Actions and GCP. No exclusion applies.",
+      "cost_usd": 0.0081512,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "app-delivery-pipeline-negative",
+      "kind": "negative",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 1,
+      "expected": "infrastructure-code",
+      "selected": "infrastructure-code",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request explicitly asks to add protected Terraform plan and apply jobs for production. The infrastructure-code skill description states: \"Own every Terraform or infrastructure plan/apply workflow, including protected jobs implemented in GitHub Actions.\" This is the authorized routing for infrastructure-as-code and protected pipeline jobs. The app-delivery-pipeline skill explicitly excludes \"every Terraform or infrastructure plan/apply job.\"",
+      "cost_usd": 0.0122355,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "app-delivery-pipeline-negative",
+      "kind": "negative",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 2,
+      "expected": "infrastructure-code",
+      "selected": "infrastructure-code",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "Request to add protected Terraform plan and apply jobs is explicitly owned by infrastructure-code per catalog scope: \"Own every Terraform or infrastructure plan/apply workflow, including protected jobs implemented in GitHub Actions.\" No exclusions apply.",
+      "cost_usd": 0.006692999999999999,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "app-delivery-pipeline-negative",
+      "kind": "negative",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 3,
+      "expected": "infrastructure-code",
+      "selected": "infrastructure-code",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request is to add protected Terraform plan and apply jobs for production. The infrastructure-code skill explicitly owns every Terraform or infrastructure plan/apply workflow, including protected jobs implemented in GitHub Actions. The app-delivery-pipeline skill explicitly excludes all Terraform and infrastructure plan/apply jobs, even when using GitHub Actions. Per the Haffey profile, infrastructure-code is bound to Terraform, GCP, Kubernetes, and GitHub Actions.",
+      "cost_usd": 0.006798,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "app-delivery-pipeline-main-only-profile",
+      "kind": "positive",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 1,
+      "expected": "app-delivery-pipeline",
+      "selected": "app-delivery-pipeline",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request asks to define an application release profile with build-once, promote-digest, and serialize-deployment operations. These are application-artifact CI/CD workflow operations directly authorized by app-delivery-pipeline's scope: \"author or conform portable application build, test, artifact, provenance, promotion, deploy, preview, migration, and rollout workflows.\" The request violates no exclusion: it is not application-behavior implementation, infrastructure mutation, existing-failure diagnosis, or finished-diff review.",
+      "cost_usd": 0.031040749999999995,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "app-delivery-pipeline-main-only-profile",
+      "kind": "positive",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 2,
+      "expected": "app-delivery-pipeline",
+      "selected": "app-delivery-pipeline",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "Define a main-only application release profile that builds once, promotes the digest, and serializes production deployment is portable application artifact CI/CD workflow authorship, explicitly within app-delivery-pipeline scope covering build, artifact, provenance, promotion, and deploy workflows.",
+      "cost_usd": 0.0123479,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "app-delivery-pipeline-main-only-profile",
+      "kind": "positive",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 3,
+      "expected": "app-delivery-pipeline",
+      "selected": "app-delivery-pipeline",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request asks to define an application release profile that orchestrates build, artifact promotion, and production deployment\u2014all core app-delivery-pipeline concerns per the catalog description. The underlying operation is authoring a portable delivery workflow configuration for build, promotion, and deploy phases.",
+      "cost_usd": 0.029247899999999993,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "app-delivery-pipeline-static-seam",
+      "kind": "positive",
+      "cue": "implicit",
+      "surface": "portable-core",
+      "run": 1,
+      "expected": "app-delivery-pipeline",
+      "selected": "app-delivery-pipeline",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request explicitly asks to define a static-frontend delivery workflow with artifact promotion, browser-gate execution, and production verification. The app-delivery-pipeline skill explicitly includes the static-frontend delivery seam and covers artifact, promotion, deploy, and rollout workflows. This is the authorized scope for the underlying operation.",
+      "cost_usd": 0.014710500000000001,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "app-delivery-pipeline-static-seam",
+      "kind": "positive",
+      "cue": "implicit",
+      "surface": "portable-core",
+      "run": 2,
+      "expected": "app-delivery-pipeline",
+      "selected": "app-delivery-pipeline",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request seeks to author a static-frontend delivery workflow encompassing artifact promotion, deployment gates, header configuration, and production verification. The app-delivery-pipeline catalog description explicitly includes \"static-frontend delivery seam\" within its scope of \"portable application build, test, artifact, provenance, promotion, deploy, preview, migration, and rollout workflows.\" The enumerated elements\u2014artifact promotion, frontend-owned browser gates, hosting header configuration, and production verification\u2014all fall within application-artifact CI/CD delivery workflow authorship. This is not infrastructure-code (no Terraform or infrastructure plans), not infrastructure mutation, not application-behavior authorship, and not a finished-diff review.",
+      "cost_usd": 0.008660000000000001,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "app-delivery-pipeline-static-seam",
+      "kind": "positive",
+      "cue": "implicit",
+      "surface": "portable-core",
+      "run": 3,
+      "expected": "app-delivery-pipeline",
+      "selected": "app-delivery-pipeline",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "Request is to author a static-frontend delivery workflow that promotes artifacts, configures hosting headers, and verifies production URLs. The app-delivery-pipeline skill explicitly owns authoring portable application artifact workflows and includes the static-frontend delivery seam, artifact promotion, and deploy operations as core scope.",
+      "cost_usd": 0.009955000000000002,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "application-code-positive",
+      "kind": "positive",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 1,
+      "expected": "application-code",
+      "selected": "application-code",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "Planned implementation of a backend service with configuration, logging, security middleware, and data access\u2014all explicit concerns within application-code's scope.",
+      "cost_usd": 0.013456250000000001,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "application-code-positive",
+      "kind": "positive",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 2,
+      "expected": "application-code",
+      "selected": "application-code",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request asks to scaffold a FastAPI backend service with configuration, structured logging, auth middleware, and async database access. This is planned implementation of conventional backend service behavior, covering API boundaries (FastAPI endpoints), concurrency (async patterns), configuration, logging, security (auth middleware), and data handling (async database access). The application-code skill explicitly owns authoring backend service and application behavior with these attributes, including configuration, logging, security, data handling, and concurrency.",
+      "cost_usd": 0.0066157,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "application-code-positive",
+      "kind": "positive",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 3,
+      "expected": "application-code",
+      "selected": "application-code",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The user request asks to scaffold a FastAPI backend service with configuration, structured logging, auth middleware, and async database access. This is planned implementation of conventional backend service behavior covering API boundaries, concurrency, configuration, logging, security, and data handling\u2014all explicitly within application-code scope. The exclusions (LLM-central calls, new tests alone, observed failures, finished-diff review, infrastructure, delivery workflows) do not apply.",
+      "cost_usd": 0.007870700000000001,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "application-code-negative",
+      "kind": "negative",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 1,
+      "expected": "agent-code",
+      "selected": "agent-code",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "Schema-constrained output recovery around an LLM call is structured-output parsing and bounded salvage/recovery\u2014both explicit agent-code responsibilities. The request describes implementation where an LLM call is the central act, using model selection, budget constraints, and output handling. This falls squarely within agent-code's scope and excludes observed failures (debug), ordinary service code (application-code), and executor handoffs.",
+      "cost_usd": 0.013205,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "application-code-negative",
+      "kind": "negative",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 2,
+      "expected": "agent-code",
+      "selected": "agent-code",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request asks to implement schema-constrained output recovery around an LLM call. Agent-code's scope explicitly includes \"structured-output parsing, bounded salvage and recovery\" and is intended for use \"when an LLM call is the code's central act.\" Schema-constrained output recovery\u2014the parsing and recovery mechanism\u2014is that central act. This work is mechanism-level LLM-call implementation, not agent-builder (which is excluded for \"mechanism-only LLM-call work\") and not application-code (which explicitly excludes cases where \"an LLM call is central\").",
+      "cost_usd": 0.0086202,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "application-code-negative",
+      "kind": "negative",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 3,
+      "expected": "agent-code",
+      "selected": "agent-code",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request asks to implement schema-constrained output recovery around an LLM call. The agent-code skill explicitly owns structured-output parsing and bounded salvage/recovery when an LLM call is the central act. This matches the authorized scope.",
+      "cost_usd": 0.0096802,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "application-code-portable-profile",
+      "kind": "positive",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 1,
+      "expected": "application-code",
+      "selected": "author-execution-relay",
+      "selected_excluded": false,
+      "passed": false,
+      "detail": "The code is an execution handoff orchestrating credential setup, environment configuration, and subprocess delegation to run_routing_evals.py with authorization claims, git-state verification, and integrity hashing. This delegates bounded toil while reserving operator ratification, matching author-execution-relay scope exactly. The stated \"implement backend endpoint\" language is untrusted routing input; the actual operation is executor relay, not application-code endpoint authorship.",
+      "cost_usd": 0.027297000000000002,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "application-code-portable-profile",
+      "kind": "positive",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 2,
+      "expected": "application-code",
+      "selected": "author-execution-relay",
+      "selected_excluded": false,
+      "passed": false,
+      "detail": "This is a bounded, gated execution directive with explicit authorization (\"Tad D6 plus explicit approval of routing payload/destination...one release run, no automatic retry\"). It orchestrates subprocess execution of routing evaluations while preserving operator judgment. The script structure\u2014authorization metadata, bounded parameters, environment delegation, exit-code handoff\u2014defines an execution relay, not backend endpoint implementation, new test authorship, or operational shell code independent of gated execution context.",
+      "cost_usd": 0.0245784,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    }
+  ]
+}

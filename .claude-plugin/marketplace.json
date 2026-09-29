@@ -1,7 +1,7 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "bedrock",
-  "description": "Haffey Enterprises engineering skills — portable, stack-bound authoring and review disciplines distilled from the HE-Bedrock corpus.",
+  "description": "Haffey Enterprises engineering skills \u2014 portable, stack-bound authoring and review disciplines distilled from the HE-Bedrock corpus.",
   "owner": {
     "name": "T-Bone-Haff",
     "email": "tad@tadhaffey.com"
@@ -9,7 +9,7 @@
   "plugins": [
     {
       "name": "bedrock",
-      "description": "Haffey Enterprises engineering skills spanning implementation, testing, diagnosis, authoring, and review. Portable actor contracts separate task authority, evidence, failure behavior, and lifecycle from Haffey stack profiles and optional host capabilities. The package covers application, infrastructure, delivery, agent/LLM-call, and frontend code; decision records and construct specs; reusable standards; execution relays; code review; and design-record review. Mechanical enforcement or convergence is claimed only through a declared executable capability; otherwise the applicable direct or advisory profile is explicit.",
+      "description": "Haffey Enterprises engineering skills spanning implementation, testing, diagnosis, authoring, and review. Portable actor contracts separate task authority, evidence, failure behavior, and lifecycle from Haffey stack profiles and optional host capabilities. The package covers application, infrastructure, delivery, agent construction, LLM-call, and frontend code; decision records and construct specs; reusable standards; execution relays; code review; and design-record review. Mechanical enforcement or convergence is claimed only through a declared executable capability; otherwise the applicable direct or advisory profile is explicit.",
       "author": {
         "name": "T-Bone-Haff",
         "email": "tad@tadhaffey.com"

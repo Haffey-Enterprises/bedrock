@@ -273,6 +273,8 @@ def run_case(
             ],
             cwd=plugin_dir,
             env=environment,
+            # The prompt is argv-only; inherited stdin can become extra user content.
+            stdin=subprocess.DEVNULL,
             capture_output=True,
             text=True,
             check=False,

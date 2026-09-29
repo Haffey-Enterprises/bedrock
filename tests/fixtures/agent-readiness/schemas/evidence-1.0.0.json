@@ -1,0 +1,117 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Trial mapping1.0.0 of external core EvidenceRecord v0.1",
+  "type": "object",
+  "properties": {
+    "record_id": {
+      "type": "string"
+    },
+    "agent_id": {
+      "type": "string"
+    },
+    "session_id": {
+      "type": "string"
+    },
+    "invocation_id": {
+      "type": "string"
+    },
+    "core_version": {
+      "type": "string"
+    },
+    "timestamp_utc": {
+      "type": "string"
+    },
+    "disposition": {
+      "type": "string"
+    },
+    "parse_path": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "parent_invocation_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "run_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "project_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "agent_version": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "model_attempts": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "tool_iterations": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "tokens_used": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "spend_used": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "elapsed_seconds": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "payload": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "record_id",
+    "agent_id",
+    "session_id",
+    "invocation_id",
+    "core_version",
+    "timestamp_utc",
+    "disposition",
+    "parse_path",
+    "parent_invocation_id",
+    "run_id",
+    "project_id",
+    "agent_version",
+    "model_attempts",
+    "tool_iterations",
+    "tokens_used",
+    "spend_used",
+    "elapsed_seconds",
+    "payload"
+  ],
+  "additionalProperties": false
+}

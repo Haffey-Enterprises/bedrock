@@ -1,0 +1,72 @@
+[
+  {
+    "name": "final-unit",
+    "command": [
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-v"
+    ],
+    "exit_code": 0,
+    "log": "final-unit.txt"
+  },
+  {
+    "name": "final-build",
+    "command": [
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+      "scripts/build_agent_core.py",
+      "--check"
+    ],
+    "exit_code": 0,
+    "log": "final-build.txt"
+  },
+  {
+    "name": "final-contracts",
+    "command": [
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+      "scripts/validate_agent_review_contracts.py"
+    ],
+    "exit_code": 0,
+    "log": "final-contracts.txt"
+  },
+  {
+    "name": "final-governance",
+    "command": [
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+      "scripts/validate_package_governance.py"
+    ],
+    "exit_code": 0,
+    "log": "final-governance.txt"
+  },
+  {
+    "name": "final-trigger",
+    "command": [
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+      "scripts/validate_rule_trigger_audit.py",
+      "--require-complete"
+    ],
+    "exit_code": 0,
+    "log": "final-trigger.txt"
+  },
+  {
+    "name": "final-host-current",
+    "command": [
+      "bash",
+      "scripts/smoke_clean_install.sh"
+    ],
+    "exit_code": 0,
+    "log": "final-host-current.txt"
+  },
+  {
+    "name": "final-host-minimum",
+    "command": [
+      "bash",
+      "scripts/smoke_clean_install.sh"
+    ],
+    "exit_code": 0,
+    "log": "final-host-minimum.txt"
+  }
+]

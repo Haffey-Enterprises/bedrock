@@ -1,0 +1,12 @@
+{
+  "type": "object",
+  "properties": {
+    "policy_id": {
+      "const": "readiness-v1"
+    }
+  },
+  "required": [
+    "policy_id"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,154 @@
+{
+  "status": "Local component qualification complete; commit/PR preparation checkpoint, pending required CI and composed acceptance",
+  "date": "2026-09-29",
+  "source_base": "2ab76b447cdb1a975c801e6833682c0c1f94cef0",
+  "branch": "codex/heb-154-integration",
+  "package_version": "10.0.0",
+  "wheel_sha256": "fdeba49630b213a12d437bdd6836585f39d96eeea619d8efe7fd8cfed368cfa0",
+  "local_gates": {
+    "repository_unittest": {
+      "result": "confirmed",
+      "count": 178,
+      "evidence": "raw/routing-stdin/repository-unit-after-repair.txt"
+    },
+    "core_regressions": {
+      "result": "confirmed",
+      "count_per_interpreter": 57,
+      "interpreters": [
+        "3.10.20",
+        "3.14.6"
+      ],
+      "evidence": [
+        "raw/core-tests-310.txt",
+        "raw/qualification-7.txt"
+      ]
+    },
+    "offline_specialist": {
+      "result": "confirmed",
+      "count": 91,
+      "evidence": "raw/offline-1/pytest.txt",
+      "limit": "Synthetic transports/mock SDK; no live provider call"
+    },
+    "source_wheel_parity": {
+      "result": "confirmed",
+      "evidence": "raw/final-build.txt"
+    },
+    "missing_wrong_install_controls": {
+      "result": "confirmed",
+      "evidence": [
+        "raw/clean-core-310-repair/results.json",
+        "raw/clean-core-314-repair/results.json"
+      ]
+    },
+    "strict_host": {
+      "result": "confirmed",
+      "hosts": [
+        "2.1.226",
+        "2.1.284"
+      ],
+      "evidence": [
+        "raw/qualification-0.txt",
+        "raw/qualification-1.txt"
+      ]
+    },
+    "isolated_install_reload": {
+      "result": "confirmed",
+      "hosts": [
+        "2.1.226",
+        "2.1.284"
+      ],
+      "evidence": [
+        "raw/staged-host-current.txt",
+        "raw/staged-host-minimum.txt"
+      ],
+      "control": "Full copied-package population and digest comparison; contrary manifest identity rejected"
+    },
+    "governance_and_domain_contracts": {
+      "result": "confirmed",
+      "evidence": [
+        "raw/final-governance.txt",
+        "raw/final-contracts.txt",
+        "raw/final-trigger.txt",
+        "raw/qualification-results.json"
+      ]
+    },
+    "independent_review": {
+      "result": "confirmed",
+      "evidence": [
+        "review.json",
+        "review-history.md"
+      ],
+      "limit": "Two repaired defects independently rechecked; no unresolved code findings; overall merge verdict pause for pending gates"
+    },
+    "routing_input_repair": {
+      "result": "confirmed",
+      "evidence": [
+        "routing-diagnosis.json",
+        "routing-repair-review.json",
+        "raw/routing-stdin/regression-green.txt"
+      ],
+      "limit": "Offline transport isolation; does not establish live routing quality"
+    },
+    "release_routing": {
+      "result": "confirmed",
+      "evidence": "raw/routing-replacement/verification.json",
+      "limit": "This exact component catalog, fixtures, policy, adapter and model; does not establish broader reliability or composed acceptance"
+    },
+    "strict_current_evidence": {
+      "result": "confirmed",
+      "evidence": [
+        "raw/routing-replacement/replacement-strict-validation.txt",
+        "raw/routing-replacement/replacement-evidence-tests.txt"
+      ],
+      "count": 26,
+      "limit": "Seeded validator methods overlap the 178 repository methods"
+    }
+  },
+  "pending": [
+    "Commit/PR and required CI, including the reserved single PR routing run (max USD3, no automatic rerun)",
+    "Composed HEB-161 candidate, including its other listed components, and HEB-119 cold acceptance before merge",
+    "Explicit proceed, accepted landing parity, immutable release and supported-surface rollout"
+  ],
+  "limitations": [
+    "Counts name separate overlapping populations; do not sum as unique coverage.",
+    "Frontend browser/dependency and complete GitHub CI gates have not run in this integration session.",
+    "Historical 8-case specialist trial is exhausted and has not been repeated.",
+    "Codex/Claude.ai execution is not inferred from Claude Code local proofs.",
+    "No commit, PR, merge, tag, release or production plugin update yet.",
+    "The interrupted first routing run remains ineligible and is not pooled with the passing replacement. Its interrupted-call final usage remains unknown."
+  ],
+  "routing": {
+    "first_attempt": {
+      "completed_draws": 26,
+      "planned_draws": 189,
+      "passed_draws": 24,
+      "reported_cost_usd": 0.33017495,
+      "interrupted_call_cost": null,
+      "eligible": false,
+      "reason": "Incomplete and contaminated by inherited launcher stdin; no retry",
+      "release_allowance": "consumed",
+      "pr_allowance": "unused"
+    },
+    "replacement": {
+      "cases": 63,
+      "draws": 189,
+      "passed": 189,
+      "excluded_selections": 0,
+      "reported_cost_usd": 1.853696,
+      "eligible": true,
+      "automatic_retry": false,
+      "evidence": "raw/routing-replacement/routing-release-replacement-1.json"
+    },
+    "pr_allowance": "one reserved run, max USD3, not launched at this checkpoint"
+  },
+  "tracker_updates": {
+    "status": "approved original comments posted",
+    "HEB-154": "8a2c7d8d-e711-471a-b2dd-5dd9a7883b52",
+    "HEB-161": "d49eefe2-571a-471e-b314-e308cd5cc351",
+    "post_run_update": "Previously blocked diagnosis/results update explicitly ratified and successfully posted to both tickets.",
+    "diagnosis_comments": {
+      "HEB-154": "24e29e69-be2a-4d8c-bebd-47c8b5b4931d",
+      "HEB-161": "08f3a8c3-ae52-4dd7-ac8a-bc9b56155e00"
+    }
+  }
+}

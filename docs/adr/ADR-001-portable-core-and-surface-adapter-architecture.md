@@ -8,13 +8,13 @@
 | Field | Value |
 |---|---|
 | **Document ID** | ADR-001 |
-| **Status** | ACCEPTED — operator-approved 2026-08-12 |
-| **Version** | 2.0.0 |
-| **Date** | 2026-08-12 |
+| **Status** | ACCEPTED — HEB-154 amendment operator-ratified 2026-09-29 |
+| **Version** | 3.0.0 |
+| **Date** | 2026-09-29 |
 | **Authors** | Tad Haffey (decision owner); Codex (drafting agent) |
 | **Supersedes** | None — first Bedrock architecture principle. |
 | **Revision policy** | Semantic; registry and compatibility consumers interpret contract identity. |
-| **Verification state** | Multi-perspective review completed against the frozen pre-correction substrate; resolvable defects and both operator-disposed findings are corrected in the documentation-authority transaction. Operator ratified the reviewed revision on 2026-08-12. Shipped-plugin conformance is tracked separately by HEB-128. No runner-backed convergence claim. |
+| **Verification state** | HEB-154 D1-D4 ratified; integrated implementation and release evidence remain pending. Prior revision: multi-perspective review completed against the frozen pre-correction substrate; resolvable defects and both operator-disposed findings are corrected in the documentation-authority transaction. Operator ratified the reviewed revision on 2026-08-12. Shipped-plugin conformance is tracked separately by HEB-128. No runner-backed convergence claim. |
 | **Review trigger** | Product evidence supports promotion of a reusable component; an ownership boundary becomes ambiguous; or a Bedrock contract would prescribe product workflow meaning. |
 | **Successor** | None. |
 | **Retirement treatment** | Amend in place while the portable-core principle remains valid; supersede only if that principle itself is replaced. |
@@ -137,7 +137,38 @@ Three assurance profiles preserve proportionality:
 
 No product runtime is a hidden dependency of Bedrock's portable core. A consumer without a runner capability may use a supported lower-assurance profile or fail before execution; it may not emulate runner-backed success.
 
-### 2.9 Rebinding contract
+### 2.9 Bounded agent-core promotion and construction route
+
+HEB-154 is an explicitly ratified bounded promotion: agent-code owns portable
+LLM-call invariants, agent-builder owns checked fleet-specialist construction,
+and agent-core owns a minimal separately versioned Python implementation. The
+thirteen existing identities remain; agent-builder is the fourteenth route.
+Product orchestration ownership remains unchanged. This decision neither
+promotes the trial agent into runtime distribution nor creates a general
+promotion-governance system.
+
+The evidence floor is one corrected Python specialist with a direct Anthropic
+binding, disclosed interventions, two development smokes and six held-out cases.
+It does not establish provider neutrality or fleet-wide readiness. Whole-first
+parsing and bounded salvage retain their controls. Portable evidence v2 makes
+unknown usage and absent responses explicit; core EvidenceRecord v0.1 remains a
+separate adapter-mapped shape.
+
+Keep Python source/tests separate in the repository, but bundle the built wheel
+with agent-builder so plugin installation delivers its mandatory substrate.
+Use Bedrock's MIT license. Install into explicitly selected project environments
+with dependency/version/digest records and actual import checks. Project upgrades
+are explicit and tested. Evidence stays repository-only. Keeping the library
+only outside the plugin was rejected because the marketplace would not deliver
+it; silent environment upgrades were rejected because project compatibility
+must remain reproducible. No new package service or automatic updater is needed.
+
+Supply-chain and operational risks are addressed by source-to-wheel checks,
+pinned dependencies, clean-install controls and accepted-source/landing parity.
+No new live spending or sensitive content capture is implied. Package release
+still requires independent review, cold acceptance and explicit proceed.
+
+### 2.10 Rebinding contract
 
 A rebind is required only when a changed stack, host, authority corpus, doctype family, or execution capability changes part of the governing contract rather than selecting another already-declared profile. Every rebind produces:
 
@@ -241,7 +272,7 @@ Conformance will be enforced by:
 
 Until those mechanisms land, changes are checked against this record and the skill architecture record during design review. A claim that depends on an unimplemented mechanism remains conditional.
 
-The ADR and its repository architecture carriers are documentation authority and do not ship in the plugin. The distributable package remains on its existing portable-core and package identities until the separately tracked HEB-128 implementation changes shipped bytes, derives the required package major from the then-live manifest, and passes its release gates. Until that implementation lands, package compatibility claims describe the shipped 1.0 core rather than conformance to this accepted 2.0 architecture.
+The ADR and its repository architecture carriers are documentation authority and do not ship in the plugin. The HEB-154 candidate implements portable-core 3.0.0 and derives package 10.0.0 from the routing/evidence break against the current 9.1.0 manifest. Ratification of this design is not release acceptance; the composed candidate must pass current release gates.
 
 ## 7. Cross-References
 
@@ -260,6 +291,7 @@ No typed decision-record relations apply. The architecture documents above are c
 
 | Version | Date | Ticket | Change |
 |---|---|---|---|
+| 3.0.0 | 2026-09-29 | HEB-154 | Ratified construction route, bounded Python core promotion, evidence v2 and plugin-delivered wheel with explicit project upgrades. |
 | 2.0.0 | 2026-08-12 | HEB-126 | Accepted major amendment: product-owned orchestration and evidence-driven Bedrock promotion boundary. |
 | 1.0.0 | 2026-08-09 | HEB-111 | Accepted after direct audit; reconciled the landed safety baseline and clarified cold-read terminology. |
 | 0.1.0 | 2026-08-09 | HEB-111 | Initial portable-core, authority, coverage, rebind, orchestration, versioning, and capability-gated adapter architecture draft. |

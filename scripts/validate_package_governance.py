@@ -35,6 +35,7 @@ else:
 
 
 EXPECTED_SKILLS = {
+    "agent-builder",
     "agent-code",
     "app-delivery-pipeline",
     "application-code",
@@ -102,6 +103,7 @@ PRODUCTION_MARKETPLACE_SOURCE = "./plugins/bedrock"
 PRESERVED_DISTRIBUTION_PATHS = (
     ".claude-plugin/marketplace.json",
     "plugins/bedrock",
+    "packages/agent-core",
 )
 ADR_VERSION = re.compile(r"^\| \*\*Version\*\* \| ([0-9]+\.[0-9]+\.[0-9]+) \|$", re.MULTILINE)
 ADR_STATUS = re.compile(r"^\| \*\*Status\*\* \| ACCEPTED\b", re.MULTILINE)
@@ -352,7 +354,7 @@ def _validate_package_identity_carriers(root: Path, errors: list[str]) -> None:
     observed_bytes: list[bytes] = []
     paths = carrier_paths(root)
     if {path.parent.name for path in paths} != EXPECTED_SKILLS or len(paths) != len(EXPECTED_SKILLS):
-        _error(errors, "package identity", "carrier population must match the 13-skill inventory")
+        _error(errors, "package identity", "carrier population must match the 14-skill inventory")
     for path in paths:
         if not path.is_file():
             _error(errors, path, "package identity carrier is missing")

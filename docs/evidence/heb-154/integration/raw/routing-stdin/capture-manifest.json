@@ -1,0 +1,107 @@
+{
+  "population": "Explicit release artifacts plus root-level diagnostic JSON/TXT; host settings, auth and headers excluded",
+  "files": [
+    {
+      "source": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/stdin-diagnosis/devnull.json",
+      "destination": "docs/evidence/heb-154/integration/raw/routing-stdin/devnull.json",
+      "source_sha256": "8c04d97e0fe9950eb5c333c1bacf38ff6388540b2283a435d9acda23d3dc8184",
+      "retained_sha256": "8c04d97e0fe9950eb5c333c1bacf38ff6388540b2283a435d9acda23d3dc8184"
+    },
+    {
+      "source": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/stdin-diagnosis/inherited-regular-eof.json",
+      "destination": "docs/evidence/heb-154/integration/raw/routing-stdin/inherited-regular-eof.json",
+      "source_sha256": "a84b686208148c99b152d03dcfb3be680f768bd24fd1208e614e05bcd9577b8c",
+      "retained_sha256": "a84b686208148c99b152d03dcfb3be680f768bd24fd1208e614e05bcd9577b8c"
+    },
+    {
+      "source": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/stdin-diagnosis/regression-green.txt",
+      "destination": "docs/evidence/heb-154/integration/raw/routing-stdin/regression-green.txt",
+      "source_sha256": "266bf5309b1f940cc2f5c55ace40da223c75dfd69454b170662a63783450ed6f",
+      "retained_sha256": "266bf5309b1f940cc2f5c55ace40da223c75dfd69454b170662a63783450ed6f"
+    },
+    {
+      "source": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/stdin-diagnosis/regression-red-repaired-fixture.txt",
+      "destination": "docs/evidence/heb-154/integration/raw/routing-stdin/regression-red-repaired-fixture.txt",
+      "source_sha256": "f31b2759b245058b16a8f2603f55b60ab707fd938f8563454f9e11b9d723c845",
+      "retained_sha256": "f31b2759b245058b16a8f2603f55b60ab707fd938f8563454f9e11b9d723c845"
+    },
+    {
+      "source": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/stdin-diagnosis/regression-red.txt",
+      "destination": "docs/evidence/heb-154/integration/raw/routing-stdin/regression-red.txt",
+      "source_sha256": "20ac7b56d9c85880580d07c5ccdfb3768c4b9e267e7993e74427c56070998bd8",
+      "retained_sha256": "20ac7b56d9c85880580d07c5ccdfb3768c4b9e267e7993e74427c56070998bd8"
+    },
+    {
+      "source": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/stdin-diagnosis/repository-unit-after-repair.txt",
+      "destination": "docs/evidence/heb-154/integration/raw/routing-stdin/repository-unit-after-repair.txt",
+      "source_sha256": "4a17509e3a879518e56ae591f35fbd4f846f4e36eba593946a9a83e29cbbee47",
+      "retained_sha256": "35d0e3afa1a22a821f8b2686ee0ec8c11df0888e9b3e7cf380dde10482a32376"
+    },
+    {
+      "source": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/stdin-diagnosis/text-wire-devnull.json",
+      "destination": "docs/evidence/heb-154/integration/raw/routing-stdin/text-wire-devnull.json",
+      "source_sha256": "a788573dd57192367c1003413a5c7159354592ba54734cd09163f9dd8836d81b",
+      "retained_sha256": "a788573dd57192367c1003413a5c7159354592ba54734cd09163f9dd8836d81b"
+    },
+    {
+      "source": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/stdin-diagnosis/text-wire-inherited-regular-eof.json",
+      "destination": "docs/evidence/heb-154/integration/raw/routing-stdin/text-wire-inherited-regular-eof.json",
+      "source_sha256": "8c2f72f1ed20bbadcabd848c736bed9715a994b083366b66deb668a7b67ebfe4",
+      "retained_sha256": "8c2f72f1ed20bbadcabd848c736bed9715a994b083366b66deb668a7b67ebfe4"
+    },
+    {
+      "source": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/stdin-diagnosis/text-wire-summary.json",
+      "destination": "docs/evidence/heb-154/integration/raw/routing-stdin/text-wire-summary.json",
+      "source_sha256": "8990169c6de08bf372f45987610da9f847f7a1cc88323be60790b92e4f897573",
+      "retained_sha256": "8990169c6de08bf372f45987610da9f847f7a1cc88323be60790b92e4f897573"
+    },
+    {
+      "source": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/stdin-diagnosis/text-wire-v2-devnull.json",
+      "destination": "docs/evidence/heb-154/integration/raw/routing-stdin/text-wire-v2-devnull.json",
+      "source_sha256": "c9e0afb1456ecda025fcfaaa64fed3fbc4445ac63a12b8fd4c45e18618638476",
+      "retained_sha256": "c9e0afb1456ecda025fcfaaa64fed3fbc4445ac63a12b8fd4c45e18618638476"
+    },
+    {
+      "source": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/stdin-diagnosis/text-wire-v2-inherited-regular-eof.json",
+      "destination": "docs/evidence/heb-154/integration/raw/routing-stdin/text-wire-v2-inherited-regular-eof.json",
+      "source_sha256": "831359b3d161d4b8274bec9cc6c8ddbb953eaec64c74454c7a66ad75747e95c3",
+      "retained_sha256": "831359b3d161d4b8274bec9cc6c8ddbb953eaec64c74454c7a66ad75747e95c3"
+    },
+    {
+      "source": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/stdin-diagnosis/text-wire-v2-summary.json",
+      "destination": "docs/evidence/heb-154/integration/raw/routing-stdin/text-wire-v2-summary.json",
+      "source_sha256": "46d67f3e904637439be0abc2b434dbb09c7d3a1b49384cf3493650554e5c0250",
+      "retained_sha256": "46d67f3e904637439be0abc2b434dbb09c7d3a1b49384cf3493650554e5c0250"
+    },
+    {
+      "source": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/routing-release.json",
+      "destination": "docs/evidence/heb-154/integration/raw/routing-stdin/routing-release.json",
+      "source_sha256": "a6e76db7a97e5e5a6ecd84461e6e516a16e28d948d849571fbd86c3ae05b5f0e",
+      "retained_sha256": "a6e76db7a97e5e5a6ecd84461e6e516a16e28d948d849571fbd86c3ae05b5f0e"
+    },
+    {
+      "source": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/routing-release-before-containment.json",
+      "destination": "docs/evidence/heb-154/integration/raw/routing-stdin/routing-release-before-containment.json",
+      "source_sha256": "a6e76db7a97e5e5a6ecd84461e6e516a16e28d948d849571fbd86c3ae05b5f0e",
+      "retained_sha256": "a6e76db7a97e5e5a6ecd84461e6e516a16e28d948d849571fbd86c3ae05b5f0e"
+    },
+    {
+      "source": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/routing-release.txt",
+      "destination": "docs/evidence/heb-154/integration/raw/routing-stdin/routing-release.txt",
+      "source_sha256": "b6c55d5dff989f9c84b55dbbddffaf4c169193a04e6e6f96261c23681f209955",
+      "retained_sha256": "b6c55d5dff989f9c84b55dbbddffaf4c169193a04e6e6f96261c23681f209955"
+    },
+    {
+      "source": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/routing-containment.json",
+      "destination": "docs/evidence/heb-154/integration/raw/routing-stdin/routing-containment.json",
+      "source_sha256": "bc6ac8c55de36d425d81107444b92a20fd44e6cf6eddaa8734e6489a2683c97c",
+      "retained_sha256": "bc6ac8c55de36d425d81107444b92a20fd44e6cf6eddaa8734e6489a2683c97c"
+    },
+    {
+      "source": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/routing-release-preregistration.json",
+      "destination": "docs/evidence/heb-154/integration/raw/routing-stdin/routing-release-preregistration.json",
+      "source_sha256": "c7f899f6b123f632073b6d8e022390f0cd58cf442faa750fc701818babbf2b81",
+      "retained_sha256": "c7f899f6b123f632073b6d8e022390f0cd58cf442faa750fc701818babbf2b81"
+    }
+  ]
+}

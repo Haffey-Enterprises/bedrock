@@ -130,16 +130,61 @@ def _load_json(path: Path, errors: list[str]) -> dict[str, Any] | None:
 
 
 def _validate_agent(value: dict[str, Any], path: Path, errors: list[str]) -> None:
-    required = {"schema_version", "invocation_id", "actor_id", "profile", "prompt", "output_schema", "budget", "attempts", "parse", "usage", "terminal_disposition"}
-    if not required <= value.keys():
-        errors.append(f"{path}: agent execution missing required fields")
-    parse = value.get("parse", {})
-    if not isinstance(parse, dict) or not SHA256.fullmatch(str(parse.get("response_sha256", ""))):
+    # Schema validation is separate; this semantic check must also survive malformed input.
+    budget, attempts, parse, usage = (value.get(k) for k in ("budget", "attempts", "parse", "usage"))
+    if not isinstance(budget, dict) or not isinstance(attempts, list) or not isinstance(parse, dict) or not isinstance(usage, dict):
+        errors.append(f"{path}: invalid agent execution structure")
+        return
+    models = [a for a in attempts if isinstance(a, dict) and a.get("kind") == "model"]
+    tools = [a for a in attempts if isinstance(a, dict) and a.get("kind") == "tool"]
+    for kind, rows in (("model", models), ("tool", tools)):
+        if [a.get("attempt") for a in rows] != list(range(1, len(rows) + 1)):
+            errors.append(f"{path}: {kind} physical attempt sequence is invalid")
+    maximum = budget.get("max_attempts")
+    if type(maximum) is int and len(models) > maximum:
+        errors.append(f"{path}: aggregate model attempt budget exceeded")
+    iterations = [a.get("tool_iteration") for a in tools]
+    maximum = budget.get("max_tool_iterations")
+    if any(type(i) is not int or i < 1 for i in iterations):
+        errors.append(f"{path}: invalid tool iteration")
+    elif type(maximum) is int and iterations and max(iterations) > maximum:
+        errors.append(f"{path}: tool iteration budget exceeded")
+    measures = ("input_tokens", "output_tokens", "spend_micros")
+    subtotal, reserved = usage.get("known_subtotal", {}), usage.get("reserved_exposure", {})
+    if not isinstance(subtotal, dict) or not isinstance(reserved, dict):
+        errors.append(f"{path}: invalid usage accounting")
+        return
+    if usage.get("status") == "unknown":
+        if any(usage.get(k) is not None for k in measures):
+            errors.append(f"{path}: unknown usage cannot have numeric totals")
+        if not _nonempty_string(usage.get("unknown_reason")):
+            errors.append(f"{path}: unknown usage requires a reason")
+        if value.get("terminal_disposition") == "succeeded":
+            errors.append(f"{path}: unknown usage cannot succeed")
+    elif usage.get("status") == "known":
+        if any(usage.get(k) != subtotal.get(k) or reserved.get(k) != 0 for k in measures):
+            errors.append(f"{path}: known usage must equal subtotal with no outstanding reservation")
+    else:
+        errors.append(f"{path}: usage status is required")
+    if parse.get("response_status") == "absent":
+        if parse.get("response_sha256") is not None or parse.get("path") != "failed" or parse.get("candidate_count") != 0 or parse.get("schema_valid_count") != 0:
+            errors.append(f"{path}: absent response must have no hash or parsed candidate")
+    elif parse.get("response_status") != "present" or not _sha256(parse.get("response_sha256")):
         errors.append(f"{path}: invalid response provenance")
-    budget = value.get("budget", {})
-    attempts = value.get("attempts", [])
-    if isinstance(budget, dict) and isinstance(attempts, list) and len(attempts) > int(budget.get("max_attempts", 0)):
-        errors.append(f"{path}: aggregate attempt budget exceeded")
+    candidates, valid = parse.get("candidate_count"), parse.get("schema_valid_count")
+    if type(candidates) is not int or type(valid) is not int or not 0 <= valid <= candidates:
+        errors.append(f"{path}: invalid parsed candidate counts")
+    if parse.get("path") in {"native", "whole"} and candidates != 1:
+        errors.append(f"{path}: whole/native parse requires one candidate")
+    if value.get("terminal_disposition") == "succeeded":
+        if not models:
+            errors.append(f"{path}: success requires a model attempt")
+        if parse.get("path") not in {"native", "whole", "salvaged"} or parse.get("schema_valid_count") != 1 or parse.get("response_status") != "present":
+            errors.append(f"{path}: success requires one validated response")
+        for key in measures:
+            total, limit = usage.get(key), budget.get("max_" + key)
+            if type(total) is int and type(limit) is int and total >= limit:
+                errors.append(f"{path}: success cannot exhaust the {key} ceiling")
 
 
 def _validate_review(value: dict[str, Any], path: Path, errors: list[str]) -> None:
@@ -298,7 +343,13 @@ def validate_agent_review_contracts(root: Path, *, required: bool = True) -> lis
             value = _load_json(path, errors)
             fixture_errors: list[str] = []
             if value is not None:
-                _validate_review(value, path, fixture_errors)
+                if "actor_id" in value:
+                    _validate_agent(value, path, fixture_errors)
+                    schema = schema_documents.get("agent_execution")
+                    if schema is not None:
+                        fixture_errors.extend(e.message for e in Draft202012Validator(schema).iter_errors(value))
+                else:
+                    _validate_review(value, path, fixture_errors)
             if not any(row["expected"] in error for error in fixture_errors):
                 errors.append(f"{path}: invalid fixture was accepted")
     for relative, markers in registry.get("required_contract_markers", {}).items():

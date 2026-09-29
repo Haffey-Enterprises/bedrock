@@ -4,28 +4,364 @@
   "title": "Portable agent execution evidence",
   "type": "object",
   "additionalProperties": false,
-  "required": ["schema_version", "invocation_id", "actor_id", "profile", "prompt", "output_schema", "budget", "attempts", "parse", "usage", "terminal_disposition"],
+  "required": [
+    "schema_version",
+    "invocation_id",
+    "actor_id",
+    "profile",
+    "prompt",
+    "output_schema",
+    "budget",
+    "attempts",
+    "parse",
+    "usage",
+    "terminal_disposition"
+  ],
   "properties": {
-    "schema_version": {"const": "1.0.0"},
-    "invocation_id": {"type": "string", "minLength": 1},
-    "actor_id": {"type": "string", "minLength": 1},
-    "profile": {"type": "string", "minLength": 1},
-    "prompt": {"$ref": "#/$defs/artifact"},
-    "output_schema": {"$ref": "#/$defs/artifact"},
+    "schema_version": {
+      "const": "2.0.0"
+    },
+    "invocation_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "actor_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "profile": {
+      "type": "string",
+      "minLength": 1
+    },
+    "prompt": {
+      "$ref": "#/$defs/artifact"
+    },
+    "output_schema": {
+      "$ref": "#/$defs/artifact"
+    },
     "budget": {
-      "type": "object", "additionalProperties": false,
-      "required": ["max_attempts", "max_tool_iterations", "deadline_ms", "max_input_tokens", "max_output_tokens", "max_spend_micros", "max_concurrency"],
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "max_attempts",
+        "max_tool_iterations",
+        "deadline_ms",
+        "max_input_tokens",
+        "max_output_tokens",
+        "max_spend_micros",
+        "max_concurrency"
+      ],
       "properties": {
-        "max_attempts": {"type": "integer", "minimum": 1}, "max_tool_iterations": {"type": "integer", "minimum": 0},
-        "deadline_ms": {"type": "integer", "minimum": 1}, "max_input_tokens": {"type": "integer", "minimum": 0},
-        "max_output_tokens": {"type": "integer", "minimum": 0}, "max_spend_micros": {"type": "integer", "minimum": 0},
-        "max_concurrency": {"type": "integer", "minimum": 1}
+        "max_attempts": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "max_tool_iterations": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "deadline_ms": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "max_input_tokens": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "max_output_tokens": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "max_spend_micros": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "max_concurrency": {
+          "type": "integer",
+          "minimum": 1
+        }
       }
     },
-    "attempts": {"type": "array", "items": {"type": "object", "required": ["attempt", "kind", "disposition"], "properties": {"attempt": {"type": "integer", "minimum": 1}, "kind": {"enum": ["model", "tool"]}, "disposition": {"type": "string", "minLength": 1}}, "additionalProperties": true}},
-    "parse": {"type": "object", "additionalProperties": false, "required": ["path", "candidate_count", "response_sha256"], "properties": {"path": {"enum": ["native", "whole", "salvaged", "failed"]}, "candidate_count": {"type": "integer", "minimum": 0}, "response_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}}},
-    "usage": {"type": "object", "additionalProperties": false, "required": ["input_tokens", "output_tokens", "spend_micros"], "properties": {"input_tokens": {"type": "integer", "minimum": 0}, "output_tokens": {"type": "integer", "minimum": 0}, "spend_micros": {"type": "integer", "minimum": 0}}},
-    "terminal_disposition": {"enum": ["succeeded", "schema_failed", "budget_exhausted", "cancelled", "tool_failed", "transport_failed", "escalated"]}
+    "attempts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "attempt",
+          "kind",
+          "disposition"
+        ],
+        "properties": {
+          "attempt": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "kind": {
+            "enum": [
+              "model",
+              "tool"
+            ]
+          },
+          "disposition": {
+            "type": "string",
+            "minLength": 1
+          },
+          "tool_iteration": {
+            "type": "integer",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": true,
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "kind": {
+                  "const": "tool"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "tool_iteration"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "parse": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "candidate_count",
+        "response_sha256",
+        "response_status",
+        "schema_valid_count"
+      ],
+      "properties": {
+        "path": {
+          "enum": [
+            "native",
+            "whole",
+            "salvaged",
+            "failed"
+          ]
+        },
+        "candidate_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "response_sha256": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "response_status": {
+          "enum": [
+            "present",
+            "absent"
+          ]
+        },
+        "schema_valid_count": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "response_status": {
+                "const": "absent"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "path": {
+                "const": "failed"
+              },
+              "candidate_count": {
+                "const": 0
+              },
+              "response_sha256": {
+                "type": "null"
+              },
+              "schema_valid_count": {
+                "const": 0
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "response_sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "usage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "input_tokens",
+        "output_tokens",
+        "spend_micros",
+        "known_subtotal",
+        "reserved_exposure",
+        "unknown_reason"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "known",
+            "unknown"
+          ]
+        },
+        "input_tokens": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "output_tokens": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "spend_micros": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "known_subtotal": {
+          "$ref": "#/$defs/measures"
+        },
+        "reserved_exposure": {
+          "$ref": "#/$defs/measures"
+        },
+        "unknown_reason": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "known"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "input_tokens": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "output_tokens": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "spend_micros": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "unknown_reason": {
+                "type": "null"
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "input_tokens": {
+                "type": "null"
+              },
+              "output_tokens": {
+                "type": "null"
+              },
+              "spend_micros": {
+                "type": "null"
+              },
+              "unknown_reason": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      ]
+    },
+    "terminal_disposition": {
+      "enum": [
+        "succeeded",
+        "schema_failed",
+        "budget_exhausted",
+        "cancelled",
+        "tool_failed",
+        "transport_failed",
+        "escalated"
+      ]
+    }
   },
-  "$defs": {"artifact": {"type": "object", "additionalProperties": false, "required": ["version", "sha256"], "properties": {"version": {"type": "string", "minLength": 1}, "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}}}}
+  "$defs": {
+    "artifact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "version",
+        "sha256"
+      ],
+      "properties": {
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    },
+    "measures": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "input_tokens",
+        "output_tokens",
+        "spend_micros"
+      ],
+      "properties": {
+        "input_tokens": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "output_tokens": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "spend_micros": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    }
+  }
 }

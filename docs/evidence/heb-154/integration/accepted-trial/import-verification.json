@@ -1,0 +1,12 @@
+{
+  "scope": "All regular tar contents, tar path/link text and recursively encountered ZIP contents and names. Symlinks retained as historical data, not followed. External runtimes and keychain excluded by source archive.",
+  "counts": {
+    "regular_members": 3125,
+    "symlinks": 609,
+    "nested_zip_members": 38
+  },
+  "private_term_detector_control": "rejected injected private term; no term retained",
+  "credential_scan": "No sk-ant credential literal; not a universal secret detector",
+  "archive_manifest_file_identity": "Every regular manifest entry matched archive bytes",
+  "archive_sha256": "7e574fa699fcd855b67f535627a9d22c1ad7b526694d3fce2dabd42d42232fdc"
+}

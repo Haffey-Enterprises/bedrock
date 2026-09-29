@@ -1,0 +1,74 @@
+{
+  "type": "object",
+  "properties": {
+    "readiness": {
+      "enum": [
+        "ready",
+        "needs_clarification"
+      ]
+    },
+    "missing_requirement_ids": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "R-OBJECTIVE",
+          "R-ACCEPTANCE",
+          "R-CONSISTENCY"
+        ]
+      }
+    },
+    "assessments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "rule_id": {
+            "enum": [
+              "R-OBJECTIVE",
+              "R-ACCEPTANCE",
+              "R-CONSISTENCY"
+            ]
+          },
+          "met": {
+            "type": "boolean"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "citations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "statement_id": {
+                  "type": "string"
+                },
+                "quote": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "statement_id",
+                "quote"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "rule_id",
+          "met",
+          "reason",
+          "citations"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "readiness",
+    "missing_requirement_ids",
+    "assessments"
+  ],
+  "additionalProperties": false
+}

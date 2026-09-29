@@ -1,0 +1,29 @@
+{
+  "version": "1.0.0",
+  "model": "claude-haiku-4-5-20251001",
+  "temperature": 0,
+  "max_output_tokens": 1024,
+  "preflight_max_input_tokens": 8000,
+  "reserve_input_tokens": 200000,
+  "reserve_output_tokens": 1024,
+  "reserve_spend_micros": 205120,
+  "input_price_micros_per_token": 1,
+  "output_price_micros_per_token": 5,
+  "invocation": {
+    "max_model_attempts": 3,
+    "max_tool_iterations": 2,
+    "max_tokens": 500000,
+    "max_spend": 1.0,
+    "max_wall_seconds": 60
+  },
+  "campaign": {
+    "max_model_attempts": 24,
+    "max_tool_iterations": 16,
+    "max_tokens": 500000,
+    "max_spend": 1.0,
+    "max_wall_seconds": 900
+  },
+  "max_invocations": 8,
+  "sdk_max_retries": 0,
+  "concurrency": 1
+}

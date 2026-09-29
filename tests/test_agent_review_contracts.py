@@ -13,6 +13,7 @@ import yaml
 
 from scripts.validate_agent_review_contracts import (
     _balanced_json_candidates,
+    _validate_agent,
     evaluate_runner_profile_case,
     validate_agent_review_contracts,
 )
@@ -224,6 +225,60 @@ class AgentReviewContractTests(unittest.TestCase):
                 case = self.runner_case()
                 mutate(case)
                 self.assertEqual("stop-unavailable", evaluate_runner_profile_case(case))
+
+
+class AgentAccountingTests(unittest.TestCase):
+    def fixture(self):
+        return json.loads((ROOT / "tests/fixtures/agent-review-contracts/valid/agent-execution.json").read_text())
+
+    def test_zero_model_attempts_cannot_succeed(self):
+        value = self.fixture()
+        value["attempts"] = []
+        errors = []
+        _validate_agent(value, Path("zero-model.json"), errors)
+        self.assertTrue(any("success requires a model attempt" in e for e in errors), errors)
+
+    def test_tool_dispatch_does_not_consume_model_attempt_limit(self):
+        value = self.fixture()
+        value["budget"].update(max_attempts=1, max_tool_iterations=1)
+        value["attempts"].append({"attempt": 1, "kind": "tool", "tool_iteration": 1, "disposition": "succeeded"})
+        errors = []
+        _validate_agent(value, Path("model-and-tool.json"), errors)
+        self.assertEqual([], errors)
+
+    def test_unknown_usage_remains_a_truthful_failure(self):
+        value=json.loads((ROOT/'tests/fixtures/agent-review-contracts/valid/agent-execution-unknown.json').read_text())
+        errors=[]
+        _validate_agent(value,Path('unknown.json'),errors)
+        self.assertEqual([],errors)
+        value['terminal_disposition']='succeeded'
+        _validate_agent(value,Path('unknown-success.json'),errors)
+        self.assertTrue(errors)
+
+    def test_known_subtotal_cannot_disagree_with_reported_totals(self):
+        value=self.fixture()
+        value['usage']['known_subtotal']['input_tokens']+=1
+        errors=[]
+        _validate_agent(value,Path('false-subtotal.json'),errors)
+        self.assertTrue(errors)
+
+
+    def test_one_valid_salvage_candidate_among_several_is_accepted(self):
+        value=self.fixture()
+        value['parse'].update(path='salvaged',candidate_count=2,schema_valid_count=1)
+        errors=[]
+        _validate_agent(value,Path('unique-valid.json'),errors)
+        self.assertEqual([],errors)
+        value['parse']['schema_valid_count']=2
+        _validate_agent(value,Path('ambiguous.json'),errors)
+        self.assertTrue(any('one validated response' in error for error in errors))
+
+    def test_valid_candidate_count_cannot_exceed_population(self):
+        value=self.fixture()
+        value['parse'].update(candidate_count=0,schema_valid_count=1)
+        errors=[]
+        _validate_agent(value,Path('impossible-count.json'),errors)
+        self.assertTrue(any('invalid parsed candidate counts' in error for error in errors))
 
 
 if __name__ == "__main__":

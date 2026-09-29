@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "profile": "standard",
+  "scope": "Independent clean-context review of HEB-154 working-tree delta against 2ab76b447cdb1a975c801e6833682c0c1f94cef0, including untracked implementation files",
+  "checked_surfaces": [
+    "Distribution, wheel build, installer and CI",
+    "Core runtime and offline specialist integration",
+    "Portable evidence semantics and controls",
+    "Construction/mechanism routing and changed governance contracts"
+  ],
+  "gates": [
+    {
+      "name": "Focused independent offline verification",
+      "disposition": "passed",
+      "reason": "Build parity, installed identity, named tests and repaired-defect controls passed."
+    },
+    {
+      "name": "Complete CI including minimum Python",
+      "disposition": "unavailable",
+      "reason": "Not executed by reviewer; author supplies separate candidate-bound evidence."
+    },
+    {
+      "name": "Live routing and cold acceptance",
+      "disposition": "unavailable",
+      "reason": "Pending release gates; no merge approval."
+    },
+    {
+      "name": "Deployment verification",
+      "disposition": "not-relevant",
+      "reason": "No publication authorized."
+    }
+  ],
+  "findings": [],
+  "verdict": "pause"
+}

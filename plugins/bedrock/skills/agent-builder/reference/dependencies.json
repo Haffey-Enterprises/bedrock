@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "sibling": {
+    "skill": "agent-code",
+    "contract_version": "2.0.0",
+    "detection": "Load the installed agent-code contract and its PACKAGE_IDENTITY.json; require the same Bedrock manifest identity as agent-builder."
+  },
+  "python_core": {
+    "distribution": "agent-core",
+    "version": "0.2.0",
+    "python": ">=3.10",
+    "component_manifest": "../assets/python/component.json",
+    "install": "../scripts/install_core.py",
+    "evidence_shape": "0.1"
+  },
+  "portable_evidence_version": "2.0.0",
+  "unavailable_behavior": "Stop before implementation or dispatch; surface the missing dependency or failed installed-identity check."
+}

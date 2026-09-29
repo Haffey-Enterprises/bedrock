@@ -1,0 +1,111 @@
+.........................................................................................Merge made by the 'ort' strategy.
+ candidate-marker.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 candidate-marker.txt
+..Merge made by the 'ort' strategy.
+ candidate-marker.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 candidate-marker.txt
+.Merge made by the 'ort' strategy.
+ candidate-marker.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 candidate-marker.txt
+.Merge made by the 'ort' strategy.
+ candidate-marker.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 candidate-marker.txt
+.Merge made by the 'ort' strategy.
+ candidate-marker.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 candidate-marker.txt
+.Merge made by the 'ort' strategy.
+ candidate-marker.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 candidate-marker.txt
+.Fast-forwarding to: alternate
+Trying simple merge with candidate
+Merge made by the 'octopus' strategy.
+ alternate-marker.txt | 1 +
+ candidate-marker.txt | 1 +
+ 2 files changed, 2 insertions(+)
+ create mode 100644 alternate-marker.txt
+ create mode 100644 candidate-marker.txt
+.Rebasing (1/1)
+Successfully rebased and updated refs/heads/candidate.
+Updating 7ddeee0..83e2f8c
+Fast-forward
+ candidate-marker.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 candidate-marker.txt
+.Merge made by the 'ort' strategy.
+ candidate-marker.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 candidate-marker.txt
+Merge made by the 'ort' strategy.
+ candidate-marker.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 candidate-marker.txt
+.Merge made by the 'ort' strategy.
+ plugins/bedrock/governance/README.md | 2 ++
+ 1 file changed, 2 insertions(+)
+Updating 63cca6a..dada78d
+Fast-forward
+ candidate-marker.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 candidate-marker.txt
+.Merge made by the 'ort' strategy.
+ candidate-marker.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 candidate-marker.txt
+.Updating 8d85ba6..2ab7984
+Fast-forward
+ candidate-marker.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 candidate-marker.txt
+................................................#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 428B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.11-slim
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [builder 1/4] FROM docker.io/library/python:3.11-slim
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 106B done
+#5 DONE 0.0s
+
+#6 [builder 2/4] RUN python -m venv /opt/venv
+#6 CACHED
+
+#7 [stage-1 2/3] RUN useradd --create-home --uid 1000 appuser
+#7 CACHED
+
+#8 [builder 3/4] COPY uvicorn/ /tmp/uvicorn/
+#8 CACHED
+
+#9 [builder 4/4] RUN cp -R /tmp/uvicorn "$(/opt/venv/bin/python -c 'import site; print(site.getsitepackages()[0])')/"
+#9 CACHED
+
+#10 [stage-1 3/3] COPY --from=builder /opt/venv /opt/venv
+#10 CACHED
+
+#11 exporting to image
+#11 exporting layers done
+#11 writing image sha256:c6f72f7a1bfd73fb0eefadaf09510130c0f46f688e622740ed791c74a684de41 done
+#11 naming to docker.io/library/heb-110-safety:2f2d1928fe4540f1b50072d078dd9843 done
+#11 DONE 0.0s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/45t80th9wetd4610ftwjaw4hw
+.............................
+----------------------------------------------------------------------
+Ran 178 tests in 38.872s
+
+OK

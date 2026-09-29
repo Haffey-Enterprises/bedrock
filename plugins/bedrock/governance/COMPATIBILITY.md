@@ -11,7 +11,7 @@ exercise each minimum and record the exact identity of every execution.
 | Cursor adapter | None | No adapter is distributed. | none | unsupported |
 | External product runner-backed review | No package binding | Requires a product-owned workflow binding and versioned runner with compatible schemas, exact invocation, and fresh gate evidence. | none in this package | unavailable; direct and multi-perspective profiles remain supported |
 
-The portable skill core has contract version `2.0.0`; the distributed Claude
+The portable skill core has contract version `3.0.0`; the distributed Claude
 adapter contract has version `1.1.0`. These are compatibility identities, not
 the package version. The manifest remains the package-version authority.
 
@@ -39,3 +39,27 @@ carrier format change invalidates the corresponding evidence until it is
 reconciled and rerun. A host upgrade at or above the minimum does not by itself
 invalidate support. Unsupported surfaces fail closed: name the missing adapter
 or capability and do not claim compatibility by similarity.
+
+## HEB-154 breaking migration
+
+The candidate adds agent-builder 1.0.0 as primary owner for checked fleet
+specialists; agent-code 2.0.0 remains the mechanism authority. Existing explicit
+agent-code calls remain valid for LLM-call implementation. Agent-builder checks
+its agent-code sibling identity and installs bundled agent-core 0.2.0 into the
+consumer project environment before implementation. Python >=3.10 and compatible
+pinned third-party wheels are required for that operation; absence stops it.
+Plugin loading alone does not prove Python execution support.
+
+Portable evidence 1.0.0 consumers must migrate to 2.0.0: unknown totals become
+null with explicit status/reason, known subtotal and reserved exposure remain
+separate, and absent responses have no invented hash. Count model attempts and
+physical tool dispatches independently. The core-owned EvidenceRecord v0.1 is
+unchanged and still requires adapter mapping. No automatic v1 reinterpretation
+or mixed-version evidence pooling is supported.
+
+Bedrock 10.0.0 remains a candidate pending composed release acceptance. Rollback
+retains the prior accepted plugin and the project's prior dependency lock;
+plugin rollback does not mutate deployed project environments. New wheel and
+host claims require the corresponding installation evidence. The historical
+one-provider trial does not prove other providers, side-effect reconciliation,
+PostgreSQL, parallel execution, or fleet orchestration.

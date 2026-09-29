@@ -1,0 +1,13 @@
+{
+  "status": "blocked-before-process-start",
+  "date": "2026-09-29",
+  "provider_calls": 0,
+  "reason": "Automatic approval review requires explicit approval to send repository-derived catalog and fixture prompts to Anthropic, beyond retained bounded-run authorization.",
+  "payload_sha256": "16fddaedd3e56c651ec3e757a508108bdcd93b4be75f390aafd5b43b815c89ca",
+  "staged_tree": "7ae9920dad211f03ea4ebcd8334bdcd657ccf00b",
+  "live_runs_used": {
+    "release": 0,
+    "pr": 0
+  },
+  "next_action": "Obtain payload/destination approval. Do not create PR or dispatch CI that sends the same payload until resolved."
+}

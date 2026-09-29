@@ -1,15 +1,15 @@
 # Bedrock portable-core migration and compatibility notes
 
 **Status:** ACCEPTED
-**Version:** 2.0.0
-**Date:** 2026-08-12
+**Version:** 3.0.0
+**Date:** 2026-09-29
 **Governing principle:** [ADR-001](../adr/ADR-001-portable-core-and-surface-adapter-architecture.md)
 
 **Coverage boundary:** [Bedrock product coverage map](coverage-map.md)
 
 ## 1. Current state
 
-The current distributable is a Claude plugin with thirteen skill directories and one package version. The repository has deterministic structure and routing validation, a clean-install smoke test, and a deterministic safety-contract validator with regression fixtures for the initial safety tranche. It does not yet ship separate Codex/OpenAI or Cursor adapters, a capability registry, an authority registry, independent core/adapter versions, or a generated compatibility matrix.
+The candidate is a Claude plugin with fourteen skill directories and a bundled separately versioned Python core. The repository has deterministic structure and routing validation, a clean-install smoke test, and a deterministic safety-contract validator with regression fixtures for the initial safety tranche. Registry and compatibility records declare core/adapter identities and capabilities. Separate Codex/OpenAI and Cursor adapters remain outside this candidate.
 
 The current skill names are the compatibility anchors for this migration. Existing names and explicit invocations remain valid while content is separated into portable contracts and profiles.
 
@@ -100,6 +100,21 @@ Prompt generations, repeated draws, calibration, replay, cost attribution, run d
 
 | Version | Date | Ticket | Change |
 |---|---|---|---|
+| 3.0.0 | 2026-09-29 | HEB-154 | Ratified agent-builder/core split, explicit Python dependency and evidence-v2 migration. |
 | 2.0.0 | 2026-08-12 | HEB-126 | Accepted major migration repair for product-owned orchestration and evidence-driven promotion. |
 | 1.0.0 | 2026-08-09 | HEB-111 | Accepted after direct audit; reconciled the landed safety baseline without changing the migration contract. |
 | 0.1.0 | 2026-08-09 | HEB-111 | Initial migration, coverage, actor/recipe/kernel compatibility, rebind/package-major rules, and consumer impact. |
+
+## HEB-154 consumer migration
+
+Checked fleet-specialist requests now route primarily to agent-builder; direct
+mechanism work remains agent-code. Install the shipped agent-core wheel into the
+project environment, pin its Bedrock revision/digest and dependencies, and run
+project checks on upgrades. No project uses plugin-cache imports. Core version
+0.2.0 and EvidenceRecord v0.1 do not share the portable-core 3.0.0 or portable
+execution evidence 2.0.0 identity. Migrate portable v1 records explicitly to
+known/unknown usage with null unknown totals and separate reservation exposure;
+absent responses have null hashes. The previous plugin and project dependency
+pins provide rollback. Historical evidence is retained in the repository and
+is not shipped with skills. HEB-161 composition and HEB-119 acceptance still gate
+release; these migration notes confer neither acceptance nor additional live calls.

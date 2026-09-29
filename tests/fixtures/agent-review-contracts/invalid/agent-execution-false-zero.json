@@ -1,0 +1,55 @@
+{
+  "schema_version": "2.0.0",
+  "invocation_id": "inv-001",
+  "actor_id": "reviewer-laa",
+  "profile": "direct",
+  "prompt": {
+    "version": "3",
+    "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  },
+  "output_schema": {
+    "version": "1.0.0",
+    "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+  },
+  "budget": {
+    "max_attempts": 2,
+    "max_tool_iterations": 0,
+    "deadline_ms": 30000,
+    "max_input_tokens": 10000,
+    "max_output_tokens": 2000,
+    "max_spend_micros": 500000,
+    "max_concurrency": 1
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "kind": "model",
+      "disposition": "transport_failed"
+    }
+  ],
+  "parse": {
+    "path": "failed",
+    "candidate_count": 0,
+    "response_sha256": null,
+    "response_status": "absent",
+    "schema_valid_count": 0
+  },
+  "usage": {
+    "status": "unknown",
+    "input_tokens": 0,
+    "output_tokens": null,
+    "spend_micros": null,
+    "known_subtotal": {
+      "input_tokens": 900,
+      "output_tokens": 120,
+      "spend_micros": 8000
+    },
+    "reserved_exposure": {
+      "input_tokens": 1000,
+      "output_tokens": 500,
+      "spend_micros": 10000
+    },
+    "unknown_reason": "Provider disconnected after dispatch; final usage unavailable"
+  },
+  "terminal_disposition": "transport_failed"
+}

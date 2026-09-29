@@ -2,13 +2,20 @@
 
 **Haffey Enterprises engineering skills** — by T-Bone-Haff (Tad Haffey, Haffey Enterprises LLC).
 
-Self-contained Claude skills distilled from the HE-Bedrock governance corpus. They carry the *content* — the engineering standard, the doctype templates, the testing and review disciplines — with none of the private self-governance machinery. No skill depends on another skill being loaded; a skill's own depth lives in its bundled `reference/` and `templates/` files (some skills are a single SKILL.md). Portable actor contracts name optional host profiles without embedding a private runner, tracker, path, or authority corpus.
+Self-contained Claude skills distilled from the HE-Bedrock governance corpus. They carry the *content* — the engineering standard, the doctype templates, the testing and review disciplines — with none of the private self-governance machinery. Dependencies are explicit: agent-builder requires agent-code and the bundled Python core. A skill's own depth lives in its bundled `reference/` and `templates/` files (some skills are a single SKILL.md). Portable actor contracts name optional host profiles without embedding a private runner, tracker, path, or authority corpus.
 
 ## What's in the kit
 
 The kit spans the authoring-through-review lifecycle on the house stacks — service, infrastructure, agent, frontend, and pipeline work alike. Each capability is a self-contained skill that Claude auto-discovers and triggers by task; the live roster is the plugin's [`skills/`](plugins/bedrock/skills) folder, every skill carries its own description, and the plugin manifest carries the current summary. This README deliberately restates neither.
 
 ## Shared libraries
+
+[Agent core](packages/agent-core/README.md) is authored separately and distributed
+as a wheel with agent-builder. That skill installs it into a selected project
+virtual environment and records the exact Bedrock revision, wheel hash and
+qualified dependencies. Bedrock updates deliver components; consuming projects
+upgrade explicitly with their own checks. Tests and execution evidence remain
+in the repository, outside the plugin distribution.
 
 [Linear API client](packages/hex-linear/README.md) is a standalone Python library
 for direct issue and comment operations. Install it separately from the skills
@@ -76,7 +83,7 @@ supported profile.
 Edit the relevant skill's authored files directly — the SKILL.md and any bundled
 `reference/` or `templates/` files; single source of truth per skill. Do not
 hand-edit `PACKAGE_IDENTITY.json`: after a manifest or Claude-adapter identity
-change, regenerate all 13 copies with
+change, regenerate all 14 copies with
 `python3 scripts/sync_package_identity.py --write`. Releases follow the push
 discipline in the `author-standard` skill.
 
@@ -93,7 +100,7 @@ python3 scripts/validate_package_governance.py
 bash scripts/smoke_clean_install.sh
 ```
 
-`validate_plugin.py` deterministically enforces the 13-skill inventory, strict YAML frontmatter, the 1,024-character description limit, explicit positive and negative routing boundaries, unique names, plugin/marketplace coherence, package lifecycle and policy contracts, relative-link and private-path safety, declared external-root dependencies and snapshot currency markers, complete code-sample accounting, evidence-manifest integrity, and routing-fixture coverage. It separately runs `claude plugin validate --strict` against the plugin manifest; that host check does not claim recursive skill-frontmatter coverage.
+`validate_plugin.py` deterministically enforces the 14-skill inventory, strict YAML frontmatter, the 1,024-character description limit, explicit positive and negative routing boundaries, unique names, plugin/marketplace coherence, package lifecycle and policy contracts, relative-link and private-path safety, declared external-root dependencies and snapshot currency markers, complete code-sample accounting, evidence-manifest integrity, and routing-fixture coverage. It separately runs `claude plugin validate --strict` against the plugin manifest; that host check does not claim recursive skill-frontmatter coverage.
 
 `validate_package_governance.py` separately exposes the package gate for seeded
 tests and release automation. Its default mode validates a candidate. Its
@@ -104,7 +111,7 @@ the distributed paths retained byte parity, and the tag and rollout identities
 agree. It is a final release-closure check, not the pre-merge HEB-119 candidate
 gate itself.
 
-`sync_package_identity.py --check` proves the 13 skill-local identity carriers
+`sync_package_identity.py --check` proves the 14 skill-local identity carriers
 are byte-identical, canonical generations of the manifest and registry
 authorities. The package-governance validator enforces the same contract.
 

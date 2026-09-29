@@ -1,15 +1,15 @@
 # Bedrock skill architecture and routing contract
 
 **Status:** ACCEPTED
-**Version:** 2.0.0
-**Date:** 2026-08-12
+**Version:** 3.0.0
+**Date:** 2026-09-29
 **Governing principle:** [ADR-001](../adr/ADR-001-portable-core-and-surface-adapter-architecture.md)
 
 This record is the catalog-level contract for the current Bedrock skills. It assigns one primary job to each skill, records the Wave 2 retain/merge/split/rename/remove decision, defines overlap precedence, and separates routable actor contracts from the workflows that compose them. The contract is self-contained; its finding identifiers trace to the [HEB-106 disposition ledger](https://linear.app/t-bone-haff-sofia/document/heb-106-finding-register-and-disposition-ledger-4f6f1f1f0e2d) for audit history, not interpretation.
 
 ## 1. Catalog decision
 
-All thirteen current skill identities are retained. None is merged, renamed, or removed in this wave. The prior disposition set called for correction or modification, not retirement, and the current catalog has complete positive/negative routing coverage. Content can move behind progressive-disclosure references without changing the routable identity.
+The thirteen existing skill identities are retained and agent-builder is added for checked fleet-specialist construction. None is merged, renamed, or removed in this wave. The prior disposition set called for correction or modification, not retirement, and new routing evidence is required for the amended catalog. Content can move behind progressive-disclosure references without changing the routable identity.
 
 A future identity change requires all of:
 
@@ -22,6 +22,7 @@ A future identity change requires all of:
 
 | Skill | Primary job | Decision | Portable/profile treatment | Key finding trace |
 |---|---|---|---|---|
+| `agent-builder` | Build a checked fleet specialist from requirements through handoff. | Add; explicit bounded construction route. | Requires agent-code 2.0.0 and bundled Python agent-core 0.2.0; product orchestration remains external. | HEB-154 R1-R3, D1-D4 |
 | `agent-code` | Author code whose central behavior is a large language model (LLM) call or bounded tool loop. | Retain; no rename. | Provider-neutral call, parse, budget, evidence, and tool-loop invariants in core; provider/transport and house Python choices are profiles. | AGT-004, AGT-011, AGT-002 |
 | `app-delivery-pipeline` | Author application-artifact continuous integration and continuous delivery (CI/CD), release, deployment, and rollout verification. | Retain; no rename. | Trusted promotion and immutable-artifact invariants in core; branch topology, CI host, and cloud are profiles. | DLV-013, DLV-002, DLV-006 |
 | `application-code` | Author conventional backend service and application behavior. | Retain; no rename. | Service safety and boundary invariants in core; FastAPI, SQLAlchemy, Python, and GCP are the Haffey service profile. | APP-002, APP-016 |
@@ -52,6 +53,7 @@ Routing selects the requested operation before the subject domain. The primary s
 | `code-review` / `design-review-loop` | Review code versus review decision records. | Code/diff/PR → `code-review`; ADR/DDR/SDD set → `design-review-loop`. | None. |
 | `debug` / `testing` | Diagnose an observed failure versus create planned test coverage. | Observed failure, including a flaky test → `debug`; new tests/strategy → `testing`. | Testing may add regression coverage after diagnosis. |
 | `debug` / domain authoring skill | Explain an existing failure versus implement planned behavior. | Existing unexplained failure → `debug`; planned change → domain skill. | Domain skill may implement the verified repair. |
+| `agent-builder` / `agent-code` | Checked fleet-specialist outcome versus mechanism implementation alone. | Fleet construction → `agent-builder`; LLM-call primitives → `agent-code`. | agent-code is an explicit versioned prerequisite for construction. Testing, diagnosis and review retain their owners. |
 | `agent-code` / `application-code` | Whether an LLM call or agent loop is the central behavior. | Central model behavior → `agent-code`; conventional backend behavior → `application-code`. | Application conventions apply only where compatible. |
 | `agent-code` / `testing` | Implement model behavior versus test it. | Test deliverable → `testing`. | `agent-code` supplies model-specific invariants. |
 | `agent-code` / `author-decision-record` | Implement model behavior versus record an architecture choice about it. | Decision artifact → `author-decision-record`. | `agent-code` supplies domain constraints. |
@@ -111,6 +113,7 @@ This record fixes the mandatory schema, owner boundary, and primary task for eve
 
 | Version | Date | Ticket | Change |
 |---|---|---|---|
+| 3.0.0 | 2026-09-29 | HEB-154 | Ratified agent-builder/core split, explicit Python dependency and evidence-v2 migration. |
 | 2.0.0 | 2026-08-12 | HEB-126 | Accepted major product-orchestration ownership correction and promotion boundary. |
 | 1.0.0 | 2026-08-09 | HEB-111 | Accepted after direct audit; expanded cold-read terminology without changing the ratified catalog contract. |
 | 0.1.0 | 2026-08-09 | HEB-111 | Initial inventory, disposition trace, coverage boundary, actor/workflow model, routing, and interaction contract. |

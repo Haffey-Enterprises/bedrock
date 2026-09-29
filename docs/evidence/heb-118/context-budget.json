@@ -1,27 +1,85 @@
 {
   "schema_version": 1,
-  "captured_at": "2026-08-27",
-  "source_commit_baseline": "165663364eddbeeedb11e6a09627612f4cf399fd",
+  "captured_at": "2026-09-29",
+  "source_commit_baseline": "2ab76b447cdb1a975c801e6833682c0c1f94cef0",
   "measurement": {
-    "catalog_description_characters": 6824,
-    "skill_entrypoint_words": 10855,
-    "projected_always_on_tokens": 1785,
-    "host_measurement": "claude 2.1.226 plugin details bedrock@bedrock",
-    "routing_population": "171/171 with 0 excluded selections"
+    "catalog_description_characters": 7270,
+    "skill_entrypoint_words": 11964,
+    "projected_always_on_tokens": 1902,
+    "host_measurement": "claude 2.1.284 plugin details bedrock@bedrock; isolated HEB-154 candidate install",
+    "routing_population": "189/189 with 0 excluded selections"
   },
   "skills": [
-    {"name": "agent-code", "description_characters": 390, "entrypoint_words": 928},
-    {"name": "app-delivery-pipeline", "description_characters": 548, "entrypoint_words": 689},
-    {"name": "application-code", "description_characters": 445, "entrypoint_words": 860},
-    {"name": "author-construct-spec", "description_characters": 641, "entrypoint_words": 670},
-    {"name": "author-decision-record", "description_characters": 721, "entrypoint_words": 624},
-    {"name": "author-execution-relay", "description_characters": 586, "entrypoint_words": 1144},
-    {"name": "author-standard", "description_characters": 476, "entrypoint_words": 942},
-    {"name": "code-review", "description_characters": 520, "entrypoint_words": 578},
-    {"name": "debug", "description_characters": 462, "entrypoint_words": 995},
-    {"name": "design-review-loop", "description_characters": 378, "entrypoint_words": 886},
-    {"name": "frontend-code", "description_characters": 529, "entrypoint_words": 958},
-    {"name": "infrastructure-code", "description_characters": 641, "entrypoint_words": 731},
-    {"name": "testing", "description_characters": 487, "entrypoint_words": 850}
-  ]
+    {
+      "name": "agent-builder",
+      "description_characters": 446,
+      "entrypoint_words": 1000
+    },
+    {
+      "name": "agent-code",
+      "description_characters": 390,
+      "entrypoint_words": 1037
+    },
+    {
+      "name": "app-delivery-pipeline",
+      "description_characters": 548,
+      "entrypoint_words": 689
+    },
+    {
+      "name": "application-code",
+      "description_characters": 445,
+      "entrypoint_words": 860
+    },
+    {
+      "name": "author-construct-spec",
+      "description_characters": 641,
+      "entrypoint_words": 670
+    },
+    {
+      "name": "author-decision-record",
+      "description_characters": 721,
+      "entrypoint_words": 624
+    },
+    {
+      "name": "author-execution-relay",
+      "description_characters": 586,
+      "entrypoint_words": 1144
+    },
+    {
+      "name": "author-standard",
+      "description_characters": 476,
+      "entrypoint_words": 942
+    },
+    {
+      "name": "code-review",
+      "description_characters": 520,
+      "entrypoint_words": 578
+    },
+    {
+      "name": "debug",
+      "description_characters": 462,
+      "entrypoint_words": 995
+    },
+    {
+      "name": "design-review-loop",
+      "description_characters": 378,
+      "entrypoint_words": 886
+    },
+    {
+      "name": "frontend-code",
+      "description_characters": 529,
+      "entrypoint_words": 958
+    },
+    {
+      "name": "infrastructure-code",
+      "description_characters": 641,
+      "entrypoint_words": 731
+    },
+    {
+      "name": "testing",
+      "description_characters": 487,
+      "entrypoint_words": 850
+    }
+  ],
+  "limitations": "Current HEB-154 component candidate: complete release-profile routing on Claude Code 2.1.226; package context measured separately on isolated Claude Code 2.1.284. Does not establish composed-package acceptance or other supported-surface execution."
 }

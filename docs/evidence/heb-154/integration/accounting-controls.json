@@ -1,0 +1,22 @@
+{
+  "scope": "Reproduction against exact current base function and integrated function, performed after repair; not a reconstructed original execution log. Schema-shape validation is separate.",
+  "base": "2ab76b447cdb1a975c801e6833682c0c1f94cef0",
+  "baseline_function_sha256": "63c2ada9f17e72be190e02b210c0582e449147c33f22fae808b2b911f00750af",
+  "integrated_validator_sha256": "ef4de86e6fce84e58f9a5c48c118a190cff3814920dcec3d0583647e787378e8",
+  "controls": [
+    {
+      "case": "zero-model-success",
+      "baseline_errors": [],
+      "integrated_errors": [
+        "zero-model-success: success requires a model attempt"
+      ]
+    },
+    {
+      "case": "one-model-one-tool",
+      "baseline_errors": [
+        "one-model-one-tool: aggregate attempt budget exceeded"
+      ],
+      "integrated_errors": []
+    }
+  ]
+}

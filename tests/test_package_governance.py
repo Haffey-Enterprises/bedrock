@@ -109,6 +109,7 @@ class PackageGovernanceTests(unittest.TestCase):
         path = self.root / "plugins/bedrock/governance/registry.yaml"
         payload = yaml.safe_load(path.read_text(encoding="utf-8"))
         payload["skills"][0]["status"] = "retired"
+        payload["skills"][0]["migration"] = None
         path.write_text(yaml.safe_dump(payload, sort_keys=False), encoding="utf-8")
         self.assert_has_error("non-active skill requires migration treatment")
 
@@ -587,7 +588,7 @@ class PackageGovernanceTests(unittest.TestCase):
                 {
                     "id": surface,
                     "expected_action": "verify",
-                    "expected_identity": f"{manifest_version} and 13 skills",
+                    "expected_identity": f"{manifest_version} and 14 skills",
                     "status": "verified",
                     "evidence": surface,
                     "owner": "operator",

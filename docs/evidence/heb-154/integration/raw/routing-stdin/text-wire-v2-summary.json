@@ -1,0 +1,18 @@
+[
+  {
+    "mode": "inherited-regular-eof",
+    "request_count": 1,
+    "launcher_source_present": true,
+    "argv_canary_present": true,
+    "returncode": 1,
+    "timeout": false
+  },
+  {
+    "mode": "devnull",
+    "request_count": 1,
+    "launcher_source_present": false,
+    "argv_canary_present": true,
+    "returncode": 1,
+    "timeout": false
+  }
+]

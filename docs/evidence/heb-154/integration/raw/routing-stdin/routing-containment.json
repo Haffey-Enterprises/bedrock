@@ -1,0 +1,13 @@
+{
+  "status": "contained suspected subject mismatch; no retry",
+  "completed_draws": 26,
+  "passed_draws": 24,
+  "reported_cost_before_containment": 0.33017495,
+  "inflight_cost": "unknown; provider call may have completed before termination",
+  "reason": "application-code-portable-profile run 1 explanation references credential setup, run_routing_evals.py, authorization claims and git-state/integrity launch details absent from the exact approved routing prompt. Cannot yet attribute this to ordinary routing error.",
+  "input_control": "Approved saved prompt equals current harness-generated prompt; explicit alternate provider endpoint environment flags absent.",
+  "terminated_harness_pid": 92863,
+  "terminated_direct_child_pids": [
+    9169
+  ]
+}

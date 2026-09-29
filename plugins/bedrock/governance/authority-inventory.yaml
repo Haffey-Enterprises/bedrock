@@ -3,7 +3,7 @@ concepts:
   - concept: current package version
     authority: plugins/bedrock/.claude-plugin/plugin.json#/version
     repetitions:
-      - {path: "plugins/bedrock/skills/{skill}/PACKAGE_IDENTITY.json", classification: generated-carrier, drift_control: all 13 copies are regenerated from and validated byte-for-byte against the manifest authority}
+      - {path: "plugins/bedrock/skills/{skill}/PACKAGE_IDENTITY.json", classification: generated-carrier, drift_control: all 14 copies are regenerated from and validated byte-for-byte against the manifest authority}
       - {path: plugins/bedrock/CHANGELOG.md, classification: contextual-restatement, drift_control: package-governance validator requires the current candidate identity}
       - {path: release tag, classification: generated-carrier, drift_control: "release-mode validator requires v{manifest_version} at the accepted source commit"}
   - concept: repository license
@@ -11,6 +11,11 @@ concepts:
     repetitions:
       - {path: plugins/bedrock/LICENSE, classification: generated-carrier, drift_control: byte-for-byte validator equality}
       - {path: plugins/bedrock/.claude-plugin/plugin.json#/license, classification: generated-carrier, drift_control: manifest and marketplace metadata equality}
+      - {path: packages/agent-core/LICENSE, classification: generated-carrier, drift_control: source-to-wheel build requires exact Bedrock license equality}
+  - concept: shared Python implementation
+    authority: packages/agent-core/src/agent_core/
+    repetitions:
+      - {path: plugins/bedrock/skills/agent-builder/assets/python/, classification: generated-carrier, drift_control: deterministic wheel build verifies source member hashes and component/dependency identities}
   - concept: skill semantics
     authority: "plugins/bedrock/skills/{skill}/SKILL.md"
     repetitions:

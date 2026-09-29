@@ -165,7 +165,7 @@ class ValidatorTests(unittest.TestCase):
             require_package_governance=False,
         )
         self.assertEqual([], errors)
-        self.assertEqual(13, report["skill_count"])
+        self.assertEqual(14, report["skill_count"])
 
     def test_rejects_malformed_frontmatter(self) -> None:
         path = self.root / "plugins" / "bedrock" / "skills" / "agent-code" / "SKILL.md"

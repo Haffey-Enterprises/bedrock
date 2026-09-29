@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "skill_count": 13,
+  "skill_count": 14,
   "description_limit": 1024,
   "routing_schema_version": 2,
   "sample_classifications": {
@@ -9,15 +9,36 @@
   },
   "skills": [
     {
+      "path": "plugins/bedrock/skills/agent-builder/SKILL.md",
+      "description": "Build checked fleet specialist agents from requirements through implementation, bounded verification and handoff, using the shared Python core and published interfaces. Use for a requested running fleet specialist, including a single structured-output model call. Do not use for mechanism-only LLM-call work (agent-code), observed failures (debug), ordinary services (application-code), tests alone (testing), finished-diff review, or deployment.",
+      "description_length": 446,
+      "positive_cases": [
+        "agent-builder-positive",
+        "agent-builder-one-shot"
+      ],
+      "negative_cases": [
+        "agent-builder-mechanism-negative",
+        "agent-builder-debug-collision",
+        "agent-builder-review-collision",
+        "agent-builder-prompt-only-negative"
+      ],
+      "overlap_cases": [],
+      "name": "agent-builder"
+    },
+    {
       "path": "plugins/bedrock/skills/agent-code/SKILL.md",
       "description": "LLM-call implementation only, including structured-output parsing, bounded salvage and recovery, model transport, tool loops, budgets, and evidence. Use this skill when an LLM call is the code's central act. Do not use for observed-failure diagnosis (debug), ordinary service code (application-code), executor handoffs (author-execution-relay), or design-record review (design-review-loop).",
       "description_length": 390,
       "positive_cases": [
         "agent-code-positive",
-        "application-code-negative"
+        "application-code-negative",
+        "agent-builder-mechanism-negative"
       ],
       "negative_cases": [
-        "agent-code-negative"
+        "agent-code-negative",
+        "agent-builder-positive",
+        "agent-builder-one-shot",
+        "agent-builder-prompt-only-negative"
       ],
       "overlap_cases": [
         "overlap-test-agent-output",
@@ -108,6 +129,7 @@
       "description_length": 586,
       "positive_cases": [
         "author-execution-relay-positive",
+        "author-execution-relay-instrument-discrimination",
         "overlap-relay-construct"
       ],
       "negative_cases": [
@@ -115,6 +137,7 @@
         "adversarial-implementation-misroute"
       ],
       "overlap_cases": [
+        "author-execution-relay-instrument-discrimination",
         "overlap-relay-construct"
       ],
       "name": "author-execution-relay"
@@ -144,14 +167,16 @@
         "overlap-review-frontend",
         "overlap-review-terraform",
         "implicit-review-ship-readiness",
-        "adversarial-design-review-misroute"
+        "adversarial-design-review-misroute",
+        "agent-builder-review-collision"
       ],
       "negative_cases": [
         "code-review-negative"
       ],
       "overlap_cases": [
         "overlap-review-frontend",
-        "overlap-review-terraform"
+        "overlap-review-terraform",
+        "agent-builder-review-collision"
       ],
       "name": "code-review"
     },
@@ -163,21 +188,27 @@
         "debug-positive",
         "debug-nonreproducible-production",
         "debug-active-harm",
+        "debug-claim-subject-discrimination",
         "overlap-debug-frontend",
         "testing-negative",
         "overlap-debug-deployment",
         "implicit-debug-regression",
-        "adversarial-debug-misroute"
+        "adversarial-debug-misroute",
+        "agent-builder-debug-collision"
       ],
       "negative_cases": [
+        "author-execution-relay-instrument-discrimination",
         "debug-negative",
         "overlap-testing-frontend",
         "testing-risk-strategy",
+        "testing-silent-success-counterfactual",
         "testing-regression-after-diagnosis"
       ],
       "overlap_cases": [
+        "debug-claim-subject-discrimination",
         "overlap-debug-frontend",
-        "overlap-debug-deployment"
+        "overlap-debug-deployment",
+        "agent-builder-debug-collision"
       ],
       "name": "debug"
     },
@@ -246,11 +277,13 @@
         "overlap-testing-frontend",
         "testing-positive",
         "testing-risk-strategy",
+        "testing-silent-success-counterfactual",
         "testing-regression-after-diagnosis",
         "overlap-test-agent-output"
       ],
       "negative_cases": [
         "debug-nonreproducible-production",
+        "debug-claim-subject-discrimination",
         "overlap-debug-frontend",
         "testing-negative",
         "implicit-debug-regression",
@@ -258,6 +291,7 @@
       ],
       "overlap_cases": [
         "overlap-testing-frontend",
+        "testing-silent-success-counterfactual",
         "testing-regression-after-diagnosis",
         "overlap-test-agent-output"
       ],

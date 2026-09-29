@@ -1,0 +1,266 @@
+{
+  "type": "object",
+  "properties": {
+    "version": {
+      "const": "1.0.0"
+    },
+    "invocation_id": {
+      "type": "string"
+    },
+    "evidence_ref": {
+      "type": "string"
+    },
+    "terminal_disposition": {
+      "enum": [
+        "success",
+        "budget_exhausted",
+        "parse_failed",
+        "schema_invalid",
+        "tool_denied",
+        "tool_error",
+        "cancelled",
+        "provider_error"
+      ]
+    },
+    "task_result": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "readiness": {
+              "enum": [
+                "ready",
+                "needs_clarification"
+              ]
+            },
+            "missing_requirement_ids": {
+              "type": "array",
+              "items": {
+                "enum": [
+                  "R-OBJECTIVE",
+                  "R-ACCEPTANCE",
+                  "R-CONSISTENCY"
+                ]
+              },
+              "uniqueItems": true,
+              "maxItems": 3
+            },
+            "assessments": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "rule_id": {
+                    "enum": [
+                      "R-OBJECTIVE",
+                      "R-ACCEPTANCE",
+                      "R-CONSISTENCY"
+                    ]
+                  },
+                  "met": {
+                    "type": "boolean"
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 1500
+                  },
+                  "citations": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "statement_id": {
+                          "type": "string"
+                        },
+                        "quote": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 2000
+                        }
+                      },
+                      "required": [
+                        "statement_id",
+                        "quote"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "minItems": 1,
+                    "maxItems": 8
+                  }
+                },
+                "required": [
+                  "rule_id",
+                  "met",
+                  "reason",
+                  "citations"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 3,
+              "maxItems": 3
+            }
+          },
+          "required": [
+            "readiness",
+            "missing_requirement_ids",
+            "assessments"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "error": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "code": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "code"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "version",
+    "invocation_id",
+    "evidence_ref",
+    "terminal_disposition",
+    "task_result",
+    "error"
+  ],
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "terminal_disposition": {
+            "const": "success"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "task_result": {
+            "type": "object",
+            "properties": {
+              "readiness": {
+                "enum": [
+                  "ready",
+                  "needs_clarification"
+                ]
+              },
+              "missing_requirement_ids": {
+                "type": "array",
+                "items": {
+                  "enum": [
+                    "R-OBJECTIVE",
+                    "R-ACCEPTANCE",
+                    "R-CONSISTENCY"
+                  ]
+                },
+                "uniqueItems": true,
+                "maxItems": 3
+              },
+              "assessments": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "rule_id": {
+                      "enum": [
+                        "R-OBJECTIVE",
+                        "R-ACCEPTANCE",
+                        "R-CONSISTENCY"
+                      ]
+                    },
+                    "met": {
+                      "type": "boolean"
+                    },
+                    "reason": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 1500
+                    },
+                    "citations": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "statement_id": {
+                            "type": "string"
+                          },
+                          "quote": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          }
+                        },
+                        "required": [
+                          "statement_id",
+                          "quote"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "minItems": 1,
+                      "maxItems": 8
+                    }
+                  },
+                  "required": [
+                    "rule_id",
+                    "met",
+                    "reason",
+                    "citations"
+                  ],
+                  "additionalProperties": false
+                },
+                "minItems": 3,
+                "maxItems": 3
+              }
+            },
+            "required": [
+              "readiness",
+              "missing_requirement_ids",
+              "assessments"
+            ],
+            "additionalProperties": false
+          },
+          "error": {
+            "type": "null"
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "task_result": {
+            "type": "null"
+          },
+          "error": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "code"
+            ],
+            "additionalProperties": false
+          }
+        }
+      }
+    }
+  ]
+}

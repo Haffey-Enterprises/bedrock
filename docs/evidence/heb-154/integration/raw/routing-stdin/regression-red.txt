@@ -1,0 +1,59 @@
+.............EE........
+======================================================================
+ERROR: test_routing_subprocess_excludes_inherited_launcher_input (test_routing_adapter.RoutingAdapterResultTests.test_routing_subprocess_excludes_inherited_launcher_input) (mode='pipe')
+The CLI may reread a consumed regular fd or accept a pipe as user input.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/thaffey/.codex/worktrees/heb-154-integration/bedrock/tests/test_routing_adapter.py", line 107, in test_routing_subprocess_excludes_inherited_launcher_input
+    control = subprocess.run(
+        [str(executable), prompt], capture_output=True, text=True,
+        check=True, timeout=10, **stdin_args,
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 555, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 1039, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        pass_fds, cwd, env,
+                        ^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+                        gid, gids, uid, umask,
+                        ^^^^^^^^^^^^^^^^^^^^^^
+                        start_new_session, process_group)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 1990, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: '/var/folders/sw/1svfc1j50yb7tdd8_fb98v1m0000gn/T/tmp03b_b8h1/capture-cli'
+
+======================================================================
+ERROR: test_routing_subprocess_excludes_inherited_launcher_input (test_routing_adapter.RoutingAdapterResultTests.test_routing_subprocess_excludes_inherited_launcher_input) (mode='consumed_regular_file')
+The CLI may reread a consumed regular fd or accept a pipe as user input.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/thaffey/.codex/worktrees/heb-154-integration/bedrock/tests/test_routing_adapter.py", line 107, in test_routing_subprocess_excludes_inherited_launcher_input
+    control = subprocess.run(
+        [str(executable), prompt], capture_output=True, text=True,
+        check=True, timeout=10, **stdin_args,
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 555, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 1039, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        pass_fds, cwd, env,
+                        ^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+                        gid, gids, uid, umask,
+                        ^^^^^^^^^^^^^^^^^^^^^^
+                        start_new_session, process_group)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 1990, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: '/var/folders/sw/1svfc1j50yb7tdd8_fb98v1m0000gn/T/tmp03b_b8h1/capture-cli'
+
+----------------------------------------------------------------------
+Ran 22 tests in 0.007s
+
+FAILED (errors=2)

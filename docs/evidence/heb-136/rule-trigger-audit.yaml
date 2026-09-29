@@ -3,98 +3,98 @@ ticket: HEB-136
 status: complete
 counting_basis:
   ratified_at: 2026-08-26 ET
-  count_correction: >-
-    Direct review corrected 988 to 992 after the detector was found to fold
-    multi-digit ordered-list markers into prose; a regression test retains the
-    corrected behavior.
+  count_correction: Direct review corrected 988 to 992 after the detector was found to fold multi-digit
+    ordered-list markers into prose; a regression test retains the corrected behavior.
   carriers_examined: all Markdown carriers in the declared live population
-  semantic_unit_definition: >-
-    Deterministic Markdown screen units: paragraphs, list items, and substantive
-    table rows; front matter, headings, fenced code, blank lines, and table
-    separator rows are excluded.
-  finding_row_definition: >-
-    One row per actual internal-state-triggered normative rule. An empty finding
+  semantic_unit_definition: 'Deterministic Markdown screen units: paragraphs, list items, and substantive
+    table rows; front matter, headings, fenced code, blank lines, and table separator rows are excluded.'
+  finding_row_definition: One row per actual internal-state-triggered normative rule. An empty finding
     set is valid and does not imply that every semantic unit was a normative rule.
-  limit: >-
-    The semantic-unit count proves deterministic screen coverage, not an atomic
-    normative-rule count or infallible semantic classification.
-  last_refreshed_at: 2026-08-30 ET
-  last_refresh: >-
-    The HEB-131/HEB-143 relay changes add subject-bound, derived-population, and
-    discrimination rules; HEB-128 replaces the product-specific runner profile
-    with an external product-owned binding contract and binds runner-backed
-    claims to declared identities, compatible schemas, exact invocation, and
-    fresh gate evidence. These are observable workflow events and add no
-    internal-state finding. The Markdown and structured-file populations remain
-    unchanged. The aggregate HEB-128/HEB-131/HEB-143 work advances the
-    deterministic semantic-unit count from 1018 to 1026; the rc3 runner-proof
-    expansion adds five units. HEB-145 adds claim-subject discrimination and
-    silent-success counterfactual rules triggered by observable workflow events,
-    with no internal-state finding; those changes add eleven units, for a current
-    total of 1042.
+  limit: The semantic-unit count proves deterministic screen coverage, not an atomic normative-rule count
+    or infallible semantic classification.
+  last_refreshed_at: 2026-09-29 ET
+  last_refresh: 'HEB-154 delta review: new agent-builder workflow and agent-code mechanism/binding/install
+    references read whole. Dependency installation, parsing, dispatch, verification and handoff are observable
+    workflow events; executable identity/accounting checks cover the named mechanical claims. No new internal-state
+    finding. Unchanged carriers retain prior inspections, not a claimed new whole-corpus reread. Prior
+    ledger preserved under docs/evidence/heb-154/integration/prior-rule-trigger-audit.yaml.'
 scope:
   markdown_root: plugins/bedrock/skills
-  expected_markdown_carriers: 55
+  expected_markdown_carriers: 62
   markdown_carriers:
-    - plugins/bedrock/skills/agent-code/SKILL.md
-    - plugins/bedrock/skills/agent-code/reference/anthropic-python-profile.md
-    - plugins/bedrock/skills/agent-code/reference/mcp-server-authoring.md
-    - plugins/bedrock/skills/app-delivery-pipeline/SKILL.md
-    - plugins/bedrock/skills/app-delivery-pipeline/reference/01-pipeline-spine.md
-    - plugins/bedrock/skills/app-delivery-pipeline/reference/02-python-service-leg.md
-    - plugins/bedrock/skills/app-delivery-pipeline/reference/03-static-frontend-leg.md
-    - plugins/bedrock/skills/application-code/SKILL.md
-    - plugins/bedrock/skills/application-code/reference/01-code-structure.md
-    - plugins/bedrock/skills/application-code/reference/02-service-patterns.md
-    - plugins/bedrock/skills/application-code/reference/03-security-and-data.md
-    - plugins/bedrock/skills/application-code/reference/04-shell-scripts.md
-    - plugins/bedrock/skills/author-construct-spec/SKILL.md
-    - plugins/bedrock/skills/author-construct-spec/reference/lifecycle-and-evidence.md
-    - plugins/bedrock/skills/author-construct-spec/reference/worked-examples.md
-    - plugins/bedrock/skills/author-construct-spec/templates/construct-spec-template.md
-    - plugins/bedrock/skills/author-decision-record/SKILL.md
-    - plugins/bedrock/skills/author-decision-record/reference/lifecycle-and-relations.md
-    - plugins/bedrock/skills/author-decision-record/templates/adr-template.md
-    - plugins/bedrock/skills/author-decision-record/templates/ddr-template.md
-    - plugins/bedrock/skills/author-decision-record/templates/sdd-template.md
-    - plugins/bedrock/skills/author-execution-relay/SKILL.md
-    - plugins/bedrock/skills/author-execution-relay/reference/authorization-and-mutation.md
-    - plugins/bedrock/skills/author-execution-relay/templates/high-assurance-relay.md
-    - plugins/bedrock/skills/author-execution-relay/templates/small-relay.md
-    - plugins/bedrock/skills/author-execution-relay/templates/standard-relay.md
-    - plugins/bedrock/skills/author-standard/SKILL.md
-    - plugins/bedrock/skills/author-standard/reference/lifecycle-and-provenance.md
-    - plugins/bedrock/skills/code-review/SKILL.md
-    - plugins/bedrock/skills/code-review/reference/conformance-checklist.md
-    - plugins/bedrock/skills/code-review/templates/review-record.md
-    - plugins/bedrock/skills/debug/SKILL.md
-    - plugins/bedrock/skills/debug/templates/diagnosis-record.md
-    - plugins/bedrock/skills/design-review-loop/SKILL.md
-    - plugins/bedrock/skills/design-review-loop/reference/arbiter-classifier.md
-    - plugins/bedrock/skills/design-review-loop/reference/convergence-machinery.md
-    - plugins/bedrock/skills/design-review-loop/reference/product-runner-binding.md
-    - plugins/bedrock/skills/design-review-loop/reference/reviewer-instrument.md
-    - plugins/bedrock/skills/frontend-code/SKILL.md
-    - plugins/bedrock/skills/frontend-code/reference/01-haffey-react-vite-profile.md
-    - plugins/bedrock/skills/frontend-code/reference/02-components-state-and-prototype-promotion.md
-    - plugins/bedrock/skills/frontend-code/reference/03-responsive-accessibility-and-browser-support.md
-    - plugins/bedrock/skills/frontend-code/reference/04-media-permissions-and-runtime-capabilities.md
-    - plugins/bedrock/skills/frontend-code/reference/05-api-data-and-browser-security.md
-    - plugins/bedrock/skills/frontend-code/reference/06-production-readiness.md
-    - plugins/bedrock/skills/frontend-code/reference/testing.md
-    - plugins/bedrock/skills/infrastructure-code/SKILL.md
-    - plugins/bedrock/skills/infrastructure-code/reference/01-module-structure-and-style.md
-    - plugins/bedrock/skills/infrastructure-code/reference/02-gcp-conventions.md
-    - plugins/bedrock/skills/infrastructure-code/reference/03-state-and-environments.md
-    - plugins/bedrock/skills/infrastructure-code/reference/04-kubernetes-and-stateful-workloads.md
-    - plugins/bedrock/skills/infrastructure-code/reference/05-delivery-pipeline.md
-    - plugins/bedrock/skills/testing/SKILL.md
-    - plugins/bedrock/skills/testing/reference/nondeterministic-components.md
-    - plugins/bedrock/skills/testing/reference/test-authoring.md
+  - plugins/bedrock/skills/agent-builder/SKILL.md
+  - plugins/bedrock/skills/agent-builder/reference/README.md
+  - plugins/bedrock/skills/agent-builder/reference/installation.md
+  - plugins/bedrock/skills/agent-builder/shared/README.md
+  - plugins/bedrock/skills/agent-code/README.md
+  - plugins/bedrock/skills/agent-code/SKILL.md
+  - plugins/bedrock/skills/agent-code/reference/agent-core-0.2-binding.md
+  - plugins/bedrock/skills/agent-code/reference/anthropic-python-profile.md
+  - plugins/bedrock/skills/agent-code/reference/mcp-server-authoring.md
+  - plugins/bedrock/skills/agent-code/reference/mechanism-contract.md
+  - plugins/bedrock/skills/app-delivery-pipeline/SKILL.md
+  - plugins/bedrock/skills/app-delivery-pipeline/reference/01-pipeline-spine.md
+  - plugins/bedrock/skills/app-delivery-pipeline/reference/02-python-service-leg.md
+  - plugins/bedrock/skills/app-delivery-pipeline/reference/03-static-frontend-leg.md
+  - plugins/bedrock/skills/application-code/SKILL.md
+  - plugins/bedrock/skills/application-code/reference/01-code-structure.md
+  - plugins/bedrock/skills/application-code/reference/02-service-patterns.md
+  - plugins/bedrock/skills/application-code/reference/03-security-and-data.md
+  - plugins/bedrock/skills/application-code/reference/04-shell-scripts.md
+  - plugins/bedrock/skills/author-construct-spec/SKILL.md
+  - plugins/bedrock/skills/author-construct-spec/reference/lifecycle-and-evidence.md
+  - plugins/bedrock/skills/author-construct-spec/reference/worked-examples.md
+  - plugins/bedrock/skills/author-construct-spec/templates/construct-spec-template.md
+  - plugins/bedrock/skills/author-decision-record/SKILL.md
+  - plugins/bedrock/skills/author-decision-record/reference/lifecycle-and-relations.md
+  - plugins/bedrock/skills/author-decision-record/templates/adr-template.md
+  - plugins/bedrock/skills/author-decision-record/templates/ddr-template.md
+  - plugins/bedrock/skills/author-decision-record/templates/sdd-template.md
+  - plugins/bedrock/skills/author-execution-relay/SKILL.md
+  - plugins/bedrock/skills/author-execution-relay/reference/authorization-and-mutation.md
+  - plugins/bedrock/skills/author-execution-relay/templates/high-assurance-relay.md
+  - plugins/bedrock/skills/author-execution-relay/templates/small-relay.md
+  - plugins/bedrock/skills/author-execution-relay/templates/standard-relay.md
+  - plugins/bedrock/skills/author-standard/SKILL.md
+  - plugins/bedrock/skills/author-standard/reference/lifecycle-and-provenance.md
+  - plugins/bedrock/skills/code-review/SKILL.md
+  - plugins/bedrock/skills/code-review/reference/conformance-checklist.md
+  - plugins/bedrock/skills/code-review/templates/review-record.md
+  - plugins/bedrock/skills/debug/SKILL.md
+  - plugins/bedrock/skills/debug/templates/diagnosis-record.md
+  - plugins/bedrock/skills/design-review-loop/SKILL.md
+  - plugins/bedrock/skills/design-review-loop/reference/arbiter-classifier.md
+  - plugins/bedrock/skills/design-review-loop/reference/convergence-machinery.md
+  - plugins/bedrock/skills/design-review-loop/reference/product-runner-binding.md
+  - plugins/bedrock/skills/design-review-loop/reference/reviewer-instrument.md
+  - plugins/bedrock/skills/frontend-code/SKILL.md
+  - plugins/bedrock/skills/frontend-code/reference/01-haffey-react-vite-profile.md
+  - plugins/bedrock/skills/frontend-code/reference/02-components-state-and-prototype-promotion.md
+  - plugins/bedrock/skills/frontend-code/reference/03-responsive-accessibility-and-browser-support.md
+  - plugins/bedrock/skills/frontend-code/reference/04-media-permissions-and-runtime-capabilities.md
+  - plugins/bedrock/skills/frontend-code/reference/05-api-data-and-browser-security.md
+  - plugins/bedrock/skills/frontend-code/reference/06-production-readiness.md
+  - plugins/bedrock/skills/frontend-code/reference/testing.md
+  - plugins/bedrock/skills/infrastructure-code/SKILL.md
+  - plugins/bedrock/skills/infrastructure-code/reference/01-module-structure-and-style.md
+  - plugins/bedrock/skills/infrastructure-code/reference/02-gcp-conventions.md
+  - plugins/bedrock/skills/infrastructure-code/reference/03-state-and-environments.md
+  - plugins/bedrock/skills/infrastructure-code/reference/04-kubernetes-and-stateful-workloads.md
+  - plugins/bedrock/skills/infrastructure-code/reference/05-delivery-pipeline.md
+  - plugins/bedrock/skills/testing/SKILL.md
+  - plugins/bedrock/skills/testing/reference/nondeterministic-components.md
+  - plugins/bedrock/skills/testing/reference/test-authoring.md
   markdown_inspections:
+    plugins/bedrock/skills/agent-builder/SKILL.md: inspected
+    plugins/bedrock/skills/agent-builder/reference/README.md: inspected
+    plugins/bedrock/skills/agent-builder/reference/installation.md: inspected
+    plugins/bedrock/skills/agent-builder/shared/README.md: inspected
+    plugins/bedrock/skills/agent-code/README.md: inspected
     plugins/bedrock/skills/agent-code/SKILL.md: inspected
+    plugins/bedrock/skills/agent-code/reference/agent-core-0.2-binding.md: inspected
     plugins/bedrock/skills/agent-code/reference/anthropic-python-profile.md: inspected
     plugins/bedrock/skills/agent-code/reference/mcp-server-authoring.md: inspected
+    plugins/bedrock/skills/agent-code/reference/mechanism-contract.md: inspected
     plugins/bedrock/skills/app-delivery-pipeline/SKILL.md: inspected
     plugins/bedrock/skills/app-delivery-pipeline/reference/01-pipeline-spine.md: inspected
     plugins/bedrock/skills/app-delivery-pipeline/reference/02-python-service-leg.md: inspected
@@ -147,72 +147,78 @@ scope:
     plugins/bedrock/skills/testing/SKILL.md: inspected
     plugins/bedrock/skills/testing/reference/nondeterministic-components.md: inspected
     plugins/bedrock/skills/testing/reference/test-authoring.md: inspected
-  expected_structured_files: 30
+  expected_structured_files: 33
   structured_files:
-    - path: plugins/bedrock/skills/agent-code/PACKAGE_IDENTITY.json
-      inspection: inspected
-    - path: plugins/bedrock/skills/agent-code/reference/agent-execution.schema.json
-      inspection: inspected
-    - path: plugins/bedrock/skills/app-delivery-pipeline/PACKAGE_IDENTITY.json
-      inspection: inspected
-    - path: plugins/bedrock/skills/app-delivery-pipeline/reference/application-release-manifest.schema.json
-      inspection: inspected
-    - path: plugins/bedrock/skills/app-delivery-pipeline/reference/authority-provenance.yaml
-      inspection: inspected
-    - path: plugins/bedrock/skills/app-delivery-pipeline/reference/delivery-profile.schema.json
-      inspection: inspected
-    - path: plugins/bedrock/skills/application-code/PACKAGE_IDENTITY.json
-      inspection: inspected
-    - path: plugins/bedrock/skills/application-code/reference/application-service-profile.schema.json
-      inspection: inspected
-    - path: plugins/bedrock/skills/author-construct-spec/PACKAGE_IDENTITY.json
-      inspection: inspected
-    - path: plugins/bedrock/skills/author-decision-record/PACKAGE_IDENTITY.json
-      inspection: inspected
-    - path: plugins/bedrock/skills/author-decision-record/reference/record-relations.schema.json
-      inspection: inspected
-    - path: plugins/bedrock/skills/author-execution-relay/PACKAGE_IDENTITY.json
-      inspection: inspected
-    - path: plugins/bedrock/skills/author-execution-relay/reference/relay.schema.json
-      inspection: inspected
-    - path: plugins/bedrock/skills/author-standard/PACKAGE_IDENTITY.json
-      inspection: inspected
-    - path: plugins/bedrock/skills/code-review/PACKAGE_IDENTITY.json
-      inspection: inspected
-    - path: plugins/bedrock/skills/code-review/reference/review-result.schema.json
-      inspection: inspected
-    - path: plugins/bedrock/skills/debug/PACKAGE_IDENTITY.json
-      inspection: inspected
-    - path: plugins/bedrock/skills/debug/reference/diagnosis-record.schema.json
-      inspection: inspected
-    - path: plugins/bedrock/skills/design-review-loop/PACKAGE_IDENTITY.json
-      inspection: inspected
-    - path: plugins/bedrock/skills/design-review-loop/reference/design-review-result.schema.json
-      inspection: inspected
-    - path: plugins/bedrock/skills/frontend-code/PACKAGE_IDENTITY.json
-      inspection: inspected
-    - path: plugins/bedrock/skills/frontend-code/reference/authority-provenance.yaml
-      inspection: inspected
-    - path: plugins/bedrock/skills/frontend-code/reference/frontend-evidence.schema.json
-      inspection: inspected
-    - path: plugins/bedrock/skills/frontend-code/reference/frontend-profile.schema.json
-      inspection: inspected
-    - path: plugins/bedrock/skills/infrastructure-code/PACKAGE_IDENTITY.json
-      inspection: inspected
-    - path: plugins/bedrock/skills/infrastructure-code/reference/authority-provenance.yaml
-      inspection: inspected
-    - path: plugins/bedrock/skills/infrastructure-code/reference/infrastructure-apply-manifest.schema.json
-      inspection: inspected
-    - path: plugins/bedrock/skills/infrastructure-code/reference/infrastructure-profile.schema.json
-      inspection: inspected
-    - path: plugins/bedrock/skills/testing/PACKAGE_IDENTITY.json
-      inspection: inspected
-    - path: plugins/bedrock/skills/testing/reference/test-strategy.schema.json
-      inspection: inspected
+  - path: plugins/bedrock/skills/agent-builder/PACKAGE_IDENTITY.json
+    inspection: inspected
+  - path: plugins/bedrock/skills/agent-builder/assets/python/component.json
+    inspection: inspected
+  - path: plugins/bedrock/skills/agent-builder/reference/dependencies.json
+    inspection: inspected
+  - path: plugins/bedrock/skills/agent-code/PACKAGE_IDENTITY.json
+    inspection: inspected
+  - path: plugins/bedrock/skills/agent-code/reference/agent-execution.schema.json
+    inspection: inspected
+  - path: plugins/bedrock/skills/app-delivery-pipeline/PACKAGE_IDENTITY.json
+    inspection: inspected
+  - path: plugins/bedrock/skills/app-delivery-pipeline/reference/application-release-manifest.schema.json
+    inspection: inspected
+  - path: plugins/bedrock/skills/app-delivery-pipeline/reference/authority-provenance.yaml
+    inspection: inspected
+  - path: plugins/bedrock/skills/app-delivery-pipeline/reference/delivery-profile.schema.json
+    inspection: inspected
+  - path: plugins/bedrock/skills/application-code/PACKAGE_IDENTITY.json
+    inspection: inspected
+  - path: plugins/bedrock/skills/application-code/reference/application-service-profile.schema.json
+    inspection: inspected
+  - path: plugins/bedrock/skills/author-construct-spec/PACKAGE_IDENTITY.json
+    inspection: inspected
+  - path: plugins/bedrock/skills/author-decision-record/PACKAGE_IDENTITY.json
+    inspection: inspected
+  - path: plugins/bedrock/skills/author-decision-record/reference/record-relations.schema.json
+    inspection: inspected
+  - path: plugins/bedrock/skills/author-execution-relay/PACKAGE_IDENTITY.json
+    inspection: inspected
+  - path: plugins/bedrock/skills/author-execution-relay/reference/relay.schema.json
+    inspection: inspected
+  - path: plugins/bedrock/skills/author-standard/PACKAGE_IDENTITY.json
+    inspection: inspected
+  - path: plugins/bedrock/skills/code-review/PACKAGE_IDENTITY.json
+    inspection: inspected
+  - path: plugins/bedrock/skills/code-review/reference/review-result.schema.json
+    inspection: inspected
+  - path: plugins/bedrock/skills/debug/PACKAGE_IDENTITY.json
+    inspection: inspected
+  - path: plugins/bedrock/skills/debug/reference/diagnosis-record.schema.json
+    inspection: inspected
+  - path: plugins/bedrock/skills/design-review-loop/PACKAGE_IDENTITY.json
+    inspection: inspected
+  - path: plugins/bedrock/skills/design-review-loop/reference/design-review-result.schema.json
+    inspection: inspected
+  - path: plugins/bedrock/skills/frontend-code/PACKAGE_IDENTITY.json
+    inspection: inspected
+  - path: plugins/bedrock/skills/frontend-code/reference/authority-provenance.yaml
+    inspection: inspected
+  - path: plugins/bedrock/skills/frontend-code/reference/frontend-evidence.schema.json
+    inspection: inspected
+  - path: plugins/bedrock/skills/frontend-code/reference/frontend-profile.schema.json
+    inspection: inspected
+  - path: plugins/bedrock/skills/infrastructure-code/PACKAGE_IDENTITY.json
+    inspection: inspected
+  - path: plugins/bedrock/skills/infrastructure-code/reference/authority-provenance.yaml
+    inspection: inspected
+  - path: plugins/bedrock/skills/infrastructure-code/reference/infrastructure-apply-manifest.schema.json
+    inspection: inspected
+  - path: plugins/bedrock/skills/infrastructure-code/reference/infrastructure-profile.schema.json
+    inspection: inspected
+  - path: plugins/bedrock/skills/testing/PACKAGE_IDENTITY.json
+    inspection: inspected
+  - path: plugins/bedrock/skills/testing/reference/test-strategy.schema.json
+    inspection: inspected
 findings: []
 counts:
-  carriers_examined: 55
-  semantic_units_screened: 1042
+  carriers_examined: 62
+  semantic_units_screened: 1162
   internal_state_rules: 0
   converted_to_instrument: 0
   external_detector: 0
