@@ -1,5 +1,5 @@
 {
-  "status": "Local component qualification complete; commit/PR preparation checkpoint, pending required CI and composed acceptance",
+  "status": "PR53 open; first CI blocked by hashless offline fixture lock; corrected lock verified locally, fresh CI pending",
   "date": "2026-09-29",
   "source_base": "2ab76b447cdb1a975c801e6833682c0c1f94cef0",
   "branch": "codex/heb-154-integration",
@@ -102,10 +102,19 @@
       ],
       "count": 26,
       "limit": "Seeded validator methods overlap the 178 repository methods"
+    },
+    "fixture_hash_lock_repair": {
+      "result": "confirmed locally",
+      "evidence": [
+        "ci-lock-diagnosis.json",
+        "raw/ci-lock-repair/results.json",
+        "raw/ci-lock-repair/hash-provenance.json"
+      ],
+      "limit": "Linux3.13 wheel resolution and fresh Mac3.14 installation/offline91; actual corrected CI pending"
     }
   },
   "pending": [
-    "Commit/PR and required CI, including the reserved single PR routing run (max USD3, no automatic rerun)",
+    "Required CI on the corrected head, including the unused reserved single PR routing run (max USD3, no automatic live rerun)",
     "Composed HEB-161 candidate, including its other listed components, and HEB-119 cold acceptance before merge",
     "Explicit proceed, accepted landing parity, immutable release and supported-surface rollout"
   ],
@@ -114,8 +123,8 @@
     "Frontend browser/dependency and complete GitHub CI gates have not run in this integration session.",
     "Historical 8-case specialist trial is exhausted and has not been repeated.",
     "Codex/Claude.ai execution is not inferred from Claude Code local proofs.",
-    "No commit, PR, merge, tag, release or production plugin update yet.",
-    "The interrupted first routing run remains ineligible and is not pooled with the passing replacement. Its interrupted-call final usage remains unknown."
+    "The interrupted first routing run remains ineligible and is not pooled with the passing replacement. Its interrupted-call final usage remains unknown.",
+    "PR53 exists; no merge, tag, release or production plugin update. First CI failure retained, corrected-head CI pending."
   ],
   "routing": {
     "first_attempt": {
@@ -150,5 +159,14 @@
       "HEB-154": "24e29e69-be2a-4d8c-bebd-47c8b5b4931d",
       "HEB-161": "08f3a8c3-ae52-4dd7-ac8a-bc9b56155e00"
     }
+  },
+  "pull_request": "https://github.com/T-Bone-Haff/bedrock/pull/53",
+  "initial_commit": "540b557492d19845524cbbc2f17fbea380de62cc",
+  "ci_first_attempt": {
+    "run": 36612113581,
+    "source_commit": "540b557492d19845524cbbc2f17fbea380de62cc",
+    "deterministic": "failed: fixture requires hashes but old lock was version-only",
+    "core-minimum": "passed",
+    "live-routing": "skipped; allowance unused"
   }
 }

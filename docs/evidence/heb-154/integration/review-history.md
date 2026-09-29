@@ -37,3 +37,16 @@ removing only DEVNULL caused both expected contamination failures. No findings;
 narrow repair approved. Review did not replay the actual CLI capture, inspect
 host settings, or independently reconcile original live-run billing. The broader
 release verdict remains pause. See routing-repair-review.json and routing-diagnosis.json.
+
+## CI fixture lock repair review
+
+Independent reviewer approved unchanged-version hash completion. Every one of
+20 pinned versions, 368 wheel hashes, six shared-core dependency hash sets and
+20 downloaded Linux wheels was mechanically checked against prior source and
+fresh exact-version PyPI metadata. All 28 active Python3.13 dependency edges
+were checked. Human reads covered normalized populations, complete repair logs
+and diagnosis; full CI log was mechanically loaded, with human review of the
+relevant failure/install lines. Fresh local installation,91 offline tests, pip
+check and wrong-hash refusal were retained author proofs, not reviewer reruns.
+No findings. Native CI remains pending. No provider call or repository edit by
+the reviewer. See ci-lock-review.json and ci-lock-diagnosis.json.

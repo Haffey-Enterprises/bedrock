@@ -1,6 +1,6 @@
 {
   "base": "2ab76b447cdb1a975c801e6833682c0c1f94cef0",
-  "status": "Exact final local qualification paths reconciled before commit; excludes this manifest itself. Source unchanged throughout replacement evaluation.",
+  "status": "Exact component paths after independently reviewed CI fixture lock repair; distributed and routing bytes unchanged from passing release evaluation. Native corrected CI pending.",
   "date": "2026-09-29",
   "paths": [
     {
@@ -89,6 +89,16 @@
       "basis": "Repository-only integration validation, diagnosis, review or retained first-failure evidence"
     },
     {
+      "path": "docs/evidence/heb-154/integration/ci-lock-diagnosis.json",
+      "sha256": "cf5297da9d13ade0f5be422f9b51517a8e166322baecfa34c362e2e4ff520e4a",
+      "basis": "Retained first CI failure, dependency-lock repair proof, diagnosis or independent review"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/ci-lock-review.json",
+      "sha256": "9a42bf0e471a0cd7a6b551daa37c1adb973299a03ef8fdfa46ab98655306e609",
+      "basis": "Retained first CI failure, dependency-lock repair proof, diagnosis or independent review"
+    },
+    {
       "path": "docs/evidence/heb-154/integration/distribution-clarification.md",
       "sha256": "5f0d50e79cbf6ce48a5627e235a794ac279b5b836049214b7d1b408a6619ac2d",
       "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
@@ -110,7 +120,7 @@
     },
     {
       "path": "docs/evidence/heb-154/integration/integration-result.json",
-      "sha256": "688ef17712f31e7ff2f4ba3a86346c01636a4fe14f2df5cfc89ff3b767f70df6",
+      "sha256": "ef07eb107fc9bf5f4c6a912ad49bc68fbd728ddc349f45b2e6701122b654432b",
       "basis": "Repository-only integration validation, diagnosis, review or retained first-failure evidence"
     },
     {
@@ -142,6 +152,76 @@
       "path": "docs/evidence/heb-154/integration/raw/build-check.txt",
       "sha256": "efdea99414cf5c911351eb0c3ef4566ef4b90898334f0f9add84d209106845ad",
       "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/ci-lock-repair/clean-core.txt",
+      "sha256": "4e4b62ee118ac29665541b4dd11cd4407528986714bf7bea8c20cdd3def7e249",
+      "basis": "Retained first CI failure, dependency-lock repair proof, diagnosis or independent review"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/ci-lock-repair/clean-fixture-install.txt",
+      "sha256": "a460e3c9635b70c9f38def405f10b33f985b32c9f929f210aa7dcefef894de7f",
+      "basis": "Retained first CI failure, dependency-lock repair proof, diagnosis or independent review"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/ci-lock-repair/first-ci-job.log.gz",
+      "sha256": "3a3e319852eb1b48d2a40f0710eb969e2bcc7a82a0c945de923f7b1799d003a3",
+      "basis": "Retained first CI failure, dependency-lock repair proof, diagnosis or independent review"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/ci-lock-repair/first-ci-status.json",
+      "sha256": "4cbca0c54daddb99d0d98f785f15ccb5104b3976e1020411ef13c7c3fdc48e8e",
+      "basis": "Retained first CI failure, dependency-lock repair proof, diagnosis or independent review"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/ci-lock-repair/hash-provenance.json",
+      "sha256": "7077635e76608b7142a9b0205e190411f5abd9e4bd7aaa198baceddc2a9e8c5a",
+      "basis": "Retained first CI failure, dependency-lock repair proof, diagnosis or independent review"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/ci-lock-repair/linux-resolution.txt",
+      "sha256": "27e7c4ce73432cc1fe426883b1046ed6e95ee857d03328bef403eec2d5daf66f",
+      "basis": "Retained first CI failure, dependency-lock repair proof, diagnosis or independent review"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/ci-lock-repair/offline-run.txt",
+      "sha256": "4cc9ff2e76150ee10accf000c36478745f43b8ade0266595211271c51dd1646a",
+      "basis": "Retained first CI failure, dependency-lock repair proof, diagnosis or independent review"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/ci-lock-repair/pip-check.txt",
+      "sha256": "9261363b733079a641c2e4cc9bc46ffa1d8336945a87f807b6cf68847dbc9b09",
+      "basis": "Retained first CI failure, dependency-lock repair proof, diagnosis or independent review"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/ci-lock-repair/requirements-before.txt",
+      "sha256": "09c787394f292d926bb28797eff759c4a24c24a32753b98aad9ac954c6082f37",
+      "basis": "Retained first CI failure, dependency-lock repair proof, diagnosis or independent review"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/ci-lock-repair/results.json",
+      "sha256": "f53f65a457e70ebee990b105774d9fcdb44f9459043e51166e0e1fe10ff5f992",
+      "basis": "Retained first CI failure, dependency-lock repair proof, diagnosis or independent review"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/ci-lock-repair/strict-after-repair.txt",
+      "sha256": "1fe24f0a5fb0a46c1a3f2bbad951b4fd11cf3e5bd67e088140a51c47b07b1221",
+      "basis": "Retained first CI failure, dependency-lock repair proof, diagnosis or independent review"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/ci-lock-repair/test-tool-install.txt",
+      "sha256": "e274f69560a8ab1fb81caaa39ef0be97f36187ddee57cd4f962f4bf08d55827b",
+      "basis": "Retained first CI failure, dependency-lock repair proof, diagnosis or independent review"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/ci-lock-repair/wrong-hash-control.txt",
+      "sha256": "315803b7f20098af2bc0f50f4be2e166136b5d769084f997a1236eb6d6dcdf5e",
+      "basis": "Retained first CI failure, dependency-lock repair proof, diagnosis or independent review"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/ci-lock-repair/wrong-hash.txt",
+      "sha256": "7d2f03e096e2d06294f8380b648a7bc72309c7a4ab6b13e70976760e5f108273",
+      "basis": "Retained first CI failure, dependency-lock repair proof, diagnosis or independent review"
     },
     {
       "path": "docs/evidence/heb-154/integration/raw/clean-core-310-repair/clean-install.txt",
@@ -595,7 +675,7 @@
     },
     {
       "path": "docs/evidence/heb-154/integration/review-history.md",
-      "sha256": "346c1cecacd372723618a51e14fbe0c3c8effb4af28d1d1012b0219e8f90379c",
+      "sha256": "8ef37272bc5daf1ac06138c52dc465e3883724d8843100b4e23c26c60bf9e527",
       "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
     },
     {
@@ -1025,8 +1105,8 @@
     },
     {
       "path": "tests/fixtures/agent-readiness/requirements-lock.txt",
-      "sha256": "09c787394f292d926bb28797eff759c4a24c24a32753b98aad9ac954c6082f37",
-      "basis": "Preserve SDK binding, accounting, persistence and sanitization regression controls; test-only consumer"
+      "sha256": "02986a8373694e82cf8b3aa5cb4b66c555c82bd4fdad227c0c84b815c721ffac",
+      "basis": "Accepted version pins plus verified published-wheel hashes for existing CI --require-hashes contract; no version change"
     },
     {
       "path": "tests/fixtures/agent-readiness/requirements.txt",
