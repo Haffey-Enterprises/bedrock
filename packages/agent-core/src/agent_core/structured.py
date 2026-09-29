@@ -218,10 +218,13 @@ def _collect_candidates(raw_text: str, *, allow_salvage: bool,
                         best_effort: bool, max_candidates: int, max_depth: int) -> list[_Candidate]:
     # Successful whole decoding is authoritative, even if schema-invalid.
     # Never extract a nested object from an invalid whole payload.
-    def candidate(start, end, path):
+    def normalized_span(start, end):
         text = raw_text[start:end]
         start += len(text) - len(text.lstrip())
-        end -= len(text) - len(text.rstrip())
+        return start, start + len(text.strip())
+
+    def candidate(start, end, path):
+        start, end = normalized_span(start, end)
         # Each source occurrence has its own string state; prose quotes must
         # never mask nesting inside an extracted candidate.
         _check_depth(raw_text[start:end], max_depth)
@@ -249,9 +252,14 @@ def _collect_candidates(raw_text: str, *, allow_salvage: bool,
              for m in _FENCE_RE.finditer(raw_text)]
     spans += [(a, b, ParsePath.SALVAGE_FIRST_OBJECT)
               for a, b in _extract_all_object_spans(raw_text)]
-    if len(spans) > max_candidates:
-        _fail("candidate_limit")
+    # Deduplicate source occurrences before bounding or decoding. Fence paths
+    # take precedence; malformed unique spans still consume the finite bound.
+    unique_spans = {}
     for start, end, path in spans:
+        unique_spans.setdefault(normalized_span(start, end), path)
+        if len(unique_spans) > max_candidates:
+            _fail("candidate_limit")
+    for (start, end), path in unique_spans.items():
         item = candidate(start, end, path)
         if item is not None:
             by_span.setdefault(item.span, item)

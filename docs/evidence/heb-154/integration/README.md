@@ -1,6 +1,11 @@
 # HEB-154 integration evidence
 
 This is repository history, outside the Bedrock plugin distribution.
+The local core repair and its qualification limits are recorded in
+`core-repair/result.json`; its first failures and deterministic checks are under
+`core-repair/`. Earlier checkpoints (including `integration-result.json`,
+`scope-reconciliation.json`, and the routing status below) retain their original
+subjects. They do not qualify the repaired wheel or authorize another live run.
 `distribution-clarification.md` supersedes initial D1–D6 proposals in
 `integration-map.md`; the map also reconciles the fourteen original AC2 obligations.
 

@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "date": "2026-09-29",
+  "clock": "America/New_York; native shell",
+  "status": "Local deterministic repair qualified; independent finished-delta review is a separate review.json gate before local commit. No composed release acceptance.",
+  "baseline_commit": "dec05792cc59ebb9b3feb5b01a3466036e748212",
+  "branch": "codex/heb-154-integration",
+  "package_version": "10.0.0",
+  "core_version": "0.2.0",
+  "wheel_sha256": "215673be310d4f2ab9ea20c4119978a608f07507b8fbd6ea54d17a3dfb7da895",
+  "version_disposition": "Compatible corrections to the existing unreleased candidate. The four existing commits and their package major bump remain unchanged. No public mechanism contract or dependency version change. Component source/wheel digests change; regenerated package carriers are byte-identical because their manifest authority is unchanged.",
+  "migration": "none for the unreleased candidate; explicit project installation at the eventual accepted revision remains required.",
+  "proof": "manifest.json binds all subject bytes and proof.tar.gz members; diagnosis.json supplies causal controls.",
+  "checks": {
+    "regression_before": {
+      "failed": 19,
+      "passed": 34,
+      "scope": "New test_integer_budget_and_span_limits.py only; failures are expected first-failure evidence"
+    },
+    "regression_after": {
+      "passed": 53,
+      "scope": "Same new test file"
+    },
+    "core": {
+      "passed_per_run": 110,
+      "scope": "Complete packages/agent-core/tests directory, source on Python 3.14.6 and installed wheels on Python 3.10.20/3.14.6"
+    },
+    "offline_specialist": {
+      "passed": 91,
+      "scope": "Complete tests/fixtures/agent-readiness/tests via synthetic/mock transports"
+    },
+    "repository": {
+      "passed": 178,
+      "scope": "unittest discover -s tests; includes local Docker/Terraform fixtures and seeded strict-validator controls; excludes separate frontend npm/browser gates"
+    },
+    "source_wheel_parity": "passed reproducible rebuild and runtime member population equality",
+    "clean_install": "passed on 3.10.20 and 3.14.6 with missing install, corrupt installed source, corrupt bundled wheel and restored installation controls",
+    "strict_package": "passed validate_plugin.py with retained routing-evidence verification and host 2.1.284; strict plugin validation also passed on 2.1.226",
+    "package_governance": "passed; complete repository suite includes seeded negative governance controls",
+    "identity_carriers": "14 regenerated and checked; no byte changes",
+    "diff": "git diff --check passed; final staged check required before commit"
+  },
+  "warnings": [
+    "Python 3.10 pytest emitted one shared temporary-directory cleanup warning; all 110 tests passed. Raw warning preserved in 310-core-installed.txt."
+  ],
+  "qualification_limits": [
+    "Counts cover distinct overlapping populations and must not be summed as unique coverage.",
+    "Historical accepted-trial files, first failures, routing reports and previous scope/qualification records remain unchanged. They retain their original subjects.",
+    "Routing catalog, fixtures, policy and adapter bytes are unchanged; strict validation checked retained evidence against them. No live routing or specialist call was invoked. Historical routing success does not qualify the repaired full package.",
+    "No Linux CI, frontend npm/browser gate, plugin install/reload or composed HEB-161 cold acceptance was rerun for this local core repair. Full core and clean-install controls cover native macOS on the named interpreters."
+  ],
+  "review": "review.json (independent reviewer; separate from author qualification)",
+  "handoff": "Commit the reviewed repair once locally on the existing branch. HEB-161 must compose the corrected commit with its other components and qualify one frozen candidate. PR #53 stays draft historical/component carrier at baseline; pushing it would invoke live routing and is forbidden.",
+  "read_depth": {
+    "issues": "Fresh whole HEB-154 and HEB-161 descriptions plus complete connector comment populations (11 and 6; hasNextPage=false). Linked attachment contents excluded.",
+    "pr": "Fresh metadata/body for PR #53 at baseline; no full PR diff review claimed.",
+    "authority": "Whole AGENTS.md, repository orientation, relevant debug/agent-code/testing/code-review skills, mechanism contract and package lifecycle. Historical scope manifest mechanically verified whole against baseline (274 entries); not manually read whole.",
+    "offline_artifacts": "Complete file population captured and byte-verified; fixture record bodies mechanically scanned, not manually read whole."
+  }
+}

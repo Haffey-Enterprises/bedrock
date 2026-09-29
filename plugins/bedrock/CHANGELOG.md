@@ -5,6 +5,10 @@ records candidate and released changes; a version heading is not release proof.
 
 ## 10.0.0 — bounded agent construction candidate
 
+- Reject fractional token usage and integer budget limits instead of truncating
+  them. Bound best-effort parser candidates by unique normalized source spans,
+  including malformed occurrences, while preserving fence-path precedence.
+
 - Clarify that author-execution-relay routes requests to author executor-facing
   handoffs; direct implementation, build, and deploy tasks retain their domain
   owner even when gated. Routing fixtures and thresholds remain unchanged.

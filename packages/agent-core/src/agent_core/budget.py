@@ -29,13 +29,15 @@ class BudgetExhausted(Exception):
 
 
 def _require_usage_int(name: str, value: int | float) -> int:
-    """Finite nonnegative int for consumption; raises ValueError otherwise."""
+    """Finite nonnegative integer value; raises ValueError otherwise."""
     if isinstance(value, bool) or not isinstance(value, (int, float)):
         raise ValueError(f"{name} must be a number, got {type(value).__name__}")
     if isinstance(value, float) and not math.isfinite(value):
         raise ValueError(f"{name} must be finite, got {value!r}")
     if value < 0:
         raise ValueError(f"{name} must be >= 0, got {value!r}")
+    if isinstance(value, float) and not value.is_integer():
+        raise ValueError(f"{name} must be an integer, got {value!r}")
     return int(value)
 
 
@@ -118,15 +120,12 @@ class Budget:
     _started_at: float = field(default_factory=time.monotonic, init=False, repr=False)
 
     def __post_init__(self) -> None:
-        _require_finite_nonneg("max_model_attempts", self.max_model_attempts)
-        _require_finite_nonneg("max_tool_iterations", self.max_tool_iterations)
-        _require_finite_nonneg("max_tokens", self.max_tokens)
         _require_finite_nonneg("max_spend", self.max_spend)
         _require_finite_nonneg("max_wall_seconds", self.max_wall_seconds)
-        # ints that arrived as floats
-        object.__setattr__(self, "max_model_attempts", int(self.max_model_attempts))
-        object.__setattr__(self, "max_tool_iterations", int(self.max_tool_iterations))
-        object.__setattr__(self, "max_tokens", int(self.max_tokens))
+        # Accept integral floats, but never truncate fractional limits.
+        object.__setattr__(self, "max_model_attempts", _require_usage_int("max_model_attempts", self.max_model_attempts))
+        object.__setattr__(self, "max_tool_iterations", _require_usage_int("max_tool_iterations", self.max_tool_iterations))
+        object.__setattr__(self, "max_tokens", _require_usage_int("max_tokens", self.max_tokens))
 
     def snapshot(self) -> BudgetSnapshot:
         elapsed = time.monotonic() - self._started_at

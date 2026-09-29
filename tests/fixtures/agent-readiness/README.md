@@ -12,8 +12,10 @@ The runner removes API credentials; SDK tests use an in-memory HTTP transport.
 
 Adaptations: installed-wheel bootstrap and hash verification, explicit temporary
 evidence root and hygiene input, portable interpreter selection, core-compatible
-rpds-py/typing-extensions pins. Core and adapter mechanisms remain the accepted
-source except these integration bindings. The historical build trace, first
-failures, live results and original source identities are retained separately in
-HEB-154 repository integration evidence and the immutable accepted-trial archive.
+rpds-py/typing-extensions pins. Adapter mechanisms retain the accepted source
+apart from these integration bindings. Tests exercise the installed candidate
+core; its later budget and parser repairs are qualified separately in
+`docs/evidence/heb-154/integration/core-repair/`. The historical build trace,
+first failures, live results and original source identities remain in HEB-154
+repository integration evidence and the immutable accepted-trial archive.
 These offline checks do not rerun or extend the accepted eight-case live trial.
