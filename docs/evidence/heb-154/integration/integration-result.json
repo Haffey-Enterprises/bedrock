@@ -1,5 +1,5 @@
 {
-  "status": "PR53 open; first CI blocked by hashless offline fixture lock; corrected lock verified locally, fresh CI pending",
+  "status": "Revised relay catalog release qualified 189/189; final source publication and single authorized PR evaluation pending",
   "date": "2026-09-29",
   "source_base": "2ab76b447cdb1a975c801e6833682c0c1f94cef0",
   "branch": "codex/heb-154-integration",
@@ -90,41 +90,35 @@
       "limit": "Offline transport isolation; does not establish live routing quality"
     },
     "release_routing": {
-      "result": "confirmed",
-      "evidence": "raw/routing-replacement/verification.json",
-      "limit": "This exact component catalog, fixtures, policy, adapter and model; does not establish broader reliability or composed acceptance"
+      "result": "confirmed on revised relay catalog",
+      "evidence": "raw/relay-qualification/release-verification.json",
+      "limit": "One complete release evaluation; not broader reliability or composed acceptance"
     },
     "strict_current_evidence": {
       "result": "confirmed",
-      "evidence": [
-        "raw/routing-replacement/replacement-strict-validation.txt",
-        "raw/routing-replacement/replacement-evidence-tests.txt"
-      ],
-      "count": 26,
-      "limit": "Seeded validator methods overlap the 178 repository methods"
+      "evidence": "raw/relay-qualification/final-strict-validation.json"
     },
     "fixture_hash_lock_repair": {
-      "result": "confirmed locally",
+      "result": "confirmed locally and corrected-head Linux CI",
       "evidence": [
         "ci-lock-diagnosis.json",
         "raw/ci-lock-repair/results.json",
         "raw/ci-lock-repair/hash-provenance.json"
       ],
-      "limit": "Linux3.13 wheel resolution and fresh Mac3.14 installation/offline91; actual corrected CI pending"
+      "limit": "Corrected-head deterministic CI passed in run 36613553576; later description-only candidate not pushed"
     }
   },
   "pending": [
-    "Required CI on the corrected head, including the unused reserved single PR routing run (max USD3, no automatic live rerun)",
+    "Commit/push qualified revised-relay candidate once; one authorized PR evaluation maximum USD3 without retry",
     "Composed HEB-161 candidate, including its other listed components, and HEB-119 cold acceptance before merge",
     "Explicit proceed, accepted landing parity, immutable release and supported-surface rollout"
   ],
   "limitations": [
     "Counts name separate overlapping populations; do not sum as unique coverage.",
-    "Frontend browser/dependency and complete GitHub CI gates have not run in this integration session.",
     "Historical 8-case specialist trial is exhausted and has not been repeated.",
     "Codex/Claude.ai execution is not inferred from Claude Code local proofs.",
     "The interrupted first routing run remains ineligible and is not pooled with the passing replacement. Its interrupted-call final usage remains unknown.",
-    "PR53 exists; no merge, tag, release or production plugin update. First CI failure retained, corrected-head CI pending."
+    "Prior-head deterministic/minimum CI passed; PR routing failed 62/63. No further push, merge, tag, release or production update."
   ],
   "routing": {
     "first_attempt": {
@@ -146,9 +140,29 @@
       "reported_cost_usd": 1.853696,
       "eligible": true,
       "automatic_retry": false,
-      "evidence": "raw/routing-replacement/routing-release-replacement-1.json"
+      "evidence": "raw/routing-replacement/routing-release-replacement-1.json",
+      "qualifies_current_catalog": false
     },
-    "pr_allowance": "one reserved run, max USD3, not launched at this checkpoint"
+    "pr_allowance": "consumed once: run 36613553576, 62/63, USD0.586343",
+    "pr_result": {
+      "head": "2d1cd0d949b1691568afdc99b2f036c2c99be158",
+      "passed": 62,
+      "total": 63,
+      "cost_usd": 0.586343,
+      "gate": "failed",
+      "evidence": "raw/relay-clarification/prior-pr-routing-results.json"
+    },
+    "relay_clarification": {
+      "cases": 63,
+      "draws": 189,
+      "passed": 189,
+      "reported_cost_usd": 1.822348,
+      "excluded_selections": 0,
+      "eligible": true,
+      "catalog_sha256": "2818b491baddff723354eb6dbb54827f9049f6c5df640c85d72a64097ae7734f",
+      "evidence": "raw/relay-qualification/routing-release-relay-1.json"
+    },
+    "new_pr_allowance": "approved; not started; maximum USD3, no automatic retry"
   },
   "tracker_updates": {
     "status": "approved original comments posted",
@@ -168,5 +182,6 @@
     "deterministic": "failed: fixture requires hashes but old lock was version-only",
     "core-minimum": "passed",
     "live-routing": "skipped; allowance unused"
-  }
+  },
+  "current_checkpoint": "relay-clarification.json"
 }

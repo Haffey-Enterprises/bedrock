@@ -3,10 +3,10 @@
   "captured_at": "2026-09-29",
   "source_commit_baseline": "2ab76b447cdb1a975c801e6833682c0c1f94cef0",
   "measurement": {
-    "catalog_description_characters": 7270,
-    "skill_entrypoint_words": 11964,
-    "projected_always_on_tokens": 1902,
-    "host_measurement": "claude 2.1.284 plugin details bedrock@bedrock; isolated HEB-154 candidate install",
+    "catalog_description_characters": 7331,
+    "skill_entrypoint_words": 11972,
+    "projected_always_on_tokens": 1918,
+    "host_measurement": "claude 2.1.284 plugin details bedrock@bedrock; isolated revised-relay candidate install",
     "routing_population": "189/189 with 0 excluded selections"
   },
   "skills": [
@@ -42,8 +42,8 @@
     },
     {
       "name": "author-execution-relay",
-      "description_characters": 586,
-      "entrypoint_words": 1144
+      "description_characters": 647,
+      "entrypoint_words": 1152
     },
     {
       "name": "author-standard",
@@ -81,5 +81,5 @@
       "entrypoint_words": 850
     }
   ],
-  "limitations": "Current HEB-154 component candidate: complete release-profile routing on Claude Code 2.1.226; package context measured separately on isolated Claude Code 2.1.284. Does not establish composed-package acceptance or other supported-surface execution."
+  "limitations": "Revised relay catalog: full release evaluation passed 189/189 with no excluded selections on Claude Code 2.1.226. Isolated install/reload also passed on 2.1.284; host token measurement is from that host. Independent PR evaluation and composed-package acceptance remain pending."
 }

@@ -1,0 +1,27 @@
+{
+  "status": "approved; launching once",
+  "authorized_by": "Tad: approved, in response to the new-catalog maximum USD6 release-plus-PR envelope",
+  "started_at_eastern": "2026-09-29T15:25:13-0400",
+  "source_parent": "2d1cd0d949b1691568afdc99b2f036c2c99be158",
+  "staged_tree": "af7c873025b18a553964398705086aef2457b8fe",
+  "identity": {
+    "catalog_sha256": "2818b491baddff723354eb6dbb54827f9049f6c5df640c85d72a64097ae7734f",
+    "fixture_sha256": "ffa8329b6b554d702293b7c746198c706016ee31125992e6a9db8af20e109188",
+    "policy_sha256": "4e3aedf467f4d353a9903a31f8dfd3fa9224f01eb449a473051177b5f626b67d",
+    "harness_sha256": "b363cdccde9090de91c514879d639396e13a7763900953bf5cde96c40fb6aab8",
+    "payload_sha256": "ceb73fdcdfcbb7562a2495d3a1cd23e33113ef91f35f6d85caac33ead280a999"
+  },
+  "profile": "release",
+  "cases": 63,
+  "draws_per_case": 3,
+  "planned_draws": 189,
+  "max_total_budget_usd": 3.0,
+  "max_budget_usd_per_draw": 0.06,
+  "timeout_seconds_per_draw": 120,
+  "automatic_retries": false,
+  "cli_version": "2.1.226 (Claude Code)",
+  "stdin": "DEVNULL at launcher and Claude child",
+  "isolated_config": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/relay-clarification/routing-release-relay-1-host",
+  "credential_handling": "Existing exact Anthropic keychain item read into child environment only; not printed or persisted",
+  "pr_allowance": "one run maximum USD3, only after release pass and publication gates"
+}

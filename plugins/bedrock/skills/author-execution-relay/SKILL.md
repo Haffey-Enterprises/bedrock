@@ -1,6 +1,6 @@
 ---
 name: author-execution-relay
-description: "Executor prompts and handoffs only; every gated instruction sent to Code or another executor routes here, never to app-delivery-pipeline, even when it mentions delivery gates or starts from a construct spec. Use this skill to author an execution relay, implementation handoff, or session kickoff that delegates bounded file and git toil while reserving judgment and per-gate ratification for the operator. Here Code means the executor, not application source code. Do not use this to perform implementation, write a general design record or reusable standard, or review a finished diff."
+description: "Authoring executor prompts and handoffs only. Use this skill when the requested deliverable is a gated instruction, execution relay, implementation handoff, or session kickoff for Code or another executor, including one about delivery gates or a construct spec. Direct implementation, build, or deployment work stays with its domain skill even when gated. Relays delegate bounded file and git toil while reserving judgment and per-gate ratification for the operator. Here Code means the executor, not application source code. Do not use this to perform implementation, write a general design record or reusable standard, or review a finished diff."
 ---
 
 # Author an Execution Relay

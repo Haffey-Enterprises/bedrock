@@ -1,6 +1,6 @@
 {
   "base": "2ab76b447cdb1a975c801e6833682c0c1f94cef0",
-  "status": "Exact component paths after independently reviewed CI fixture lock repair; distributed and routing bytes unchanged from passing release evaluation. Native corrected CI pending.",
+  "status": "Complete intended candidate with ratified relay wording and approved release proof; PR check pending",
   "date": "2026-09-29",
   "paths": [
     {
@@ -35,17 +35,17 @@
     },
     {
       "path": "docs/evidence/heb-109/metadata-inventory.json",
-      "sha256": "5fa5f3f5151cc6ea59eeeb0197b16335abd97a9b28b2f701c921581731c5e520",
+      "sha256": "90cd580362bb8e12daa1cde70370e21c8d390c977c3d1864b5c3c0dda14c5870",
       "basis": "Qualified replacement routing evidence and derived inventory; historical baseline retained in Git and integration evidence"
     },
     {
       "path": "docs/evidence/heb-109/routing-results.json",
-      "sha256": "99ea7cab0bd1490b9c89781b857f06d1a39d51b136ab78f1c758429d7cf98aee",
+      "sha256": "b96189c360ca960a604b66e4c316bff395fac8a9dae6eb65e0f470b16c25daae",
       "basis": "Qualified replacement routing evidence and derived inventory; historical baseline retained in Git and integration evidence"
     },
     {
       "path": "docs/evidence/heb-118/context-budget.json",
-      "sha256": "b500e68b24f6e69b04295e12dee55ef7c6566d988074cdd0d81f21c51cd0b3b0",
+      "sha256": "9f07c8ac0e6917966c02f5bb45036fe092b64cbf93a38c9abfb8a20ff0a20e7c",
       "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
     },
     {
@@ -120,7 +120,7 @@
     },
     {
       "path": "docs/evidence/heb-154/integration/integration-result.json",
-      "sha256": "ef07eb107fc9bf5f4c6a912ad49bc68fbd728ddc349f45b2e6701122b654432b",
+      "sha256": "6c4afb19d0ddfef100c9f0790399354e44a9adccd59aeb1f33f28d154bf5c3ad",
       "basis": "Repository-only integration validation, diagnosis, review or retained first-failure evidence"
     },
     {
@@ -509,6 +509,131 @@
       "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
     },
     {
+      "path": "docs/evidence/heb-154/integration/raw/relay-clarification/authoring-tests.txt",
+      "basis": "Tad-ratified relay routing clarification and bounded proving/first-outcome evidence",
+      "sha256": "74357bfe5c3967f3c2fdbc750e9b393b022690c80d2a428872bc255e30d05c08"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/relay-clarification/identity.json",
+      "basis": "Tad-ratified relay routing clarification and bounded proving/first-outcome evidence",
+      "sha256": "3a4a5ad769c68e8e90ebc67720ab2b177ed4e5b1489a324a479c62b2940e35d1"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/relay-clarification/identity.txt",
+      "basis": "Tad-ratified relay routing clarification and bounded proving/first-outcome evidence",
+      "sha256": "d56bbd2fc5ed5816afde1a77dc1c4afc4fea920fb97b0664dfd3e9843d99c15c"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/relay-clarification/independent-review.json",
+      "basis": "Tad-ratified relay routing clarification and bounded proving/first-outcome evidence",
+      "sha256": "a884806d83434975da0d251250a41fd58f8eafc6a7f2a950e8cfb7a07acd8337"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/relay-clarification/install-current.txt",
+      "basis": "Tad-ratified relay routing clarification and bounded proving/first-outcome evidence",
+      "sha256": "20dd4ea41ac2465bf2d7eb76ce1360118c3a05b16675516b2528bf50898e3097"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/relay-clarification/install-current/details-first.txt",
+      "basis": "Tad-ratified relay routing clarification and bounded proving/first-outcome evidence",
+      "sha256": "3a5f9df7f8cc64f4df331993aca3cf8f05943c94b30f6bed5fcf478029e3bf93"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/relay-clarification/install-current/details-reloaded.txt",
+      "basis": "Tad-ratified relay routing clarification and bounded proving/first-outcome evidence",
+      "sha256": "3a5f9df7f8cc64f4df331993aca3cf8f05943c94b30f6bed5fcf478029e3bf93"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/relay-clarification/install-current/installed.json",
+      "basis": "Tad-ratified relay routing clarification and bounded proving/first-outcome evidence",
+      "sha256": "199b19e5e304866c1eb4894aab3162137a79528f55fb49623010522e3b9d3eef"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/relay-clarification/install-minimum.txt",
+      "basis": "Tad-ratified relay routing clarification and bounded proving/first-outcome evidence",
+      "sha256": "20dd4ea41ac2465bf2d7eb76ce1360118c3a05b16675516b2528bf50898e3097"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/relay-clarification/install-minimum/details-first.txt",
+      "basis": "Tad-ratified relay routing clarification and bounded proving/first-outcome evidence",
+      "sha256": "168f904f7ada2ff0a790044c492f9ba0fbf61d4f82be2de21421da70908a6602"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/relay-clarification/install-minimum/details-reloaded.txt",
+      "basis": "Tad-ratified relay routing clarification and bounded proving/first-outcome evidence",
+      "sha256": "168f904f7ada2ff0a790044c492f9ba0fbf61d4f82be2de21421da70908a6602"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/relay-clarification/install-minimum/installed.json",
+      "basis": "Tad-ratified relay routing clarification and bounded proving/first-outcome evidence",
+      "sha256": "1295babf738b76aca33223cdf678752f6ebbcc68783c03cf064e5ae3af784f45"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/relay-clarification/offline-validation.json",
+      "basis": "Tad-ratified relay routing clarification and bounded proving/first-outcome evidence",
+      "sha256": "6d9389547dc8948acf2abbeb6ef8d75c596d92a54346398315a98010a5ba81aa"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/relay-clarification/prior-pr-routing-results.json",
+      "basis": "Tad-ratified relay routing clarification and bounded proving/first-outcome evidence",
+      "sha256": "15af21f9a56fa40afd7275143eb9884bc0c1d05875af198efaf26df8a5847021"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/relay-clarification/prior-scope-verification.json",
+      "basis": "Tad-ratified relay routing clarification and bounded proving/first-outcome evidence",
+      "sha256": "663c08ea6855cde72e70ce0f74cafbdc73031705af53e295b9d1b08ac705a00e"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/relay-clarification/skill-frontmatter.txt",
+      "basis": "Tad-ratified relay routing clarification and bounded proving/first-outcome evidence",
+      "sha256": "db349825903d66adffea3ecf1bd8e1803043e8a71cf1a051235dabc5371f5bb0"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/relay-clarification/validator-tests.txt",
+      "basis": "Tad-ratified relay routing clarification and bounded proving/first-outcome evidence",
+      "sha256": "30648cd86ce084379f424ab64fd87765ce55cd390a34873373d75eac6c7b0fc1"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/relay-qualification/final-strict-validation.json",
+      "basis": "Approved relay clarification live proving and preserved exact-subject evidence",
+      "sha256": "51280207b6f4518ae781f3fcdfa575777e69a97abd11679fb4b1ec513d210d0f"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/relay-qualification/live-source-subject.json",
+      "basis": "Approved relay clarification live proving and preserved exact-subject evidence",
+      "sha256": "6d7b6abe4fafb5197484db83f93a79edb19f171c436476d598722f171e50a68b"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/relay-qualification/live-verification-envelope.json",
+      "basis": "Approved relay clarification live proving and preserved exact-subject evidence",
+      "sha256": "f6de2e3a8f66efcfb4784c6ca9aa5a727be0190bb8d2f17d435d63a3b59170f5"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/relay-qualification/release-verification.json",
+      "basis": "Approved relay clarification live proving and preserved exact-subject evidence",
+      "sha256": "2c4601e9e8bdeefaa241e8d855ffc5491622f73c1160f0603b3061003d216081"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/relay-qualification/routing-release-relay-1-exit.json",
+      "basis": "Approved relay clarification live proving and preserved exact-subject evidence",
+      "sha256": "06cc0e5a0b8d1c5c79850b93fc584457f71b0887254c437551e41e96e204cc66"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/relay-qualification/routing-release-relay-1-preregistration.json",
+      "basis": "Approved relay clarification live proving and preserved exact-subject evidence",
+      "sha256": "a05871c32ddef04e6fe753d5e52b625c1b904887e0e3533626167a932143ea76"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/relay-qualification/routing-release-relay-1.json",
+      "basis": "Approved relay clarification live proving and preserved exact-subject evidence",
+      "sha256": "b96189c360ca960a604b66e4c316bff395fac8a9dae6eb65e0f470b16c25daae"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/relay-qualification/routing-release-relay-1.txt",
+      "basis": "Approved relay clarification live proving and preserved exact-subject evidence",
+      "sha256": "493e952a8c93bacb52dd985848550b2ebc02223f302d6c57a64b421f34483c14"
+    },
+    {
       "path": "docs/evidence/heb-154/integration/raw/routing-replacement/replacement-evidence-tests.txt",
       "sha256": "9bdba2c47e6d4059527efcc2d4a4c55bf01fbc0d419ea5bef1495b390f81b741",
       "basis": "Repository-only retained first outcome and complete replacement qualification proof"
@@ -689,6 +814,11 @@
       "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
     },
     {
+      "path": "docs/evidence/heb-154/integration/relay-clarification.json",
+      "basis": "Tad-ratified relay routing clarification and bounded proving/first-outcome evidence",
+      "sha256": "ff714b35a06da7705b11efb782c22aee313c1178beba6690d5f184dd6acdba53"
+    },
+    {
       "path": "docs/evidence/heb-154/integration/review-history.md",
       "sha256": "8ef37272bc5daf1ac06138c52dc465e3883724d8843100b4e23c26c60bf9e527",
       "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
@@ -845,7 +975,7 @@
     },
     {
       "path": "plugins/bedrock/CHANGELOG.md",
-      "sha256": "cd3978e8e78c87bddbdc0b08a69c88191fa59567da8cd4d044176299993df8b8",
+      "sha256": "188fc6d0b8664576ab472438be33b6e3fc637cba4cea0059d07ad79aa32c6fe4",
       "basis": "Candidate delta and proof limits"
     },
     {
@@ -982,6 +1112,11 @@
       "path": "plugins/bedrock/skills/author-execution-relay/PACKAGE_IDENTITY.json",
       "sha256": "c1756e02222d2c8bd9db2f478240fe351619df8de1a2e97819fa1b1e158e7630",
       "basis": "D4 manifest transaction"
+    },
+    {
+      "path": "plugins/bedrock/skills/author-execution-relay/SKILL.md",
+      "basis": "Tad-ratified relay routing clarification and bounded proving/first-outcome evidence",
+      "sha256": "6ff3ad48de5cb4601d1f35485dc176265c87c18188750ad4e9bd438009e5a658"
     },
     {
       "path": "plugins/bedrock/skills/author-standard/PACKAGE_IDENTITY.json",
