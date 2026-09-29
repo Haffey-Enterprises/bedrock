@@ -1,0 +1,195 @@
+{
+  "date_eastern": "2026-09-29",
+  "candidate_commit": "11f6db7c8a1e45d7b1ec62c56f134f0f1d0cfa56",
+  "candidate_tree": "e7439ded20399111b0e22b49c1951a64ed488016",
+  "clean_before_and_after_validation": true,
+  "host": {
+    "path": "/Applications/ChatGPT.app",
+    "CFBundleIdentifier": "com.openai.codex",
+    "CFBundleShortVersionString": "26.924.22138",
+    "CFBundleVersion": "11645"
+  },
+  "codex_cli": {
+    "path": "/Applications/ChatGPT.app/Contents/Resources/codex-cli/bin/codex",
+    "sha256": "50ab38ba21d0d9f8346f32f41848382f15b556190f3c7a07e885a4fb73e379c8",
+    "version": "codex-cli 0.158.0-alpha.2.1"
+  },
+  "python": "3.14.6 (v3.14.6:c63aec69bd5, Jun 10 2026, 08:07:54) [Clang 21.0.0 (clang-2100.1.1.101)]",
+  "python_executable": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+  "dependencies": {
+    "PyYAML": "6.0.3",
+    "jsonschema": "4.25.1"
+  },
+  "validation_commands": [
+    {
+      "command": [
+        "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+        "scripts/validate_agent_review_contracts.py"
+      ],
+      "returncode": 0,
+      "stdout": "PASS: agent/review contracts and fixtures validated\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+        "scripts/validate_application_test_debug_contracts.py"
+      ],
+      "returncode": 0,
+      "stdout": "PASS: application/test/debug contracts and fixtures validated\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+        "scripts/validate_authoring_contracts.py"
+      ],
+      "returncode": 0,
+      "stdout": "PASS: 5/5 HEB-117 interaction contracts validated\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+        "scripts/validate_frontend_contracts.py"
+      ],
+      "returncode": 0,
+      "stdout": "PASS: frontend profile, evidence, behavior, browser fixture, and contract markers\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+        "scripts/validate_infrastructure_delivery_contracts.py"
+      ],
+      "returncode": 0,
+      "stdout": "PASS: infrastructure/delivery contracts and fixtures validated\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+        "scripts/validate_package_governance.py"
+      ],
+      "returncode": 0,
+      "stdout": "PASS: package lifecycle, metadata, compatibility, policy, registry, and evidence contracts\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+        "scripts/validate_rule_trigger_audit.py",
+        "--require-complete"
+      ],
+      "returncode": 0,
+      "stdout": "PASS: HEB-136 rule-trigger audit ledger validated\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+        "scripts/validate_safety.py"
+      ],
+      "returncode": 0,
+      "stdout": "PASS: HEB-110 deterministic safety contracts\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+        "scripts/validate_plugin.py",
+        "--skip-host-cli"
+      ],
+      "returncode": 0,
+      "stdout": "PASS: 14/14 skills passed deterministic validation\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+        "scripts/sync_package_identity.py",
+        "--check"
+      ],
+      "returncode": 0,
+      "stdout": "PASS: 14 package identity carriers verified\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+        "scripts/validate_plugin.py"
+      ],
+      "returncode": 0,
+      "stdout": "PASS: 14/14 skills passed deterministic validation; plugin manifest passed strict host validation\n",
+      "stderr": ""
+    }
+  ],
+  "owning_validator_control": {
+    "method": "Read-only in-memory _load_yaml interception for the registry only; remove codex row. Exact same public validate_package_governance(root) invocation before, during and after. No source or package mutation.",
+    "clean_errors": [],
+    "dirty_errors": [
+      "/Users/thaffey/.codex/worktrees/heb-154-integration/bedrock/plugins/bedrock/governance/registry.yaml: consumer surface enumeration must contain claude-ai, claude-code, and codex exactly"
+    ],
+    "restored_errors": []
+  },
+  "baseline_recheck": {
+    "manifest": "matches",
+    "complete_skill_population": "matches all 13 paths and digests",
+    "complete_carrier_population": "matches all 13 paths and digests",
+    "config_sha256": "matches",
+    "active_cli_sha256": "matches",
+    "classic_cli_sha256": "matches; application remains present",
+    "scope": "Pre-removal recheck only; no cleanup or post-removal claim. Other mutable ~/.codex state is excluded."
+  },
+  "staging_proof": {
+    "source_commit": "11f6db7c8a1e45d7b1ec62c56f134f0f1d0cfa56",
+    "paths": [
+      "docs/evidence/heb-153/discrimination-control.json",
+      "docs/evidence/heb-153/governance-tests.txt",
+      "docs/evidence/heb-153/host-capabilities.json",
+      "docs/evidence/heb-153/meaningful-red.txt",
+      "docs/evidence/heb-153/pre-removal-identity.json",
+      "docs/evidence/heb-153/record.json",
+      "docs/evidence/heb-153/review-binding.json",
+      "docs/evidence/heb-153/review-supplement.json",
+      "docs/evidence/heb-153/review.json",
+      "docs/evidence/heb-153/unit-population.json",
+      "docs/evidence/heb-153/unit-tests.txt",
+      "docs/evidence/heb-153/validation-results.json",
+      "plugins/bedrock/CHANGELOG.md",
+      "plugins/bedrock/governance/COMPATIBILITY.md",
+      "plugins/bedrock/governance/registry.yaml",
+      "plugins/bedrock/governance/rollout-ledger.schema.json",
+      "plugins/bedrock/governance/rollout-ledger.template.yaml",
+      "scripts/validate_package_governance.py",
+      "tests/test_package_governance.py"
+    ],
+    "byte_parity": "Every staged blob equaled its on-disk reviewed bytes before commit. Exact seven implementation + twelve evidence path set.",
+    "hygiene": "Entire staged text population scanned against externally loaded exclude terms; in-memory seeded-positive and neutral-negative controls passed; no terms persisted.",
+    "hook": "No configured core.hooksPath and no default pre-commit hook. Default hook directory readable and sample files present as negative-result control. Manual fail-closed scan performed; no hook installed."
+  },
+  "final_checkpoint_paths": [
+    "docs/evidence/heb-153/committed-subject.json",
+    "docs/evidence/heb-153/discrimination-control.json",
+    "docs/evidence/heb-153/governance-tests.txt",
+    "docs/evidence/heb-153/host-capabilities.json",
+    "docs/evidence/heb-153/meaningful-red.txt",
+    "docs/evidence/heb-153/pre-removal-identity.json",
+    "docs/evidence/heb-153/record.json",
+    "docs/evidence/heb-153/review-binding.json",
+    "docs/evidence/heb-153/review-supplement.json",
+    "docs/evidence/heb-153/review.json",
+    "docs/evidence/heb-153/unit-population.json",
+    "docs/evidence/heb-153/unit-tests.txt",
+    "docs/evidence/heb-153/validation-results.json",
+    "plugins/bedrock/CHANGELOG.md",
+    "plugins/bedrock/governance/COMPATIBILITY.md",
+    "plugins/bedrock/governance/registry.yaml",
+    "plugins/bedrock/governance/rollout-ledger.schema.json",
+    "plugins/bedrock/governance/rollout-ledger.template.yaml",
+    "scripts/validate_package_governance.py",
+    "tests/test_package_governance.py"
+  ],
+  "retention": "This receipt is the sole follow-up change. Its evidence-only commit preserves all candidate package, validator and test bytes. No push.",
+  "status": "Host cleanup and fresh-task post-removal verification pending; HEB-153 incomplete."
+}
