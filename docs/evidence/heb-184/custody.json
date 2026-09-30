@@ -1,0 +1,26 @@
+{
+  "date_eastern": "2026-09-30",
+  "archives": [
+    {
+      "archive": "/Users/thaffey/Documents/Haffey Enterprises/Development Archives/HEB-184/2026-09-30-component-integration/baseline.tar",
+      "sha256": "a6f4e3464aa393e975942986d288384fb14e3388c2a0226632e3e2bc671b8181",
+      "bytes": 12431360
+    },
+    {
+      "archive": "/Users/thaffey/Documents/Haffey Enterprises/Development Archives/HEB-184/2026-09-30-component-integration/candidate-1.tar",
+      "sha256": "ce50338ae3f89ffa03280e4bb82e7e13c56669099c6ff6ba000adcfbc60b0b36",
+      "bytes": 12646400
+    },
+    {
+      "archive": "/Users/thaffey/Documents/Haffey Enterprises/Development Archives/HEB-184/2026-09-30-component-integration/candidate-2.tar",
+      "sha256": "0c0495dbf3911facb7eae587f9f287f1358187d64ee2a3a5827792627ed831c5",
+      "bytes": 13137920
+    }
+  ],
+  "replay": {
+    "first_red": "Extract baseline.tar and overlay first-red-tests/ files into tests/.",
+    "review_red": "Extract candidate-1.tar and overlay review-red-test.py as tests/test_package_governance.py.",
+    "final": "Extract candidate-2.tar; commands and environments in validation.json."
+  },
+  "coverage": "All tracked inputs in each archive; protected untracked receipts never entered custody. External archive holds intermediate bytes, repository holds overlays/raw results. No HEB-160 evidence repair."
+}

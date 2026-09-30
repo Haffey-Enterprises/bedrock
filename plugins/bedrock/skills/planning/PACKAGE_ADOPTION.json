@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "owner": "Tad Haffey - Haffey Enterprises",
+  "status": "accepted-supervised-advisory",
+  "invocation": "explicit",
+  "contract_version": "1.0.0",
+  "accepted_source": {
+    "repository": "Haffey-Enterprises/HEX",
+    "merge_commit": "c8f813149dace2d1bc7c8b62bf949e4872e33483",
+    "files": {
+      "SKILL.md": "d2b4891bc673f5e5374d03ac9789b801dca964be3665caa8bef5ba8b2eaf371c",
+      "reference/provenance.md": "c6e5f059e16562c43bb136a669b61e1f2a279fa1177a715eac6c40953ea73467"
+    }
+  },
+  "authority": "HEB-178 accepted the unchanged first instantiation; HEB-184 ratified inclusion in the existing bundled candidate. This record is the installed current adoption authority.",
+  "historical_provenance": "The proposed/pending labels in SKILL.md and reference/provenance.md describe the evaluated candidate at authoring. They are preserved unchanged and superseded only for the accepted scope by this current record.",
+  "scope": "Stateless, explicitly invoked, supervised advisory backlog assessment of a declared work population.",
+  "no_authority": [
+    "record mutation",
+    "work start",
+    "priority change",
+    "release",
+    "deployment",
+    "coordination-state transition"
+  ],
+  "excluded": [
+    "product discovery",
+    "specialist design",
+    "test authoring",
+    "finished-change review",
+    "executor handoff",
+    "record maintenance",
+    "durable planning stewardship",
+    "Athena construction",
+    "unattended operation",
+    "general lifecycle guarantees"
+  ],
+  "empirical_floor": "One retained backlog case plus selected controls and later applications to the same broad backlog; no general reliability claim.",
+  "known_limits": {
+    "C1": "Unproven coverage gaps remain unresolved.",
+    "C2": "Overstated read depth/history remains recorded.",
+    "A1": "Unsupported dependency gates remain unresolved.",
+    "A2": "Historical loading evidence is unavailable; current package identity cannot reconstruct it."
+  },
+  "release_qualification": "pending-HEB-161",
+  "hex_reconsumption": "open-after-shared-release",
+  "consumer_guidance": "Read this record alongside the unchanged instruction and provenance. Explicitly request planning, supply the proposed action, accountable owner, declared population, protected work, governing sources, current rulings and actual read-depth receipts. Results are advice only. Hosts that cannot enforce explicit invocation require supervised selection; discovery and usable cold invocation remain release gates.",
+  "compatibility": "Compatible addition within the existing manifest candidate; existing identities and ownership remain unchanged. No host adapter or runtime dependency is added.",
+  "last_verification": "2026-09-30; exact source custody and deterministic package qualification recorded in HEB-184; composed host acceptance remains pending.",
+  "review_trigger": "Material misses, changed binding, broader lifecycle coverage or unattended use.",
+  "successor": null,
+  "rollback": "Withdraw planning use and return to supervised case-by-case assessment; retain this source and all failed evidence. Package rollback follows the last accepted release.",
+  "evidence": "https://github.com/Haffey-Enterprises/HEX/tree/c8f813149dace2d1bc7c8b62bf949e4872e33483/docs/evidence/heb-178"
+}

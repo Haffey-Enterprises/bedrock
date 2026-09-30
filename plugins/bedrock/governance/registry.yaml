@@ -29,6 +29,11 @@ authorities:
     carriers:
       - plugins/bedrock/skills/{skill}/reference/
       - plugins/bedrock/skills/{skill}/templates/
+  - id: planning-adoption
+    owner: plugins/bedrock/skills/planning/PACKAGE_ADOPTION.json
+    carriers:
+      - plugins/bedrock/governance/COMPATIBILITY.md
+      - plugins/bedrock/governance/QUICKSTART.md
   - id: routing-catalog
     owner: plugins/bedrock/skills/{skill}/SKILL.md#/description
     carriers:
@@ -87,13 +92,13 @@ shared_components:
 consumer_surfaces:
   - id: claude-ai
     propagation: Marketplace pushes auto-load for the next new session.
-    verification: Open a new session, read one loaded PACKAGE_IDENTITY.json carrier directly, and verify its intended manifest identity, digest, and 14-skill inventory.
+    verification: Open a new session, read one loaded PACKAGE_IDENTITY.json carrier directly, and verify its intended manifest identity, digest, and 15-skill inventory.
   - id: claude-code
     propagation: Refresh or update the marketplace, update the plugin, and start a new session.
-    verification: Inspect plugin details and verify the intended manifest identity and 14-skill inventory after reload.
+    verification: Inspect plugin details and verify the intended manifest identity and 15-skill inventory after reload.
   - id: codex
     propagation: Land the versioned change in the configured Git source, run codex plugin marketplace upgrade bedrock, and start a new ChatGPT desktop task; a full application restart is not required.
-    verification: Verify codex-cli >=0.153.4, the active package manifest identity and digest, and the complete 14-skill single-backed inventory through the loaded PACKAGE_IDENTITY.json carriers. Desktop only; no cloud-task or Codex routing proof is claimed. No strict Codex plugin-manifest validator or CI pin for this minimum is available. The below-floor ChatGPT Classic application was removed; HEB-153 records the before/after controls and fresh-task verification of the surviving installed package. Candidate installation and release acceptance remain separate.
+    verification: Verify codex-cli >=0.153.4, the active package manifest identity and digest, and the complete 15-skill single-backed inventory through the loaded PACKAGE_IDENTITY.json carriers. Desktop only; no cloud-task or Codex routing proof is claimed. No strict Codex plugin-manifest validator or CI pin for this minimum is available. The below-floor ChatGPT Classic application was removed; HEB-153 records the before/after controls and fresh-task verification of the surviving installed package. Candidate installation and release acceptance remain separate.
 budgets:
   description_max_characters: 1024
   catalog_description_max_characters: 8192
@@ -133,6 +138,7 @@ skills:
   - {name: design-review-loop, owner: Tad Haffey - Haffey Enterprises, reviewer: design-governance reviewer, status: active, contract_version: 2.0.0, layer: portable-core-plus-profile, last_verified: 2026-08-27, verified_hosts: [claude-code-2.1.226], successor: null, migration: "Product-specific runner profile replaced by the generic external product-runner binding; direct and multi-perspective profiles remain compatible."}
   - {name: frontend-code, owner: Tad Haffey - Haffey Enterprises, reviewer: frontend reviewer, status: active, contract_version: 1.0.0, layer: portable-core-plus-profile, last_verified: 2026-08-11, verified_hosts: [claude-code-2.1.226], successor: null, migration: null}
   - {name: infrastructure-code, owner: Tad Haffey - Haffey Enterprises, reviewer: infrastructure reviewer, status: active, contract_version: 1.0.0, layer: portable-core-plus-profile, last_verified: 2026-08-11, verified_hosts: [claude-code-2.1.226], successor: null, migration: null}
+  - {name: planning, owner: Tad Haffey - Haffey Enterprises, reviewer: planning and package reviewer, status: active, contract_version: 1.0.0, layer: portable-core, last_verified: 2026-09-30, verified_hosts: [claude-code-2.1.284], successor: null, migration: "Compatible explicit supervised route; PACKAGE_ADOPTION.json owns current adoption. Host entry records isolated package checks, not cold invocation or HEB-161 acceptance."}
   - {name: testing, owner: Tad Haffey - Haffey Enterprises, reviewer: testing reviewer, status: active, contract_version: 1.0.0, layer: portable-core-plus-profile, last_verified: 2026-08-11, verified_hosts: [claude-code-2.1.226], successor: null, migration: null}
 sources:
   - {id: adr-001, type: ratified-architecture, location: docs/adr/ADR-001-portable-core-and-surface-adapter-architecture.md, authority_version: 3.0.0, status: accepted, applicability: package architecture and versioning}

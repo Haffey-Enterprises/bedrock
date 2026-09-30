@@ -18,15 +18,16 @@ This map states what Bedrock owns, where it supplies only local invariants, and 
 
 ## 2. Owned engineering operations
 
-The [skill inventory and routing contract](skill-architecture.md) is authoritative for the thirteen skill identities, their primary jobs, and overlap precedence. Together they own:
+The [skill inventory and routing contract](skill-architecture.md) is authoritative for the fifteen skill identities, their primary jobs, and overlap precedence. Together they own:
 
 - large language model (LLM)-centered, backend, frontend, infrastructure, and delivery implementation;
+- explicitly invoked, stateless supervised backlog assessment, with current adoption in planning/PACKAGE_ADOPTION.json;
 - planned testing and observed-failure diagnosis;
 - finished-change and design-record review;
 - decision-record, construct-spec, execution-relay, and reusable-standard authoring; and
 - the task-local evidence, escalation, refusal, and safety obligations declared by those contracts.
 
-Durable multi-actor workflow execution is not a fourteenth Bedrock skill. It is product-owned orchestration. Bedrock may later own selected reusable seams that pass evidence-driven promotion, but it does not presume a universal runtime.
+Durable multi-actor workflow execution is not supplied by adding planning or agent-builder. It is product-owned orchestration. Bedrock may later own selected reusable seams that pass evidence-driven promotion, but it does not presume a universal runtime.
 
 ## 3. Cross-cutting domains and handoffs
 

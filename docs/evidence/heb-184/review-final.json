@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "profile": "standard",
+  "scope": "Independent finished-delta review of HEB-184 component integration against baseline f0ac9a0d81dbdb37cdb7b29b61b59f114802a489. Final tested input tree: 5698a20d8f1a78ac9f77b234faa2ee14d0c9acdc. Approval applies to the reviewed component checkpoint, not HEB-184 completion or release.",
+  "checked_surfaces": [
+    "Read whole: AGENTS.md, repository orientation, code-review skill/checklist/result schema, planning instruction, historical provenance, current adoption, invocation policy, smoke-install script, refresh script, HEB-184 README/reconciliation, scope and preflight records.",
+    "Read complete changed implementation and documentation hunks, including all identity carriers, inventories, context/audit changes, routing fixtures, validator changes and new tests. Read surrounding loader, validation orchestration and test setup sections. Unchanged validator/test-module portions were not reread whole.",
+    "Read retained issue bodies and comments for HEB-184, HEB-178, HEB-127 and HEB-161, plus retained HEX PR metadata. Decoded both GitHub source receipts and independently verified exact equality with installed planning sources; changed-byte controls discriminated.",
+    "Read first-failure logs, final validation manifest, candidate-1 validation logs, complete candidate-2 repository log and custody receipt. Retained test overlays were compared mechanically with current modules; unchanged historical test bodies received partial textual reading.",
+    "Mechanically reconciled the complete tested-input population: 1,198 tracked files outside HEB-184 reporting match the selected Git tree, current worktree and candidate-2 snapshot. Protected untracked receipts were excluded before reads. No whole-corpus semantic audit, private historical transcript reread or fresh host invocation was performed.",
+    "HEB184-REV-001 resolved: contradictory YAML/JSON authority keys previously survived parsing. Opt-in strict parsing now rejects duplicate root/nested keys and conflicting YAML merges before comparison. Original failures remain retained.",
+    "No source edits, staging, commits, provider calls or host installations were performed by this reviewer. Snapshot use is complete; no reviewer process depends on either candidate snapshot."
+  ],
+  "gates": [
+    {
+      "name": "scope-and-authority",
+      "disposition": "passed",
+      "reason": "Changed tracked paths match the authorized scope; planted unauthorized-path control rejects. Current adoption preserves accepted scope, unresolved limits, historical provenance and later release ownership."
+    },
+    {
+      "name": "source-and-test-input-identity",
+      "disposition": "passed",
+      "reason": "Both accepted source hashes match retained source receipts. All 1,198 selected tracked inputs match final tree and snapshot; changed-byte control rejects. Only the governance validator and its test module changed between candidate-1 and candidate-2."
+    },
+    {
+      "name": "focused-independent-controls",
+      "disposition": "passed",
+      "reason": "Independently ran all six HEB-184 focused test methods in candidate-2: source/adoption, invocation typing and absence, duplicate parsing, routing boundaries and component/default gate behavior. All passed; these overlap the repository suite."
+    },
+    {
+      "name": "repository-suite",
+      "disposition": "passed",
+      "reason": "Final candidate-2 retained command completed with 205 tests and OK. Complete final log inspected, including Docker/Terraform controls."
+    },
+    {
+      "name": "component-and-strict-host-validation",
+      "disposition": "passed",
+      "reason": "Candidate-2 component validator reports 15/15 skills and strict plugin-manifest success, explicitly leaving current routing and release acceptance unverified."
+    },
+    {
+      "name": "default-routing-gate-preservation",
+      "disposition": "passed",
+      "reason": "Independent actual-validator comparison accepts component mode and rejects historical routing evidence under the default gate. The retained default CLI result likewise rejects stale identities and missing new-case coverage."
+    },
+    {
+      "name": "package-identity-audit-build-and-install",
+      "disposition": "passed",
+      "reason": "Inspected passing identity, complete audit, source/wheel parity and isolated installation/reload evidence. Installed inventory reports 15 skills. Their relevant inputs are unchanged by the parser repair."
+    },
+    {
+      "name": "separate-package-regressions",
+      "disposition": "passed",
+      "reason": "Retained candidate-1 logs report 110 Agent Core and 96 hex-linear tests passing. Their inputs remain unchanged in candidate-2; these are separate populations, not additional planning empirical cases."
+    },
+    {
+      "name": "additional-domain-and-dependency-gates",
+      "disposition": "not-relevant",
+      "reason": "This delta introduces no runtime dependency, infrastructure deployment, database migration, authentication boundary or application runtime behavior. Existing deterministic checks and full regression evidence cover touched package boundaries."
+    },
+    {
+      "name": "composed-live-routing-cold-host-acceptance-release-and-HEX-reconsumption",
+      "disposition": "not-relevant",
+      "reason": "Deliberately outside this component checkpoint. HEB-161 owns composed qualification and release; HEB-184 remains open through shared-version HEX reconsumption and private-copy reconciliation."
+    }
+  ],
+  "findings": [],
+  "verdict": "approve"
+}

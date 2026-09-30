@@ -1,0 +1,26 @@
+{
+  "date_eastern": "2026-09-30",
+  "baseline": "f0ac9a0d81dbdb37cdb7b29b61b59f114802a489",
+  "branch": "codex/heb-161-candidate",
+  "checkout": "/Users/thaffey/.codex/worktrees/heb-154-integration/bedrock",
+  "baseline_archive_sha256": "a6f4e3464aa393e975942986d288384fb14e3388c2a0226632e3e2bc671b8181",
+  "source_merge": "c8f813149dace2d1bc7c8b62bf949e4872e33483",
+  "source_sha256": {
+    "skills/planning/SKILL.md": "d2b4891bc673f5e5374d03ac9789b801dca964be3665caa8bef5ba8b2eaf371c",
+    "skills/planning/reference/provenance.md": "c6e5f059e16562c43bb136a669b61e1f2a279fa1177a715eac6c40953ea73467"
+  },
+  "source_comparison": "Local Git blobs independently matched GitHub merged PR #12 bytes and blob identities in preflight.",
+  "scope_extension": {
+    "path": "docs/evidence/heb-118/context-budget.json",
+    "authority": "Tad: authorized. proceed.",
+    "reason": "Mechanically required derived context refresh."
+  },
+  "relay_adjusted": false,
+  "limits": [
+    "Pin checks were performed across the initial read-only probes, not entirely in the first command.",
+    "Manual carried-value sweep with planted lexical-hit controls; arbitrary semantic prose is outside lexical detection.",
+    "Process/open-path check is point-in-time; probe processes were the positive control.",
+    "Protected receipts verified by names and digests only; excluded from Git archive.",
+    "No private hygiene pattern file inspected."
+  ]
+}

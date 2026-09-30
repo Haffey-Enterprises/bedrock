@@ -9,7 +9,7 @@
 
 ## 1. Current state
 
-The candidate is a Claude plugin with fourteen skill directories and a bundled separately versioned Python core. The repository has deterministic structure and routing validation, a clean-install smoke test, and a deterministic safety-contract validator with regression fixtures for the initial safety tranche. Registry and compatibility records declare core/adapter identities and capabilities. Separate Codex/OpenAI and Cursor adapters remain outside this candidate.
+The candidate is a Claude plugin with fifteen skill directories and a bundled separately versioned Python core. The repository has deterministic structure and routing validation, a clean-install smoke test, and a deterministic safety-contract validator with regression fixtures for the initial safety tranche. Registry and compatibility records declare core/adapter identities and capabilities. Separate Codex/OpenAI and Cursor adapters remain outside this candidate.
 
 The current skill names are the compatibility anchors for this migration. Existing names and explicit invocations remain valid while content is separated into portable contracts and profiles.
 
@@ -118,3 +118,20 @@ absent responses have null hashes. The previous plugin and project dependency
 pins provide rollback. Historical evidence is retained in the repository and
 is not shipped with skills. HEB-161 composition and HEB-119 acceptance still gate
 release; these migration notes confer neither acceptance nor additional live calls.
+
+## HEB-184 bounded planning admission
+
+HEB-184 ratifies this concrete addition within the existing manifest candidate.
+Its admission reconciliation answers HEB-127's promotion questions without claiming
+the general promotion standard is complete or making it a universal start blocker.
+The originating HEX product's shared-release reconsumption and private-fork
+reconciliation remain open HEB-184 completion gates in HEB-161's later rollout.
+This bounded authorization qualifies step 3 for this admission only; it does not
+change the product-owned orchestration boundary or promote an execution mechanic.
+
+The accepted instruction and historical provenance retain their exact source
+bytes. The skill-local PACKAGE_ADOPTION.json is current adoption authority.
+Use planning explicitly for supervised advice only. Existing specialist, mutation
+and lifecycle owners remain unchanged. HEB-161 must qualify discovery, usable
+explicit invocation and identity on Codex, Claude Code and Claude.ai, as well as
+live routing, before release. No personal-copy reconciliation occurs here.

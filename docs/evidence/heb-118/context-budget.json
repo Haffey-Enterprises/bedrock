@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
   "captured_at": "2026-09-30",
-  "source_commit_baseline": "5208b5c62456932dc77f5d1b9a95a35da4be1201",
+  "source_commit_baseline": "f0ac9a0d81dbdb37cdb7b29b61b59f114802a489",
   "measurement": {
-    "catalog_description_characters": 7331,
-    "skill_entrypoint_words": 11824,
+    "catalog_description_characters": 7729,
+    "skill_entrypoint_words": 12899,
     "projected_always_on_tokens": 1918,
     "host_measurement": "claude 2.1.284 plugin details bedrock@bedrock; isolated revised-relay candidate install",
     "routing_population": "189/189 with 0 excluded selections"
@@ -76,10 +76,15 @@
       "entrypoint_words": 731
     },
     {
+      "name": "planning",
+      "description_characters": 398,
+      "entrypoint_words": 1075
+    },
+    {
       "name": "testing",
       "description_characters": 487,
       "entrypoint_words": 850
     }
   ],
-  "limitations": "HEB-159 mechanically refreshed entrypoint and catalog measurements after the ratified reference relocation. Host token measurement and routing population above are historical HEB-154 observations retained from prior-context-budget.json, not new HEB-159 execution or composed-package acceptance. The catalog descriptions are unchanged. HEB-161 owns final composed qualification and cold acceptance."
+  "limitations": "HEB-184 re-derived catalog and entrypoint measurements from the complete current skill population. Host projected tokens and routing population are historical HEB-154 observations, not current planning or composed-candidate acceptance. HEB-161 owns live routing and fresh cross-host qualification. Reproduction: docs/evidence/heb-184/refresh.py."
 }

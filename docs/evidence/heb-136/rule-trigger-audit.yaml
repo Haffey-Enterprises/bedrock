@@ -13,18 +13,16 @@ counting_basis:
   limit: The semantic-unit count proves deterministic screen coverage, not an atomic normative-rule count
     or infallible semantic classification.
   last_refreshed_at: 2026-09-30 ET
-  last_refresh: 'HEB-159 delta review: relay skill and all relay templates read whole. Carrying pins and
-    rules, excluding outcomes and revision narrative, clause-by-clause shrink, and explicit reader disposition
-    bind to dry-run, receipt, first pin check, and text-removing revision events. Pattern-edge misses
-    and anchor-less prose remain known limitations, not internal-state findings. Unchanged carriers retain
-    prior inspections; this is not a new whole-corpus semantic audit. Populations and screen-unit count
-    re-derived with the existing audit detector. Prior ledger is retained under docs/evidence/heb-159/prior-rule-trigger-audit.yaml.
-    Operator-ratified budget repair relocates the existing execution-instrument section verbatim to a
-    required reference; both carriers read whole. Added carrier and screen units re-derived with the audit
-    detector.'
+  last_refresh: 'HEB-184: planning instruction and provenance read whole; current adoption and invocation
+    policy inspected. The accepted provenance explicitly dispositions preservation and assumed agreement
+    as known-weak internal triggers. Their source frequency is unknown; medium is this ledger taxonomy
+    mapping, not an empirical frequency estimate. Other planning rule groups are workflow events with
+    disclosed residual misses. Unchanged carriers retain prior inspections; this is not a new whole-corpus
+    semantic audit. Populations and screen units use the existing audit detector. Prior ledger and context
+    inputs are retained in the baseline archive identified by HEB-184 preflight evidence.'
 scope:
   markdown_root: plugins/bedrock/skills
-  expected_markdown_carriers: 63
+  expected_markdown_carriers: 65
   markdown_carriers:
   - plugins/bedrock/skills/agent-builder/SKILL.md
   - plugins/bedrock/skills/agent-builder/reference/README.md
@@ -86,6 +84,8 @@ scope:
   - plugins/bedrock/skills/infrastructure-code/reference/03-state-and-environments.md
   - plugins/bedrock/skills/infrastructure-code/reference/04-kubernetes-and-stateful-workloads.md
   - plugins/bedrock/skills/infrastructure-code/reference/05-delivery-pipeline.md
+  - plugins/bedrock/skills/planning/SKILL.md
+  - plugins/bedrock/skills/planning/reference/provenance.md
   - plugins/bedrock/skills/testing/SKILL.md
   - plugins/bedrock/skills/testing/reference/nondeterministic-components.md
   - plugins/bedrock/skills/testing/reference/test-authoring.md
@@ -150,10 +150,12 @@ scope:
     plugins/bedrock/skills/infrastructure-code/reference/03-state-and-environments.md: inspected
     plugins/bedrock/skills/infrastructure-code/reference/04-kubernetes-and-stateful-workloads.md: inspected
     plugins/bedrock/skills/infrastructure-code/reference/05-delivery-pipeline.md: inspected
+    plugins/bedrock/skills/planning/SKILL.md: inspected
+    plugins/bedrock/skills/planning/reference/provenance.md: inspected
     plugins/bedrock/skills/testing/SKILL.md: inspected
     plugins/bedrock/skills/testing/reference/nondeterministic-components.md: inspected
     plugins/bedrock/skills/testing/reference/test-authoring.md: inspected
-  expected_structured_files: 33
+  expected_structured_files: 36
   structured_files:
   - path: plugins/bedrock/skills/agent-builder/PACKAGE_IDENTITY.json
     inspection: inspected
@@ -217,16 +219,46 @@ scope:
     inspection: inspected
   - path: plugins/bedrock/skills/infrastructure-code/reference/infrastructure-profile.schema.json
     inspection: inspected
+  - path: plugins/bedrock/skills/planning/PACKAGE_ADOPTION.json
+    inspection: inspected
+  - path: plugins/bedrock/skills/planning/PACKAGE_IDENTITY.json
+    inspection: inspected
+  - path: plugins/bedrock/skills/planning/agents/openai.yaml
+    inspection: inspected
   - path: plugins/bedrock/skills/testing/PACKAGE_IDENTITY.json
     inspection: inspected
   - path: plugins/bedrock/skills/testing/reference/test-strategy.schema.json
     inspection: inspected
-findings: []
+findings:
+- id: planning-preservation
+  carrier: plugins/bedrock/skills/planning/reference/provenance.md
+  line: 28
+  summary: Preserve evidence before recommending delay or repair.
+  trigger_event: Actor judges that delay or repair is harmless.
+  trigger_class: internal-state
+  frequency: medium
+  salience: low
+  enforcement: discipline
+  disposition: known-weak
+  expected_failure: Unnoticed evidence loss remains possible.
+  ratification: ratified
+- id: planning-alignment
+  carrier: plugins/bedrock/skills/planning/reference/provenance.md
+  line: 30
+  summary: Separate settled authority from an open owner choice.
+  trigger_event: Actor assumes agreement or mistakes a proposal for a disposition.
+  trigger_class: internal-state
+  frequency: medium
+  salience: low
+  enforcement: discipline
+  disposition: known-weak
+  expected_failure: An unratified choice may be treated as settled.
+  ratification: ratified
 counts:
-  carriers_examined: 63
-  semantic_units_screened: 1169
-  internal_state_rules: 0
+  carriers_examined: 65
+  semantic_units_screened: 1208
+  internal_state_rules: 2
   converted_to_instrument: 0
   external_detector: 0
-  known_weak: 0
+  known_weak: 2
   unresolved: 0

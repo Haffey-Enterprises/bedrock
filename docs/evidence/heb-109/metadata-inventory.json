@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "skill_count": 14,
+  "skill_count": 15,
   "description_limit": 1024,
   "routing_schema_version": 2,
   "sample_classifications": {
@@ -95,13 +95,16 @@
       "description": "Internal engineering machinery only; product or feature requirements documents (PRDs) are explicitly outside this skill and have no Bedrock route. Use this skill to author or amend an implementation-complete construct spec for one runner, harness, instrument, pipeline, or other internal mechanism when an implementer must build it from the document alone. Never infer construct-spec ownership merely because a request says specification or requirements. Do not use for reusable standards (author-standard), finished-code review, or general architecture documentation; author-decision-record owns engineering doctype selection and integrity.",
       "description_length": 641,
       "positive_cases": [
-        "author-construct-spec-positive"
+        "author-construct-spec-positive",
+        "planning-specialist-design"
       ],
       "negative_cases": [
-        "author-construct-spec-negative"
+        "author-construct-spec-negative",
+        "planning-sequence-overlap"
       ],
       "overlap_cases": [
-        "overlap-relay-construct"
+        "overlap-relay-construct",
+        "planning-specialist-design"
       ],
       "name": "author-construct-spec"
     },
@@ -130,15 +133,18 @@
       "positive_cases": [
         "author-execution-relay-positive",
         "author-execution-relay-instrument-discrimination",
-        "overlap-relay-construct"
+        "overlap-relay-construct",
+        "planning-executor-handoff"
       ],
       "negative_cases": [
         "author-execution-relay-negative",
-        "adversarial-implementation-misroute"
+        "adversarial-implementation-misroute",
+        "planning-sequence-overlap"
       ],
       "overlap_cases": [
         "author-execution-relay-instrument-discrimination",
-        "overlap-relay-construct"
+        "overlap-relay-construct",
+        "planning-executor-handoff"
       ],
       "name": "author-execution-relay"
     },
@@ -168,7 +174,8 @@
         "overlap-review-terraform",
         "implicit-review-ship-readiness",
         "adversarial-design-review-misroute",
-        "agent-builder-review-collision"
+        "agent-builder-review-collision",
+        "planning-finished-review"
       ],
       "negative_cases": [
         "code-review-negative"
@@ -176,7 +183,8 @@
       "overlap_cases": [
         "overlap-review-frontend",
         "overlap-review-terraform",
-        "agent-builder-review-collision"
+        "agent-builder-review-collision",
+        "planning-finished-review"
       ],
       "name": "code-review"
     },
@@ -270,6 +278,28 @@
       "name": "infrastructure-code"
     },
     {
+      "path": "plugins/bedrock/skills/planning/SKILL.md",
+      "description": "Assess a declared work population against accepted intent: gaps, overlaps, dependencies, feasible sequence, ownership, and evidence-loss risks. Use for source-grounded backlog assessment and planning recommendations. Initial support is supervised backlog assessment. Do not use for product discovery, specialist design, test authoring, finished-change review, executor handoffs, or record mutation.",
+      "description_length": 398,
+      "positive_cases": [
+        "planning-explicit-assessment",
+        "planning-sequence-overlap"
+      ],
+      "negative_cases": [
+        "planning-product-discovery",
+        "planning-record-mutation",
+        "planning-executor-handoff",
+        "planning-specialist-design",
+        "planning-unattended",
+        "planning-tests",
+        "planning-finished-review"
+      ],
+      "overlap_cases": [
+        "planning-sequence-overlap"
+      ],
+      "name": "planning"
+    },
+    {
       "path": "plugins/bedrock/skills/testing/SKILL.md",
       "description": "Author new tests, test strategy, fixtures, and planned coverage. Use for test-first specification of new or changed behavior, risk-based test selection, isolation, contract testing, coverage design, and deterministic or nondeterministic evaluation. Do not use to diagnose any observed failing or flaky test, including CI-only flakes (debug), to implement production behavior, or to review a finished diff. Select a stack profile; a materially different unprofiled test stack is a rebind.",
       "description_length": 487,
@@ -279,7 +309,8 @@
         "testing-risk-strategy",
         "testing-silent-success-counterfactual",
         "testing-regression-after-diagnosis",
-        "overlap-test-agent-output"
+        "overlap-test-agent-output",
+        "planning-tests"
       ],
       "negative_cases": [
         "debug-nonreproducible-production",
@@ -293,7 +324,8 @@
         "overlap-testing-frontend",
         "testing-silent-success-counterfactual",
         "testing-regression-after-diagnosis",
-        "overlap-test-agent-output"
+        "overlap-test-agent-output",
+        "planning-tests"
       ],
       "name": "testing"
     }

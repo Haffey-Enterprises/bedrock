@@ -48,6 +48,7 @@ EXPECTED_SKILLS = {
     "design-review-loop",
     "frontend-code",
     "infrastructure-code",
+    "planning",
     "testing",
 }
 REPOSITORY = "https://github.com/T-Bone-Haff/bedrock"
@@ -113,10 +114,30 @@ def _error(errors: list[str], location: Path | str, message: str) -> None:
     errors.append(f"{location}: {message}")
 
 
-def _load_json(path: Path, errors: list[str]) -> dict[str, Any] | None:
+def _unique_authority_pairs(pairs: list[tuple[Any, Any]], kind: str) -> dict[Any, Any]:
+    result: dict[Any, Any] = {}
+    for key, value in pairs:
+        try:
+            duplicate = key in result
+        except TypeError as exc:
+            raise ValueError(f"unhashable {kind} key") from exc
+        if duplicate:
+            raise ValueError(f"duplicate {kind} key {key!r}")
+        result[key] = value
+    return result
+
+
+class _PlanningAuthorityLoader(yaml.SafeLoader):
+    def construct_mapping(self, node: yaml.nodes.MappingNode, deep: bool = False) -> dict[Any, Any]:
+        self.flatten_mapping(node)
+        return _unique_authority_pairs(self.construct_pairs(node, deep=deep), "YAML")
+
+
+def _load_json(path: Path, errors: list[str], *, strict: bool = False) -> dict[str, Any] | None:
     try:
-        value = json.loads(path.read_text(encoding="utf-8"))
-    except (OSError, json.JSONDecodeError) as exc:
+        value = json.loads(path.read_text(encoding="utf-8"),
+                           object_pairs_hook=(lambda pairs: _unique_authority_pairs(pairs, "JSON")) if strict else None)
+    except (OSError, ValueError) as exc:
         _error(errors, path, f"invalid JSON: {exc}")
         return None
     if not isinstance(value, dict):
@@ -125,10 +146,11 @@ def _load_json(path: Path, errors: list[str]) -> dict[str, Any] | None:
     return value
 
 
-def _load_yaml(path: Path, errors: list[str]) -> dict[str, Any] | None:
+def _load_yaml(path: Path, errors: list[str], *, strict: bool = False) -> dict[str, Any] | None:
     try:
-        value = yaml.safe_load(path.read_text(encoding="utf-8"))
-    except (OSError, yaml.YAMLError) as exc:
+        value = yaml.load(path.read_text(encoding="utf-8"),
+                          Loader=_PlanningAuthorityLoader if strict else yaml.SafeLoader)
+    except (OSError, yaml.YAMLError, ValueError) as exc:
         _error(errors, path, f"invalid YAML: {exc}")
         return None
     if not isinstance(value, dict):
@@ -343,6 +365,51 @@ def _validate_registry(root: Path, errors: list[str]) -> dict[str, Any] | None:
     return registry
 
 
+def _validate_planning_adoption(root: Path, errors: list[str]) -> None:
+    """Bind current bounded adoption to the unchanged accepted instruction."""
+    skill = root / "plugins/bedrock/skills/planning"
+    pins = {
+        "SKILL.md": "d2b4891bc673f5e5374d03ac9789b801dca964be3665caa8bef5ba8b2eaf371c",
+        "reference/provenance.md": "c6e5f059e16562c43bb136a669b61e1f2a279fa1177a715eac6c40953ea73467",
+    }
+    for name, digest in pins.items():
+        path = skill / name
+        if not path.is_file() or hashlib.sha256(path.read_bytes()).hexdigest() != digest:
+            _error(errors, path, "accepted planning source digest mismatch")
+    path = skill / "PACKAGE_ADOPTION.json"
+    adoption = _load_json(path, errors, strict=True)
+    if adoption is None:
+        _error(errors, path, "planning adoption authority is unavailable")
+    else:
+        required = {
+            "schema_version": 1,
+            "status": "accepted-supervised-advisory",
+            "invocation": "explicit",
+            "contract_version": "1.0.0",
+            "release_qualification": "pending-HEB-161",
+            "hex_reconsumption": "open-after-shared-release",
+            "accepted_source": {
+                "repository": "Haffey-Enterprises/HEX",
+                "merge_commit": "c8f813149dace2d1bc7c8b62bf949e4872e33483",
+                "files": pins,
+            },
+        }
+        if any(adoption.get(key) != value for key, value in required.items()):
+            _error(errors, path, "planning adoption authority drift")
+        limits = adoption.get("known_limits")
+        if not isinstance(limits, dict) or set(limits) != {"C1", "C2", "A1", "A2"} or not all(limits.values()):
+            _error(errors, path, "planning adoption must preserve C1/C2/A1/A2 limits")
+        for field in ("owner", "authority", "historical_provenance", "scope", "empirical_floor",
+                      "consumer_guidance", "compatibility", "last_verification", "review_trigger", "rollback"):
+            if not isinstance(adoption.get(field), str) or not adoption[field].strip():
+                _error(errors, path, f"planning adoption requires {field}")
+        if adoption.get("no_authority") != ["record mutation", "work start", "priority change", "release", "deployment", "coordination-state transition"]:
+            _error(errors, path, "planning adoption authority drift")
+    policy = _load_yaml(skill / "agents/openai.yaml", errors, strict=True)
+    if policy != {"policy": {"allow_implicit_invocation": False}} or type(policy["policy"]["allow_implicit_invocation"]) is not bool:
+        _error(errors, skill / "agents/openai.yaml", "planning requires explicit invocation policy")
+
+
 def _validate_package_identity_carriers(root: Path, errors: list[str]) -> None:
     errors.extend(carrier_population_errors(root))
     try:
@@ -354,7 +421,7 @@ def _validate_package_identity_carriers(root: Path, errors: list[str]) -> None:
     observed_bytes: list[bytes] = []
     paths = carrier_paths(root)
     if {path.parent.name for path in paths} != EXPECTED_SKILLS or len(paths) != len(EXPECTED_SKILLS):
-        _error(errors, "package identity", "carrier population must match the 14-skill inventory")
+        _error(errors, "package identity", "carrier population must match the 15-skill inventory")
     for path in paths:
         if not path.is_file():
             _error(errors, path, "package identity carrier is missing")
@@ -897,6 +964,7 @@ def validate_package_governance(
     version = _validate_metadata(root, errors)
     registry = _validate_registry(root, errors)
     _validate_package_identity_carriers(root, errors)
+    _validate_planning_adoption(root, errors)
     _validate_budgets(root, registry, errors)
     _validate_documents(root, version, registry, errors)
     _validate_schemas(root, errors)

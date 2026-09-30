@@ -3,7 +3,14 @@
 The package manifest is the sole authority for the current version. This file
 records candidate and released changes; a version heading is not release proof.
 
-## 10.0.0 — bounded agent construction candidate
+## 10.0.0 — bundled engineering and planning candidate
+
+- Admit the unchanged accepted planning instruction and provenance from HEX
+  (HEB-178 / HEB-184) for explicitly invoked supervised advisory backlog
+  assessment. Ship separate current adoption authority and explicit-invocation
+  metadata. Preserve C1/C2/A1/A2 limits and the single-backlog empirical floor.
+  Composed routing and cross-host acceptance, release, and HEX reconsumption
+  remain open under HEB-161; no new broad reasoning trial is claimed.
 
 - Replace the maintained Terraform setup guidance and pull-request image-build
   fixture with exact upstream-verified Node 24 action pins (HEB-160). Add offline

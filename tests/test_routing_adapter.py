@@ -29,6 +29,34 @@ from scripts.run_routing_evals import (
 
 
 class RoutingAdapterResultTests(unittest.TestCase):
+    def test_planning_fixture_boundaries_and_adapter_discrimination(self) -> None:
+        from scripts.validate_plugin import load_routing_cases, validate_skills, validate_routing
+        root = Path(__file__).resolve().parents[1]
+        errors = []
+        inventory = validate_skills(root, errors)
+        cases = validate_routing(root, inventory, errors)
+        self.assertEqual([], errors)
+        planning = [case for case in cases if case["id"].startswith("planning-")]
+        required = {"explicit-assessment", "sequence-overlap", "product-discovery",
+                    "record-mutation", "executor-handoff", "specialist-design",
+                    "unattended", "tests", "finished-review"}
+        self.assertEqual(required, {case.get("planning_boundary") for case in planning})
+        self.assertEqual(len(required), len(planning))
+        for case in planning:
+            with self.subTest(case=case["id"]):
+                catalog = [dict(row, name=name) for name, row in inventory.items()]
+                prompt = build_routing_prompt(case, catalog)
+                self.assertTrue(prompt.endswith(case["prompt"]))
+                self.assertIn(inventory["planning"]["description"], prompt)
+                for selected, passed in ((case["expected"], True),
+                                         ("planning" if "planning" in case["excluded"] else None, False)):
+                    envelope = unittest.mock.Mock(returncode=0, stderr="", stdout=json.dumps({
+                        "structured_output": {"skill": selected, "reason": "deterministic envelope control"}}))
+                    with patch("scripts.run_routing_evals.subprocess.run", return_value=envelope) as invoke:
+                        result = run_case("offline-cli", root, case, catalog, "offline", 0.01, 10)
+                    self.assertIs(result.passed, passed)
+                    self.assertEqual(subprocess.DEVNULL, invoke.call_args.kwargs["stdin"])
+
     def test_default_call_budget_matches_documented_contract(self) -> None:
         readme = (Path(__file__).resolve().parents[1] / "README.md").read_text(encoding="utf-8")
         normalized_readme = " ".join(readme.split())

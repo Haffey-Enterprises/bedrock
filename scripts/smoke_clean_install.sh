@@ -95,22 +95,22 @@ expected_identity = {
 }
 expected_identity_bytes = (json.dumps(expected_identity, indent=2) + "\n").encode("utf-8")
 carrier_paths = sorted((install_path / "skills").glob("*/PACKAGE_IDENTITY.json"))
-if len(carrier_paths) != 14:
-    raise SystemExit(f"clean-install smoke failed: expected 14 package identity carriers, found {len(carrier_paths)}")
+if len(carrier_paths) != 15:
+    raise SystemExit(f"clean-install smoke failed: expected 15 package identity carriers, found {len(carrier_paths)}")
 if any(path.read_bytes() != expected_identity_bytes for path in carrier_paths):
     raise SystemExit("clean-install smoke failed: installed package identity carrier drift")
 
 for filename in ("details-first.txt", "details-reloaded.txt"):
     text = (root / filename).read_text(encoding="utf-8")
-    if "Skills (14)" not in text:
-        raise SystemExit(f"clean-install smoke failed: {filename} does not report 14 skills")
+    if "Skills (15)" not in text:
+        raise SystemExit(f"clean-install smoke failed: {filename} does not report 15 skills")
 
 first = (root / "details-first.txt").read_text(encoding="utf-8")
 reloaded = (root / "details-reloaded.txt").read_text(encoding="utf-8")
 if first != reloaded:
     raise SystemExit("clean-install smoke failed: component inventory changed after reload")
 
-print("PASS: isolated install and reload discovered bedrock@bedrock with 14 skills, identity carriers, and packaged governance")
+print("PASS: isolated install and reload discovered bedrock@bedrock with 15 skills, identity carriers, and packaged governance")
 PY
 
 if [[ -n "${BEDROCK_INSTALL_EVIDENCE_DIR:-}" ]]; then

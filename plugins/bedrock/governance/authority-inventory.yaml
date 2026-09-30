@@ -3,7 +3,7 @@ concepts:
   - concept: current package version
     authority: plugins/bedrock/.claude-plugin/plugin.json#/version
     repetitions:
-      - {path: "plugins/bedrock/skills/{skill}/PACKAGE_IDENTITY.json", classification: generated-carrier, drift_control: all 14 copies are regenerated from and validated byte-for-byte against the manifest authority}
+      - {path: "plugins/bedrock/skills/{skill}/PACKAGE_IDENTITY.json", classification: generated-carrier, drift_control: all 15 copies are regenerated from and validated byte-for-byte against the manifest authority}
       - {path: plugins/bedrock/CHANGELOG.md, classification: contextual-restatement, drift_control: package-governance validator requires the current candidate identity}
       - {path: release tag, classification: generated-carrier, drift_control: "release-mode validator requires v{manifest_version} at the accepted source commit"}
   - concept: repository license
@@ -70,3 +70,8 @@ concepts:
     repetitions:
       - {path: plugins/bedrock/governance/release-evidence.schema.json, classification: generated-carrier, drift_control: package-governance vocabulary parity validation}
       - {path: plugins/bedrock/governance/rollout-ledger.schema.json, classification: generated-carrier, drift_control: package-governance vocabulary parity validation}
+  - concept: planning current adoption
+    authority: plugins/bedrock/skills/planning/PACKAGE_ADOPTION.json
+    repetitions:
+      - {path: plugins/bedrock/skills/planning/reference/provenance.md, classification: contextual-restatement, drift_control: exact accepted historical source digest; current adoption explicitly supersedes its pending labels}
+      - {path: plugins/bedrock/skills/planning/agents/openai.yaml, classification: contextual-restatement, drift_control: package validator requires allow_implicit_invocation false}

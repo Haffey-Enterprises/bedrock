@@ -52,6 +52,7 @@ EXPECTED_SKILLS = (
     "design-review-loop",
     "frontend-code",
     "infrastructure-code",
+    "planning",
     "testing",
 )
 NAME_PATTERN = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
@@ -847,11 +848,12 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
     parser.add_argument("--skip-host-cli", action="store_true", help="Skip Claude CLI plugin-manifest validation (tests only).")
+    parser.add_argument("--component", action="store_true", help="Component checks only: retain historical routing evidence without claiming current routing acceptance. Default still verifies current retained evidence.")
     parser.add_argument("--inventory", type=Path, help="Write the derived metadata/routing inventory as JSON.")
     args = parser.parse_args()
 
     root = args.root.resolve()
-    errors, report = validate_repository(root, run_host_cli=not args.skip_host_cli)
+    errors, report = validate_repository(root, run_host_cli=not args.skip_host_cli, validate_retained_evidence=not args.component)
     if args.inventory:
         args.inventory.parent.mkdir(parents=True, exist_ok=True)
         args.inventory.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
@@ -863,6 +865,8 @@ def main() -> int:
     message = f"PASS: {report['skill_count']}/{len(EXPECTED_SKILLS)} skills passed deterministic validation"
     if not args.skip_host_cli:
         message += "; plugin manifest passed strict host validation"
+    if args.component:
+        message += "; COMPONENT ONLY: current routing and release acceptance remain unverified"
     print(message)
     return 0
 

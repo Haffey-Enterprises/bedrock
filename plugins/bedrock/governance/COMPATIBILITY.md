@@ -64,3 +64,22 @@ plugin rollback does not mutate deployed project environments. New wheel and
 host claims require the corresponding installation evidence. The historical
 one-provider trial does not prove other providers, side-effect reconciliation,
 PostgreSQL, parallel execution, or fleet orchestration.
+
+## HEB-184 planning addition
+
+Planning is accepted for stateless, explicitly invoked, supervised advisory backlog
+assessment. Read [current adoption](../skills/planning/PACKAGE_ADOPTION.json) with
+the unchanged instruction and historical provenance. No mutation, priority change,
+work start, release, deployment or coordination-state authority follows. The
+Codex invocation policy disables implicit invocation where the host honors that
+metadata; it does not prove Claude host selection enforcement. Supervision and
+explicit selection remain required.
+
+Isolated package installation is not usable cold consumer invocation. HEB-161
+owns composed live routing, discovery, explicit invocation and source identity
+checks on Codex, Claude Code and Claude.ai before release. HEB-184 remains open
+through later HEX shared-version reconsumption and reconciliation of private
+copies. One retained backlog case and selected controls, followed by applications
+to that same broad backlog, do not establish general reliability. C1 coverage,
+C2 read-depth/history, A1 unsupported dependencies and A2 unavailable historical
+loading evidence remain limitations in the current adoption record.

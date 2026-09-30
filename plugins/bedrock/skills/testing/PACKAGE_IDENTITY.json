@@ -4,7 +4,7 @@
   "package": "bedrock",
   "manifest_version": "10.0.0",
   "version_authority": ".claude-plugin/plugin.json#/version",
-  "manifest_sha256": "e294a8c122b0343e8b813a3213b4d02ddf625811dcb78e1e9b32b023a2a98555",
+  "manifest_sha256": "eb483741bc8e0d267cb02e9f2990e9e15a3991db88fd509caf5fe7660f04dd0a",
   "generator": {
     "id": "scripts/sync_package_identity.py",
     "version": "1.0.0"

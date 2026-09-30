@@ -1,0 +1,11 @@
+[
+  {
+    "id": "bedrock@bedrock",
+    "version": "10.0.0",
+    "scope": "user",
+    "enabled": true,
+    "installPath": "/tmp/bedrock-clean-install.L0iEIn/config/plugins/cache/bedrock/bedrock/10.0.0",
+    "installedAt": "2026-09-30T16:36:54.780Z",
+    "lastUpdated": "2026-09-30T16:36:54.780Z"
+  }
+]

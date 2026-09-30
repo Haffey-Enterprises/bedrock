@@ -64,6 +64,69 @@ class PackageGovernanceTests(unittest.TestCase):
             path.write_text(encoded, encoding="utf-8")
         return carrier_paths
 
+    def test_planning_has_accepted_explicit_adoption_and_source_identity(self) -> None:
+        skill = self.root / "plugins/bedrock/skills/planning"
+        self.assertTrue((skill / "SKILL.md").is_file(), "accepted planning entrypoint is absent")
+        adoption = json.loads((skill / "PACKAGE_ADOPTION.json").read_text())
+        self.assertEqual("accepted-supervised-advisory", adoption["status"])
+        self.assertEqual("explicit", adoption["invocation"])
+        self.assertEqual("pending-HEB-161", adoption["release_qualification"])
+        self.assertEqual("open-after-shared-release", adoption["hex_reconsumption"])
+        self.assertIn("adoption remains pending", (skill / "reference/provenance.md").read_text())
+        self.assertEqual([], validate_package_governance(self.root))
+
+    def test_planning_adoption_and_exact_source_fail_closed(self) -> None:
+        skill = self.root / "plugins/bedrock/skills/planning"
+        for name in ("SKILL.md", "reference/provenance.md"):
+            with self.subTest(source=name):
+                path = skill / name
+                original = path.read_bytes()
+                path.write_bytes(original + b"\nchanged\n")
+                self.assert_has_error("accepted planning source digest mismatch")
+                path.write_bytes(original)
+        path = skill / "PACKAGE_ADOPTION.json"
+        original = path.read_bytes()
+        payload = json.loads(original)
+        for key, bad in (("status", "proposed"), ("invocation", "implicit"),
+                         ("release_qualification", "accepted"), ("hex_reconsumption", "complete")):
+            with self.subTest(field=key):
+                changed = dict(payload, **{key: bad})
+                path.write_text(json.dumps(changed))
+                self.assert_has_error("planning adoption authority drift")
+        path.write_bytes(original)
+        path.unlink()
+        self.assert_has_error("planning adoption authority is unavailable")
+
+    def test_planning_invocation_policy_cannot_be_omitted_or_implicit(self) -> None:
+        policy = self.root / "plugins/bedrock/skills/planning/agents/openai.yaml"
+        original = policy.read_bytes()
+        for value in ("true", "0", "null", "\"false\""):
+            with self.subTest(value=value):
+                policy.write_text(f"policy:\n  allow_implicit_invocation: {value}\n")
+                self.assert_has_error("planning requires explicit invocation policy")
+        policy.unlink()
+        self.assert_has_error("planning requires explicit invocation policy")
+        policy.write_bytes(original)
+        self.assertEqual([], validate_package_governance(self.root))
+
+    def test_planning_authorities_reject_duplicate_keys_before_collapse(self) -> None:
+        skill = self.root / "plugins/bedrock/skills/planning"
+        policy = skill / "agents/openai.yaml"
+        original_policy = policy.read_bytes()
+        for text in ("policy:\n  allow_implicit_invocation: true\n  allow_implicit_invocation: false\n",
+                     "policy: {allow_implicit_invocation: true}\npolicy: {allow_implicit_invocation: false}\n",
+                     "policy: {<<: {allow_implicit_invocation: true}, allow_implicit_invocation: false}\n"):
+            with self.subTest(policy=text):
+                policy.write_text(text)
+                self.assert_has_error("duplicate YAML key")
+        policy.write_bytes(original_policy)
+        adoption = skill / "PACKAGE_ADOPTION.json"
+        original_adoption = adoption.read_bytes()
+        adoption.write_text(original_adoption.decode().replace('{', '{"invocation":"implicit",', 1))
+        self.assert_has_error("duplicate JSON key")
+        adoption.write_bytes(original_adoption)
+        self.assertEqual([], validate_package_governance(self.root))
+
     def test_repository_package_governance_passes(self) -> None:
         self.assertEqual([], validate_package_governance(self.root))
 
@@ -152,7 +215,7 @@ class PackageGovernanceTests(unittest.TestCase):
         for row in template["surfaces"]:
             self.assertEqual("pending", row["status"])
             self.assertIsNone(row["evidence"])
-            self.assertEqual("MANIFEST_VERSION and 14 skills", row["expected_identity"])
+            self.assertEqual("MANIFEST_VERSION and 15 skills", row["expected_identity"])
 
     def test_rejects_non_merge_commit_landing_method(self) -> None:
         path = self.root / "plugins/bedrock/governance/registry.yaml"
@@ -622,7 +685,7 @@ class PackageGovernanceTests(unittest.TestCase):
                 {
                     "id": surface,
                     "expected_action": "verify",
-                    "expected_identity": f"{manifest_version} and 14 skills",
+                    "expected_identity": f"{manifest_version} and 15 skills",
                     "status": "verified",
                     "evidence": surface,
                     "owner": "operator",

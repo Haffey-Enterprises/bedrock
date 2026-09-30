@@ -12,7 +12,7 @@ consumer project template. It is not the private HE-Bedrock governance corpus.
 - `plugins/bedrock/` is the installed package.
 - `plugins/bedrock/.claude-plugin/plugin.json#/version` is the sole current
   package-version authority.
-- `plugins/bedrock/skills/` contains the fourteen portable skill contracts and
+- `plugins/bedrock/skills/` contains the fifteen portable skill contracts and
   their bundled profiles, references, schemas, and templates.
 - `packages/agent-core/` owns shared Python source and tests; its generated wheel
   ships inside `agent-builder/assets/python/`. Execution evidence stays in the repository.

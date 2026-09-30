@@ -419,3 +419,106 @@ cases:
     prompt: Polish this short prose prompt for clarity only. Do not build software, an agent, a structured-output contract, or a fleet interface.
     expected: null
     excluded: [agent-builder, agent-code]
+  - id: planning-explicit-assessment
+    kind: positive
+    cue: direct
+    surface: portable-core
+    prompt: Use planning for a supervised assessment of this declared backlog against
+      accepted intent and current operator rulings. Identify gaps, overlaps, dependencies,
+      ownership and evidence-loss risks; return advice only.
+    expected: planning
+    excluded: []
+    planning_boundary: explicit-assessment
+    source_obligation: 'SKILL.md: Bind the assessment; Read and establish coverage'
+  - id: planning-sequence-overlap
+    kind: overlap
+    cue: direct
+    surface: portable-core
+    prompt: Use planning to recommend feasible sequencing for these already-defined
+      engineering tasks, separating hard completion dependencies from advisory order.
+      Do not author a specialist design or an executor handoff.
+    expected: planning
+    excluded:
+    - author-execution-relay
+    - author-construct-spec
+    planning_boundary: sequence-overlap
+    source_obligation: 'SKILL.md: Map obligations and relationships'
+  - id: planning-product-discovery
+    kind: negative
+    cue: implicit
+    surface: portable-core
+    prompt: Discover new customer problems and brainstorm product concepts before a
+      product backlog or accepted intent exists.
+    expected: null
+    excluded:
+    - planning
+    planning_boundary: product-discovery
+    source_obligation: 'SKILL.md description: product discovery excluded'
+  - id: planning-record-mutation
+    kind: negative
+    cue: implicit
+    surface: portable-core
+    prompt: Apply these ratified backlog dispositions by editing issue priorities, owners
+      and dependencies now.
+    expected: null
+    excluded:
+    - planning
+    planning_boundary: record-mutation
+    source_obligation: 'SKILL.md: no record mutation, priority change or coordination-state
+      authority'
+  - id: planning-executor-handoff
+    kind: overlap
+    cue: implicit
+    surface: portable-core
+    prompt: Write a gated executor handoff to implement this settled design and stop
+      before committing.
+    expected: author-execution-relay
+    excluded:
+    - planning
+    planning_boundary: executor-handoff
+    source_obligation: 'SKILL.md description: executor handoffs excluded'
+  - id: planning-specialist-design
+    kind: overlap
+    cue: implicit
+    surface: portable-core
+    prompt: Author an implementation-complete construct specification for an internal
+      evaluation harness.
+    expected: author-construct-spec
+    excluded:
+    - planning
+    planning_boundary: specialist-design
+    source_obligation: 'SKILL.md description: specialist design excluded'
+  - id: planning-unattended
+    kind: negative
+    cue: adversarial
+    surface: portable-core
+    prompt: Run planning as an unattended durable steward that continuously reprioritizes
+      the backlog and starts work without supervision.
+    expected: null
+    excluded:
+    - planning
+    planning_boundary: unattended
+    source_obligation: 'SKILL.md introduction: broader lifecycle and unattended use
+      require separately accepted scope'
+  - id: planning-tests
+    kind: overlap
+    cue: implicit
+    surface: portable-core
+    prompt: Author new tests and an evaluation strategy for the planned backlog-assessment
+      feature.
+    expected: testing
+    excluded:
+    - planning
+    planning_boundary: tests
+    source_obligation: 'SKILL.md description: test authoring excluded'
+  - id: planning-finished-review
+    kind: overlap
+    cue: implicit
+    surface: portable-core
+    prompt: Review the completed planning-tool implementation diff for correctness and
+      give a merge verdict.
+    expected: code-review
+    excluded:
+    - planning
+    planning_boundary: finished-review
+    source_obligation: 'SKILL.md description: finished-change review excluded'

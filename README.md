@@ -6,7 +6,7 @@ Self-contained Claude skills distilled from the HE-Bedrock governance corpus. Th
 
 ## What's in the kit
 
-The kit spans the authoring-through-review lifecycle on the house stacks — service, infrastructure, agent, frontend, and pipeline work alike. Each capability is a self-contained skill that Claude auto-discovers and triggers by task; the live roster is the plugin's [`skills/`](plugins/bedrock/skills) folder, every skill carries its own description, and the plugin manifest carries the current summary. This README deliberately restates neither.
+The kit spans the authoring-through-review lifecycle on the house stacks — service, infrastructure, agent, frontend, and pipeline work alike. Skills are discoverable by task; planning is accepted only for explicit supervised invocation; the live roster is the plugin's [`skills/`](plugins/bedrock/skills) folder, every skill carries its own description, and the plugin manifest carries the current summary. This README deliberately restates neither.
 
 ## Shared libraries
 
@@ -83,7 +83,7 @@ supported profile.
 Edit the relevant skill's authored files directly — the SKILL.md and any bundled
 `reference/` or `templates/` files; single source of truth per skill. Do not
 hand-edit `PACKAGE_IDENTITY.json`: after a manifest or Claude-adapter identity
-change, regenerate all 14 copies with
+change, regenerate all 15 copies with
 `python3 scripts/sync_package_identity.py --write`. Releases follow the push
 discipline in the `author-standard` skill.
 
@@ -100,7 +100,9 @@ python3 scripts/validate_package_governance.py
 bash scripts/smoke_clean_install.sh
 ```
 
-`validate_plugin.py` deterministically enforces the 14-skill inventory, strict YAML frontmatter, the 1,024-character description limit, explicit positive and negative routing boundaries, unique names, plugin/marketplace coherence, package lifecycle and policy contracts, relative-link and private-path safety, declared external-root dependencies and snapshot currency markers, complete code-sample accounting, evidence-manifest integrity, and routing-fixture coverage. It separately runs `claude plugin validate --strict` against the plugin manifest; that host check does not claim recursive skill-frontmatter coverage.
+For component preparation before composed routing acceptance, `validate_plugin.py --component` runs deterministic and strict-host checks without treating prior routing evidence as current. Its success is not release acceptance; the default validator still requires current retained routing evidence.
+
+`validate_plugin.py` deterministically enforces the 15-skill inventory, strict YAML frontmatter, the 1,024-character description limit, explicit positive and negative routing boundaries, unique names, plugin/marketplace coherence, package lifecycle and policy contracts, relative-link and private-path safety, declared external-root dependencies and snapshot currency markers, complete code-sample accounting, evidence-manifest integrity, and routing-fixture coverage. It separately runs `claude plugin validate --strict` against the plugin manifest; that host check does not claim recursive skill-frontmatter coverage.
 
 `validate_package_governance.py` separately exposes the package gate for seeded
 tests and release automation. Its default mode validates a candidate. Its
@@ -111,7 +113,7 @@ the distributed paths retained byte parity, and the tag and rollout identities
 agree. It is a final release-closure check, not the pre-merge HEB-119 candidate
 gate itself.
 
-`sync_package_identity.py --check` proves the 14 skill-local identity carriers
+`sync_package_identity.py --check` proves the 15 skill-local identity carriers
 are byte-identical, canonical generations of the manifest and registry
 authorities. The package-governance validator enforces the same contract.
 
