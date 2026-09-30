@@ -1,0 +1,50 @@
+test_cosmetic_decision_bearing_combination_is_invalid (test_safety_contracts.SafetyContractTests.test_cosmetic_decision_bearing_combination_is_invalid) ... ok
+test_cosmetic_finding_never_blocks_convergence (test_safety_contracts.SafetyContractTests.test_cosmetic_finding_never_blocks_convergence) ... ok
+test_material_decision_bearing_finding_halts (test_safety_contracts.SafetyContractTests.test_material_decision_bearing_finding_halts) ... ok
+test_repository_satisfies_safety_contracts (test_safety_contracts.SafetyContractTests.test_repository_satisfies_safety_contracts) ... ok
+test_cosmetic_decision_halt_guidance_fails (test_safety_contracts.SafetyValidatorNegativeTests.test_cosmetic_decision_halt_guidance_fails) ... ok
+test_maintained_actions_require_verified_node24_identities (test_safety_contracts.SafetyValidatorNegativeTests.test_maintained_actions_require_verified_node24_identities) ... 
+  test_maintained_actions_require_verified_node24_identities (test_safety_contracts.SafetyValidatorNegativeTests.test_maintained_actions_require_verified_node24_identities) (surface='plugins/bedrock/skills/infrastructure-code/reference/05-delivery-pipeline.md') ... FAIL
+  test_maintained_actions_require_verified_node24_identities (test_safety_contracts.SafetyValidatorNegativeTests.test_maintained_actions_require_verified_node24_identities) (surface='tests/fixtures/safety/pr-image-build.yml') ... FAIL
+test_malformed_workflow_events_fail_cleanly (test_safety_contracts.SafetyValidatorNegativeTests.test_malformed_workflow_events_fail_cleanly) ... ok
+test_non_string_manifest_identifier_fails_cleanly (test_safety_contracts.SafetyValidatorNegativeTests.test_non_string_manifest_identifier_fails_cleanly) ... ok
+test_pull_request_push_fails (test_safety_contracts.SafetyValidatorNegativeTests.test_pull_request_push_fails) ... ok
+test_python_minor_site_packages_path_fails (test_safety_contracts.SafetyValidatorNegativeTests.test_python_minor_site_packages_path_fails) ... ok
+test_secret_state_denial_fails (test_safety_contracts.SafetyValidatorNegativeTests.test_secret_state_denial_fails) ... ok
+test_unnamed_unpinned_action_reference_fails (test_safety_contracts.SafetyValidatorNegativeTests.test_unnamed_unpinned_action_reference_fails) ... FAIL
+test_unpinned_action_reference_fails (test_safety_contracts.SafetyValidatorNegativeTests.test_unpinned_action_reference_fails) ... ok
+
+======================================================================
+FAIL: test_maintained_actions_require_verified_node24_identities (test_safety_contracts.SafetyValidatorNegativeTests.test_maintained_actions_require_verified_node24_identities) (surface='plugins/bedrock/skills/infrastructure-code/reference/05-delivery-pipeline.md')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-160-2026-09-30/red-snapshot/tests/test_safety_contracts.py", line 132, in test_maintained_actions_require_verified_node24_identities
+    self.assertIn(f"uses: {action}@{current}", original)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'uses: hashicorp/setup-terraform@dfe3c3f87815947d99a8997f908cb6525fc44e9e' not found in '# Protected infrastructure plan/apply pipeline\n\nTerraform and infrastructure plan/apply remain owned by `infrastructure-code` even when the jobs live in GitHub Actions.\n\n## Verification and plan\n\nOn a pull request, use unprivileged deterministic gates first: format, init from lock, validate, lint, policy/security scan, and tests. A cloud-backed speculative plan uses short-lived read/plan identity and must not inherit apply authority.\n\nA saved plan is sensitive executable intent. Encrypt it in transit and at rest, restrict readers, set a short expiry, and retain its digest and custody events. Redact the human-readable summary separately; redaction does not make the binary plan public.\n\n## Apply binding\n\nBefore apply, produce and verify `infrastructure-apply-manifest.schema.json`. It binds:\n\n- source commit, configuration-tree digest, dependency-lock digest, Terraform/profile version;\n- environment, project/account, workspace/state target, state lineage and serial;\n- plan digest, creation and expiry, producer identity, custody, policy results;\n- approved actor/authority and expected workload/artifact digests.\n\nApply only the exact unexpired plan when all bound identities still match. A new commit, configuration/lock change, state advance, ownership change, expired plan, or missing approval invalidates it and requires a new plan.\n\n## GitHub Actions Haffey profile\n\nUse least-privilege job permissions, SHA-pinned third-party actions, GitHub Environment protection for mutation, and GCP Workload Identity Federation with audience/attribute conditions. Separate plan and apply identities. Never export a long-lived service-account key.\n\n```yaml\nuses: hashicorp/setup-terraform@b9cd54a3c349d3f38e8881555d616ced269862dd # v3\n```\n\nUse concurrency keyed by state target. Read-only verification may cancel stale runs; mutation must queue or fail closed and uses `cancel-in-progress: false`. Retain run, environment approval, OIDC subject, plan/apply manifest, policy output, Terraform result, and recovery/escalation evidence.\n\n## Drift and failure\n\nRun scheduled read-only drift detection with explicit alert ownership. Do not auto-apply drift repair. On partial apply, preserve logs and state identity, stop competing mutation, assess provider/API outcome, and follow the recovery contract before retrying. A rerun is not recovery evidence.\n\nApplication image and static-site delivery remain separate `app-delivery-pipeline` workflows with disjoint authority.\n'
+
+======================================================================
+FAIL: test_maintained_actions_require_verified_node24_identities (test_safety_contracts.SafetyValidatorNegativeTests.test_maintained_actions_require_verified_node24_identities) (surface='tests/fixtures/safety/pr-image-build.yml')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-160-2026-09-30/red-snapshot/tests/test_safety_contracts.py", line 132, in test_maintained_actions_require_verified_node24_identities
+    self.assertIn(f"uses: {action}@{current}", original)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09' not found in 'name: Pull request image build safety fixture\n\n"on":\n  pull_request:\n\npermissions:\n  contents: read\n\njobs:\n  build-image:\n    runs-on: ubuntu-latest\n    steps:\n      - name: Check out repository\n        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262\n      - name: Build service image without publishing\n        run: docker build --tag heb-110-safety:${{ github.sha }} tests/fixtures/safety/python-service\n'
+
+======================================================================
+FAIL: test_unnamed_unpinned_action_reference_fails (test_safety_contracts.SafetyValidatorNegativeTests.test_unnamed_unpinned_action_reference_fails)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-160-2026-09-30/red-snapshot/tests/test_safety_contracts.py", line 110, in test_unnamed_unpinned_action_reference_fails
+    self.assert_has_error("must use a full commit SHA")
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-160-2026-09-30/red-snapshot/tests/test_safety_contracts.py", line 86, in assert_has_error
+    self.assertTrue(any(needle in error for error in errors), errors)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : []
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.297s
+
+FAILED (failures=3)

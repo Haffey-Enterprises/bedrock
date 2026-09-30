@@ -13,7 +13,23 @@ import yaml
 
 
 FULL_SHA = re.compile(r"[0-9a-fA-F]{40}")
-ACTION_REFERENCE = re.compile(r"^\s*uses:\s*([^\s@]+)@([^\s#]+)", re.MULTILINE)
+ACTION_REFERENCE = re.compile(r"^\s*(?:-\s+)?uses:\s*([^\s@]+)@([^\s#]+)", re.MULTILINE)
+YAML_FENCE = re.compile(
+    r"^[ \t]*(?P<fence>`{3,}|~{3,})[ \t]*(?:yaml|yml)[ \t]*\n"
+    r"(?P<body>.*?)^[ \t]*(?P=fence)[ \t]*$",
+    re.MULTILINE | re.DOTALL,
+)
+# Exact upstream action.yml declarations are retained under docs/evidence/heb-160/.
+# This offline gate pins the verified identities; upgrading one requires fresh
+# upstream runtime evidence, not a tag-name or SHA-shape inference.
+REQUIRED_NODE24_ACTIONS = {
+    "plugins/bedrock/skills/infrastructure-code/reference/05-delivery-pipeline.md": (
+        "hashicorp/setup-terraform", "dfe3c3f87815947d99a8997f908cb6525fc44e9e"
+    ),
+    "tests/fixtures/safety/pr-image-build.yml": (
+        "actions/checkout", "fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09"
+    ),
+}
 COUNTED_SEVERITIES = {"BLOCKING", "MATERIAL"}
 EXPECTED_FINDINGS = {"APP-002", "INF-002", "INF-004", "DLV-002", "DRL-004"}
 
@@ -37,6 +53,69 @@ def _forbid(text: str, needle: str, relative: str, errors: list[str]) -> None:
         errors.append(f"{relative}: unsafe or contradictory guidance remains: {needle!r}")
 
 
+class ActionLoader(yaml.SafeLoader):
+    """Reject ambiguous mappings before duplicate values can disappear."""
+
+    def construct_mapping(self, node: yaml.nodes.MappingNode, deep: bool = False) -> dict:
+        self.flatten_mapping(node)
+        result = {}
+        for key_node, value_node in node.value:
+            key = self.construct_object(key_node, deep=deep)
+            try:
+                duplicate = key in result
+            except TypeError as exc:
+                raise yaml.constructor.ConstructorError(
+                    "while inspecting Actions", node.start_mark,
+                    "unhashable YAML key", key_node.start_mark,
+                ) from exc
+            if duplicate:
+                raise yaml.constructor.ConstructorError(
+                    "while inspecting Actions", node.start_mark,
+                    f"duplicate YAML key {key!r}", key_node.start_mark,
+                )
+            result[key] = self.construct_object(value_node, deep=deep)
+        return result
+
+
+def action_references(text: str, relative: str, errors: list[str]) -> list[tuple[str, str]]:
+    """Read uses values structurally, including flow mappings and YAML aliases.
+
+    Markdown uses YAML-labelled fenced examples; retain the legacy line scan
+    outside those fences so plain illustrative uses lines remain covered.
+    """
+    references: list[tuple[str, str]] = []
+    sources = [match.group("body") for match in YAML_FENCE.finditer(text)] if relative.endswith(".md") else [text]
+    if relative.endswith(".md"):
+        references.extend(
+            (match[1].lower(), match[2].lower())
+            for match in ACTION_REFERENCE.finditer(YAML_FENCE.sub("", text))
+        )
+    for source in sources:
+        try:
+            pending = list(yaml.load_all(source, Loader=ActionLoader))
+        except yaml.YAMLError as exc:
+            errors.append(f"{relative}: cannot inspect Action references: invalid YAML: {exc}")
+            continue
+        seen: set[int] = set()
+        while pending:
+            value = pending.pop()
+            if not isinstance(value, (dict, list)) or id(value) in seen:
+                continue
+            seen.add(id(value))
+            if isinstance(value, list):
+                pending.extend(reversed(value))
+                continue
+            if "uses" in value:
+                action = value["uses"]
+                if not isinstance(action, str):
+                    errors.append(f"{relative}: Action uses must be a string")
+                else:
+                    name, _, reference = action.strip().partition("@")
+                    references.append((name.lower(), reference.lower()))
+            pending.extend(reversed(list(value.values())))
+    return references
+
+
 def validate_action_pins(root: Path, errors: list[str]) -> None:
     scan_roots = (
         root / ".github" / "workflows",
@@ -50,15 +129,26 @@ def validate_action_pins(root: Path, errors: list[str]) -> None:
             if not path.is_file() or path.suffix not in {".md", ".yaml", ".yml"}:
                 continue
             text = path.read_text(encoding="utf-8")
-            for match in ACTION_REFERENCE.finditer(text):
-                action, reference = match.groups()
+            relative = str(path.relative_to(root))
+            for action, reference in action_references(text, relative, errors):
                 if action.startswith("./") or action.startswith("docker://"):
                     continue
                 if not FULL_SHA.fullmatch(reference):
-                    relative = path.relative_to(root)
                     errors.append(
                         f"{relative}: third-party Action {action}@{reference} must use a full commit SHA"
                     )
+
+
+def validate_action_runtimes(root: Path, errors: list[str]) -> None:
+    for relative, expected in REQUIRED_NODE24_ACTIONS.items():
+        text = _read(root, relative, errors)
+        references = action_references(text, relative, errors)
+        observed = [reference for reference in references if reference[0] == expected[0]]
+        if not observed or any(reference != expected for reference in observed):
+            errors.append(
+                f"{relative}: must use the verified Node 24 action identity "
+                f"{expected[0]}@{expected[1]}"
+            )
 
 
 def validate_pull_request_build_fixture(root: Path, errors: list[str]) -> None:
@@ -230,6 +320,7 @@ def validate_safety_contracts(root: Path) -> list[str]:
     )
 
     validate_action_pins(root, errors)
+    validate_action_runtimes(root, errors)
     validate_pull_request_build_fixture(root, errors)
     validate_convergence_fixtures(root, errors)
     validate_evidence_manifest(root, errors)

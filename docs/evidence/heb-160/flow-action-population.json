@@ -1,0 +1,275 @@
+{
+  "baseline": "9c30fb10b2f91e4cc50a44868b9e073013db5643",
+  "candidate_tree": "3bddfa89d2821a448c5397d698064b8a81aa50d2",
+  "surface_roots": [
+    ".github/workflows",
+    "plugins/bedrock/skills",
+    "tests/fixtures/safety"
+  ],
+  "selected_files": [
+    ".github/workflows/linear-adapter.yml",
+    ".github/workflows/plugin-validation.yml",
+    "plugins/bedrock/skills/agent-builder/SKILL.md",
+    "plugins/bedrock/skills/agent-builder/reference/README.md",
+    "plugins/bedrock/skills/agent-builder/reference/installation.md",
+    "plugins/bedrock/skills/agent-builder/shared/README.md",
+    "plugins/bedrock/skills/agent-code/README.md",
+    "plugins/bedrock/skills/agent-code/SKILL.md",
+    "plugins/bedrock/skills/agent-code/reference/agent-core-0.2-binding.md",
+    "plugins/bedrock/skills/agent-code/reference/anthropic-python-profile.md",
+    "plugins/bedrock/skills/agent-code/reference/mcp-server-authoring.md",
+    "plugins/bedrock/skills/agent-code/reference/mechanism-contract.md",
+    "plugins/bedrock/skills/app-delivery-pipeline/SKILL.md",
+    "plugins/bedrock/skills/app-delivery-pipeline/reference/01-pipeline-spine.md",
+    "plugins/bedrock/skills/app-delivery-pipeline/reference/02-python-service-leg.md",
+    "plugins/bedrock/skills/app-delivery-pipeline/reference/03-static-frontend-leg.md",
+    "plugins/bedrock/skills/app-delivery-pipeline/reference/authority-provenance.yaml",
+    "plugins/bedrock/skills/application-code/SKILL.md",
+    "plugins/bedrock/skills/application-code/reference/01-code-structure.md",
+    "plugins/bedrock/skills/application-code/reference/02-service-patterns.md",
+    "plugins/bedrock/skills/application-code/reference/03-security-and-data.md",
+    "plugins/bedrock/skills/application-code/reference/04-shell-scripts.md",
+    "plugins/bedrock/skills/author-construct-spec/SKILL.md",
+    "plugins/bedrock/skills/author-construct-spec/reference/lifecycle-and-evidence.md",
+    "plugins/bedrock/skills/author-construct-spec/reference/worked-examples.md",
+    "plugins/bedrock/skills/author-construct-spec/templates/construct-spec-template.md",
+    "plugins/bedrock/skills/author-decision-record/SKILL.md",
+    "plugins/bedrock/skills/author-decision-record/reference/lifecycle-and-relations.md",
+    "plugins/bedrock/skills/author-decision-record/templates/adr-template.md",
+    "plugins/bedrock/skills/author-decision-record/templates/ddr-template.md",
+    "plugins/bedrock/skills/author-decision-record/templates/sdd-template.md",
+    "plugins/bedrock/skills/author-execution-relay/SKILL.md",
+    "plugins/bedrock/skills/author-execution-relay/reference/authorization-and-mutation.md",
+    "plugins/bedrock/skills/author-execution-relay/reference/execution-instrument.md",
+    "plugins/bedrock/skills/author-execution-relay/templates/high-assurance-relay.md",
+    "plugins/bedrock/skills/author-execution-relay/templates/small-relay.md",
+    "plugins/bedrock/skills/author-execution-relay/templates/standard-relay.md",
+    "plugins/bedrock/skills/author-standard/SKILL.md",
+    "plugins/bedrock/skills/author-standard/reference/lifecycle-and-provenance.md",
+    "plugins/bedrock/skills/code-review/SKILL.md",
+    "plugins/bedrock/skills/code-review/reference/conformance-checklist.md",
+    "plugins/bedrock/skills/code-review/templates/review-record.md",
+    "plugins/bedrock/skills/debug/SKILL.md",
+    "plugins/bedrock/skills/debug/templates/diagnosis-record.md",
+    "plugins/bedrock/skills/design-review-loop/SKILL.md",
+    "plugins/bedrock/skills/design-review-loop/reference/arbiter-classifier.md",
+    "plugins/bedrock/skills/design-review-loop/reference/convergence-machinery.md",
+    "plugins/bedrock/skills/design-review-loop/reference/product-runner-binding.md",
+    "plugins/bedrock/skills/design-review-loop/reference/reviewer-instrument.md",
+    "plugins/bedrock/skills/frontend-code/SKILL.md",
+    "plugins/bedrock/skills/frontend-code/reference/01-haffey-react-vite-profile.md",
+    "plugins/bedrock/skills/frontend-code/reference/02-components-state-and-prototype-promotion.md",
+    "plugins/bedrock/skills/frontend-code/reference/03-responsive-accessibility-and-browser-support.md",
+    "plugins/bedrock/skills/frontend-code/reference/04-media-permissions-and-runtime-capabilities.md",
+    "plugins/bedrock/skills/frontend-code/reference/05-api-data-and-browser-security.md",
+    "plugins/bedrock/skills/frontend-code/reference/06-production-readiness.md",
+    "plugins/bedrock/skills/frontend-code/reference/authority-provenance.yaml",
+    "plugins/bedrock/skills/frontend-code/reference/testing.md",
+    "plugins/bedrock/skills/infrastructure-code/SKILL.md",
+    "plugins/bedrock/skills/infrastructure-code/reference/01-module-structure-and-style.md",
+    "plugins/bedrock/skills/infrastructure-code/reference/02-gcp-conventions.md",
+    "plugins/bedrock/skills/infrastructure-code/reference/03-state-and-environments.md",
+    "plugins/bedrock/skills/infrastructure-code/reference/04-kubernetes-and-stateful-workloads.md",
+    "plugins/bedrock/skills/infrastructure-code/reference/05-delivery-pipeline.md",
+    "plugins/bedrock/skills/infrastructure-code/reference/authority-provenance.yaml",
+    "plugins/bedrock/skills/testing/SKILL.md",
+    "plugins/bedrock/skills/testing/reference/nondeterministic-components.md",
+    "plugins/bedrock/skills/testing/reference/test-authoring.md",
+    "tests/fixtures/safety/convergence.yaml",
+    "tests/fixtures/safety/manifest.yaml",
+    "tests/fixtures/safety/pr-image-build.yml"
+  ],
+  "before": [
+    {
+      "path": ".github/workflows/linear-adapter.yml",
+      "repository": "actions/checkout",
+      "commit": "fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09"
+    },
+    {
+      "path": ".github/workflows/linear-adapter.yml",
+      "repository": "actions/setup-python",
+      "commit": "ece7cb06caefa5fff74198d8649806c4678c61a1"
+    },
+    {
+      "path": ".github/workflows/plugin-validation.yml",
+      "repository": "actions/checkout",
+      "commit": "fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09"
+    },
+    {
+      "path": ".github/workflows/plugin-validation.yml",
+      "repository": "actions/setup-python",
+      "commit": "ece7cb06caefa5fff74198d8649806c4678c61a1"
+    },
+    {
+      "path": ".github/workflows/plugin-validation.yml",
+      "repository": "actions/setup-node",
+      "commit": "a0853c24544627f65ddf259abe73b1d18a591444"
+    },
+    {
+      "path": ".github/workflows/plugin-validation.yml",
+      "repository": "hashicorp/setup-terraform",
+      "commit": "dfe3c3f87815947d99a8997f908cb6525fc44e9e"
+    },
+    {
+      "path": ".github/workflows/plugin-validation.yml",
+      "repository": "actions/upload-artifact",
+      "commit": "b7c566a772e6b6bfb58ed0dc250532a479d7789f"
+    },
+    {
+      "path": ".github/workflows/plugin-validation.yml",
+      "repository": "actions/upload-artifact",
+      "commit": "b7c566a772e6b6bfb58ed0dc250532a479d7789f"
+    },
+    {
+      "path": ".github/workflows/plugin-validation.yml",
+      "repository": "actions/upload-artifact",
+      "commit": "b7c566a772e6b6bfb58ed0dc250532a479d7789f"
+    },
+    {
+      "path": ".github/workflows/plugin-validation.yml",
+      "repository": "actions/checkout",
+      "commit": "fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09"
+    },
+    {
+      "path": ".github/workflows/plugin-validation.yml",
+      "repository": "actions/setup-python",
+      "commit": "ece7cb06caefa5fff74198d8649806c4678c61a1"
+    },
+    {
+      "path": ".github/workflows/plugin-validation.yml",
+      "repository": "actions/upload-artifact",
+      "commit": "b7c566a772e6b6bfb58ed0dc250532a479d7789f"
+    },
+    {
+      "path": ".github/workflows/plugin-validation.yml",
+      "repository": "actions/checkout",
+      "commit": "fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09"
+    },
+    {
+      "path": ".github/workflows/plugin-validation.yml",
+      "repository": "actions/setup-python",
+      "commit": "ece7cb06caefa5fff74198d8649806c4678c61a1"
+    },
+    {
+      "path": ".github/workflows/plugin-validation.yml",
+      "repository": "actions/upload-artifact",
+      "commit": "b7c566a772e6b6bfb58ed0dc250532a479d7789f"
+    },
+    {
+      "path": "plugins/bedrock/skills/infrastructure-code/reference/05-delivery-pipeline.md",
+      "repository": "hashicorp/setup-terraform",
+      "commit": "b9cd54a3c349d3f38e8881555d616ced269862dd"
+    },
+    {
+      "path": "tests/fixtures/safety/pr-image-build.yml",
+      "repository": "actions/checkout",
+      "commit": "11d5960a326750d5838078e36cf38b85af677262"
+    }
+  ],
+  "after": [
+    {
+      "path": ".github/workflows/linear-adapter.yml",
+      "repository": "actions/checkout",
+      "commit": "fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09"
+    },
+    {
+      "path": ".github/workflows/linear-adapter.yml",
+      "repository": "actions/setup-python",
+      "commit": "ece7cb06caefa5fff74198d8649806c4678c61a1"
+    },
+    {
+      "path": ".github/workflows/plugin-validation.yml",
+      "repository": "actions/checkout",
+      "commit": "fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09"
+    },
+    {
+      "path": ".github/workflows/plugin-validation.yml",
+      "repository": "actions/setup-python",
+      "commit": "ece7cb06caefa5fff74198d8649806c4678c61a1"
+    },
+    {
+      "path": ".github/workflows/plugin-validation.yml",
+      "repository": "actions/setup-node",
+      "commit": "a0853c24544627f65ddf259abe73b1d18a591444"
+    },
+    {
+      "path": ".github/workflows/plugin-validation.yml",
+      "repository": "hashicorp/setup-terraform",
+      "commit": "dfe3c3f87815947d99a8997f908cb6525fc44e9e"
+    },
+    {
+      "path": ".github/workflows/plugin-validation.yml",
+      "repository": "actions/upload-artifact",
+      "commit": "b7c566a772e6b6bfb58ed0dc250532a479d7789f"
+    },
+    {
+      "path": ".github/workflows/plugin-validation.yml",
+      "repository": "actions/upload-artifact",
+      "commit": "b7c566a772e6b6bfb58ed0dc250532a479d7789f"
+    },
+    {
+      "path": ".github/workflows/plugin-validation.yml",
+      "repository": "actions/upload-artifact",
+      "commit": "b7c566a772e6b6bfb58ed0dc250532a479d7789f"
+    },
+    {
+      "path": ".github/workflows/plugin-validation.yml",
+      "repository": "actions/checkout",
+      "commit": "fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09"
+    },
+    {
+      "path": ".github/workflows/plugin-validation.yml",
+      "repository": "actions/setup-python",
+      "commit": "ece7cb06caefa5fff74198d8649806c4678c61a1"
+    },
+    {
+      "path": ".github/workflows/plugin-validation.yml",
+      "repository": "actions/upload-artifact",
+      "commit": "b7c566a772e6b6bfb58ed0dc250532a479d7789f"
+    },
+    {
+      "path": ".github/workflows/plugin-validation.yml",
+      "repository": "actions/checkout",
+      "commit": "fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09"
+    },
+    {
+      "path": ".github/workflows/plugin-validation.yml",
+      "repository": "actions/setup-python",
+      "commit": "ece7cb06caefa5fff74198d8649806c4678c61a1"
+    },
+    {
+      "path": ".github/workflows/plugin-validation.yml",
+      "repository": "actions/upload-artifact",
+      "commit": "b7c566a772e6b6bfb58ed0dc250532a479d7789f"
+    },
+    {
+      "path": "plugins/bedrock/skills/infrastructure-code/reference/05-delivery-pipeline.md",
+      "repository": "hashicorp/setup-terraform",
+      "commit": "dfe3c3f87815947d99a8997f908cb6525fc44e9e"
+    },
+    {
+      "path": "tests/fixtures/safety/pr-image-build.yml",
+      "repository": "actions/checkout",
+      "commit": "fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09"
+    }
+  ],
+  "before_members": [
+    "actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+    "actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09",
+    "actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444",
+    "actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1",
+    "actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f",
+    "hashicorp/setup-terraform@b9cd54a3c349d3f38e8881555d616ced269862dd",
+    "hashicorp/setup-terraform@dfe3c3f87815947d99a8997f908cb6525fc44e9e"
+  ],
+  "after_members": [
+    "actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09",
+    "actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444",
+    "actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1",
+    "actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f",
+    "hashicorp/setup-terraform@dfe3c3f87815947d99a8997f908cb6525fc44e9e"
+  ],
+  "runtime_control": "YAML runs.using equals anchored textual declaration; known-old specimens refused",
+  "result": "confirmed",
+  "limits": "Direct references in validator-selected Markdown/YAML surfaces only; no transitive actions, historical evidence, SOFIA, hosted execution, or production reachability claim."
+}

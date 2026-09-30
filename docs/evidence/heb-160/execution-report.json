@@ -1,0 +1,105 @@
+{
+  "status": "stopped-required-validation-unavailable",
+  "date_eastern": "2026-09-30",
+  "repository": "T-Bone-Haff/bedrock",
+  "checkout": "/Users/thaffey/.codex/worktrees/heb-154-integration/bedrock",
+  "branch": "codex/heb-161-candidate",
+  "head": "9c30fb10b2f91e4cc50a44868b9e073013db5643",
+  "head_parent": "5208b5c62456932dc77f5d1b9a95a35da4be1201",
+  "new_commit": null,
+  "checkpoint": "Local and unpushed; source delta staged; evidence untracked.",
+  "preflight": {
+    "checkout_branch_commit_and_clean_tracked_state": "confirmed before mutation",
+    "untracked_population": "exact protected receipt names before mutation",
+    "altered_expected_commit_refused": true,
+    "process_control": "lsof cwd and ps command-line probes found no checkout matches; both positive controls passed; ps required sandbox escalation"
+  },
+  "protected_receipts_final_digest_matches": {
+    "docs/evidence/heb-153/host-cleanup.json": true,
+    "docs/evidence/heb-153/post-removal-verification.json": true
+  },
+  "package_identity": {
+    "authority": "plugins/bedrock/.claude-plugin/plugin.json",
+    "name": "bedrock",
+    "version": "10.0.0",
+    "generated_carriers_changed": false
+  },
+  "authority_reads": {
+    "HEB-160": "issue whole; all returned comments; hasNextPage false; issue and comment attachments empty",
+    "HEB-125": "issue whole; all returned comments; hasNextPage false; issue and comment attachments empty",
+    "HEB-161": "issue whole and all returned comments; hasNextPage false; confirms next slice HEB-160; linked PR attachment not needed for sequencing and not fetched",
+    "attachment_empty_control": "HEB-161 get_issue response includes an attachment, confirming attachment field is populated when present"
+  },
+  "relay_adjusted": false,
+  "relay_sweep": {
+    "method": "Whole-relay manual category sweep with planted path:line and rev-token regex control",
+    "hits_and_dispositions": [
+      {
+        "hit": "starting Git object and protected receipt SHA-256 values",
+        "disposition": "pins in pins block; checked first"
+      },
+      {
+        "hit": "Node 20 and Node 24",
+        "disposition": "runtime identity criteria, not derivable population counts"
+      },
+      {
+        "hit": "one coherent local commit",
+        "disposition": "authorization constraint, not population count"
+      },
+      {
+        "hit": "first failing regression, passes/refuses, turns green, failed validation",
+        "disposition": "prospective instrument expectations or stop conditions, not reported outcomes"
+      }
+    ],
+    "defects": [],
+    "limit": "Pattern and manual category sweep is not proof against unrecognized prose forms"
+  },
+  "instrument_grammar": {
+    "safety": "python scripts/validate_safety.py [--root PATH]; exit 0 PASS, 1 validation errors; argparse invalid invocation exits 2",
+    "tests": "python -m unittest discover -s tests -p test_safety_contracts.py -v; exit 0 pass, 1 failure"
+  },
+  "first_red": "first-red.log and first-red.json; stale identities and unnamed-step omission fail before implementation",
+  "validation": "validation.json and named full logs; required focused gates passed; full tests/ unittest population passed; additional package suites failed collection",
+  "stop": {
+    "command": "package-suites in validation.json",
+    "exit_code": 2,
+    "cause": "httpx absent from selected validation environment; pytest also warns asyncio_mode is unknown",
+    "scope": "Both maintained Python package suites were requested in this command; core cases collected but no execution result due to collection failure",
+    "action": "Stopped per relay. No dependency installation, rerun, independent review, or commit after failure."
+  },
+  "independent_review": "not performed because required-validation stop fired before review",
+  "changed_tracked_paths": [
+    "plugins/bedrock/CHANGELOG.md",
+    "plugins/bedrock/skills/infrastructure-code/reference/05-delivery-pipeline.md",
+    "scripts/validate_safety.py",
+    "tests/fixtures/safety/pr-image-build.yml",
+    "tests/test_safety_contracts.py"
+  ],
+  "settled_sources": {
+    "plugins/bedrock/skills/infrastructure-code/reference/05-delivery-pipeline.md": "HEB-160 and HEB-125 settled Terraform setup locus; upstream v4.0.1 resolves selected Node 24 commit",
+    "tests/fixtures/safety/pr-image-build.yml": "HEB-160 and HEB-125 settled checkout fixture locus; upstream v5.1.0 resolves selected Node 24 commit",
+    "scripts/validate_safety.py": "Relay authorizes offline runtime regression protection and complete validator-selected direct-action population; include unnamed uses steps",
+    "tests/test_safety_contracts.py": "Relay requires meaningful first-red, selected identities passing and known-old identities refused",
+    "plugins/bedrock/CHANGELOG.md": "Relay requires current candidate changelog update without another version bump",
+    "docs/evidence/heb-160/**": "Relay requires implementation, upstream, population, commands, exit codes and limitations evidence"
+  },
+  "tested_input_verification": {
+    "scope": "all files in tested-inputs.json from green Git tree; excludes newly authored HEB-160 evidence and protected receipts",
+    "index_and_worktree_match_tested_blobs": true,
+    "files_checked": 1146,
+    "committed_blob_verification": "unavailable: no HEB-160 commit created"
+  },
+  "preserved_interim_artifacts": [
+    "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-160-2026-09-30/red-snapshot",
+    "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-160-2026-09-30/green-snapshot"
+  ],
+  "limits": [
+    "Direct action population only on validator-selected Markdown/YAML roots; no transitive-action or repository-external inventory claim",
+    "No hosted-runner execution, production reachability, release acceptance, or new live-routing evidence",
+    "Installed Python environment was reused read-only; no package or plugin installation performed",
+    "No private hygiene pattern file inspected, reproduced, or exposed",
+    "Historical accepted-trial/component evidence unchanged",
+    "HEB-161 owns composed-candidate acceptance and release; this is only an incomplete local HEB-160 implementation slice"
+  ],
+  "recommendation": "Resume only after resolving the stopped validation capability with an environment containing the package-declared test dependencies; then finish required validation, independent review and the authorized coherent commit."
+}

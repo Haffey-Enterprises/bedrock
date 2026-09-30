@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "profile": "standard",
+  "scope": "Independent advisory final review of the HEB-160 staged component delta against HEAD 9c30fb10b2f91e4cc50a44868b9e073013db5643; final tested tree 06fa11426f290558af77ea9438f6e3794f736394. Approve this local component delta; this is not composed HEB-161 acceptance, release authorization, or committed-blob verification.",
+  "checked_surfaces": [
+    "Whole reads: checkout AGENTS.md, repository orientation, candidate code-review skill, conformance checklist, review-result schema, infrastructure-code skill, manifest, staged diff, and all five complete changed implementation files. After repair, reread the whole validator, test module, changelog, and population replay script. Separate scope/architecture, conformance/correctness, and system-posture lenses were applied.",
+    "Whole reads: original HEB-160 upstream.json, action-population.json, verify_population.py, validation.json, execution-report.json, first-red.json, original validation logs, resumption.json, compatibility.json; final-validation.json, every final validation log, review-red.json/log, and population-command.json. Truncated aggregate log reads were replaced with narrower complete reads. Interim flow-* evidence was not reviewed as final proof.",
+    "Machine-parsed the entire final-tested-inputs.json and compared every entry against the complete candidate Git tree, current index, tracked working-tree bytes, and review-final-snapshot bytes: 1146 matching files. This is whole-population identity verification, not semantic review of every file. Newly authored HEB-160 evidence and protected untracked receipts are outside this population. The complete Agent Core and hex-linear package subtrees match the earlier successfully tested inputs.",
+    "Replayed the revised population script, which loads the candidate extractor directly from its Git object for both baseline and candidate. The entire replay output exactly matches final-action-population.json. The declared Markdown/YAML population under .github/workflows, plugins/bedrock/skills, and tests/fixtures/safety covers 71 selected files, 17 direct references, and five unique final identities. The broader independent uses-token scan in the initial review agreed with current references; only the intended two pins changed.",
+    "Complete retained upstream manifests and tag relationships support the selected identities; replay independently checks manifest digests, YAML runtime declarations, and known-old Node 20 controls. Upstream was not fetched again during this review. Manifest compatibility does not establish equivalence of upstream implementation behavior.",
+    "Resolved HEB160-REV-001 (medium correctness): line-regex extraction silently accepted old checkout and unpinned setup-python references in valid flow mappings. Structural YAML extraction now refuses these cases, including quoted keys/values, folded scalars, aliases, and repository/SHA case variants. The original pause finding remains verbatim in review-initial.json; review-red.log retains discriminating failures before correction.",
+    "Resolved HEB160-REV-002 (medium correctness, discovered during re-review): safe_load_all collapsed duplicate uses keys and discarded an old identity preceding a good identity. ActionLoader now rejects duplicates before values disappear; merge overrides yielding duplicate keys also fail closed. Independent old-then-good and merge-override probes now refuse; clean, duplicate good steps and nonoverlapping merge controls pass.",
+    "Independent final execution: all 18 focused safety tests passed from review-final-snapshot with the specified Python and PYTHONDONTWRITEBYTECODE=1. Additional in-memory probes verified clean input, old flow reference, unpinned flow reference, duplicate-key refusal, merge-override refusal, duplicate good steps, non-string uses, unhashable YAML keys, and nonoverlapping merge behavior. Missing-action and malformed-YAML controls, alias/cycle termination, and both maintained runtime identities were inspected in the full test module and exercised by the focused suite.",
+    "Parser limits: structural extraction covers YAML files and recognized yaml/yml-labelled Markdown fences; other Markdown uses the retained line scan. This is not arbitrary Markdown syntax coverage, workflow schema validation, a transitive-action inventory, or a hostile-input resource-bounds guarantee. Alias revisits are suppressed to prevent cycles, so derived rows are parsed references, not an execution-count claim. None of these limits hides an observed maintained direct reference in the current population.",
+    "No protected receipt contents or private hygiene file were inspected. Reviewer writes were limited to review-initial.json and review-final.json. No implementation edit, live model/routing call, Linear change, commit, push, installation, infrastructure mutation, or hosted-runner execution occurred. Findings are closed for this reviewed tree; future source changes require fresh review."
+  ],
+  "gates": [
+    {
+      "name": "scope-and-package-identity",
+      "disposition": "passed",
+      "reason": "Five implementation paths remain in scope. Exact official action pins replace the settled old references; plan/apply guidance and fixture permissions remain intact. Version stays 10.0.0 and historical tracked evidence is unchanged."
+    },
+    {
+      "name": "final-tested-input-parity",
+      "disposition": "passed",
+      "reason": "Independent full-population comparison confirms final tree/index/worktree/snapshot parity for all 1146 tracked input files; package subtrees are identical to the earlier package test inputs."
+    },
+    {
+      "name": "runtime-identity-and-population-replay",
+      "disposition": "passed",
+      "reason": "Independent replay exactly matches the final retained population with all current direct identities declaring node24 and both known-old controls declaring node20. Selected tag relationships and complete manifest provenance are retained."
+    },
+    {
+      "name": "meaningful-red-and-review-findings",
+      "disposition": "passed",
+      "reason": "Original first-red proof and repair-specific review-red proof were read whole. HEB160-REV-001 flow-syntax bypass and HEB160-REV-002 duplicate-key collapse are resolved and independently discriminated against clean controls."
+    },
+    {
+      "name": "focused-safety-tests",
+      "disposition": "passed",
+      "reason": "Independent final snapshot rerun: 18 tests passed. These tests are included in the root unittest population and are not additive to it."
+    },
+    {
+      "name": "repository-unittest-suite",
+      "disposition": "passed",
+      "reason": "Whole final-repository-suite.log and final-validation.json show 199 tests passing on final tree with Docker and Terraform required, including integration checks and strict-host negative control. This full suite was not rerun by the reviewer."
+    },
+    {
+      "name": "package-test-suites",
+      "disposition": "passed",
+      "reason": "Whole retained package logs show 110 Agent Core and 96 hex-linear tests passing in their existing dependency-appropriate environments after the original collection failure. Complete package subtrees are independently confirmed unchanged by parser repair. Not rerun by the reviewer."
+    },
+    {
+      "name": "safety-infrastructure-governance-identity-and-strict-host-validation",
+      "disposition": "passed",
+      "reason": "Whole final logs and command records show all validators exiting zero, 14 identity carriers verified, and strict host manifest validation passing. These separate CLI invocations were not rerun by the reviewer."
+    },
+    {
+      "name": "diff-whitespace",
+      "disposition": "passed",
+      "reason": "Final staged git diff --check completed successfully."
+    },
+    {
+      "name": "standalone-lint-typecheck-build-and-dependency-scan",
+      "disposition": "not-relevant",
+      "reason": "No additional repository-required standalone gate was established for this bounded validator/reference change. Existing deterministic validators and tests were assessed; no dependency was added. This is not an exhaustive repository-tooling audit."
+    },
+    {
+      "name": "deployment-live-routing-and-composed-release-acceptance",
+      "disposition": "not-relevant",
+      "reason": "Local component review only. Hosted execution, upstream implementation equivalence, consumer installation, live routing, and composed HEB-161 acceptance remain outside scope."
+    }
+  ],
+  "findings": [],
+  "verdict": "approve"
+}

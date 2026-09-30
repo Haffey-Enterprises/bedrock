@@ -1,0 +1,150 @@
+[
+  {
+    "name": "focused-safety",
+    "command": [
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+      "-B",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-p",
+      "test_safety_contracts.py",
+      "-v"
+    ],
+    "cwd": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-160-2026-09-30/green-snapshot",
+    "exit_code": 0
+  },
+  {
+    "name": "safety",
+    "command": [
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+      "-B",
+      "scripts/validate_safety.py"
+    ],
+    "cwd": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-160-2026-09-30/green-snapshot",
+    "exit_code": 0
+  },
+  {
+    "name": "infrastructure-delivery",
+    "command": [
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+      "-B",
+      "scripts/validate_infrastructure_delivery_contracts.py"
+    ],
+    "cwd": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-160-2026-09-30/green-snapshot",
+    "exit_code": 0
+  },
+  {
+    "name": "identity",
+    "command": [
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+      "-B",
+      "scripts/sync_package_identity.py",
+      "--check"
+    ],
+    "cwd": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-160-2026-09-30/green-snapshot",
+    "exit_code": 0
+  },
+  {
+    "name": "governance",
+    "command": [
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+      "-B",
+      "scripts/validate_package_governance.py"
+    ],
+    "cwd": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-160-2026-09-30/green-snapshot",
+    "exit_code": 0
+  },
+  {
+    "name": "strict-plugin",
+    "command": [
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+      "-B",
+      "scripts/validate_plugin.py"
+    ],
+    "cwd": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-160-2026-09-30/green-snapshot",
+    "exit_code": 0
+  },
+  {
+    "name": "repository-suite",
+    "command": [
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+      "-B",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-v"
+    ],
+    "cwd": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-160-2026-09-30/green-snapshot",
+    "env": {
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "HEB110_REQUIRE_DOCKER": "1",
+      "HEB110_REQUIRE_TERRAFORM": "1"
+    },
+    "exit_code": 0
+  },
+  {
+    "name": "package-suites",
+    "command": [
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+      "-B",
+      "-m",
+      "pytest",
+      "-p",
+      "no:cacheprovider",
+      "-v",
+      "packages/agent-core/tests",
+      "packages/hex-linear/tests"
+    ],
+    "cwd": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-160-2026-09-30/green-snapshot",
+    "env": {
+      "PYTHONPATH": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-160-2026-09-30/green-snapshot/packages/agent-core/src:/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-160-2026-09-30/green-snapshot/packages/hex-linear/src",
+      "PYTHONDONTWRITEBYTECODE": "1"
+    },
+    "exit_code": 2
+  },
+  {
+    "name": "agent-core-suite",
+    "command": [
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+      "-B",
+      "-m",
+      "pytest",
+      "-p",
+      "no:cacheprovider",
+      "-v",
+      "tests"
+    ],
+    "cwd": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-160-2026-09-30/green-snapshot/packages/agent-core",
+    "env": {
+      "PYTHONPATH": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-160-2026-09-30/green-snapshot/packages/agent-core/src",
+      "PYTHONDONTWRITEBYTECODE": "1"
+    },
+    "exit_code": 0,
+    "resumption": "User authorized proceed after retained package-suites collection failure; existing environment selected for each declared dependency set; no installation"
+  },
+  {
+    "name": "hex-linear-suite",
+    "command": [
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-164-2026-09-23/linear-client-proof/venv/bin/python",
+      "-B",
+      "-m",
+      "pytest",
+      "-p",
+      "no:cacheprovider",
+      "-v",
+      "tests"
+    ],
+    "cwd": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-160-2026-09-30/green-snapshot/packages/hex-linear",
+    "env": {
+      "PYTHONPATH": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-160-2026-09-30/green-snapshot/packages/hex-linear/src",
+      "PYTHONDONTWRITEBYTECODE": "1"
+    },
+    "exit_code": 0,
+    "resumption": "User authorized proceed after retained package-suites collection failure; existing environment selected for each declared dependency set; no installation"
+  }
+]

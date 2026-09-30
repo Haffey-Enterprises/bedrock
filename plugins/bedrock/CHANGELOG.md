@@ -5,6 +5,11 @@ records candidate and released changes; a version heading is not release proof.
 
 ## 10.0.0 — bounded agent construction candidate
 
+- Replace the maintained Terraform setup guidance and pull-request image-build
+  fixture with exact upstream-verified Node 24 action pins (HEB-160). Add offline
+  regression protection for both identities and parse YAML action steps,
+  including unnamed and flow-style steps, in the SHA-pin validator. Preserve plan/apply authority and unprivileged PR builds.
+
 - Add the HEB-159 carried-value amendment in PROVING: relays carry subjects,
   pins and rules; keep outcomes and revision narratives in records; check each
   text-removing shrink against predecessor anchors; and require the reader to

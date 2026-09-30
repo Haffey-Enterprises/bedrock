@@ -1,0 +1,12 @@
+{
+  "command": [
+    "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+    "-B",
+    "/Users/thaffey/.codex/worktrees/heb-154-integration/bedrock/docs/evidence/heb-160/verify_population.py",
+    "9c30fb10b2f91e4cc50a44868b9e073013db5643",
+    "06fa11426f290558af77ea9438f6e3794f736394"
+  ],
+  "cwd": "/Users/thaffey/.codex/worktrees/heb-154-integration/bedrock",
+  "exit_code": 0,
+  "output": "final-action-population.json"
+}

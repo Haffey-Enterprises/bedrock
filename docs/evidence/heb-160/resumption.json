@@ -1,0 +1,45 @@
+{
+  "date_eastern": "2026-09-30",
+  "authorization": "Tad instructed proceed after the retained validation stop.",
+  "environment_resolution": "No installation. Each package used an existing environment with its declared test dependencies and its own pytest configuration, against the unchanged tracked-object snapshot.",
+  "dependency_versions": {
+    "agent-core": {
+      "pytest": "9.1.1",
+      "jsonschema": "4.25.1"
+    },
+    "hex-linear": {
+      "pytest": "9.1.1",
+      "pytest-asyncio": "1.4.0",
+      "httpx": "0.28.1",
+      "graphql-core": "3.2.12"
+    }
+  },
+  "test_population": {
+    "tests_root_unittest": 194,
+    "agent_core_pytest": 110,
+    "hex_linear_pytest": 96,
+    "focused_safety_unittest": 13,
+    "overlap": "focused safety is included in tests_root_unittest; package suites are separate",
+    "limits": "No live routing/model calls, hosted-runner test, consumer installation, frontend browser suite or offline specialist rerun. Historical test files under docs/evidence excluded."
+  },
+  "input_parity": {
+    "snapshot_tree": "b22aad51b65f1d16dfee8cffe89cbca83be52dcc",
+    "snapshot_matches_retained_hashes": true,
+    "files_checked": 1146,
+    "population": "every tracked file in tested-inputs.json; current HEB-160 evidence and protected untracked receipts excluded"
+  },
+  "action_population": {
+    "roots": [
+      ".github/workflows",
+      "plugins/bedrock/skills",
+      "tests/fixtures/safety"
+    ],
+    "selected_files": 71,
+    "direct_uses": 17,
+    "identities": 5,
+    "expected_substitutions_only": true,
+    "limits": "Direct references in validator-selected Markdown/YAML surfaces only; no transitive actions, historical evidence, SOFIA, hosted execution, or production reachability claim."
+  },
+  "relay_adjusted": false,
+  "outstanding": "Independent review, evidence sealing, one local commit, and committed-blob verification."
+}
