@@ -1,0 +1,86 @@
+#!/usr/bin/env bash
+# Requires Bash 3.2+. Exit 0: clean; 1: detected; 2: operational failure.
+# Deliberately no errexit: grep's no-match status is part of the contract.
+set -uo pipefail
+export LC_ALL=C
+umask 077
+fail() { printf 'data-hygiene: check unavailable\n' >&2; exit 2; }
+[[ ${BASH_VERSINFO[0]} -gt 3 || ( ${BASH_VERSINFO[0]} -eq 3 && ${BASH_VERSINFO[1]} -ge 2 ) ]] || fail
+[[ ${DATA_HYGIENE_PATTERN_FILE+x} != x || -n $DATA_HYGIENE_PATTERN_FILE ]] || fail
+[[ ${RECALL_HYGIENE_TERMS+x} != x || -n $RECALL_HYGIENE_TERMS ]] || fail
+if [[ ${DATA_HYGIENE_PATTERN_FILE+x} == x ]]; then
+    patterns=$DATA_HYGIENE_PATTERN_FILE
+elif [[ ${RECALL_HYGIENE_TERMS+x} == x ]]; then
+    patterns=$RECALL_HYGIENE_TERMS
+else
+    runtime=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/../.." 2>/dev/null && pwd -P) || fail
+    pointer=$runtime/pattern-file.path
+    [[ -f $pointer && -r $pointer ]] || fail
+    patterns=$(cat -- "$pointer" 2>/dev/null) || fail
+    [[ $patterns == /* && $patterns != *$'\n'* ]] || fail
+fi
+[[ -f $patterns && -r $patterns ]] || fail
+workspace=$(mktemp -d 2>/dev/null) || fail
+cleanup() {
+    status=$?
+    rm -rf -- "$workspace" 2>/dev/null || { printf 'data-hygiene: cleanup unavailable\n' >&2; exit 2; }
+    exit "$status"
+}
+trap cleanup EXIT
+# Compare a NUL-stripped copy to refuse NUL input before Bash reads any line.
+tr -d '\000' 2>/dev/null < "$patterns" > "$workspace/no-nul" || fail
+cmp -s -- "$patterns" "$workspace/no-nul" 2>/dev/null || fail
+sed -e $'s/\r$//' -e $'s/^[ \t]*//' -e $'s/[ \t]*$//' -e '/^#/d' -e '/^$/d' \
+    "$workspace/no-nul" 2>/dev/null > "$workspace/patterns" || fail
+[[ -s $workspace/patterns ]] || fail
+IFS= read -r first 2>/dev/null < "$workspace/patterns" || [[ -n $first ]] || fail
+matcher() { grep -F -i -n -a -f "$workspace/patterns"; }
+redact() { awk '/^[0-9]+:/ { sub(/:.*/, ""); print; next } { exit 2 }'; }
+printf '%s\n' "$first" | matcher 2>/dev/null | redact 2>/dev/null > "$workspace/control"
+statuses=("${PIPESTATUS[@]}")
+[[ ${statuses[0]} == 0 && ${statuses[1]} == 0 && ${statuses[2]} == 0 ]] || fail
+control=$(cat -- "$workspace/control" 2>/dev/null) || fail
+[[ $control == 1 ]] || fail
+printf '' | matcher 2>/dev/null | redact 2>/dev/null > "$workspace/control"
+statuses=("${PIPESTATUS[@]}")
+[[ ${statuses[0]} == 0 && ${statuses[1]} == 1 && ${statuses[2]} == 0 && ! -s $workspace/control ]] || fail
+unset first
+# No process substitution: verify the one complete enumeration before scanning.
+git diff --cached --no-renames --name-only --diff-filter=d -z -- 2>/dev/null > "$workspace/paths" || fail
+: 2>/dev/null > "$workspace/report" || fail
+scanned=0
+found=0
+path=''
+{ exec 3< "$workspace/paths"; } 2>/dev/null || fail
+while IFS= read -r -d '' path; do
+    kind=$(git cat-file -t ":$path" 2>/dev/null) || fail
+    [[ $kind == blob ]] || fail
+    git cat-file blob ":$path" 2>/dev/null | matcher 2>/dev/null | redact 2>/dev/null > "$workspace/lines"
+    statuses=("${PIPESTATUS[@]}")
+    [[ ${statuses[0]} == 0 && ${statuses[2]} == 0 ]] || fail
+    [[ ${statuses[1]} == 0 || ${statuses[1]} == 1 ]] || fail
+    scanned=$((scanned + 1))
+    if [[ ${statuses[1]} == 0 ]]; then
+        [[ -s $workspace/lines ]] || fail
+        found=1
+        rendered=$path
+        if [[ $path == *[[:cntrl:]]* ]]; then printf -v rendered '%q' "$path"; fi
+        { exec 4< "$workspace/lines"; } 2>/dev/null || fail
+        while IFS= read -r number; do
+            [[ $number != *[!0-9]* && -n $number ]] || fail
+            printf '%s:%s\n' "$rendered" "$number" 2>/dev/null >> "$workspace/report" || fail
+        done <&4 || fail
+        exec 4<&-
+    else
+        [[ ! -s $workspace/lines ]] || fail
+    fi
+    path=''
+done <&3 || fail
+exec 3<&-
+[[ -z $path ]] || fail
+if [[ $found == 1 ]]; then
+    cat -- "$workspace/report" >&2 2>/dev/null || fail
+    exit 1
+fi
+printf 'data-hygiene: %s staged blobs scanned\n' "$scanned" || fail
+exit 0

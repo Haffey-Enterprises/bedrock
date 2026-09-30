@@ -1,0 +1,17 @@
+{
+  "command": [
+    "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+    "-m",
+    "pytest",
+    "-c",
+    "pyproject.toml",
+    "--rootdir",
+    ".",
+    "tests",
+    "-v"
+  ],
+  "cwd": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-155-2026-09-30/snapshot/packages/agent-core",
+  "returncode": 0,
+  "elapsed_seconds": 0.3,
+  "log": "agent-core.log"
+}

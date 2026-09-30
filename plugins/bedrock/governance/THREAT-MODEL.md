@@ -33,3 +33,7 @@ new threats, invalidated controls, and residual-risk disposition in the release
 evidence. A critical unowned threat blocks the candidate; bounded external gaps
 are named rather than assigned to the nearest skill. HEB-119 performs the
 independent cold audit and owns the final release decision.
+
+## Local staged-content hygiene
+
+The [data-hygiene control](../scripts/data-hygiene/README.md) trusts the operator, workstation and PATH. Fail-closed applies after dispatcher invocation. Deletion, executable-mode removal, hooksPath redirection, --no-verify, non-pre-commit operations and remote/other-machine commits are accepted boundaries. Manager audit detects observable installation drift; it is no remote cleanliness guarantee. No wrappers, background monitoring, CI private data, or server enforcement compensate for these boundaries. Reopen on another operator/workstation, routine remote commits, bypass exposure, or a repository-wide/server-side requirement.

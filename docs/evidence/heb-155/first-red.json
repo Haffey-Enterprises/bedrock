@@ -1,0 +1,15 @@
+{
+  "command": [
+    "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+    "-m",
+    "unittest",
+    "test_data_hygiene.HygieneTests.test_normal_commit_refuses_invented_content",
+    "-v"
+  ],
+  "cwd": "/Users/thaffey/.codex/worktrees/heb-154-integration/bedrock/tests",
+  "exit": 1,
+  "test_sha256": "66b78e1624494697372b1ca2c55a22f8e951f0f13042ffca1220643b150d2733",
+  "baseline": "bfc36490e151b2bac580bdd1123ab2bd9899a3d8",
+  "expected": "Assertion failure because normal commit admitted invented protected content; not import/collection error",
+  "output": "test_normal_commit_refuses_invented_content (test_data_hygiene.HygieneTests.test_normal_commit_refuses_invented_content) ... FAIL\n\n======================================================================\nFAIL: test_normal_commit_refuses_invented_content (test_data_hygiene.HygieneTests.test_normal_commit_refuses_invented_content)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/Users/thaffey/.codex/worktrees/heb-154-integration/bedrock/tests/test_data_hygiene.py\", line 79, in test_normal_commit_refuses_invented_content\n    self.assertNotEqual(0, r.returncode, 'normal commit admitted invented protected content')\n    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 0 == 0 : normal commit admitted invented protected content\n\n----------------------------------------------------------------------\nRan 1 test in 0.060s\n\nFAILED (failures=1)\n"
+}

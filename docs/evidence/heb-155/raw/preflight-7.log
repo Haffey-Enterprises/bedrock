@@ -1,0 +1,15 @@
+usage: validate_package_governance.py [-h] [--root ROOT] [--release]
+                                      [--release-evidence RELEASE_EVIDENCE]
+                                      [--rollout-ledger ROLLOUT_LEDGER]
+
+Validate Bedrock package lifecycle and release-governance contracts.
+
+options:
+  -h, --help            show this help message and exit
+  --root ROOT
+  --release             Require post-acceptance tag, evidence, and rollout
+                        proof
+  --release-evidence RELEASE_EVIDENCE
+                        Schema-valid operator release-evidence export
+  --rollout-ledger ROLLOUT_LEDGER
+                        Schema-valid completed rollout-ledger export

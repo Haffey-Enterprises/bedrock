@@ -1,0 +1,17 @@
+{
+  "command": [
+    "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-164-2026-09-23/linear-client-proof/venv/bin/python",
+    "-m",
+    "pytest",
+    "-c",
+    "pyproject.toml",
+    "--rootdir",
+    ".",
+    "tests",
+    "-v"
+  ],
+  "cwd": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-155-2026-09-30/snapshot/packages/hex-linear",
+  "returncode": 0,
+  "elapsed_seconds": 0.33,
+  "log": "hex-linear.log"
+}

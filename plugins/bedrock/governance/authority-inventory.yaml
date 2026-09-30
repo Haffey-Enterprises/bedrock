@@ -75,3 +75,10 @@ concepts:
     repetitions:
       - {path: plugins/bedrock/skills/planning/reference/provenance.md, classification: contextual-restatement, drift_control: exact accepted historical source digest; current adoption explicitly supersedes its pending labels}
       - {path: plugins/bedrock/skills/planning/agents/openai.yaml, classification: contextual-restatement, drift_control: package validator requires allow_implicit_invocation false}
+  - concept: local data-hygiene control
+    authority: plugins/bedrock/scripts/data-hygiene/README.md
+    repetitions:
+      - {path: selected machine runtime pre-commit, classification: generated-carrier, drift_control: isolated staged-blob branch and fault contract tests}
+      - {path: installed repository pre-commit dispatcher, classification: generated-carrier, drift_control: exact rendered dispatcher and runtime integrity tests}
+      - {path: project-template/README.md, classification: contextual-restatement, drift_control: package validator requires install and audit checkpoint}
+      - {path: project-template/CLAUDE.md, classification: contextual-restatement, drift_control: package validator requires commit-readiness invariant}

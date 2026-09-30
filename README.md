@@ -146,3 +146,5 @@ require `Plugin validation / live-routing`.
 Using `--case` creates an explicitly targeted report. It can prove that selected cases passed, but the report is marked ineligible as retained full-suite release evidence.
 
 `validation/executable-samples.yaml` accounts for every language-tagged skill example. `fixture-backed` entries name executable evidence; `illustrative` and `deferred` entries name the correction ticket that owns stronger proof. `docs/evidence/heb-109/manifest.yaml` ties validation claims to reproducible commands, retained evidence, and explicit deferrals.
+
+The package also ships the [local data-hygiene utility](plugins/bedrock/scripts/data-hygiene/README.md). Package availability does not deploy its machine runtime or install repository dispatchers; HEB-161 acceptance and release precede HEB-155 rollout.

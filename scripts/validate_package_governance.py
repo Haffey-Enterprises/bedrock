@@ -10,6 +10,7 @@ import hashlib
 import json
 from pathlib import Path
 import re
+import stat
 import subprocess
 import sys
 from typing import Any
@@ -363,6 +364,37 @@ def _validate_registry(root: Path, errors: list[str]) -> dict[str, Any] | None:
     if not isinstance(prompt, dict) or len(prompt.get("required_provenance", [])) < 3:
         _error(errors, path, "prompt generations require format, source, and digest provenance")
     return registry
+
+
+def _validate_data_hygiene(root: Path, errors: list[str]) -> None:
+    surface = root / "plugins/bedrock/scripts/data-hygiene"
+    expected = {"README.md": 0o644, "manager.py": 0o755,
+                "pre-commit": 0o755, "dispatcher.sh.tmpl": 0o644}
+    if not surface.is_dir() or surface.is_symlink():
+        _error(errors, surface, "data-hygiene surface is missing or not a directory")
+        return
+    if {p.name for p in surface.iterdir()} != set(expected):
+        _error(errors, surface, "data-hygiene surface must contain exactly the four declared files")
+    for name, mode in expected.items():
+        path = surface / name
+        try:
+            info = path.lstat()
+            if (not stat.S_ISREG(info.st_mode) or stat.S_IMODE(info.st_mode) != mode
+                    or info.st_size == 0):
+                _error(errors, path, "data-hygiene file must be regular, nonempty and have its declared mode")
+        except OSError:
+            _error(errors, path, "data-hygiene required file is unavailable")
+    for relative, markers in {
+        "project-template/README.md": ("install-repo", "audit-repo", "before the first", "runtime-root"),
+        "project-template/CLAUDE.md": ("not commit-ready", "audit-repo", "before the first"),
+    }.items():
+        path = root / relative
+        try:
+            text = " ".join(path.read_text(encoding="utf-8").split()).lower()
+        except OSError:
+            text = ""
+        if any(marker not in text for marker in markers):
+            _error(errors, path, "data-hygiene setup/readiness checkpoint is incomplete")
 
 
 def _validate_planning_adoption(root: Path, errors: list[str]) -> None:
@@ -965,6 +997,7 @@ def validate_package_governance(
     registry = _validate_registry(root, errors)
     _validate_package_identity_carriers(root, errors)
     _validate_planning_adoption(root, errors)
+    _validate_data_hygiene(root, errors)
     _validate_budgets(root, registry, errors)
     _validate_documents(root, version, registry, errors)
     _validate_schemas(root, errors)

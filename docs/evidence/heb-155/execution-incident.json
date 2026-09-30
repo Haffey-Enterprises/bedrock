@@ -1,0 +1,27 @@
+{
+  "date_et": "2026-09-30",
+  "status": "stopped; implementation incomplete; no commit",
+  "subject": "HEB-155 command stub in tests/test_data_hygiene.py",
+  "observed": "Focused tests unexpectedly refused deploy-runtime; direct stub reproduction returned gh: Not Found (HTTP 404).",
+  "cause": "Generated gh stub used an absolute Python shebang containing spaces. Host executable resolution skipped the unusable stub and reached real gh through inherited PATH.",
+  "unauthorized_operation": "Read-only gh api repos/example/bedrock-fixture/releases/tags/v10.0.0 reached the live GitHub API. No write command was issued.",
+  "request_population_limit": "One direct reproduction response is retained. Earlier focused manager calls used the same broken stub and could reach the same endpoint; logs do not prove the exact number of network requests.",
+  "preservation": {
+    "pre_repair_sha256": {
+      "tests/test_data_hygiene.py": "66b78e1624494697372b1ca2c55a22f8e951f0f13042ffca1220643b150d2733",
+      "plugins/bedrock/scripts/data-hygiene/pre-commit": "a14e5b098e161f9456fd7b0ae453f59630013d49fdedcce7de484e37a2aa64f0",
+      "plugins/bedrock/scripts/data-hygiene/manager.py": "cc580b62a9df9529f7dd7f1a6fb226aae9bf4fafbdbecc049c7c77d133e0c72d",
+      "plugins/bedrock/scripts/data-hygiene/dispatcher.sh.tmpl": "8617f4172ce7fadce0d7551ef41b6c07d58090396f1a0f8a391b9c7c0617f7b6"
+    },
+    "originals": "incident-pre-repair/",
+    "logs": [
+      "raw/focused-first.log",
+      "raw/stub-diagnosis.log",
+      "raw/first-red.log"
+    ]
+  },
+  "containment": "No package proving resumed. Stub changed to /bin/bash with explicitly quoted Python argv. Manager fixtures now use a closed utility directory containing the stub and declared local utilities only; no fallback real gh. This repair is not yet independently reviewed or proven.",
+  "separate_unresolved_defect": "BSD sed bracket expressions interpreted backslash-t as t. Comments-only tab-indented input passed incorrectly. Reproduced locally; production repair remains pending.",
+  "prohibitions": "No private-pattern file accessed, no rollout, consumer hook/config mutation, live model call, tracker mutation, release publication, push or PR action.",
+  "next": "Prove the repaired stub and an intentionally missing/broken stub cannot reach real gh using an offline fallback sentinel, then resume focused matrix and package work only after operator direction."
+}

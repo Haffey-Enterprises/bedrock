@@ -127,6 +127,37 @@ class PackageGovernanceTests(unittest.TestCase):
         adoption.write_bytes(original_adoption)
         self.assertEqual([], validate_package_governance(self.root))
 
+    def test_data_hygiene_surface_and_template_defects_refuse(self) -> None:
+        surface = self.root / "plugins/bedrock/scripts/data-hygiene"
+        self.assertEqual([], validate_package_governance(self.root))
+        hook = surface / "pre-commit"
+        original, mode = hook.read_bytes(), hook.stat().st_mode
+        for defect in ("missing", "empty", "mode", "symlink", "extra"):
+            with self.subTest(defect=defect):
+                if defect == "missing": hook.unlink()
+                elif defect == "empty": hook.write_bytes(b"")
+                elif defect == "mode": hook.chmod(0o644)
+                elif defect == "symlink":
+                    hook.unlink(); hook.symlink_to(surface / "manager.py")
+                else: (surface / "unexpected").write_text("fixture")
+                self.assert_has_error("data-hygiene")
+                if hook.is_symlink(): hook.unlink()
+                hook.write_bytes(original); hook.chmod(mode)
+                (surface / "unexpected").unlink(missing_ok=True)
+        for relative in ("project-template/README.md", "project-template/CLAUDE.md"):
+            path = self.root / relative
+            old = path.read_text()
+            path.write_text(old.replace("audit-repo", "removed-checkpoint"))
+            self.assert_has_error("data-hygiene")
+            path.write_text(old)
+        self.assertEqual([], validate_package_governance(self.root))
+
+    def test_main_validator_consumes_data_hygiene_gate(self) -> None:
+        (self.root / "plugins/bedrock/scripts/data-hygiene/pre-commit").chmod(0o644)
+        errors, _ = validate_repository(self.root, validate_retained_evidence=False,
+                                        run_host_cli=False)
+        self.assertTrue(any("data-hygiene" in error for error in errors), errors)
+
     def test_repository_package_governance_passes(self) -> None:
         self.assertEqual([], validate_package_governance(self.root))
 

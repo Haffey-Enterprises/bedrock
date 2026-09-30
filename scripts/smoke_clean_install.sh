@@ -29,6 +29,7 @@ import json
 import hashlib
 from pathlib import Path
 import re
+import stat
 import sys
 
 root = Path(sys.argv[1])
@@ -74,6 +75,26 @@ if installed_files == contrary:
     raise SystemExit("clean-install smoke failed: wrong-subject control did not discriminate")
 if any(name.startswith(("docs/evidence/", "tests/")) for name in installed_files):
     raise SystemExit("clean-install smoke failed: repository evidence or tests entered distribution")
+hygiene_modes = {"README.md": 0o644, "manager.py": 0o755,
+                 "pre-commit": 0o755, "dispatcher.sh.tmpl": 0o644}
+def hygiene_identity(base):
+    directory = base / "scripts/data-hygiene"
+    if not directory.is_dir() or directory.is_symlink():
+        raise SystemExit("clean-install smoke failed: missing data-hygiene surface")
+    result = {}
+    for path in directory.iterdir():
+        info = path.lstat()
+        if not stat.S_ISREG(info.st_mode):
+            raise SystemExit("clean-install smoke failed: nonregular data-hygiene file")
+        result[path.name] = stat.S_IMODE(info.st_mode)
+    return result
+source_modes, installed_modes = hygiene_identity(source), hygiene_identity(install_path)
+if source_modes != hygiene_modes or installed_modes != source_modes:
+    raise SystemExit("clean-install smoke failed: data-hygiene mode/population drift")
+contrary_modes = dict(source_modes, **{"pre-commit": 0o644})
+if installed_modes == contrary_modes:
+    raise SystemExit("clean-install smoke failed: executable-mode control did not discriminate")
+print("PASS: data-hygiene four-file byte/mode parity; changed-byte and missing-executable controls discriminated")
 registry_text = (install_path / "governance/registry.yaml").read_text(encoding="utf-8")
 adapter_match = re.search(r"^  claude_adapter: ([0-9]+\.[0-9]+\.[0-9]+)$", registry_text, re.MULTILINE)
 if adapter_match is None:

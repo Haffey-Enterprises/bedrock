@@ -1,0 +1,43 @@
+[
+  {
+    "command": [
+      "/bin/bash",
+      "--version"
+    ],
+    "exit": 0,
+    "output": "GNU bash, version 3.2.57(1)-release (arm64-apple-darwin25)\nCopyright (C) 2007 Free Software Foundation, Inc.\n"
+  },
+  {
+    "command": [
+      "git",
+      "--version"
+    ],
+    "exit": 0,
+    "output": "git version 2.54.0 (Apple Git-157)\n"
+  },
+  {
+    "command": [
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+      "--version"
+    ],
+    "exit": 0,
+    "output": "Python 3.14.6\n"
+  },
+  {
+    "command": [
+      "claude",
+      "--version"
+    ],
+    "exit": 0,
+    "output": "2.1.284 (Claude Code)\n"
+  },
+  {
+    "command": [
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+      "-c",
+      "import importlib.metadata as m; print({k:m.version(k) for k in [\"PyYAML\",\"jsonschema\",\"setuptools\",\"wheel\"]})"
+    ],
+    "exit": 0,
+    "output": "{'PyYAML': '6.0.3', 'jsonschema': '4.25.1', 'setuptools': '80.9.0', 'wheel': '0.45.1'}\n"
+  }
+]

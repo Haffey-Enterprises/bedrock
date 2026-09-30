@@ -1,0 +1,80 @@
+{
+  "git_operations": [
+    {
+      "command": [
+        "git",
+        "init",
+        "-q",
+        "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-155-2026-09-30/git-control"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "-C",
+        "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-155-2026-09-30/git-control",
+        "commit",
+        "--allow-empty",
+        "-qm",
+        "fixture control"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "-C",
+        "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-155-2026-09-30/git-control",
+        "rev-parse",
+        "--git-common-dir"
+      ],
+      "exit": 0,
+      "stdout": ".git\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "-C",
+        "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-155-2026-09-30/git-control",
+        "worktree",
+        "list",
+        "--porcelain",
+        "-z"
+      ],
+      "exit": 0,
+      "stdout": "worktree /Users/thaffey/Documents/Haffey Enterprises/Working/HEB-155-2026-09-30/git-control\u0000HEAD b1153d046554b0a0021bb0cfd9cf8d8a44d03c9f\u0000branch refs/heads/master\u0000\u0000",
+      "stderr": ""
+    }
+  ],
+  "receipt_sweep": {
+    "scope": "Manual whole-relay inspection for carried derivable values and outcomes, with regex positive control. Regex coverage is limited to declared forms; it does not prove absence of alternate wording.",
+    "hits": [
+      {
+        "text": "exactly the two protected untracked receipt names",
+        "disposition": "pin population; derived Git names must equal the two receipt names pinned in the pins block"
+      },
+      {
+        "text": "all three existing comments",
+        "disposition": "derived-at-execution cross-check; endpoint returned three comments and hasNextPage=false"
+      },
+      {
+        "text": "D1-D5, D3/D4, version 10.0.0 and Bash 3.2/Python 3.11",
+        "disposition": "contract identifiers and runtime requirements; not derivable population counts"
+      }
+    ],
+    "planted_control": [
+      "fixture/path.md:12",
+      "rev 7",
+      "three existing"
+    ],
+    "prior_stop": "Retained separately; attachment substitution operator-ratified, no other weakening."
+  },
+  "fixture_isolation": "All new fixtures under this HEB-155 Working directory; inherited pattern variables removed. Full-suite execution uses tracked-only snapshots, so generic repository-copy test fixtures cannot copy the protected untracked receipts.",
+  "capability_limits": "Python 3.14.6 available and satisfies Python>=3.11; not a Python 3.11-specific execution claim. Bash 3.2.57 and Git 2.54.0 observed. No live release lookup or routing execution authorized."
+}

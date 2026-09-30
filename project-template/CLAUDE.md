@@ -30,3 +30,9 @@ A materially different choice on any axis is a **rebind**, not a substitution â€
 ## Project-specific rules
 
 {{Only rules with no other home â€” repeatedly-invoked, project-specific content that can't live in a skill or an ADR. Most conventions live in the skills; leave this empty until something genuinely earns a place here. Premature codification is an anti-pattern. Under-govern until it hurts: prefer the lightest artifact that captures the value, and let structure follow content.}}
+
+## Commit readiness
+
+The project is not commit-ready until the README's data-hygiene installation and
+`audit-repo` checkpoint succeeds after Git initialization and before the first
+commit. The template does not install a hook or carry private configuration.

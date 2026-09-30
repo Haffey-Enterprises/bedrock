@@ -81,6 +81,11 @@ external_dependencies:
     version: ">=3.10"
     detection: skills/agent-builder/scripts/install_core.py verifies the selected project virtualenv, pinned dependency closure and actual core import
     unavailable_behavior: Stop agent construction; a loaded skill is not executable readiness.
+data_hygiene:
+  source: plugins/bedrock/scripts/data-hygiene
+  lifecycle: HEB-161 acceptance and release before HEB-155 runtime and repository rollout
+  runtime_state: current selection, pattern-file.path and retained versions only
+  host: single-operator macOS; Bash >=3.2; Python >=3.11 for management
 shared_components:
   - id: agent-core
     version: 0.2.0

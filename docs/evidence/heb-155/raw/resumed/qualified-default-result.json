@@ -1,0 +1,10 @@
+{
+  "command": [
+    "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+    "scripts/validate_plugin.py"
+  ],
+  "cwd": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-155-2026-09-30/snapshot-qualified",
+  "returncode": 1,
+  "elapsed_seconds": 0.69,
+  "log": "qualified-default.log"
+}

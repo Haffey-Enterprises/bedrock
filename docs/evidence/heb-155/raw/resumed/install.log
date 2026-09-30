@@ -1,0 +1,4 @@
+Adding marketplace…✔ Successfully added marketplace: bedrock (declared in user settings)
+Installing plugin "bedrock@bedrock"...✔ Successfully installed plugin: bedrock@bedrock (scope: user)
+PASS: data-hygiene four-file byte/mode parity; changed-byte and missing-executable controls discriminated
+PASS: isolated install and reload discovered bedrock@bedrock with 15 skills, identity carriers, and packaged governance

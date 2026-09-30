@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# Bedrock managed data-hygiene dispatcher v1; Bash 3.2+.
+set -uo pipefail
+export LC_ALL=C
+runtime=@@RUNTIME_ROOT@@
+fail() { printf 'data-hygiene: runtime unavailable\n' >&2; exit 2; }
+[[ -d $runtime && ! -L $runtime && -d $runtime/versions && ! -L $runtime/versions ]] || fail
+[[ -L $runtime/current ]] || fail
+selection=$(readlink -- "$runtime/current" 2>/dev/null) || fail
+[[ $selection =~ ^versions/([0-9a-f]{64})$ ]] || fail
+digest=${BASH_REMATCH[1]}
+versions=$(cd -- "$runtime/versions" 2>/dev/null && pwd -P) || fail
+[[ ! -L $runtime/$selection ]] || fail
+selected=$(cd -- "$runtime/$selection" 2>/dev/null && pwd -P) || fail
+[[ $selected == "$versions/$digest" ]] || fail
+payload=$selected/pre-commit
+[[ -f $payload && ! -L $payload && -r $payload && -x $payload && ! -w $payload ]] || fail
+actual=$(shasum -a 256 2>/dev/null < "$payload") || fail
+[[ ${actual%% *} == "$digest" ]] || fail
+# Execute the already-resolved selection; never dereference current again.
+exec "$payload"

@@ -1,0 +1,10 @@
+{
+  "command": [
+    "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+    "scripts/validate_package_governance.py"
+  ],
+  "cwd": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-155-2026-09-30/snapshot",
+  "returncode": 1,
+  "elapsed_seconds": 0.13,
+  "log": "governance.log"
+}

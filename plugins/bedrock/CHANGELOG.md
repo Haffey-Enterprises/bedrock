@@ -5,6 +5,11 @@ records candidate and released changes; a version heading is not release proof.
 
 ## 10.0.0 — bundled engineering and planning candidate
 
+- Add the HEB-155 local staged-content gate, explicit runtime manager, repository
+  dispatcher, offline contract tests and future-project readiness checkpoint.
+  Package proof is separate from HEB-161 acceptance/release and later HEB-155
+  runtime deployment, repository rollout and estate audit.
+
 - Admit the unchanged accepted planning instruction and provenance from HEX
   (HEB-178 / HEB-184) for explicitly invoked supervised advisory backlog
   assessment. Ship separate current adoption authority and explicit-invocation

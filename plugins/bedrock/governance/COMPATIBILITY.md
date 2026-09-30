@@ -83,3 +83,7 @@ copies. One retained backlog case and selected controls, followed by application
 to that same broad backlog, do not establish general reliability. C1 coverage,
 C2 read-depth/history, A1 unsupported dependencies and A2 unavailable historical
 loading evidence remain limitations in the current adoption record.
+
+## Local data-hygiene utility
+
+The [utility](../scripts/data-hygiene/README.md) initially supports the current single-operator macOS workstation: Bash 3.2+, Git, shasum and standard macOS utilities for commits; Python 3.11+ for management; gh and GitHub only during release deployment verification. Runtime and dispatcher installation are explicit after accepted release. A second machine/operator requires redesign. No Linux, Windows, team distribution, or Python 3.11 floor execution is inferred from current-host package proof.

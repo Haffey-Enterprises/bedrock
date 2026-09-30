@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "profile": "high-risk",
+  "scope": "Independent HEB-155 finished-delta repair re-review; component code disposition only, not bundled package acceptance, release, deployment or rollout approval. Original D1-D5/whole-delta review remains /private/tmp/heb155-independent-review.json. Final reviewed identities: {\"plugins/bedrock/scripts/data-hygiene/README.md\": \"778def42496067c603567ee7edb4ef12487109eeb4c43d05b39b34f64511619d\", \"plugins/bedrock/scripts/data-hygiene/dispatcher.sh.tmpl\": \"5997fc0e2bf0dce7acea9dcb7cf013eb1b0f117d4d5f49386788d003c7119d39\", \"plugins/bedrock/scripts/data-hygiene/manager.py\": \"75617b0b353bb1e5733f905e2cbdca4c970f1dca0041a699e9348db4d84d296a\", \"plugins/bedrock/scripts/data-hygiene/pre-commit\": \"8be35b7f746096aa443f18f13aa2ac2fdf289b761825a5c7c2584fcdcd1bef4c\", \"scripts/validate_package_governance.py\": \"7f8916803756100e122b2f1caa93177238defd44c510b81d11780bc9a5812496\", \"tests/test_data_hygiene.py\": \"7e40534f3f48f48b0ef0e45eea0d33be6ec2a47dc40243c647a483161d5c208b\"}",
+  "checked_surfaces": [
+    "Original review authorities and whole-delta surfaces remain covered by the original immutable record. Whole repaired hook and dispatcher read; all changed manager, README and test sections read in full, together with the previously whole-read unchanged portions. Validator whitespace normalization re-read.",
+    "R1 closed: pattern-file stderr suppression precedes input open. R2 closed: positive-control output capture status checked separately before value comparison. Independent repaired probes and complete expanded suite require exact neutral refusal. Original R2 locus correction: the discarded-status construct was at line42, not line43 recorded originally; repaired capture/comparison occupies lines42-43.",
+    "R3 closed: file descriptors open under narrow stderr suppression; scan body retains diagnostic stderr. Independent blob-reader refusal and suite Git/matcher/redactor faults now prove neutral diagnostics. Location-only reports remain observable for matching text/binary/path cases.",
+    "R4 closed: Git hook directory is derived independently of the final file, preventing Git final-symlink canonicalization from concealing a redirected hook directory. Known-default positive control and borrowed-precommit negative probe discriminated. Explicit-default configurations and linked worktrees pass; global/local/per-worktree redirects remain covered by reviewed configuration behavior and focused fixtures.",
+    "Native-hook fixture now derives every preexisting hook entry before install and verifies unchanged bytes/modes. New unborn repository fixture checks audit failure before installation, install/audit success, positive first-commit refusal, and safe first-commit success.",
+    "Complete final focused module population: 35 methods loaded by module load_tests, no search cap; all passed in 54.830s. Six declared code/test/doc/validator subjects had identical before/after hashes. This is not a count of full repository tests.",
+    "Preserved failed intermediate run: focused-final log ran34 with one R4 failure; test-only edit occurred during that run and before/after test hashes differ, so traceback source line is not reliable. That run is not final-subject green evidence. The subsequent qualified run is stable and passed.",
+    "No incident-pre-repair fixture executed; no real private pattern/protected receipt/network/live release/rollout operation. Every negative repair probe had a known-good control. Security/privacy assurance is limited to this trusted-workstation threat model and observed invented fixture cases."
+  ],
+  "gates": [
+    {
+      "name": "R1-R3 independent repair probes",
+      "disposition": "passed",
+      "reason": "/private/tmp/heb155-repair-probes-second.log: each safe control exits0, each injected fault exits2 with exact neutral stderr; invented path absent, hook identity stable."
+    },
+    {
+      "name": "R4 directory redirection independent probe",
+      "disposition": "passed",
+      "reason": "/private/tmp/heb155-hooks-redirect-probe-qualified.log: normal audit0, borrowed-hook redirected directory audit2 with neutral stderr; manager identity matches final subject."
+    },
+    {
+      "name": "Complete focused final suite",
+      "disposition": "passed",
+      "reason": "/private/tmp/heb155-rereview-focused-qualified.log: 35 tests in54.830s, exit0. /private/tmp/heb155-rereview-focused-qualified-subject.json proves declared subjects unchanged across run."
+    },
+    {
+      "name": "Parent-owned full root/component/governance/install acceptance aggregation",
+      "disposition": "not-relevant",
+      "reason": "Not re-executed as part of this scoped independent repair review. Parent explicitly owns final exact-subject broader gate verification. This code verdict cannot substitute for those package gates."
+    },
+    {
+      "name": "Default retained-routing release gate, live routing, HEB161 cold acceptance and release",
+      "disposition": "not-relevant",
+      "reason": "Remain outside HEB155 component approval; parent reports known stale retained-routing failures as HEB161 obligation. No release-ready or cold-acceptance claim is made here."
+    },
+    {
+      "name": "Workstation rollout and real private configuration verification",
+      "disposition": "not-relevant",
+      "reason": "Explicitly prohibited; package-only review uses invented disposable fixtures. No real deployment or estate coverage inferred."
+    }
+  ],
+  "findings": [],
+  "verdict": "approve"
+}

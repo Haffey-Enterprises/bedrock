@@ -166,3 +166,7 @@ installed-package parity boundary. Record dependency and source identities in
 candidate evidence. Project installation records the accepted Bedrock revision;
 CI retrieves that exact revision. Plugin updates do not silently upgrade project
 Python environments, and repository evidence is never required at runtime.
+
+## Data-hygiene runtime lifecycle
+
+The [data-hygiene utility](../scripts/data-hygiene/README.md) is Bedrock-owned package content. HEB-161 cold acceptance and explicit release proceed precede machine deployment; HEB-155 owns separate repository installation receipts and the estate audit. A plugin install/update alone never deploys the runtime or gates a repository. Retained runtime rollback and repository audit remain explicit operator operations.

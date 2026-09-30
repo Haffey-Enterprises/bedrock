@@ -1,0 +1,15 @@
+test_normal_commit_refuses_invented_content (test_data_hygiene.HygieneTests.test_normal_commit_refuses_invented_content) ... FAIL
+
+======================================================================
+FAIL: test_normal_commit_refuses_invented_content (test_data_hygiene.HygieneTests.test_normal_commit_refuses_invented_content)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/thaffey/.codex/worktrees/heb-154-integration/bedrock/tests/test_data_hygiene.py", line 79, in test_normal_commit_refuses_invented_content
+    self.assertNotEqual(0, r.returncode, 'normal commit admitted invented protected content')
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 == 0 : normal commit admitted invented protected content
+
+----------------------------------------------------------------------
+Ran 1 test in 0.060s
+
+FAILED (failures=1)

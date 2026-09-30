@@ -1,0 +1,8 @@
+{
+  "manager_sha256": "0839eecda09ab6cd29f3638008cdb3533ee5030f617312133f447cc03c597527",
+  "control_exit": 0,
+  "redirect_audit_exit": 0,
+  "stdout": "{\"common_directory\": \"/private/var/folders/sw/1svfc1j50yb7tdd8_fb98v1m0000gn/T/heb155-l9ket2r2/repo/.git\", \"dispatcher_sha256\": \"b3543d1aff3b47ec98842149cb1f0868ed1aaf6f10727c5e5acc35b45c85328f\", \"effective_core_hooksPath\": {\"/private/var/folders/sw/1svfc1j50yb7tdd8_fb98v1m0000gn/T/heb155-l9ket2r2/repo\": \"/private/var/folders/sw/1svfc1j50yb7tdd8_fb98v1m0000gn/T/heb155-l9ket2r2/different-hooks\"}, \"hook_path\": \"/private/var/folders/sw/1svfc1j50yb7tdd8_fb98v1m0000gn/T/heb155-l9ket2r2/repo/.git/hooks/pre-commit\", \"runtime_sha256\": \"8be35b7f746096aa443f18f13aa2ac2fdf289b761825a5c7c2584fcdcd1bef4c\", \"status\": \"local pre-commit gate installed and audited\", \"worktrees\": [\"/private/var/folders/sw/1svfc1j50yb7tdd8_fb98v1m0000gn/T/heb155-l9ket2r2/repo\"]}\n",
+  "stderr": "",
+  "native_post_commit_resolves_default": false
+}
