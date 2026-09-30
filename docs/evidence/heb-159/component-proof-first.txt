@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-159-2026-09-30/test-source/docs/evidence/heb-159/prove_controls.py", line 114, in <module>
+    main()
+    ~~~~^^
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-159-2026-09-30/test-source/docs/evidence/heb-159/prove_controls.py", line 64, in main
+    assert clean_issue == clean_receipt == []
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

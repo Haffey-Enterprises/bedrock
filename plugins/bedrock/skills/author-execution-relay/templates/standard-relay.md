@@ -16,6 +16,7 @@ State the settled source of scope and numbered operations. Identify any operator
 **Dry-run:** <exact command/actor/checkout/input/output satisfiability check>
 **Touch derivation:** <ratified edit-locus rows reconciled bidirectionally to the allowlist>
 **Custody/reachability:** <separate permission evidence from production code-path and flow evidence>
+**Pins block / sweep:** <every pin once; sweep at issue and at receipt: hits or none>
 
 | Property or premise | Claim subject | Verdict-bearing inputs/pins | Population derivation / expected-state oracle | Structural instrument / discrimination control | Outcomes / unavailable | Report field |
 |---|---|---|---|---|---|---|
@@ -25,7 +26,7 @@ A typed count or member list is never the population oracle. If retained as a cr
 
 ## Gates
 
-List edit, stage, commit, push, PR, merge, and cleanup gates that apply. Stop at each operator gate, on a subject mismatch or derived-state mismatch, on failed discrimination, and on any unresolved anomaly. Report and proceed on a summary-only arithmetic or transcription defect when the named subject and derived observed and expected populations match mechanically.
+List edit, stage, commit, push, PR, merge, and cleanup gates that apply. A gate's cell states its stop rule, never its outcome. Stop at each operator gate, on a subject mismatch or derived-state mismatch, on failed discrimination, and on any unresolved anomaly. Report and proceed on a summary-only arithmetic or transcription defect when the named subject and derived observed and expected populations match mechanically.
 
 ## Evidence
 

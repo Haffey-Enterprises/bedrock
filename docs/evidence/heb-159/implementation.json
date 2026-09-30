@@ -1,0 +1,173 @@
+{
+  "recorded_at": "2026-09-30 America/New_York",
+  "ticket": "HEB-159",
+  "owner": "Tad Haffey",
+  "lifecycle": "PROVING",
+  "package_version": "10.0.0",
+  "baseline_commit": "5208b5c62456932dc77f5d1b9a95a35da4be1201",
+  "authority": {
+    "HEB-159": "Fresh-fetched description, all comments (hasNextPage false), and uploaded before/after read whole. Ratified carried-value amendment only.",
+    "HEB-161": "Fresh-fetched description and all comments (hasNextPage false); owns composition, cold acceptance, merge, release, installation and rollout.",
+    "attachment_sha256": "11daffb7cc9fcf403bb0d7d7ec9dfc7fe1fdad1f5eef2f60d27c97e2d41b4b49",
+    "scope_extensions": "Tad ratified the concrete scope-proposal.patch: verbatim execution-instrument reference relocation and mechanical context-budget refresh. No budget increase.",
+    "source_grade": "C: ratified expert judgment informed by one consumer arc, with counterevidence; no independent multi-consumer adoption claim."
+  },
+  "reconciliation": {
+    "exact_insert_matches_fresh_ticket": true,
+    "inherited_frontmatter_matches_base": true,
+    "relocated_section_sha256": "bfe66e99c7ae2f1ca60a74524b568138f60078ad3013de37014e548c00efcc04",
+    "relocated_section_equals_predecessor": true,
+    "combined_anchor_drops": [],
+    "clause_dispositions": [
+      {
+        "predecessor_paragraph": 1,
+        "disposition": "retained verbatim in required reference",
+        "sha256": "acb74b8deeaecc8df8b06d8742e94910ed3d40b21bff7147c600cd5329e6b5b5"
+      },
+      {
+        "predecessor_paragraph": 2,
+        "disposition": "retained verbatim in required reference",
+        "sha256": "f939b10859cf5a7a601d3a072c6d9e5db4da4b6a1e13dfeb5593c6ee5682f8d8"
+      },
+      {
+        "predecessor_paragraph": 3,
+        "disposition": "retained verbatim in required reference",
+        "sha256": "82f84a1d1128567496dbd9d6787702666fcc0edf884a55fe3b4732e75796d003"
+      },
+      {
+        "predecessor_paragraph": 4,
+        "disposition": "retained verbatim in required reference",
+        "sha256": "f637b48513d6123f78f09db0ea94f27c105e5e85d5f2d3a2bbef3f54b1d0f9c4"
+      },
+      {
+        "predecessor_paragraph": 5,
+        "disposition": "retained verbatim in required reference",
+        "sha256": "32993ef7a4876911bc426fb29eeeac914fce6f9c6b2680e2e2fbe73f0a690b53"
+      },
+      {
+        "predecessor_paragraph": 6,
+        "disposition": "retained verbatim in required reference",
+        "sha256": "646ae54794724bb63ec0d1b42f979eab2bcd2caa5f6301a48cb42dc39dbb112c"
+      },
+      {
+        "predecessor_paragraph": 7,
+        "disposition": "retained verbatim in required reference",
+        "sha256": "75d3ca81b9fb5d4150cc55ebc7d95fe16a4111e8b96222aa20277317195c08cf"
+      },
+      {
+        "predecessor_paragraph": 8,
+        "disposition": "retained verbatim in required reference",
+        "sha256": "7238174d360fb36a96998d206d40fdc89332cc3d3be6e19c0193779864563d22"
+      },
+      {
+        "predecessor_paragraph": 9,
+        "disposition": "retained verbatim in required reference",
+        "sha256": "c4bc4829c853108c28b3c7a3e5c9467d88cb25817b34ba6c5303544004fb185d"
+      },
+      {
+        "predecessor_paragraph": 10,
+        "disposition": "retained verbatim in required reference",
+        "sha256": "7272b03490bb0c5c63b2b4a38dd9624e9c2c84841bfc60529fde47036870e1e0"
+      }
+    ],
+    "other_entrypoint_sections": "Preserved outside the insertion and ratified relocation. No schema or interaction-contract version change."
+  },
+  "mutation_derivation": [
+    {
+      "paths": [
+        "plugins/bedrock/skills/author-execution-relay/SKILL.md",
+        "plugins/bedrock/skills/author-execution-relay/templates/high-assurance-relay.md",
+        "plugins/bedrock/skills/author-execution-relay/templates/standard-relay.md",
+        "plugins/bedrock/skills/author-execution-relay/templates/small-relay.md"
+      ],
+      "source": "HEB-159 exact ratified contract and template loci"
+    },
+    {
+      "paths": [
+        "plugins/bedrock/skills/author-execution-relay/reference/execution-instrument.md",
+        "docs/evidence/heb-118/context-budget.json"
+      ],
+      "source": "Operator-ratified budget repair; predecessor retained, no budget or historical-observation substitution"
+    },
+    {
+      "paths": [
+        "plugins/bedrock/CHANGELOG.md",
+        "docs/evidence/heb-136/rule-trigger-audit.yaml",
+        "docs/evidence/heb-159/**"
+      ],
+      "source": "Candidate lifecycle, mechanically derived audit and component proof"
+    },
+    {
+      "paths": [
+        "scripts/validate_authoring_contracts.py",
+        "tests/test_authoring_contracts.py"
+      ],
+      "source": "Bounded deterministic sweep, anchor, report-shape and carrier checks with permanent positive/negative controls"
+    }
+  ],
+  "rule_trigger_dispositions": [
+    {
+      "obligation": "carry subjects, pins and rules; exclude tree-derived values, outcomes and revision narrative",
+      "event": "author-time dry-run and executor receipt",
+      "classification": "workflow-event",
+      "frequency": "medium",
+      "salience": "high",
+      "enforcement": "candidate-pattern sweep with planted path-line, revision and contract-outcome hits",
+      "reliability": "known-weak at pattern edge; review and disposition required; prompt controls remain advisory"
+    },
+    {
+      "obligation": "check one pins block first",
+      "event": "executor first act",
+      "classification": "workflow-event",
+      "frequency": "low",
+      "salience": "high",
+      "enforcement": "native checksum and git object checks, each paired with planted mismatch; sweep flags supported pin forms outside the block",
+      "reliability": "full digest/object forms checked in the component specimen; pin selection remains judgment"
+    },
+    {
+      "obligation": "clause-by-clause text-removing shrink",
+      "event": "issuing revision that removes text",
+      "classification": "workflow-event",
+      "frequency": "low",
+      "salience": "high",
+      "enforcement": "anchor-set difference and exact disposition-key check; predecessor diff and per-paragraph relocation equality",
+      "reliability": "anchor-less prose and repeated anchor occurrences need clause review"
+    },
+    {
+      "obligation": "reader reports tightenings or adjusted nothing; loosening reserved for operator",
+      "event": "executor receipt",
+      "classification": "workflow-event",
+      "frequency": "low",
+      "salience": "high",
+      "enforcement": "explicit receipt plus fixture report-shape controls for silence, incomplete tightening and reserved changes",
+      "reliability": "shape checks do not independently classify semantics or prove an actor read the relay"
+    }
+  ],
+  "proof": {
+    "commands": "validation/commands.json",
+    "complete_method_populations": "validation/test-populations.json",
+    "exact_test_subjects": "tested-inputs.json",
+    "component_discrimination": "validation/component-proof.txt",
+    "first_failures": [
+      "execution-incident.json",
+      "pre-implementation-ineligible.txt",
+      "pre-implementation-isolated.txt",
+      "focused-tests-first.txt",
+      "governance-stop.json",
+      "component-proof-first.txt"
+    ],
+    "sweep_disposition": "sweep-disposition.json",
+    "adoption": "RBT-124/4G source proof is not reproduced here. HEB-159 comments report a historical trial; it is not substituted by this local component specimen. Amendment remains PROVING; no adoption or release acceptance claimed.",
+    "evidence_floor": "One reported consumer arc. Counterevidence: few carried values did not eliminate defects in gate rules and oracles; this removes a defect class, not every relay defect."
+  },
+  "compatibility": {
+    "migration": "compatible; same relay schema and contract version, required reference remains inside the skill",
+    "generated_identities": "Authoritative generator ran on snapshot and produced no byte changes; source carriers are identical. Manifest stays 10.0.0.",
+    "historical_evidence": "Tracked HEB-153/154 evidence compared unchanged against baseline. Prior context/audit retained here. Historical routing keeps its original subject.",
+    "excluded_proposals": "RBT-154 producer-independence/self-attestation and self-repair clauses, and the later oracle-dry-run candidate, are not implemented or tested as normative behavior."
+  },
+  "incident_resolution": "User explicitly authorized continuation after the initial protected-receipt population breach. All subsequent tests used verified tracked-only snapshots. Original receipts stay untracked and unchanged; their contents are not part of the evidence population.",
+  "review_trigger": "Changed contract, detector patterns, new reference availability, contrary consumer evidence, or a new package composition requires review/requalification.",
+  "rollback": "Retain baseline commit and every first failure; HEB-161 may omit this local component commit before composition. No consumer rollout or history rewrite is authorized.",
+  "next_owner": "HEB-161: continue composition, freeze reviewed final candidate, clean-artifact qualification and HEB-119 cold acceptance before release actions."
+}

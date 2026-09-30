@@ -1,0 +1,118 @@
+[
+  {
+    "name": "component-proof",
+    "argv": [
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+      "-B",
+      "docs/evidence/heb-159/prove_controls.py",
+      "--git-root",
+      "/Users/thaffey/.codex/worktrees/heb-154-integration/bedrock"
+    ],
+    "cwd": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-159-2026-09-30/test-source",
+    "exit": 0,
+    "log": "component-proof.txt"
+  },
+  {
+    "name": "focused-tests",
+    "argv": [
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+      "-B",
+      "-m",
+      "unittest",
+      "tests.test_authoring_contracts",
+      "tests.test_rule_trigger_audit",
+      "tests.test_package_governance",
+      "-v"
+    ],
+    "cwd": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-159-2026-09-30/test-source",
+    "exit": 0,
+    "log": "focused-tests.txt"
+  },
+  {
+    "name": "repository-tests",
+    "argv": [
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+      "-B",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-v"
+    ],
+    "cwd": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-159-2026-09-30/test-source",
+    "exit": 0,
+    "log": "repository-tests.txt"
+  },
+  {
+    "name": "authoring-validator",
+    "argv": [
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+      "-B",
+      "scripts/validate_authoring_contracts.py"
+    ],
+    "cwd": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-159-2026-09-30/test-source",
+    "exit": 0,
+    "log": "authoring-validator.txt"
+  },
+  {
+    "name": "audit-validator",
+    "argv": [
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+      "-B",
+      "scripts/validate_rule_trigger_audit.py",
+      "--require-complete"
+    ],
+    "cwd": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-159-2026-09-30/test-source",
+    "exit": 0,
+    "log": "audit-validator.txt"
+  },
+  {
+    "name": "governance-validator",
+    "argv": [
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+      "-B",
+      "scripts/validate_package_governance.py"
+    ],
+    "cwd": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-159-2026-09-30/test-source",
+    "exit": 0,
+    "log": "governance-validator.txt"
+  },
+  {
+    "name": "identity-sync",
+    "argv": [
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+      "-B",
+      "scripts/sync_package_identity.py",
+      "--write"
+    ],
+    "cwd": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-159-2026-09-30/test-source",
+    "exit": 0,
+    "log": "identity-sync.txt"
+  },
+  {
+    "name": "identity-check",
+    "argv": [
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+      "-B",
+      "scripts/sync_package_identity.py",
+      "--check"
+    ],
+    "cwd": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-159-2026-09-30/test-source",
+    "exit": 0,
+    "log": "identity-check.txt"
+  },
+  {
+    "name": "strict-package",
+    "argv": [
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+      "-B",
+      "scripts/validate_plugin.py",
+      "--inventory",
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-159-2026-09-30/metadata-inventory.json"
+    ],
+    "cwd": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-159-2026-09-30/test-source",
+    "exit": 0,
+    "log": "strict-package.txt"
+  }
+]

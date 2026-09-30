@@ -1,0 +1,40 @@
+{
+  "recorded_date": "2026-09-29",
+  "status": "hard-stop-governance-budget-and-scope",
+  "root_cause": "Exact ratified insertion adds words to an entrypoint already close to its canonical cap. Current entrypoint exceeds the existing package budget, and current-context measurements must be regenerated.",
+  "word_counter": "len(re.findall(r\"\\b[\\w'-]+\\b\", text)) from scripts/validate_package_governance.py::_validate_budgets",
+  "word_counts": {
+    "current_entrypoint": 1504,
+    "proposed_entrypoint": 1004,
+    "relocated_section": 528
+  },
+  "scope": "Only author-execution-relay/SKILL.md words are measured here, including front matter. This is not a total package/context-token measurement.",
+  "governing_limit": 1200,
+  "recommendation": "Preserve the exact ratified insertion and HEB-154 description. Move the existing Build the execution instrument section verbatim to a required local reference, with a mandatory read-whole pointer; adapt authorized validator/tests to the reference. Refresh the live context measurement carrier from canonical sources while retaining its predecessor and keeping historical host/routing observations explicitly historical.",
+  "additional_mutation_paths": [
+    "plugins/bedrock/skills/author-execution-relay/reference/execution-instrument.md",
+    "docs/evidence/heb-118/context-budget.json"
+  ],
+  "draft_patch": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-159-2026-09-29/scope-proposal.patch",
+  "not_applied": true,
+  "suite_command": "python -B -m unittest tests.test_authoring_contracts tests.test_rule_trigger_audit tests.test_package_governance -v",
+  "test_root": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-159-2026-09-29/test-source",
+  "module_origins_verified": true,
+  "method_populations": {
+    "test_authoring_contracts": 20,
+    "test_rule_trigger_audit": 11,
+    "test_package_governance": 56
+  },
+  "total_methods": 87,
+  "failed_methods": [
+    "test_consumer_surface_set_is_exact (tests.test_package_governance.PackageGovernanceTests.test_consumer_surface_set_is_exact) ... FAIL",
+    "test_release_mode_accepts_external_evidence_after_immutable_tag (tests.test_package_governance.PackageGovernanceTests.test_release_mode_accepts_external_evidence_after_immutable_tag) ... FAIL",
+    "test_repository_package_governance_passes (tests.test_package_governance.PackageGovernanceTests.test_repository_package_governance_passes) ... FAIL",
+    "test_rollout_rejects_inexact_surface_populations (tests.test_package_governance.PackageGovernanceTests.test_rollout_rejects_inexact_surface_populations) ... FAIL"
+  ],
+  "counts_note": "Method populations are disjoint by suite for this run. Subtests and validator invocations overlap; do not add them as independent evidence. The method with rebase subprocess output completed successfully. No complete repository-suite result is claimed.",
+  "audit_derivation": "Existing audit detector derived the current changed Markdown population and semantic-unit count; unchanged semantic inspections are inherited, not reread. No audit-consumer change was required.",
+  "excluded": "No budget increase, new live call, schema change, RBT-154 clause, release acceptance, or push.",
+  "checkpoint": "5208b5c62456932dc77f5d1b9a95a35da4be1201",
+  "pending": "Scope ratification, continued proof, complete required suites, independent finished-delta review, and local commit."
+}

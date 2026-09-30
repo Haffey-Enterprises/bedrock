@@ -12,15 +12,19 @@ counting_basis:
     set is valid and does not imply that every semantic unit was a normative rule.
   limit: The semantic-unit count proves deterministic screen coverage, not an atomic normative-rule count
     or infallible semantic classification.
-  last_refreshed_at: 2026-09-29 ET
-  last_refresh: 'HEB-154 delta review: new agent-builder workflow and agent-code mechanism/binding/install
-    references read whole. Dependency installation, parsing, dispatch, verification and handoff are observable
-    workflow events; executable identity/accounting checks cover the named mechanical claims. No new internal-state
-    finding. Unchanged carriers retain prior inspections, not a claimed new whole-corpus reread. Prior
-    ledger preserved under docs/evidence/heb-154/integration/prior-rule-trigger-audit.yaml.'
+  last_refreshed_at: 2026-09-30 ET
+  last_refresh: 'HEB-159 delta review: relay skill and all relay templates read whole. Carrying pins and
+    rules, excluding outcomes and revision narrative, clause-by-clause shrink, and explicit reader disposition
+    bind to dry-run, receipt, first pin check, and text-removing revision events. Pattern-edge misses
+    and anchor-less prose remain known limitations, not internal-state findings. Unchanged carriers retain
+    prior inspections; this is not a new whole-corpus semantic audit. Populations and screen-unit count
+    re-derived with the existing audit detector. Prior ledger is retained under docs/evidence/heb-159/prior-rule-trigger-audit.yaml.
+    Operator-ratified budget repair relocates the existing execution-instrument section verbatim to a
+    required reference; both carriers read whole. Added carrier and screen units re-derived with the audit
+    detector.'
 scope:
   markdown_root: plugins/bedrock/skills
-  expected_markdown_carriers: 62
+  expected_markdown_carriers: 63
   markdown_carriers:
   - plugins/bedrock/skills/agent-builder/SKILL.md
   - plugins/bedrock/skills/agent-builder/reference/README.md
@@ -52,6 +56,7 @@ scope:
   - plugins/bedrock/skills/author-decision-record/templates/sdd-template.md
   - plugins/bedrock/skills/author-execution-relay/SKILL.md
   - plugins/bedrock/skills/author-execution-relay/reference/authorization-and-mutation.md
+  - plugins/bedrock/skills/author-execution-relay/reference/execution-instrument.md
   - plugins/bedrock/skills/author-execution-relay/templates/high-assurance-relay.md
   - plugins/bedrock/skills/author-execution-relay/templates/small-relay.md
   - plugins/bedrock/skills/author-execution-relay/templates/standard-relay.md
@@ -115,6 +120,7 @@ scope:
     plugins/bedrock/skills/author-decision-record/templates/sdd-template.md: inspected
     plugins/bedrock/skills/author-execution-relay/SKILL.md: inspected
     plugins/bedrock/skills/author-execution-relay/reference/authorization-and-mutation.md: inspected
+    plugins/bedrock/skills/author-execution-relay/reference/execution-instrument.md: inspected
     plugins/bedrock/skills/author-execution-relay/templates/high-assurance-relay.md: inspected
     plugins/bedrock/skills/author-execution-relay/templates/small-relay.md: inspected
     plugins/bedrock/skills/author-execution-relay/templates/standard-relay.md: inspected
@@ -217,8 +223,8 @@ scope:
     inspection: inspected
 findings: []
 counts:
-  carriers_examined: 62
-  semantic_units_screened: 1162
+  carriers_examined: 63
+  semantic_units_screened: 1169
   internal_state_rules: 0
   converted_to_instrument: 0
   external_detector: 0

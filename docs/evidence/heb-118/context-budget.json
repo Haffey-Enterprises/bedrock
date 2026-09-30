@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "captured_at": "2026-09-29",
-  "source_commit_baseline": "2ab76b447cdb1a975c801e6833682c0c1f94cef0",
+  "captured_at": "2026-09-30",
+  "source_commit_baseline": "5208b5c62456932dc77f5d1b9a95a35da4be1201",
   "measurement": {
     "catalog_description_characters": 7331,
-    "skill_entrypoint_words": 11972,
+    "skill_entrypoint_words": 11824,
     "projected_always_on_tokens": 1918,
     "host_measurement": "claude 2.1.284 plugin details bedrock@bedrock; isolated revised-relay candidate install",
     "routing_population": "189/189 with 0 excluded selections"
@@ -43,7 +43,7 @@
     {
       "name": "author-execution-relay",
       "description_characters": 647,
-      "entrypoint_words": 1152
+      "entrypoint_words": 1004
     },
     {
       "name": "author-standard",
@@ -81,5 +81,5 @@
       "entrypoint_words": 850
     }
   ],
-  "limitations": "Revised relay catalog: full release evaluation passed 189/189 with no excluded selections on Claude Code 2.1.226. Isolated install/reload also passed on 2.1.284; host token measurement is from that host. Independent PR evaluation and composed-package acceptance remain pending."
+  "limitations": "HEB-159 mechanically refreshed entrypoint and catalog measurements after the ratified reference relocation. Host token measurement and routing population above are historical HEB-154 observations retained from prior-context-budget.json, not new HEB-159 execution or composed-package acceptance. The catalog descriptions are unchanged. HEB-161 owns final composed qualification and cold acceptance."
 }

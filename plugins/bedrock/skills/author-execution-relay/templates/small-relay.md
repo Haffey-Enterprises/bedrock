@@ -14,6 +14,7 @@
 **Accepted grammar and outcomes:** <verbatim consumer contract>
 **Dry-run:** <exact satisfiability check>
 **Touch derivation:** <ratified edit loci reconciled to touch-only paths>
+**Pins block / sweep:** <every pin once; sweep at issue and at receipt: hits or none>
 
 | Property or premise | Claim subject | Verdict-bearing inputs/pins | Population derivation / expected-state oracle | Structural instrument / discrimination control | Outcomes / unavailable | Report field |
 |---|---|---|---|---|---|---|

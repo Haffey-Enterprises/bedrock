@@ -1,0 +1,202 @@
+test_carried_value_contract_cannot_lose_a_rule (tests.test_authoring_contracts.AuthoringContractTests.test_carried_value_contract_cannot_lose_a_rule) ...
+  test_carried_value_contract_cannot_lose_a_rule (tests.test_authoring_contracts.AuthoringContractTests.test_carried_value_contract_cannot_lose_a_rule) (fragment='## Carry pins, not derivations') ... FAIL
+  test_carried_value_contract_cannot_lose_a_rule (tests.test_authoring_contracts.AuthoringContractTests.test_carried_value_contract_cannot_lose_a_rule) (fragment='Every pin appears once, in one pins block') ... FAIL
+  test_carried_value_contract_cannot_lose_a_rule (tests.test_authoring_contracts.AuthoringContractTests.test_carried_value_contract_cannot_lose_a_rule) (fragment='planted mismatch once per relay lineage') ... FAIL
+  test_carried_value_contract_cannot_lose_a_rule (tests.test_authoring_contracts.AuthoringContractTests.test_carried_value_contract_cannot_lose_a_rule) (fragment='A relay body carries no outcome and no revision narrative.') ... FAIL
+  test_carried_value_contract_cannot_lose_a_rule (tests.test_authoring_contracts.AuthoringContractTests.test_carried_value_contract_cannot_lose_a_rule) (fragment='Before issue, sweep the relay for carried values') ... FAIL
+  test_carried_value_contract_cannot_lose_a_rule (tests.test_authoring_contracts.AuthoringContractTests.test_carried_value_contract_cannot_lose_a_rule) (fragment='The executor repeats the sweep on receipt') ... FAIL
+  test_carried_value_contract_cannot_lose_a_rule (tests.test_authoring_contracts.AuthoringContractTests.test_carried_value_contract_cannot_lose_a_rule) (fragment='a value the patterns do not match can survive') ... FAIL
+  test_carried_value_contract_cannot_lose_a_rule (tests.test_authoring_contracts.AuthoringContractTests.test_carried_value_contract_cannot_lose_a_rule) (fragment='every dropped anchor is dispositioned before issue') ... FAIL
+  test_carried_value_contract_cannot_lose_a_rule (tests.test_authoring_contracts.AuthoringContractTests.test_carried_value_contract_cannot_lose_a_rule) (fragment='the predecessor retained, the hash reissued') ... FAIL
+  test_carried_value_contract_cannot_lose_a_rule (tests.test_authoring_contracts.AuthoringContractTests.test_carried_value_contract_cannot_lose_a_rule) (fragment="Loosening a prohibition, removing a stop, or changing what a gate verifies is the operator's.") ... FAIL
+  test_carried_value_contract_cannot_lose_a_rule (tests.test_authoring_contracts.AuthoringContractTests.test_carried_value_contract_cannot_lose_a_rule) (fragment='An executor who adjusts nothing says so') ... FAIL
+test_template_sweep_and_stop_guidance_is_required (tests.test_authoring_contracts.AuthoringContractTests.test_template_sweep_and_stop_guidance_is_required) ...
+  test_template_sweep_and_stop_guidance_is_required (tests.test_authoring_contracts.AuthoringContractTests.test_template_sweep_and_stop_guidance_is_required) (template='high-assurance-relay.md', fragment='one pins block, and a carried-value sweep at issue and at receipt with no hits') ... FAIL
+  test_template_sweep_and_stop_guidance_is_required (tests.test_authoring_contracts.AuthoringContractTests.test_template_sweep_and_stop_guidance_is_required) (template='small-relay.md', fragment='**Pins block / sweep:** <every pin once; sweep at issue and at receipt: hits or none>') ... FAIL
+  test_template_sweep_and_stop_guidance_is_required (tests.test_authoring_contracts.AuthoringContractTests.test_template_sweep_and_stop_guidance_is_required) (template='standard-relay.md', fragment='**Pins block / sweep:** <every pin once; sweep at issue and at receipt: hits or none>') ... FAIL
+  test_template_sweep_and_stop_guidance_is_required (tests.test_authoring_contracts.AuthoringContractTests.test_template_sweep_and_stop_guidance_is_required) (template='standard-relay.md', fragment="A gate's cell states its stop rule, never its outcome.") ... FAIL
+
+======================================================================
+FAIL: test_carried_value_contract_cannot_lose_a_rule (tests.test_authoring_contracts.AuthoringContractTests.test_carried_value_contract_cannot_lose_a_rule) (fragment='## Carry pins, not derivations')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-159-2026-09-29/test-source/tests/test_authoring_contracts.py", line 106, in test_carried_value_contract_cannot_lose_a_rule
+    self.assert_error("carried-value contract is missing")
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-159-2026-09-29/test-source/tests/test_authoring_contracts.py", line 29, in assert_error
+    self.assertTrue(any(expected in error for error in validate_authoring_contracts(self.root)))
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_carried_value_contract_cannot_lose_a_rule (tests.test_authoring_contracts.AuthoringContractTests.test_carried_value_contract_cannot_lose_a_rule) (fragment='Every pin appears once, in one pins block')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-159-2026-09-29/test-source/tests/test_authoring_contracts.py", line 106, in test_carried_value_contract_cannot_lose_a_rule
+    self.assert_error("carried-value contract is missing")
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-159-2026-09-29/test-source/tests/test_authoring_contracts.py", line 29, in assert_error
+    self.assertTrue(any(expected in error for error in validate_authoring_contracts(self.root)))
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_carried_value_contract_cannot_lose_a_rule (tests.test_authoring_contracts.AuthoringContractTests.test_carried_value_contract_cannot_lose_a_rule) (fragment='planted mismatch once per relay lineage')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-159-2026-09-29/test-source/tests/test_authoring_contracts.py", line 106, in test_carried_value_contract_cannot_lose_a_rule
+    self.assert_error("carried-value contract is missing")
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-159-2026-09-29/test-source/tests/test_authoring_contracts.py", line 29, in assert_error
+    self.assertTrue(any(expected in error for error in validate_authoring_contracts(self.root)))
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_carried_value_contract_cannot_lose_a_rule (tests.test_authoring_contracts.AuthoringContractTests.test_carried_value_contract_cannot_lose_a_rule) (fragment='A relay body carries no outcome and no revision narrative.')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-159-2026-09-29/test-source/tests/test_authoring_contracts.py", line 106, in test_carried_value_contract_cannot_lose_a_rule
+    self.assert_error("carried-value contract is missing")
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-159-2026-09-29/test-source/tests/test_authoring_contracts.py", line 29, in assert_error
+    self.assertTrue(any(expected in error for error in validate_authoring_contracts(self.root)))
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_carried_value_contract_cannot_lose_a_rule (tests.test_authoring_contracts.AuthoringContractTests.test_carried_value_contract_cannot_lose_a_rule) (fragment='Before issue, sweep the relay for carried values')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-159-2026-09-29/test-source/tests/test_authoring_contracts.py", line 106, in test_carried_value_contract_cannot_lose_a_rule
+    self.assert_error("carried-value contract is missing")
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-159-2026-09-29/test-source/tests/test_authoring_contracts.py", line 29, in assert_error
+    self.assertTrue(any(expected in error for error in validate_authoring_contracts(self.root)))
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_carried_value_contract_cannot_lose_a_rule (tests.test_authoring_contracts.AuthoringContractTests.test_carried_value_contract_cannot_lose_a_rule) (fragment='The executor repeats the sweep on receipt')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-159-2026-09-29/test-source/tests/test_authoring_contracts.py", line 106, in test_carried_value_contract_cannot_lose_a_rule
+    self.assert_error("carried-value contract is missing")
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-159-2026-09-29/test-source/tests/test_authoring_contracts.py", line 29, in assert_error
+    self.assertTrue(any(expected in error for error in validate_authoring_contracts(self.root)))
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_carried_value_contract_cannot_lose_a_rule (tests.test_authoring_contracts.AuthoringContractTests.test_carried_value_contract_cannot_lose_a_rule) (fragment='a value the patterns do not match can survive')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-159-2026-09-29/test-source/tests/test_authoring_contracts.py", line 106, in test_carried_value_contract_cannot_lose_a_rule
+    self.assert_error("carried-value contract is missing")
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-159-2026-09-29/test-source/tests/test_authoring_contracts.py", line 29, in assert_error
+    self.assertTrue(any(expected in error for error in validate_authoring_contracts(self.root)))
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_carried_value_contract_cannot_lose_a_rule (tests.test_authoring_contracts.AuthoringContractTests.test_carried_value_contract_cannot_lose_a_rule) (fragment='every dropped anchor is dispositioned before issue')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-159-2026-09-29/test-source/tests/test_authoring_contracts.py", line 106, in test_carried_value_contract_cannot_lose_a_rule
+    self.assert_error("carried-value contract is missing")
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-159-2026-09-29/test-source/tests/test_authoring_contracts.py", line 29, in assert_error
+    self.assertTrue(any(expected in error for error in validate_authoring_contracts(self.root)))
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_carried_value_contract_cannot_lose_a_rule (tests.test_authoring_contracts.AuthoringContractTests.test_carried_value_contract_cannot_lose_a_rule) (fragment='the predecessor retained, the hash reissued')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-159-2026-09-29/test-source/tests/test_authoring_contracts.py", line 106, in test_carried_value_contract_cannot_lose_a_rule
+    self.assert_error("carried-value contract is missing")
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-159-2026-09-29/test-source/tests/test_authoring_contracts.py", line 29, in assert_error
+    self.assertTrue(any(expected in error for error in validate_authoring_contracts(self.root)))
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_carried_value_contract_cannot_lose_a_rule (tests.test_authoring_contracts.AuthoringContractTests.test_carried_value_contract_cannot_lose_a_rule) (fragment="Loosening a prohibition, removing a stop, or changing what a gate verifies is the operator's.")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-159-2026-09-29/test-source/tests/test_authoring_contracts.py", line 106, in test_carried_value_contract_cannot_lose_a_rule
+    self.assert_error("carried-value contract is missing")
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-159-2026-09-29/test-source/tests/test_authoring_contracts.py", line 29, in assert_error
+    self.assertTrue(any(expected in error for error in validate_authoring_contracts(self.root)))
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_carried_value_contract_cannot_lose_a_rule (tests.test_authoring_contracts.AuthoringContractTests.test_carried_value_contract_cannot_lose_a_rule) (fragment='An executor who adjusts nothing says so')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-159-2026-09-29/test-source/tests/test_authoring_contracts.py", line 106, in test_carried_value_contract_cannot_lose_a_rule
+    self.assert_error("carried-value contract is missing")
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-159-2026-09-29/test-source/tests/test_authoring_contracts.py", line 29, in assert_error
+    self.assertTrue(any(expected in error for error in validate_authoring_contracts(self.root)))
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_template_sweep_and_stop_guidance_is_required (tests.test_authoring_contracts.AuthoringContractTests.test_template_sweep_and_stop_guidance_is_required) (template='high-assurance-relay.md', fragment='one pins block, and a carried-value sweep at issue and at receipt with no hits')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-159-2026-09-29/test-source/tests/test_authoring_contracts.py", line 121, in test_template_sweep_and_stop_guidance_is_required
+    self.assert_error("carried-value template is missing")
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-159-2026-09-29/test-source/tests/test_authoring_contracts.py", line 29, in assert_error
+    self.assertTrue(any(expected in error for error in validate_authoring_contracts(self.root)))
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_template_sweep_and_stop_guidance_is_required (tests.test_authoring_contracts.AuthoringContractTests.test_template_sweep_and_stop_guidance_is_required) (template='small-relay.md', fragment='**Pins block / sweep:** <every pin once; sweep at issue and at receipt: hits or none>')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-159-2026-09-29/test-source/tests/test_authoring_contracts.py", line 121, in test_template_sweep_and_stop_guidance_is_required
+    self.assert_error("carried-value template is missing")
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-159-2026-09-29/test-source/tests/test_authoring_contracts.py", line 29, in assert_error
+    self.assertTrue(any(expected in error for error in validate_authoring_contracts(self.root)))
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_template_sweep_and_stop_guidance_is_required (tests.test_authoring_contracts.AuthoringContractTests.test_template_sweep_and_stop_guidance_is_required) (template='standard-relay.md', fragment='**Pins block / sweep:** <every pin once; sweep at issue and at receipt: hits or none>')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-159-2026-09-29/test-source/tests/test_authoring_contracts.py", line 121, in test_template_sweep_and_stop_guidance_is_required
+    self.assert_error("carried-value template is missing")
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-159-2026-09-29/test-source/tests/test_authoring_contracts.py", line 29, in assert_error
+    self.assertTrue(any(expected in error for error in validate_authoring_contracts(self.root)))
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_template_sweep_and_stop_guidance_is_required (tests.test_authoring_contracts.AuthoringContractTests.test_template_sweep_and_stop_guidance_is_required) (template='standard-relay.md', fragment="A gate's cell states its stop rule, never its outcome.")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-159-2026-09-29/test-source/tests/test_authoring_contracts.py", line 121, in test_template_sweep_and_stop_guidance_is_required
+    self.assert_error("carried-value template is missing")
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-159-2026-09-29/test-source/tests/test_authoring_contracts.py", line 29, in assert_error
+    self.assertTrue(any(expected in error for error in validate_authoring_contracts(self.root)))
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.882s
+
+FAILED (failures=15)

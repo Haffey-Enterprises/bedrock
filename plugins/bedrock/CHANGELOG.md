@@ -5,6 +5,20 @@ records candidate and released changes; a version heading is not release proof.
 
 ## 10.0.0 — bounded agent construction candidate
 
+- Add the HEB-159 carried-value amendment in PROVING: relays carry subjects,
+  pins and rules; keep outcomes and revision narratives in records; check each
+  text-removing shrink against predecessor anchors; and require the reader to
+  report bounded tightenings or explicitly state that nothing changed.
+  Sweeps bind to author-time dry-run and executor receipt; pins are checked
+  first with a planted mismatch, and dropped anchors receive dispositions.
+  Provenance: RBT-153 candidates 1 and 3, derived from RBT-124 Leg 4. The
+  evidence concerns one consumer arc. Counterevidence includes defects in
+  mechanical gate rules with few carried values: this removes a defect class,
+  not all relay defects. Pattern-edge misses and anchor-less prose remain
+  limitations. HEB-159 retains component proof; adoption and bundled release
+  acceptance are not claimed. The relay schema and interaction contract remain
+  unchanged; the unratified RBT-154 proposals are excluded.
+
 - Declare Codex (ChatGPT desktop), at codex-cli >=0.153.4, as the explicit third
   consumer surface alongside claude-ai and claude-code; require each exactly
   once in rollout. No Codex strict manifest validator, CI minimum pin, cloud-task
