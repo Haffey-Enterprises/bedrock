@@ -159,6 +159,23 @@ class RoutingCustodyTests(unittest.TestCase):
         self.assertEqual("transport_failure", draws[1]["outcome"]["classification"])
         self.assertEqual("failed", json.loads(self.output.read_text())["status"])
 
+    def test_unknown_usage_keeps_prior_spend_and_stops_with_truthful_journal(self):
+        status, calls = self.run_offline([
+            runner.InvocationResult.route(True, "debug", "known", .012, [MODEL]),
+            runner.InvocationResult.route(True, "debug", "unknown", None, [MODEL])])
+        self.assertEqual((2, 2), (status, calls))
+        report = json.loads(self.output.read_text())
+        self.assertIsNone(report["total_cost_usd"])
+        self.assertEqual(.012, report["known_cost_subtotal_usd"])
+        self.assertEqual("unknown", report["usage_status"])
+        self.assertEqual("usage_unknown", report["failure"]["classification"])
+        draws = [e for e in self.events() if e["event"] == "attempt_finished"]
+        self.assertEqual(2, len(draws))
+        self.assertIsNone(draws[-1]["outcome"]["cost_usd"])
+        self.assertIsNone(draws[-1]["outcome"]["passed"])
+        self.assertEqual("unknown", draws[-1]["outcome"]["usage_status"])
+        self.assertEqual("terminal_failure", self.events()[-1]["event"])
+
     def test_each_result_is_on_disk_before_next_invocation(self):
         observed = []
         def observe():

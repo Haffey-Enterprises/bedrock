@@ -51,7 +51,8 @@ class RoutingAdapterResultTests(unittest.TestCase):
                 for selected, passed in ((case["expected"], True),
                                          ("planning" if "planning" in case["excluded"] else None, False)):
                     envelope = unittest.mock.Mock(returncode=0, stderr="", stdout=json.dumps({
-                        "structured_output": {"skill": selected, "reason": "deterministic envelope control"}}))
+                        "structured_output": {"skill": selected, "reason": "deterministic envelope control"},
+                        "total_cost_usd": 0.0}))
                     with patch("scripts.run_routing_evals.subprocess.run", return_value=envelope) as invoke:
                         result = run_case("offline-cli", root, case, catalog, "offline", 0.01, 10)
                     self.assertIs(result.passed, passed)
@@ -114,7 +115,7 @@ class RoutingAdapterResultTests(unittest.TestCase):
                 "try:\n    os.lseek(0, 0, os.SEEK_SET)\n"
                 "except OSError:\n    pass\n"
                 "received = {'stdin': sys.stdin.read(), 'prompt': sys.argv[-1]}\n"
-                "print(json.dumps({'structured_output': {'skill': 'debug', "
+                "print(json.dumps({'total_cost_usd': 0.0, 'structured_output': {'skill': 'debug', "
                 "'reason': json.dumps(received)}}))\n",
                 encoding="utf-8",
             )
@@ -301,13 +302,13 @@ class RoutingAdapterResultTests(unittest.TestCase):
         self.assertEqual((0.033976, ["resolved-model"]), _extract_usage(payload))
 
     def test_unstructured_failure_has_no_claimed_usage(self) -> None:
-        self.assertEqual((0.0, []), _extract_usage("transport failed"))
+        self.assertEqual((None, []), _extract_usage("transport failed"))
 
     def test_malformed_failure_usage_cannot_mask_terminal_classification(self) -> None:
         payload = json.dumps(
             {"subtype": "authentication_error", "total_cost_usd": "not-a-number"}
         )
-        self.assertEqual((0.0, []), _extract_usage(payload))
+        self.assertEqual((None, []), _extract_usage(payload))
         self.assertEqual("authentication_failure", _classify_invocation_failure(payload, "", 1))
 
     def test_prompt_embeds_authoritative_catalog_and_request(self) -> None:

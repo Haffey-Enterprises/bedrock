@@ -19,6 +19,8 @@ import tempfile
 from typing import Any, Callable, Mapping
 from zoneinfo import ZoneInfo
 
+from jsonschema import Draft202012Validator
+
 try:
     from scripts.validate_plugin import load_eval_policy, load_routing_cases, validate_repository
 except ModuleNotFoundError:  # Direct execution sets scripts/ as sys.path[0].
@@ -37,11 +39,15 @@ OUTPUT_SCHEMA = json.dumps(
     }
 )
 
+OUTPUT_VALIDATOR = Draft202012Validator(json.loads(OUTPUT_SCHEMA))
+
 DEFAULT_MAX_BUDGET_USD = 0.04
 DEFAULT_CLI_VERSION = "2.1.226 (Claude Code)"
 DEFAULT_RESOLVED_MODEL = "claude-haiku-4-5-20251001"
 
 FAILURE_DIAGNOSTICS = {
+    "schema_failure": "Claude routing result violates the required output schema",
+    "usage_unknown": "Reported cost is missing or invalid; usage is unknown and further dispatch is prohibited",
     "identity_mismatch": "Resolved model identity is missing or differs from the preregistered model",
     "authentication_failure": (
         "Claude adapter authentication failed on the --bare --print execution path; "
@@ -59,7 +65,7 @@ class InvocationResult:
     passed: bool | None
     selected: str | None
     detail: str
-    cost_usd: float
+    cost_usd: float | None
     models: list[str]
 
     @classmethod
@@ -68,16 +74,19 @@ class InvocationResult:
         passed: bool,
         selected: str | None,
         detail: str,
-        cost_usd: float,
+        cost_usd: float | None,
         models: list[str],
     ) -> InvocationResult:
-        return cls("route_result", passed, selected, detail, cost_usd, models)
+        cost = normalize_cost(cost_usd)
+        if cost is None:
+            return cls.failure("usage_unknown", models=models)
+        return cls("route_result", passed, selected, detail, cost, models)
 
     @classmethod
     def failure(
         cls,
         classification: str,
-        cost_usd: float = 0.0,
+        cost_usd: float | None = None,
         models: list[str] | None = None,
     ) -> InvocationResult:
         return cls(
@@ -85,9 +94,12 @@ class InvocationResult:
             None,
             None,
             FAILURE_DIAGNOSTICS[classification],
-            cost_usd,
+            normalize_cost(cost_usd),
             models or [],
         )
+
+    def as_evidence(self) -> dict[str, Any]:
+        return {**asdict(self), **usage_evidence(self.cost_usd)}
 
     def as_failure_evidence(self) -> dict[str, Any]:
         if self.classification == "route_result":
@@ -96,6 +108,7 @@ class InvocationResult:
             "classification": self.classification,
             "diagnostic": self.detail,
             "cost_usd": self.cost_usd,
+            **usage_evidence(self.cost_usd),
             "resolved_models": self.models,
         }
 
@@ -106,7 +119,7 @@ class MatrixFailure:
     run: int
     classification: str
     diagnostic: str
-    cost_usd: float
+    cost_usd: float | None
     models: list[str]
 
 
@@ -117,35 +130,62 @@ class MatrixExecution:
     budget_exhausted: bool = False
 
 
+class RoutingSchemaError(ValueError):
+    """A decoded response cannot satisfy the routing contract."""
+
+
+def _unique_object(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
+    result: dict[str, Any] = {}
+    for key, value in pairs:
+        if key in result:
+            raise RoutingSchemaError("Duplicate response key")
+        result[key] = value
+    return result
+
+
 def _parse_result(stdout: str) -> dict[str, Any]:
-    payload = json.loads(stdout)
+    payload = json.loads(stdout, object_pairs_hook=_unique_object)
     if not isinstance(payload, dict):
-        raise ValueError("Claude response envelope must be an object")
-    structured = payload.get("structured_output")
-    if isinstance(structured, dict):
-        return structured
-    result = payload.get("result")
-    if isinstance(result, str):
-        parsed = json.loads(result)
-        if isinstance(parsed, dict):
-            return parsed
-    raise ValueError("Claude response did not contain a structured routing result")
+        raise RoutingSchemaError("Claude response envelope must be an object")
+    if "structured_output" in payload:
+        # A present native result is authoritative, even when malformed.
+        routed = payload["structured_output"]
+    elif isinstance(payload.get("result"), str):
+        routed = json.loads(payload["result"], object_pairs_hook=_unique_object)
+    else:
+        raise ValueError("Claude response did not contain a structured routing result")
+    if not OUTPUT_VALIDATOR.is_valid(routed):
+        raise RoutingSchemaError("Claude routing result violates OUTPUT_SCHEMA")
+    return routed
 
 
-def _extract_usage(payload: str) -> tuple[float, list[str]]:
-    """Recover billed usage from a success or typed-error Claude envelope."""
+def normalize_cost(value: Any) -> float | None:
+    """Only an explicit finite, nonnegative JSON number establishes known spend."""
+    if isinstance(value, bool) or not isinstance(value, (int, float)):
+        return None
+    try:
+        cost = float(value)
+    except (OverflowError, ValueError):
+        return None
+    return cost if math.isfinite(cost) and cost >= 0 else None
+
+
+def usage_evidence(cost: float | None) -> dict[str, Any]:
+    return {
+        "usage_status": "known" if cost is not None else "unknown",
+        "usage_reason": None if cost is not None else "missing_or_invalid_reported_cost",
+    }
+
+
+def _extract_usage(payload: str) -> tuple[float | None, list[str]]:
+    """Recover explicit usage without turning missing or invalid costs into zero."""
     try:
         envelope = json.loads(payload)
     except json.JSONDecodeError:
-        return 0.0, []
+        return None, []
     if not isinstance(envelope, dict):
-        return 0.0, []
-    try:
-        cost = float(envelope.get("total_cost_usd", 0.0) or 0.0)
-    except (TypeError, ValueError):
-        cost = 0.0
-    if not math.isfinite(cost) or cost < 0:
-        cost = 0.0
+        return None, []
+    cost = normalize_cost(envelope.get("total_cost_usd"))
     model_usage = envelope.get("modelUsage", {})
     models = sorted(model_usage) if isinstance(model_usage, dict) else []
     return cost, models
@@ -288,8 +328,10 @@ def run_case(
         return InvocationResult.failure("transport_failure")
     if result.returncode != 0:
         cost, models = _extract_usage(result.stdout)
-        if not models and cost == 0.0:
-            cost, models = _extract_usage(result.stderr)
+        if cost is None:
+            stderr_cost, stderr_models = _extract_usage(result.stderr)
+            cost = stderr_cost
+            models = models or stderr_models
         return InvocationResult.failure(
             _classify_invocation_failure(result.stdout, result.stderr, result.returncode),
             cost,
@@ -297,20 +339,23 @@ def run_case(
         )
     try:
         routed = _parse_result(result.stdout)
+    except RoutingSchemaError:
+        cost, models = _extract_usage(result.stdout)
+        return InvocationResult.failure("schema_failure", cost, models)
     except (json.JSONDecodeError, ValueError) as exc:
         del exc
         cost, models = _extract_usage(result.stdout)
         return InvocationResult.failure(
             _classify_invocation_failure(result.stdout, result.stderr, 0), cost, models
         )
-    selected = routed.get("skill")
+    selected = routed["skill"]
     expected = case.get("expected")
     alternates = case.get("allowed_alternates", [])
     passed = selected == expected or (case.get("kind") == "overlap" and selected in alternates)
     if selected in case.get("excluded", []):
         passed = False
     cost, models = _extract_usage(result.stdout)
-    return InvocationResult.route(passed, selected, str(routed.get("reason", "")), cost, models)
+    return InvocationResult.route(passed, selected, routed["reason"], cost, models)
 
 
 def execute_case_matrix(
@@ -335,6 +380,8 @@ def execute_case_matrix(
             if remaining_usd <= 0:
                 return MatrixExecution(results=results, budget_exhausted=True)
             outcome = invoke(case, run_number, min(max_budget_usd, remaining_usd))
+            if outcome.classification == "route_result" and normalize_cost(outcome.cost_usd) is None:
+                outcome = InvocationResult.failure("usage_unknown", models=outcome.models)
             if outcome.classification != "route_result":
                 return MatrixExecution(
                     results=results,
@@ -359,6 +406,7 @@ def execute_case_matrix(
                 "passed": outcome.passed,
                 "detail": outcome.detail,
                 "cost_usd": outcome.cost_usd,
+                **usage_evidence(outcome.cost_usd),
                 "models": outcome.models,
             }
             results.append(record)
@@ -489,9 +537,16 @@ def build_failure_report(
     generated_at: str,
     completed_case_runs: int,
     failure: MatrixFailure,
+    completed_results: list[dict[str, Any]] | None = None,
 ) -> dict[str, Any]:
     """Build sanitized non-evaluation evidence for a terminal adapter failure."""
+    known_subtotal = sum(row["cost_usd"] for row in (completed_results or []))
+    if failure.cost_usd is not None:
+        known_subtotal += failure.cost_usd
     return {
+        **usage_evidence(failure.cost_usd),
+        "total_cost_usd": known_subtotal if failure.cost_usd is not None else None,
+        "known_cost_subtotal_usd": known_subtotal,
         "schema_version": 1,
         "adapter": "claude-code",
         "status": "failed",
@@ -512,6 +567,7 @@ def build_failure_report(
             "case": failure.case,
             "run": failure.run,
             "cost_usd": failure.cost_usd,
+            **usage_evidence(failure.cost_usd),
             "resolved_models": failure.models,
         },
     }
@@ -686,7 +742,7 @@ def _run(args: argparse.Namespace, parser: argparse.ArgumentParser) -> int:
             cost_usd=0.0,
             models=[],
         )
-        append_event(journal, {"event": "terminal_failure", "failure": asdict(failure)})
+        append_event(journal, {"event": "terminal_failure", "failure": {**asdict(failure), **usage_evidence(failure.cost_usd)}})
         print(f"FAIL [authentication_failure]: {auth_error}", file=sys.stderr)
         if args.output:
             write_report(
@@ -721,7 +777,7 @@ def _run(args: argparse.Namespace, parser: argparse.ArgumentParser) -> int:
         append_event(journal, {"event": "attempt_finished", "case": case["id"],
                                "run": run_number, "expected": case.get("expected"),
                                "kind": case.get("kind"), "cue": case.get("cue", "direct"),
-                               "surface": case.get("surface"), "outcome": asdict(outcome)})
+                               "surface": case.get("surface"), "outcome": outcome.as_evidence()})
         if outcome.classification == "route_result" and outcome.models != [args.expected_model]:
             return InvocationResult.failure("identity_mismatch", outcome.cost_usd, outcome.models)
         return outcome
@@ -765,7 +821,7 @@ def _run(args: argparse.Namespace, parser: argparse.ArgumentParser) -> int:
         on_result=retain_result,
     )
     if execution.failure is not None:
-        append_event(journal, {"event": "terminal_failure", "failure": asdict(execution.failure)})
+        append_event(journal, {"event": "terminal_failure", "failure": {**asdict(execution.failure), **usage_evidence(execution.failure.cost_usd)}})
         print(
             f"FAIL [{execution.failure.classification}] case={execution.failure.case} "
             f"run={execution.failure.run}: {execution.failure.diagnostic}",
@@ -785,6 +841,7 @@ def _run(args: argparse.Namespace, parser: argparse.ArgumentParser) -> int:
                     generated_at=generated_at,
                     completed_case_runs=len(execution.results),
                     failure=execution.failure,
+                    completed_results=execution.results,
                 ),
             )
         return 2
