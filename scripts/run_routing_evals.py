@@ -5,7 +5,7 @@ from __future__ import annotations
 
 import argparse
 from collections import defaultdict
-from dataclasses import dataclass
+from dataclasses import asdict, dataclass
 from datetime import datetime
 import hashlib
 import json
@@ -15,6 +15,7 @@ from pathlib import Path
 import shutil
 import subprocess
 import sys
+import tempfile
 from typing import Any, Callable, Mapping
 from zoneinfo import ZoneInfo
 
@@ -37,8 +38,11 @@ OUTPUT_SCHEMA = json.dumps(
 )
 
 DEFAULT_MAX_BUDGET_USD = 0.04
+DEFAULT_CLI_VERSION = "2.1.226 (Claude Code)"
+DEFAULT_RESOLVED_MODEL = "claude-haiku-4-5-20251001"
 
 FAILURE_DIAGNOSTICS = {
+    "identity_mismatch": "Resolved model identity is missing or differs from the preregistered model",
     "authentication_failure": (
         "Claude adapter authentication failed on the --bare --print execution path; "
         "provide a valid ANTHROPIC_API_KEY"
@@ -515,15 +519,60 @@ def build_failure_report(
 
 def write_report(path: Path, report: dict[str, Any]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    temporary = path.with_suffix(path.suffix + ".tmp")
-    temporary.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
-    temporary.replace(path)
+    descriptor, name = tempfile.mkstemp(prefix=f".{path.name}.", suffix=".tmp", dir=path.parent)
+    temporary = Path(name)
+    try:
+        with os.fdopen(descriptor, "w", encoding="utf-8") as stream:
+            stream.write(json.dumps(report, indent=2) + "\n")
+            stream.flush()
+            os.fsync(stream.fileno())
+        temporary.replace(path)
+        directory = os.open(path.parent, os.O_RDONLY)
+        try:
+            os.fsync(directory)
+        finally:
+            os.close(directory)
+    finally:
+        temporary.unlink(missing_ok=True)
+
+
+def append_event(path: Path, event: dict[str, Any]) -> None:
+    """Persist before dispatch can continue; never recreate a lost journal."""
+    descriptor = os.open(path, os.O_WRONLY | os.O_APPEND)
+    with os.fdopen(descriptor, "a", encoding="utf-8") as stream:
+        stream.write(json.dumps(event, sort_keys=True) + "\n")
+        stream.flush()
+        os.fsync(stream.fileno())
+
+
+def initialize_evidence(path: Path, metadata: dict[str, Any]) -> Path:
+    """Claim a fresh report/journal pair; existing evidence is never reused."""
+    journal = path.with_suffix(".jsonl")
+    if path == journal or path.exists() or journal.exists():
+        raise FileExistsError("routing evidence paths must be fresh and distinct")
+    path.parent.mkdir(parents=True, exist_ok=True)
+    # Exclusive creates also refuse symlinks and a competing writer's claims.
+    with path.open("x", encoding="utf-8") as stream:
+        stream.write(json.dumps({"status": "incomplete", "phase": "preflight"}) + "\n")
+        stream.flush()
+        os.fsync(stream.fileno())
+    with journal.open("x", encoding="utf-8"):
+        pass
+    append_event(journal, {"event": "preregistration", **metadata})
+    directory = os.open(path.parent, os.O_RDONLY)
+    try:
+        os.fsync(directory)
+    finally:
+        os.close(directory)
+    return journal
 
 
 def _build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
     parser.add_argument("--model", default="haiku")
+    parser.add_argument("--expected-cli-version", default=DEFAULT_CLI_VERSION)
+    parser.add_argument("--expected-model", default=DEFAULT_RESOLVED_MODEL)
     parser.add_argument("--profile", choices=("pr", "release"), default="release")
     parser.add_argument("--runs", type=int, help="Must match the preregistered profile; retained for explicit replay.")
     parser.add_argument("--case", action="append", dest="case_ids")
@@ -542,7 +591,18 @@ def _build_parser() -> argparse.ArgumentParser:
 def main() -> int:
     parser = _build_parser()
     args = parser.parse_args()
+    if args.output is None:
+        parser.error("--output is required for durable routing evidence")
+    if not args.expected_cli_version.strip() or not args.expected_model.strip():
+        parser.error("CLI and resolved-model identities must be non-empty")
+    try:
+        return _run(args, parser)
+    except OSError:
+        print("FAIL: evidence or adapter I/O unavailable; stop without retry", file=sys.stderr)
+        return 2
 
+
+def _run(args: argparse.Namespace, parser: argparse.ArgumentParser) -> int:
     executable = shutil.which("claude")
     if executable is None:
         print("FAIL: Claude Code CLI is required for the Claude routing adapter", file=sys.stderr)
@@ -593,9 +653,29 @@ def main() -> int:
         [executable, "--version"], capture_output=True, text=True, check=False, timeout=10
     )
     cli_version = version_result.stdout.strip() or "unknown"
+    if version_result.returncode != 0 or cli_version != args.expected_cli_version:
+        print("FAIL: Claude CLI identity differs from preregistration; no model call", file=sys.stderr)
+        return 2
     generated_at = datetime.now(ZoneInfo("America/New_York")).isoformat()
     suite_scope = "targeted" if args.case_ids else "full"
     planned_case_ids = [str(case["id"]) for case in cases]
+    journal = initialize_evidence(args.output, {
+        "schema_version": 1,
+        "generated_at": generated_at,
+        "profile": args.profile,
+        "suite_scope": suite_scope,
+        "planned_case_ids": planned_case_ids,
+        "runs_per_case": runs,
+        "requested_model": args.model,
+        "expected_model": args.expected_model,
+        "claude_cli_version": cli_version,
+        "identity": {"fixture_sha256": fixture_digest, "catalog_sha256": catalog_digest,
+                     "policy_sha256": policy_digest},
+        "thresholds": policy,
+        "max_budget_usd_per_case_run": args.max_budget_usd,
+        "max_total_budget_usd": args.max_total_budget_usd,
+        "timeout_seconds_per_case_run": args.timeout_seconds,
+    })
     auth_error = check_authentication()
     if auth_error:
         failure = MatrixFailure(
@@ -606,6 +686,7 @@ def main() -> int:
             cost_usd=0.0,
             models=[],
         )
+        append_event(journal, {"event": "terminal_failure", "failure": asdict(failure)})
         print(f"FAIL [authentication_failure]: {auth_error}", file=sys.stderr)
         if args.output:
             write_report(
@@ -625,8 +706,10 @@ def main() -> int:
         return 2
 
     def invoke(case: dict[str, Any], run_number: int, budget_usd: float) -> InvocationResult:
-        del run_number
-        return run_case(
+        append_event(journal, {"event": "attempt_started", "case": case["id"],
+                               "run": run_number, "budget_usd": budget_usd,
+                               "prompt_sha256": _sha256_bytes(build_routing_prompt(case, inventory["skills"]).encode("utf-8"))})
+        outcome = run_case(
             executable,
             plugin_dir,
             case,
@@ -635,6 +718,13 @@ def main() -> int:
             budget_usd,
             args.timeout_seconds,
         )
+        append_event(journal, {"event": "attempt_finished", "case": case["id"],
+                               "run": run_number, "expected": case.get("expected"),
+                               "kind": case.get("kind"), "cue": case.get("cue", "direct"),
+                               "surface": case.get("surface"), "outcome": asdict(outcome)})
+        if outcome.classification == "route_result" and outcome.models != [args.expected_model]:
+            return InvocationResult.failure("identity_mismatch", outcome.cost_usd, outcome.models)
+        return outcome
 
     def retain_result(results: list[dict[str, Any]], record: dict[str, Any]) -> None:
         print(
@@ -675,6 +765,7 @@ def main() -> int:
         on_result=retain_result,
     )
     if execution.failure is not None:
+        append_event(journal, {"event": "terminal_failure", "failure": asdict(execution.failure)})
         print(
             f"FAIL [{execution.failure.classification}] case={execution.failure.case} "
             f"run={execution.failure.run}: {execution.failure.diagnostic}",
@@ -721,6 +812,7 @@ def main() -> int:
         max_total_budget_usd=args.max_total_budget_usd,
         budget_exhausted=budget_exhausted,
     )
+    append_event(journal, {"event": "terminal_evaluation", "evaluation": report["evaluation"], "total_cost_usd": report["total_cost_usd"], "total": report["total"]})
     if args.output:
         write_report(args.output, report)
     return 0 if report["evaluation"]["passed"] else 1

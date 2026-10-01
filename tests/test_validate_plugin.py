@@ -162,6 +162,7 @@ class ValidatorTests(unittest.TestCase):
     def test_valid_fixture_passes(self) -> None:
         errors, report = validate_repository(
             self.root,
+            validate_retained_evidence=False,  # This synthetic fixture has no model observations.
             run_host_cli=False,
             run_safety_checks=False,
             require_authoring_contracts=False,

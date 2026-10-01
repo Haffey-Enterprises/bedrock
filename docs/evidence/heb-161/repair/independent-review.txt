@@ -1,0 +1,17 @@
+Repair-slice verdict: approve snapshot 2. No unresolved blocking findings within this scope. Composed-candidate acceptance remains paused.
+
+Subject: repair/snapshot-2, based on cbc8d2f2951c3f007eeca01600ba6cbb79165ed9, bound by all six verified hashes in repair-inputs-2.json.
+
+Both prior findings are resolved:
+- Exclusive, uniquely named temporary files preserve another invocation's evidence. The original collision reproduction now preserves both reports.
+- The evidence consumer independently enforces aggregate, per-case and exclusion thresholds. The original 0/90 false-green reproduction now fails; permitted misses still pass.
+
+Verification:
+- Independently executed the complete 16-test repair population: passed.
+- Read the complete final repository-suite log: 258 tests, OK, with exit 0 recorded.
+- Read all five final gate logs: component, identity and governance passed; missing selected evidence failed closed.
+- Default validation remains failed and unwaived: 14 diagnostics, comprising the original thirteen plus the newly enforced per-case failure for missing planning coverage.
+
+Read depth: whole six-file snapshot-1 repair slice, complete snapshot-1-to-2 delta, relevant lifecycle/policy authorities, complete threshold-red and focused logs, complete final suite, commands and gate records. Oversized earlier reads were recovered through narrower reads.
+
+This approves only the reviewed repair bytes. It does not establish complete prerequisite reconciliation, whole-package qualification, final commit binding, live-routing authorization, cold acceptance or release. Reviewer performed no repository edits, live calls, installations, or protected-receipt reads/copies.

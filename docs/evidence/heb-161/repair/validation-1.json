@@ -1,0 +1,65 @@
+{
+  "cli": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/claude-minimum/node_modules/.bin/claude",
+  "version": "2.1.226 (Claude Code)",
+  "records": [
+    {
+      "label": "component",
+      "command": [
+        "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+        "-B",
+        "scripts/validate_plugin.py",
+        "--component"
+      ],
+      "cwd": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-161-2026-09-30/repair/snapshot-1",
+      "returncode": 0,
+      "log": "component-1.log"
+    },
+    {
+      "label": "default",
+      "command": [
+        "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+        "-B",
+        "scripts/validate_plugin.py"
+      ],
+      "cwd": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-161-2026-09-30/repair/snapshot-1",
+      "returncode": 1,
+      "log": "default-1.log"
+    },
+    {
+      "label": "selected-missing",
+      "command": [
+        "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+        "-B",
+        "scripts/validate_plugin.py",
+        "--routing-evidence",
+        "docs/evidence/heb-161/routing-results.json"
+      ],
+      "cwd": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-161-2026-09-30/repair/snapshot-1",
+      "returncode": 1,
+      "log": "selected-missing-1.log"
+    },
+    {
+      "label": "identity",
+      "command": [
+        "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+        "-B",
+        "scripts/sync_package_identity.py",
+        "--check"
+      ],
+      "cwd": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-161-2026-09-30/repair/snapshot-1",
+      "returncode": 0,
+      "log": "identity-1.log"
+    },
+    {
+      "label": "governance",
+      "command": [
+        "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+        "-B",
+        "scripts/validate_package_governance.py"
+      ],
+      "cwd": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-161-2026-09-30/repair/snapshot-1",
+      "returncode": 0,
+      "log": "governance-1.log"
+    }
+  ]
+}

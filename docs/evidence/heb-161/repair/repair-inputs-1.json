@@ -1,0 +1,8 @@
+{
+  ".github/workflows/plugin-validation.yml": "18e0336626eabd1e11e54e7830c0b3a7ddf2d5eaae41d707e57597e53b24b003",
+  "README.md": "c8c170be94ed2be3b413cfcd51edec4108d57fde662f97a487b329950a4e4c10",
+  "scripts/run_routing_evals.py": "46a9f7d3d6788183c8b51b301a7e34ba0d3b7f497f1fd51f9cabf16f9a9105a3",
+  "scripts/validate_plugin.py": "e525b54d4da56d800fc88e8c46359ccbb53bcf833efed399a3e28da496137427",
+  "tests/test_validate_plugin.py": "576fa579c7db1a8af5c405b9de748a7225eeb21bc8282b3ae748dc02fe636227",
+  "tests/test_composed_routing.py": "196704ac148e72b5298644db18f4aa804ec14f3b02d2b95c2167aab654da433a"
+}

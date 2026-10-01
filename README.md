@@ -100,7 +100,7 @@ python3 scripts/validate_package_governance.py
 bash scripts/smoke_clean_install.sh
 ```
 
-For component preparation before composed routing acceptance, `validate_plugin.py --component` runs deterministic and strict-host checks without treating prior routing evidence as current. Its success is not release acceptance; the default validator still requires current retained routing evidence.
+For component preparation before composed routing acceptance, `validate_plugin.py --component` runs deterministic and strict-host checks without treating prior routing evidence as current. Its success is not release acceptance; the default validator still requires current retained routing evidence. Select composed evidence explicitly with `--routing-evidence docs/evidence/heb-161/routing-results.json` (relative to `--root`), preserving the historical HEB-109 report. A missing selected or default report fails closed; explicit evidence selection cannot be combined with `--component`.
 
 `validate_plugin.py` deterministically enforces the 15-skill inventory, strict YAML frontmatter, the 1,024-character description limit, explicit positive and negative routing boundaries, unique names, plugin/marketplace coherence, package lifecycle and policy contracts, relative-link and private-path safety, declared external-root dependencies and snapshot currency markers, complete code-sample accounting, evidence-manifest integrity, and routing-fixture coverage. It separately runs `claude plugin validate --strict` against the plugin manifest; that host check does not claim recursive skill-frontmatter coverage.
 
@@ -122,7 +122,11 @@ Shared routing prompts live in `tests/fixtures/routing.yaml` and are surface-neu
 ```sh
 python3 scripts/run_routing_evals.py \
   --profile release \
-  --output docs/evidence/heb-109/routing-results.json
+  --expected-cli-version "2.1.226 (Claude Code)" \
+  --model claude-haiku-4-5-20251001 \
+  --expected-model claude-haiku-4-5-20251001 \
+  --max-total-budget-usd 3.00 \
+  --output /path/to/fresh-evidence/report.json
 ```
 
 The live adapter requires `ANTHROPIC_API_KEY` and incurs model usage. Its
@@ -142,6 +146,27 @@ SHA-256 digests; results with different identities are not pooled. Each model
 call is capped at $0.04 and 120 seconds. Deterministic validation and the isolated
 install/reload smoke test do not require model inference. Branch protection must
 require `Plugin validation / live-routing`.
+
+Each invocation requires a fresh `--output` report and a distinct sibling `.jsonl`
+journal. Existing files are refused before any model call. The journal retains
+preregistration, a start record before each invocation, every returned draw
+(including detail, reported cost and resolved models), and terminal disposition.
+Each journal append is flushed and synced before dispatch can continue; a custody
+failure stops execution without retry. A start without a finish records an
+interrupted attempt whose outcome and charges remain unknown. A terminal failure
+may replace the summary report, but never the journal or prior invocation's files.
+This is local filesystem custody, not a claim of off-machine backup or provider
+internal retry accounting.
+
+The CLI must match `--expected-cli-version` before any model call. Every successful
+response must name exactly `--expected-model`; missing or different identity is
+retained and stops the matrix before another draw. Defaults are the workflow's
+pinned Claude Code version and resolved model shown above. Changing these values
+requires a new preregistration; it does not reuse a previous evaluation baseline.
+CI retains both files under `heb-161-routing-results`; the composed release report
+is separately selected by the deterministic gate. A PR-profile observation does
+not replace a release-profile report, and an unavailable composed report remains
+a failed gate. No live run or additional spend is authorized by these commands.
 
 Using `--case` creates an explicitly targeted report. It can prove that selected cases passed, but the report is marked ineligible as retained full-suite release evidence.
 

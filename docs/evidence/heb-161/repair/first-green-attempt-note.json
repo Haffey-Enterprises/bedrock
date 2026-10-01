@@ -1,0 +1,5 @@
+{
+  "initial_after_repair": "12 methods:11 pass,1 failed because /var vs /private/var test expectation. Product correctly resolves --root.",
+  "correction": "Resolve expected root; no production relaxation. Added failure-after-invocation custody control.",
+  "first_red": "Preserved first-red.log and first-red-command.json unchanged."
+}

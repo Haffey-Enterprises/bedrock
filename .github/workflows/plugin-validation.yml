@@ -89,6 +89,7 @@ jobs:
       - name: Run strict package validation
         run: >-
           python scripts/validate_plugin.py
+          --routing-evidence docs/evidence/heb-161/routing-results.json
           --inventory docs/evidence/heb-109/metadata-inventory.json
       - name: Run HEB-118 package-governance validation
         run: python scripts/validate_package_governance.py
@@ -174,13 +175,18 @@ jobs:
         run: >-
           python scripts/run_routing_evals.py
           --profile ${{ github.event_name == 'pull_request' && 'pr' || 'release' }}
+          --expected-cli-version "2.1.226 (Claude Code)"
+          --model claude-haiku-4-5-20251001
+          --expected-model claude-haiku-4-5-20251001
           --max-budget-usd 0.06
           --max-total-budget-usd 3.00
-          --output docs/evidence/heb-109/routing-results.json
+          --output "$RUNNER_TEMP/heb161-routing/report.json"
       - name: Retain routing results
         if: always()
         uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
         with:
-          name: heb-109-routing-results
-          path: docs/evidence/heb-109/routing-results.json
+          name: heb-161-routing-results
+          path: |
+            ${{ runner.temp }}/heb161-routing/report.json
+            ${{ runner.temp }}/heb161-routing/report.jsonl
           if-no-files-found: error

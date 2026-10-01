@@ -1,0 +1,16 @@
+{
+  "date_et": "2026-09-30",
+  "repository": "https://github.com/T-Bone-Haff/bedrock-recovery",
+  "private": true,
+  "actions_enabled": false,
+  "branch": "codex/heb-161-candidate",
+  "commit": "cbc8d2f2951c3f007eeca01600ba6cbb79165ed9",
+  "tree": "c49283652fbd7764fa4f8bef052323734c96551c",
+  "verification": "Fresh remote-only bare clone; complete reachable commit-parent rows and recursive HEAD tree entries equal source; git fsck --full exit0.",
+  "full_ancestry_commits": 141,
+  "fsck_stdout": "",
+  "fsck_stderr": "",
+  "coverage": "All committed files and reachable history of this branch. Excludes untracked receipts and local Working/Development Archives files.",
+  "retirement": "Temporary: archive after Bedrock10.0.0 release readiness and verified durable canonical capture. Do not delete sole recovery copy.",
+  "public_origin_unchanged": true
+}

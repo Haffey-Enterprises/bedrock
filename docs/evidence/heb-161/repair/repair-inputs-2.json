@@ -1,0 +1,13 @@
+{
+  "base_commit": "cbc8d2f2951c3f007eeca01600ba6cbb79165ed9",
+  "snapshot": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-161-2026-09-30/repair/snapshot-2",
+  "files": {
+    "scripts/validate_plugin.py": "859d067707a1c1d13690a76d7128ae30e17e2612e0d5dfca71e4a4f886a26f8c",
+    "scripts/run_routing_evals.py": "090cabd98c51dfe9129c3fb1861b3f5fdf7f8435a7a7c31aa755f945d9e7e300",
+    "tests/test_composed_routing.py": "a9d7440248190f27f83888f411bab5cad2d55adfb4336ed20f59419dba47de59",
+    "tests/test_validate_plugin.py": "576fa579c7db1a8af5c405b9de748a7225eeb21bc8282b3ae748dc02fe636227",
+    ".github/workflows/plugin-validation.yml": "18e0336626eabd1e11e54e7830c0b3a7ddf2d5eaae41d707e57597e53b24b003",
+    "README.md": "c8c170be94ed2be3b413cfcd51edec4108d57fde662f97a487b329950a4e4c10"
+  },
+  "excludes": "Untracked protected receipts are not copied."
+}

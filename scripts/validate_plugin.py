@@ -536,10 +536,15 @@ def validate_routing_evidence(
     inventory_report: dict[str, Any],
     policy_document: dict[str, Any],
     errors: list[str],
+    report_path: Path | None = None,
 ) -> None:
     """Validate retained routing evidence against current inputs and outcomes."""
-    report_path = root / "docs" / "evidence" / "heb-109" / "routing-results.json"
-    if not report_path.exists():
+    if report_path is None:
+        report_path = root.resolve() / "docs/evidence/heb-109/routing-results.json"
+    elif not report_path.is_absolute():
+        report_path = root / report_path
+    if not report_path.is_file():
+        _error(errors, report_path, "required routing evidence is missing")
         return
     report = _load_json(report_path, errors)
     if report is None:
@@ -584,6 +589,7 @@ def validate_routing_evidence(
     grouped_runs: dict[str, set[int]] = {case_id: set() for case_id in expected_case_ids}
     recomputed_passes = 0
     recomputed_excluded = 0
+    case_outcomes: dict[str, list[bool]] = {case_id: [] for case_id in expected_case_ids}
     for index, result in enumerate(results):
         location = f"{report_path}:results[{index}]"
         if not isinstance(result, dict):
@@ -613,6 +619,7 @@ def validate_routing_evidence(
             case.get("kind") == "overlap" and selected in case.get("allowed_alternates", [])
         )
         passed = allowed and not excluded
+        case_outcomes[str(case_id)].append(passed)
         recomputed_passes += int(passed)
         recomputed_excluded += int(excluded)
         if result.get("selected_excluded") is not excluded or result.get("passed") is not passed:
@@ -632,6 +639,19 @@ def validate_routing_evidence(
         _error(errors, report_path, "routing report total does not match case and repetition coverage")
     if report.get("passed") != recomputed_passes:
         _error(errors, report_path, "routing report pass total does not match recomputed outcomes")
+    # Aggregate flags are claims; the current policy and recomputed rows decide.
+    overall_rate = recomputed_passes / len(results) if results else 0.0
+    policy_gates = {
+        "overall": bool(results) and overall_rate >= release_policy.get("minimum_overall_pass_rate", 1.0),
+        "every_case": bool(case_outcomes) and all(
+            outcomes and sum(outcomes) / len(outcomes) >= release_policy.get("minimum_case_pass_rate", 1.0)
+            for outcomes in case_outcomes.values()
+        ),
+        "excluded_selection": recomputed_excluded <= release_policy.get("excluded_selection_limit", 0),
+    }
+    if not all(policy_gates.values()):
+        failed_gates = [name for name, passed in policy_gates.items() if not passed]
+        _error(errors, report_path, f"recomputed routing outcomes fail release policy gates: {failed_gates}")
     evaluation = report.get("evaluation")
     if not isinstance(evaluation, dict):
         _error(errors, report_path, "routing report evaluation must be a mapping")
@@ -795,6 +815,7 @@ def validate_repository(
     run_host_cli: bool = True,
     run_safety_checks: bool = True,
     validate_retained_evidence: bool = True,
+    routing_evidence: Path | None = None,
     require_authoring_contracts: bool = True,
     require_package_governance: bool = True,
 ) -> tuple[list[str], dict[str, Any]]:
@@ -840,7 +861,7 @@ def validate_repository(
         "skills": [inventory[name] | {"name": name} for name in sorted(inventory)],
     }
     if validate_retained_evidence and policy_document:
-        validate_routing_evidence(root, cases, report, policy_document, errors)
+        validate_routing_evidence(root, cases, report, policy_document, errors, routing_evidence)
     return errors, report
 
 
@@ -849,11 +870,17 @@ def main() -> int:
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
     parser.add_argument("--skip-host-cli", action="store_true", help="Skip Claude CLI plugin-manifest validation (tests only).")
     parser.add_argument("--component", action="store_true", help="Component checks only: retain historical routing evidence without claiming current routing acceptance. Default still verifies current retained evidence.")
+    parser.add_argument("--routing-evidence", type=Path, help="Validate this composed release report; relative paths resolve against --root. Missing evidence fails closed.")
     parser.add_argument("--inventory", type=Path, help="Write the derived metadata/routing inventory as JSON.")
     args = parser.parse_args()
 
+    if args.component and args.routing_evidence is not None:
+        parser.error("--routing-evidence cannot be combined with --component")
     root = args.root.resolve()
-    errors, report = validate_repository(root, run_host_cli=not args.skip_host_cli, validate_retained_evidence=not args.component)
+    selected = args.routing_evidence
+    if selected is not None and not selected.is_absolute():
+        selected = root / selected
+    errors, report = validate_repository(root, run_host_cli=not args.skip_host_cli, validate_retained_evidence=not args.component, routing_evidence=selected)
     if args.inventory:
         args.inventory.parent.mkdir(parents=True, exist_ok=True)
         args.inventory.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
