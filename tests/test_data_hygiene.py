@@ -445,6 +445,7 @@ class ManagerTests(HygieneTests):
         self.mock_release(tag='v10.0.1')
 
     def test_two_versions_rollback_and_atomic_selection_failure(self):
+        source_entries = {p.relative_to(SURFACE) for p in SURFACE.rglob("*")}
         self.deploy()
         current = self.runtime / 'data-hygiene/current'; old = os.readlink(current)
         self.second_release(); self.deploy(tag='v10.0.1')
@@ -457,7 +458,10 @@ class ManagerTests(HygieneTests):
         # receives no fault flags; the real filesystem proves the old link survives.
         import importlib.util
         from unittest.mock import patch
-        spec = importlib.util.spec_from_file_location('hygiene_manager', SURFACE / 'manager.py')
+        # Import a disposable copy so bytecode cannot mutate the package surface.
+        manager_copy = self.base / 'manager.py'
+        shutil.copy2(SURFACE / 'manager.py', manager_copy)
+        spec = importlib.util.spec_from_file_location('hygiene_manager', manager_copy)
         module = importlib.util.module_from_spec(spec); spec.loader.exec_module(module)
         with patch.object(module.os, 'replace', side_effect=OSError('fixture refusal')):
             with self.assertRaises(OSError): module.select(current.parent, new.split('/')[-1])
@@ -468,6 +472,7 @@ class ManagerTests(HygieneTests):
         # Failed deployment verification must not change a selected version.
         self.mock_release(draft=True, tag='v10.0.1'); self.deploy(code=2, tag='v10.0.1')
         self.assertEqual(new, os.readlink(current))
+        self.assertEqual(source_entries, {p.relative_to(SURFACE) for p in SURFACE.rglob("*")})
 
     def test_offline_custody_receipt_and_reachability_are_distinct(self):
         self.install(); self.stage()

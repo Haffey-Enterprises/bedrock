@@ -31,7 +31,7 @@ jobs:
       - name: Set up Node for frontend contract gates
         uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
         with:
-          node-version: "22.12.0"
+          node-version: "22.23.3"
           cache: npm
           cache-dependency-path: tests/fixtures/frontend-contracts/browser-app/package-lock.json
       - name: Set up Terraform for state-safety fixtures

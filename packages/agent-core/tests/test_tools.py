@@ -64,3 +64,13 @@ def test_correlate_rejects_name_mismatch():
     reqs = [ToolRequest("r1", "echo", {"text": "a"})]
     with pytest.raises(ToolLoopError):
         correlate_results(reqs, [ToolResult("r1", "other", True, "x")])
+
+
+def test_unresolved_tool_schema_reference_is_typed_and_content_safe():
+    cap = ToolCapability(name="broken", input_schema={"$ref": "#/$defs/private_schema_marker"},
+                         side_effect=SideEffectClass.NONE)
+    with pytest.raises(ToolLoopError) as caught:
+        check_capability(ToolRegistry([cap]), "broken", {})
+    assert "private_schema_marker" not in str(caught.value)
+    import traceback
+    assert "private_schema_marker" not in "".join(traceback.format_exception(caught.value))

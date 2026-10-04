@@ -19,6 +19,7 @@ from typing import Any, Mapping, Optional, Sequence
 
 from jsonschema import Draft202012Validator
 from jsonschema.exceptions import SchemaError, ValidationError
+from referencing.exceptions import Unresolvable
 
 from agent_core.types import ParsePath
 
@@ -99,7 +100,10 @@ def _make_validator(schema: Mapping[str, Any]) -> Draft202012Validator:
 def _validate(instance: Any, schema: Mapping[str, Any]) -> None:
     _reject_non_finite(instance)
     validator = _make_validator(schema)
-    errors = sorted(validator.iter_errors(instance), key=lambda e: list(e.path))
+    try:
+        errors = sorted(validator.iter_errors(instance), key=lambda e: list(e.path))
+    except Unresolvable:
+        _fail("invalid_schema_reference")
     if errors:
         e = errors[0]
         path = "$"
@@ -123,7 +127,7 @@ _FENCE_RE = re.compile(
 
 def _fail(reason: str, *, count: int = 0) -> None:
     raise StructuredOutputError(reason, diagnostics=ParseDiagnostics(
-        candidate_count=count, reason=reason))
+        candidate_count=count, reason=reason)) from None
 
 
 def _try_json(text: str) -> tuple[bool, Any]:
@@ -314,6 +318,8 @@ def parse_structured(
             # _reject_non_finite also catches overflow such as 1e999.
             _reject_non_finite(cand.data)
             error = next(validator.iter_errors(cand.data), None)
+        except Unresolvable:
+            _fail("invalid_schema_reference")
         except (StructuredOutputError, RecursionError):
             failures.append("validation_limit_or_non_finite")
             continue
@@ -347,16 +353,13 @@ def stamp_identity(
     """
     Stamp identity fields from invocation context onto the parsed object.
 
-    Reserved identity keys are always removed from model data first, then
+    Reserved and configured identity keys are removed from model data first, then
     trusted context values are written. Model claims never survive.
     """
     out: dict[str, Any] = {
-        k: v for k, v in data.items() if k not in RESERVED_IDENTITY_KEYS
+        k: v for k, v in data.items() if k not in RESERVED_IDENTITY_KEYS.union(identity_keys)
     }
     for key in identity_keys:
         if key in context:
             out[key] = context[key]
-        elif key in RESERVED_IDENTITY_KEYS:
-            # Explicit absence: do not leave a model value; key omitted
-            out.pop(key, None)
     return out

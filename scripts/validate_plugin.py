@@ -21,6 +21,7 @@ from yaml.constructor import ConstructorError
 from yaml.resolver import BaseResolver
 
 if __package__:
+    from scripts.routing_admission import validate_execution
     from scripts.validate_agent_review_contracts import validate_agent_review_contracts
     from scripts.validate_application_test_debug_contracts import validate_application_test_debug_contracts
     from scripts.validate_authoring_contracts import validate_authoring_contracts
@@ -29,6 +30,7 @@ if __package__:
     from scripts.validate_package_governance import validate_package_governance
     from scripts.validate_safety import validate_safety_contracts
 else:  # Direct execution: python scripts/validate_plugin.py
+    from routing_admission import validate_execution
     from validate_agent_review_contracts import validate_agent_review_contracts
     from validate_application_test_debug_contracts import validate_application_test_debug_contracts
     from validate_authoring_contracts import validate_authoring_contracts
@@ -574,6 +576,7 @@ def validate_routing_evidence(
         )
 
     release_policy = policy_document.get("profiles", {}).get("release", {})
+    validate_execution(root, report_path, report, release_policy, errors)
     runs = release_policy.get("runs_per_case")
     case_by_id = {str(case["id"]): case for case in cases if isinstance(case.get("id"), str)}
     expected_case_ids = sorted(case_by_id)

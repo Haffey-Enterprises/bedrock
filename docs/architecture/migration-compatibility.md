@@ -89,9 +89,9 @@ Prompt generations, repeated draws, calibration, replay, cost attribution, run d
 
 - No skill is removed, renamed, or merged in the proposed Wave 2 contract.
 - Existing `design-review-loop` invocations remain valid while its portable actor contract and product execution bindings are separated.
-- The Claude plugin remains the only implemented distribution surface until adapters land.
+- The Claude-format plugin is the implemented package distribution. The supported Codex desktop host ingests it natively; no separate Codex/OpenAI adapter is required or distributed.
 - Products may consume Bedrock contracts, but none receives a Bedrock-assigned orchestration role.
-- Claims of Codex/OpenAI or Cursor support remain future and conditional until their adapter and cold-acceptance evidence exist.
+- Codex desktop support is bounded by the installed [compatibility matrix](../../plugins/bedrock/governance/COMPATIBILITY.md); cloud Codex tasks and a separate Codex/OpenAI or Cursor adapter remain unsupported. Candidate cold acceptance remains a separate release gate.
 - The existing package version is not retroactively treated as a core-contract or adapter version.
 - The next package version is derived at landing; this record does not pre-claim it.
 - Consumer rollout remains blocked pending cross-surface acceptance and an explicit release decision.

@@ -37,15 +37,48 @@ class ComposedEvidenceTests(unittest.TestCase):
         policy = validator.load_eval_policy(self.root, [])["profiles"]["release"]
         results = [dict(case=c["id"], kind=c["kind"], cue=c["cue"], surface=c["surface"],
                         run=n, expected=c["expected"], selected=c["expected"],
-                        selected_excluded=False, passed=True, cost_usd=0.0, models=[MODEL])
+                        selected_excluded=False, passed=True, cost_usd=0.0, models=[MODEL],
+                        detail="synthetic route", usage_status="known", usage_reason=None)
                    for c in cases for n in range(1, 4)]
-        return runner.build_report(
+        report = runner.build_report(
             model=MODEL, profile="release", policy=policy, runs=3,
             max_budget_usd=.06, timeout_seconds=120, cli_version=CLI,
             fixture_digest=hashlib.sha256((self.root / "tests/fixtures/routing.yaml").read_bytes()).hexdigest(),
             catalog_digest=hashlib.sha256(json.dumps(inventory["skills"], sort_keys=True, separators=(",", ":")).encode()).hexdigest(),
             policy_digest=hashlib.sha256((self.root / "validation/eval-policy.yaml").read_bytes()).hexdigest(),
-            results=results, planned_case_ids=[c["id"] for c in cases])
+            results=results, planned_case_ids=[c["id"] for c in cases], max_total_budget_usd=3.0)
+        self.retain_custody(report)
+        return report
+
+    def retain_custody(self, report):
+        """Synthetic independent baseline and journal, never a live observation."""
+        adapter = self.root / "scripts/run_routing_evals.py"
+        adapter.parent.mkdir(exist_ok=True)
+        adapter.write_text("synthetic adapter source")
+        fields = ("generated_at", "profile", "suite_scope", "planned_case_ids", "runs_per_case",
+                  "requested_model", "claude_cli_version", "identity", "thresholds",
+                  "max_budget_usd_per_case_run", "max_total_budget_usd", "timeout_seconds_per_case_run")
+        events = [dict(event="preregistration", schema_version=1, expected_model=MODEL,
+                       **{k: report[k] for k in fields})]
+        events[0]["planned_case_ids"] = list(dict.fromkeys(row["case"] for row in report["results"]))
+        for row in report["results"]:
+            events.append(dict(event="attempt_started", case=row["case"], run=row["run"],
+                               budget_usd=.06, prompt_sha256="a" * 64))
+            events.append(dict(event="attempt_finished", **{k: row[k] for k in
+                ("case", "run", "expected", "kind", "cue", "surface")},
+                outcome=dict(classification="route_result", **{k: row[k] for k in
+                ("passed", "selected", "detail", "cost_usd", "models", "usage_status", "usage_reason")})))
+        events.append(dict(event="terminal_evaluation", evaluation=report["evaluation"],
+                           total=report["total"], total_cost_usd=report["total_cost_usd"]))
+        journal = self.root / "composed.jsonl"
+        journal.write_text("".join(json.dumps(e) + "\n" for e in events))
+        baseline = dict(schema_version=1, execution_source_commit="1" * 40,
+            adapter="claude-code", claude_cli_version=CLI, requested_model=MODEL,
+            resolved_models=[MODEL], max_budget_usd_per_case_run=.06,
+            max_total_budget_usd=3.0, timeout_seconds_per_case_run=120,
+            adapter_sha256=hashlib.sha256(adapter.read_bytes()).hexdigest(),
+            journal_sha256=hashlib.sha256(journal.read_bytes()).hexdigest())
+        (self.root / "validation/routing-baseline.json").write_text(json.dumps(baseline))
 
     def test_selected_report_passes_without_rewriting_historical_report(self):
         historical = self.root / "docs/evidence/heb-109/routing-results.json"
@@ -76,6 +109,10 @@ class ComposedEvidenceTests(unittest.TestCase):
         payload["results"][0]["selected"] = "not-a-skill"
         payload["results"][0]["passed"] = False
         payload["passed"] -= 1
+        payload["evaluation"] = runner.evaluate_thresholds(payload["results"], payload["thresholds"])
+        payload["evaluation"].update(suite_complete=True, retained_evidence_eligible=True)
+        payload["evaluation"]["gates"]["budget"] = True
+        self.retain_custody(payload)
         report = self.root / "composed.json"
         report.write_text(json.dumps(payload))
         errors, _ = validator.validate_repository(self.root, routing_evidence=report, **self.options)
@@ -174,6 +211,12 @@ class RoutingCustodyTests(unittest.TestCase):
         self.assertIsNone(draws[-1]["outcome"]["cost_usd"])
         self.assertIsNone(draws[-1]["outcome"]["passed"])
         self.assertEqual("unknown", draws[-1]["outcome"]["usage_status"])
+        self.assertEqual("debug", draws[-1]["outcome"]["selected"])
+        self.assertEqual("unknown", draws[-1]["outcome"]["detail"])
+        self.assertEqual(runner.FAILURE_DIAGNOSTICS["usage_unknown"],
+                         draws[-1]["outcome"]["diagnostic"])
+        self.assertEqual(runner.FAILURE_DIAGNOSTICS["usage_unknown"],
+                         report["failure"]["diagnostic"])
         self.assertEqual("terminal_failure", self.events()[-1]["event"])
 
     def test_each_result_is_on_disk_before_next_invocation(self):

@@ -163,6 +163,18 @@ response must name exactly `--expected-model`; missing or different identity is
 retained and stops the matrix before another draw. Defaults are the workflow's
 pinned Claude Code version and resolved model shown above. Changing these values
 requires a new preregistration; it does not reuse a previous evaluation baseline.
+Retained admission additionally reads the reviewed `validation/routing-baseline.json`:
+it declares the execution source commit, adapter source digest, exact CLI/model
+identities, budget ceilings and journal digest. The selected report's sibling
+`.jsonl` must reconcile preregistration, every ordered start/finish pair and the
+terminal evaluation. Known row costs must reconcile with the total and remain
+strictly below the per-attempt and aggregate ceilings. Producer green flags are
+not sufficient. An adapter source change makes the old baseline ineligible;
+retain its original report/journal as historical evidence and qualify a new
+baseline under separately authorized execution. Do not rewrite historical draws
+or automatically update a baseline to make validation pass. This custody check
+binds the declared local execution; it is not independent provider billing proof.
+
 CI retains both files under `heb-161-routing-results`; the composed release report
 is separately selected by the deterministic gate. A PR-profile observation does
 not replace a release-profile report, and an unavailable composed report remains

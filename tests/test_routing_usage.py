@@ -48,6 +48,11 @@ class RoutingUsageTests(unittest.TestCase):
                     completed_case_runs=0, failure=execution.failure)
                 self.assertIsNone(report["failure"]["cost_usd"])
                 self.assertEqual("unknown", report["failure"]["usage_status"])
+                draw = self.outcome(value, missing=missing).as_evidence()
+                self.assertEqual("debug", draw["selected"])
+                self.assertEqual("synthetic", draw["detail"])
+                self.assertIsNone(draw["passed"])
+                self.assertEqual(runner.FAILURE_DIAGNOSTICS["usage_unknown"], draw["diagnostic"])
 
     def test_known_zero_and_known_spend_discriminate(self):
         for cost, expected_calls, exhausted in [(0.0, 2, False), (.05, 1, True)]:

@@ -79,7 +79,7 @@ class InvocationResult:
     ) -> InvocationResult:
         cost = normalize_cost(cost_usd)
         if cost is None:
-            return cls.failure("usage_unknown", models=models)
+            return cls("usage_unknown", None, selected, detail, None, models)
         return cls("route_result", passed, selected, detail, cost, models)
 
     @classmethod
@@ -99,14 +99,17 @@ class InvocationResult:
         )
 
     def as_evidence(self) -> dict[str, Any]:
-        return {**asdict(self), **usage_evidence(self.cost_usd)}
+        evidence = {**asdict(self), **usage_evidence(self.cost_usd)}
+        if self.classification != "route_result":
+            evidence["diagnostic"] = FAILURE_DIAGNOSTICS[self.classification]
+        return evidence
 
     def as_failure_evidence(self) -> dict[str, Any]:
         if self.classification == "route_result":
             raise ValueError("a valid route result is not failure evidence")
         return {
             "classification": self.classification,
-            "diagnostic": self.detail,
+            "diagnostic": FAILURE_DIAGNOSTICS[self.classification],
             "cost_usd": self.cost_usd,
             **usage_evidence(self.cost_usd),
             "resolved_models": self.models,
@@ -381,7 +384,8 @@ def execute_case_matrix(
                 return MatrixExecution(results=results, budget_exhausted=True)
             outcome = invoke(case, run_number, min(max_budget_usd, remaining_usd))
             if outcome.classification == "route_result" and normalize_cost(outcome.cost_usd) is None:
-                outcome = InvocationResult.failure("usage_unknown", models=outcome.models)
+                outcome = InvocationResult.route(
+                    outcome.passed, outcome.selected, outcome.detail, None, outcome.models)
             if outcome.classification != "route_result":
                 return MatrixExecution(
                     results=results,
@@ -389,7 +393,7 @@ def execute_case_matrix(
                         case=str(case["id"]),
                         run=run_number,
                         classification=outcome.classification,
-                        diagnostic=outcome.detail,
+                        diagnostic=FAILURE_DIAGNOSTICS[outcome.classification],
                         cost_usd=outcome.cost_usd,
                         models=outcome.models,
                     ),

@@ -135,3 +135,28 @@ def test_same_span_fence_and_object_not_ambiguous():
     result = parse_structured(raw, SCHEMA, allow_salvage=True, best_effort=True)
     assert result.data["answer"] == "only"
     assert result.parse_path in (ParsePath.SALVAGE_FENCE, ParsePath.SALVAGE_FIRST_OBJECT, ParsePath.DIRECT)
+
+
+@pytest.mark.parametrize("context,expected", [({}, {"answer": "ok"}),
+    ({"actor_id": "trusted"}, {"answer": "ok", "actor_id": "trusted"})])
+def test_configured_identity_never_comes_from_model(tmp_path, context, expected):
+    import json
+    from agent_core.config import load_config
+    path = tmp_path / "config.json"
+    path.write_text(json.dumps({"identity_keys": ["actor_id"]}))
+    config = load_config(path)
+    original = {"answer": "ok", "actor_id": "forged", "agent_id": "forged"}
+    assert stamp_identity(original, context, identity_keys=config.identity_keys) == expected
+    assert original["actor_id"] == "forged"
+
+
+def test_unresolved_reference_is_typed_and_content_safe():
+    schema = {"$ref": "#/$defs/private_schema_marker"}
+    with pytest.raises(StructuredOutputError) as caught:
+        parse_structured('{}', schema)
+    assert caught.value.diagnostics.reason == "invalid_schema_reference"
+    assert "private_schema_marker" not in str(caught.value)
+    import traceback
+    assert "private_schema_marker" not in "".join(traceback.format_exception(caught.value))
+    assert parse_structured('{}', {"$defs": {"ok": {"type": "object"}},
+                                  "$ref": "#/$defs/ok"}).data == {}
