@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "date_et": "2026-10-05",
+  "authorization": "Tad ratified adoption of the reviewed report, journal and proposed baseline.",
+  "execution_source_commit": "c23bc5aae3aaaaae2fe2b3bf8e8c4ed29ecc034a",
+  "execution_source_tree": "1eca534095b42b08c25439f672fc55d026d802aa",
+  "report": {
+    "path": "docs/evidence/heb-161/routing-results.json",
+    "sha256": "d1882ccf1dcfd4342e4d3bbb2abcca0bc012b67dd748ef3e3348dea1eaad871e"
+  },
+  "journal": {
+    "path": "docs/evidence/heb-161/routing-results.jsonl",
+    "sha256": "def1620252de98da18f92a8a66e802cac26da297d83334e89ba02d8e4b4e146e"
+  },
+  "baseline": {
+    "path": "validation/routing-baseline.json",
+    "sha256": "d5e322d84654453ae0b7e5a5ece35721e9552d6d68632539da9424f177d53d5d"
+  },
+  "review_sha256": "1f1f870d5460c1ad1fa99a7398782b08ff418a0141a658a2f645385ba1ba3fb8",
+  "archive": "/Users/thaffey/Documents/Haffey Enterprises/Development Archives/HEB-161-2026-10-05/live-routing-c23bc5a",
+  "semantics": "Evidence records the one completed execution on c23bc5a. Adoption does not claim a new execution on an evidence-only descendant. Historical freeze/provenance.json describes the earlier freeze and is superseded as the current routing-evidence selection by this record; its original report remains in Git history and its named durable archive.",
+  "result": {
+    "cases": 72,
+    "draws": 216,
+    "passed": 216,
+    "reported_cost_usd": 1.977613
+  },
+  "release_disposition": "pause",
+  "remaining": "Final evidence-adoption candidate review/freeze, hosted qualification, fresh HEB-119 cold acceptance, explicit proceed, release and consumer rollout."
+}

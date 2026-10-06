@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "execution_source_commit": "6c92e7a16fdb41b54864758f7d4b90fd034d63e8",
+  "execution_source_commit": "c23bc5aae3aaaaae2fe2b3bf8e8c4ed29ecc034a",
+  "adapter_sha256": "34576d1d97f4ca2ee53136456fad5e6009899b23393e11be0f470c8e9174b4f8",
+  "journal_sha256": "def1620252de98da18f92a8a66e802cac26da297d83334e89ba02d8e4b4e146e",
   "adapter": "claude-code",
-  "adapter_sha256": "766ab22c17f301d48809136f5f265c5d6128994a7df13f50cadd6fa1e8514763",
-  "journal_sha256": "41c2af570cd0d0738a41b4f6e9693d5335c56f82105403a79bc46cfe81a5704c",
+  "claude_cli_version": "2.1.226 (Claude Code)",
+  "requested_model": "claude-haiku-4-5-20251001",
   "resolved_models": [
     "claude-haiku-4-5-20251001"
   ],
-  "claude_cli_version": "2.1.226 (Claude Code)",
-  "requested_model": "claude-haiku-4-5-20251001",
   "max_budget_usd_per_case_run": 0.06,
   "max_total_budget_usd": 3.0,
   "timeout_seconds_per_case_run": 120
