@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "profile": "standard",
+  "scope": "Independent advisory review of the HEB-160 staged component delta against HEAD 9c30fb10b2f91e4cc50a44868b9e073013db5643, tested tree b22aad51b65f1d16dfee8cffe89cbca83be52dcc. This is not composed HEB-161 acceptance.",
+  "checked_surfaces": [
+    "Whole reads: checkout AGENTS.md, repository orientation, candidate code-review skill, conformance checklist, review-result schema, infrastructure-code skill, package manifest, staged diff, and all five complete changed implementation files.",
+    "Whole reads: HEB-160 upstream.json, action-population.json, verify_population.py, validation.json, execution-report.json, first-red.json, all supplied validation logs, resumption.json, and compatibility.json. A truncated aggregate read was replaced with narrower complete reads.",
+    "Machine-parsed the entire tested-inputs.json and compared every entry against the complete candidate Git tree, current index, tracked working-tree bytes, and green-snapshot bytes: 1146 matching files. This was identity verification, not semantic review of all file contents. Newly authored HEB-160 evidence and protected untracked receipts are outside this population.",
+    "Replayed the retained population derivation and compared its complete output with action-population.json. For Markdown/YAML files under .github/workflows, plugins/bedrock/skills, and tests/fixtures/safety, the report covers 71 selected files, 17 direct action occurrences, and five unique candidate identities. An independent broader uses-token scan agreed with the current population; the other token occurrence was ordinary prose.",
+    "Inspected complete retained upstream action manifests, tag relationships, manifest digests, selected Node 24 declarations, and known-old Node 20 controls. Upstream was not independently fetched again during this review.",
+    "Independent execution: focused safety unittest population from the green snapshot, plus in-memory whole-validator probes for clean input, duplicate good reference, plain stale reference, flow-style stale reference, and flow-style unpinned reference. Both flow specimens were separately parsed as actual YAML uses steps.",
+    "Reviewed scope/architecture, conformance/correctness, and system posture in separate lenses. Exact pin substitutions retain surrounding plan/apply authority and fixture permissions; package version remains 10.0.0.",
+    "No protected receipt contents or private hygiene file were inspected. No source edits, live model/routing calls, Linear changes, commits, pushes, infrastructure mutation, or hosted-runner execution occurred."
+  ],
+  "gates": [
+    {
+      "name": "scope-and-package-identity",
+      "disposition": "passed",
+      "reason": "Staged implementation paths match the five-path allowlist; whole manifest read confirms 10.0.0. Reviewed diff preserves surrounding authority and least-privilege fixture behavior."
+    },
+    {
+      "name": "tested-input-parity",
+      "disposition": "passed",
+      "reason": "Independently compared the entire tested tree population with retained identities, index, tracked working-tree files, and snapshot."
+    },
+    {
+      "name": "upstream-runtime-evidence-and-population-replay",
+      "disposition": "passed",
+      "reason": "Retained complete manifests and digests distinguish selected Node 24 identities from known-old Node 20 identities. Replay exactly matches the retained report for the current declared population. This does not prove arbitrary YAML grammar coverage or transitive action runtime."
+    },
+    {
+      "name": "first-red-discrimination",
+      "disposition": "passed",
+      "reason": "Whole retained first-red log shows failures for both stale maintained identities and omitted unnamed-step enforcement. No independent first-red rerun performed."
+    },
+    {
+      "name": "focused-safety-tests",
+      "disposition": "passed",
+      "reason": "Independently reran unittest discovery for test_safety_contracts.py in the green snapshot using the specified Python and PYTHONDONTWRITEBYTECODE=1; all 13 tests passed."
+    },
+    {
+      "name": "parser-boundary-discrimination",
+      "disposition": "failed",
+      "reason": "Independent clean/dirty controls demonstrate that valid flow-style uses steps can silently bypass both the runtime identity gate and SHA-pin enforcement."
+    },
+    {
+      "name": "repository-unittest-suite",
+      "disposition": "passed",
+      "reason": "Whole retained log and invocation record show 194 tests passing with Docker and Terraform required, including executed integration checks. Not rerun independently."
+    },
+    {
+      "name": "package-test-suites",
+      "disposition": "passed",
+      "reason": "Whole retained logs show the original combined collection failure, followed by authorized runs in existing package-appropriate environments: 110 Agent Core tests and 96 hex-linear tests passed. These are separate package populations; not rerun independently."
+    },
+    {
+      "name": "safety-infrastructure-governance-identity-and-strict-host-validation",
+      "disposition": "passed",
+      "reason": "Whole retained logs and invocation records show successful validators, 14 matching package identity carriers, and strict host manifest validation. These checks were not independently rerun."
+    },
+    {
+      "name": "diff-whitespace",
+      "disposition": "passed",
+      "reason": "git diff --cached --check completed successfully."
+    },
+    {
+      "name": "standalone-lint-typecheck-build-and-dependency-scan",
+      "disposition": "not-relevant",
+      "reason": "No additional repository-required standalone gate was established for this bounded Python validator and reference change. Existing deterministic validators and tests were assessed; no new dependency is introduced. This is not a claim that all repository tooling was audited."
+    },
+    {
+      "name": "deployment-live-routing-and-composed-release-acceptance",
+      "disposition": "not-relevant",
+      "reason": "This review covers a local component slice without deployment or live routing changes. Hosted execution, upstream implementation equivalence, consumer installation, and composed HEB-161 acceptance remain outside this review."
+    }
+  ],
+  "findings": [
+    {
+      "id": "HEB160-REV-001",
+      "class": "correctness",
+      "impact": "medium",
+      "likelihood": "medium",
+      "confidence": "high",
+      "exploitability": "not-applicable",
+      "locus": "scripts/validate_safety.py:16 and scripts/validate_safety.py:75; corresponding population extractor in docs/evidence/heb-160/verify_population.py:17",
+      "evidence": "The new runtime validator and population replay rely on a line-anchored regex that does not recognize valid YAML flow mappings. Keeping the good checkout step and appending `- {uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262}` produces zero whole-validator errors despite restoring a known Node 20 action. Appending `- {uses: actions/setup-python@v5}` likewise produces zero errors despite an unpinned direct action. Both specimens parse as real YAML steps. The clean specimen passes and the same stale checkout identity in an ordinary `- uses:` step is refused, establishing detector discrimination and the specific syntax gap. The current maintained population contains no such omitted flow steps, but the newly introduced regression gate silently permits this credible regression. Parse supported YAML structures or fail loudly on unsupported action-bearing forms; align population derivation and add discriminating regression coverage before approval.",
+      "blocking": true
+    }
+  ],
+  "verdict": "pause"
+}

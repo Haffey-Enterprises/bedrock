@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "profile": "high-risk",
+  "scope": "Independent finished-delta review of HEB-155 D1-D5 package implementation and proof at pinned base bfc36490e151b2bac580bdd1123ab2bd9899a3d8. No rollout or acceptance claim. Original findings reproduced before author repairs; following hashes were collected at record time after R1 repair began and are NOT a finding-subject or repair-approval claim. Record-time subjects: {\"plugins/bedrock/scripts/data-hygiene/README.md\": \"8e86ce91c2aa5caf6948cd175a4cb35f2d6f20a67e34f6df10e6ce8620db0774\", \"plugins/bedrock/scripts/data-hygiene/dispatcher.sh.tmpl\": \"5997fc0e2bf0dce7acea9dcb7cf013eb1b0f117d4d5f49386788d003c7119d39\", \"plugins/bedrock/scripts/data-hygiene/manager.py\": \"fa12a7f1998e5c26f435d57723e809ed7f89880be3c9b9e4bf01904089b559a1\", \"plugins/bedrock/scripts/data-hygiene/pre-commit\": \"31303c05ac4e8fa5200c6dcdee544d7bccd99b85296a43a263397178cbc78ede\", \"tests/test_data_hygiene.py\": \"8d092a6c50bdf5d7698910497e7411242c700e514428cdbf60018d457d33ffce\"}",
+  "checked_surfaces": [
+    "Whole canonical HEB-155-authority.md supplied by parent; whole repository orientation; bundled code-review skill, result schema and checklist; application-code and testing portable contracts, shell and security/data profiles.",
+    "Whole tracked diff against pinned base: README, changelog, governance compatibility/README/threat model/authority inventory/registry, both project-template carriers, install smoke, package validator and validator tests. Validator whitespace-normalization follow-up re-read.",
+    "Whole four-file data-hygiene surface and whole test_data_hygiene.py. Independent execution of the complete focused module: 29 tests passed in 45.169s; scope includes its inherited HygieneTests once and ManagerTests-defined methods once, not full repository suite.",
+    "Whole HEB-155 JSON evidence and raw logs; preserved pre-repair implementations and test fixtures accounted for by complete diffs against whole-read current implementations, with first-red and incident tests byte equality checked. No preserved fixture was executed.",
+    "Two independent invented-data counterexamples, each paired with an actual safe-control hook execution. No protected receipt, real private pattern file, network or real repository hook/configuration read or mutation.",
+    "Three lenses in one independent pass: scope and D1-D5 architecture, implementation/test conformance and correctness, privacy/deployment/operational posture. No separate external domain-owner review; parent owns remaining gate aggregation."
+  ],
+  "gates": [
+    {
+      "name": "Focused data-hygiene suite",
+      "disposition": "passed",
+      "reason": "Reviewer ran PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_data_hygiene.py -v with inherited pattern variables removed; complete 29-test population passed."
+    },
+    {
+      "name": "Neutral private-path failure behavior",
+      "disposition": "failed",
+      "reason": "F1 independently reproduced with invented patterns and safe control."
+    },
+    {
+      "name": "Explicit positive-control read status",
+      "disposition": "failed",
+      "reason": "F2 independently reproduced with invented patterns and safe control."
+    },
+    {
+      "name": "Meaningful red and command-resolution containment evidence",
+      "disposition": "passed",
+      "reason": "Whole retained logs distinguish original unsafe-stub incident from closed offline repair; current focused suite proves closed stub, undeclared request and missing/broken fixture behavior."
+    },
+    {
+      "name": "Full deterministic/component/install gates",
+      "disposition": "unavailable",
+      "reason": "Parent running and retaining these gates; pre-fix full-suite run exposed validator whitespace issue now corrected. Final successful rerun was not available to reviewer. Parent must aggregate exact final-subject results before package approval."
+    },
+    {
+      "name": "Live routing, cold acceptance, release provenance service, deployment and repository estate rollout",
+      "disposition": "not-relevant",
+      "reason": "Explicitly prohibited in this package-only review; simulated release fixtures cannot prove live acceptance or rollout."
+    },
+    {
+      "name": "New dependency vulnerability/license/SBOM gates",
+      "disposition": "not-relevant",
+      "reason": "No new third-party library or dependency installation in reviewed delta; declared existing workstation utilities and Python standard library."
+    },
+    {
+      "name": "Python 3.11 floor and other host platforms",
+      "disposition": "unavailable",
+      "reason": "Current host execution only; no Python 3.11-specific or cross-platform compatibility claim. README declares initial macOS scope and compatibility text discloses floor execution limit."
+    }
+  ],
+  "findings": [
+    {
+      "id": "HEB155-R1",
+      "class": "security",
+      "impact": "medium",
+      "likelihood": "low",
+      "confidence": "high",
+      "exploitability": "low",
+      "locus": "plugins/bedrock/scripts/data-hygiene/pre-commit:31",
+      "evidence": "Input redirection precedes stderr suppression in tr invocation. If the pattern file disappears or loses readability after the readable-file check and before open, Bash emits the private path before fail() emits neutral text. Invented-data repro: safe staged blob passes with exit 0; mktemp shim removes invented pattern then delegates /usr/bin/mktemp; hook exits 2 but full invented pattern path appears in stderr. D4 forbids private-path logging. Redirect stderr before opening private input (or equivalently suppress the whole command) and retain a race-at-open regression. This is path disclosure, not demonstrated term-content disclosure.",
+      "blocking": true
+    },
+    {
+      "id": "HEB155-R2",
+      "class": "conformance",
+      "impact": "medium",
+      "likelihood": "low",
+      "confidence": "high",
+      "exploitability": "not-applicable",
+      "locus": "plugins/bedrock/scripts/data-hygiene/pre-commit:43",
+      "evidence": "The [[ $(cat control) == 1 ]] expression tests only stdout and discards cat status. Invented-data repro: safe control exits 0; a cat shim delegates /bin/cat and then exits 19; hook still exits 0 with clean scanned-count output. D4 requires explicit external status classification and exit 2 on operational/self-control failure. Capture the read result/status separately and regress a partial-output nonzero reader; do not merely test a reader that emits nothing.",
+      "blocking": true
+    }
+  ],
+  "verdict": "pause"
+}

@@ -1,0 +1,203 @@
+{
+  "observed_date_eastern": "2026-09-29",
+  "scope": "Complete recursive plugin.json population under ~/.codex/plugins/cache; all recursive SKILL.md and PACKAGE_IDENTITY.json under the catalog-selected active Bedrock root. Other filesystem roots and unrelated user content excluded.",
+  "host_catalog": "This fresh chat exposes exactly the thirteen bedrock-prefixed skill entries from the active root, each once. Candidate source contains fourteen skills and is not installed.",
+  "active_root": "/Users/thaffey/.codex/plugins/cache/bedrock/bedrock/9.1.0",
+  "cache_bedrock_roots": [
+    "/Users/thaffey/.codex/plugins/cache/bedrock/bedrock/9.1.0"
+  ],
+  "negative_control": "The same recursive manifest scanner found the active bedrock manifest; parsed every returned manifest without errors.",
+  "manifest": {
+    "path": ".claude-plugin/plugin.json",
+    "bytes": 976,
+    "sha256": "ca0e42b0d2735c7655a63ce5fb50eb2ba0c3a47f4427f0b7952e6afb7e2a9c7a"
+  },
+  "manifest_version": "9.1.0",
+  "skills": [
+    {
+      "path": "skills/agent-code/SKILL.md",
+      "bytes": 7100,
+      "sha256": "147c8b45dddbfe9857a73f80181b6f73f3d060fef0a1262a49876cea885bbe65"
+    },
+    {
+      "path": "skills/app-delivery-pipeline/SKILL.md",
+      "bytes": 5771,
+      "sha256": "d20bb7f61f7b0c080aa2623dd5ee14f56f2150e8049d0f3b75e62b89cdad2aab"
+    },
+    {
+      "path": "skills/application-code/SKILL.md",
+      "bytes": 7053,
+      "sha256": "2440a2836e1dbcf91f9bd1c7b8f4ea619e578f8ad0f70def3f72e1c7469e6bb6"
+    },
+    {
+      "path": "skills/author-construct-spec/SKILL.md",
+      "bytes": 5185,
+      "sha256": "926ec0518a85cdfd0831eb366c510c02a69f71cba43e07c081584433bea17248"
+    },
+    {
+      "path": "skills/author-decision-record/SKILL.md",
+      "bytes": 5044,
+      "sha256": "6b1e9225e9c3c1b9437f2c7401a331e59a03933016f2e520a3c24fcc6a188b8b"
+    },
+    {
+      "path": "skills/author-execution-relay/SKILL.md",
+      "bytes": 8712,
+      "sha256": "ec278d1aa371efbb37ab0a3471602ec4318fac2931317b1d3c5ddceba241a35f"
+    },
+    {
+      "path": "skills/author-standard/SKILL.md",
+      "bytes": 7040,
+      "sha256": "5a6defd7b7c608bc764d4ad5c7dbe5dc8b4c3ca93a9d9e6a2b50d4e3240b4809"
+    },
+    {
+      "path": "skills/code-review/SKILL.md",
+      "bytes": 4399,
+      "sha256": "7ae366e3c03658b184767ee776c13f13223664cfe78305ee01a33609159c7f15"
+    },
+    {
+      "path": "skills/debug/SKILL.md",
+      "bytes": 7651,
+      "sha256": "c1584e15cfff2a75f11be0b062250391ea063131aadb46d98ba8021348b9d762"
+    },
+    {
+      "path": "skills/design-review-loop/SKILL.md",
+      "bytes": 7189,
+      "sha256": "1dc6c459ffdb1ee516517ef00e9705be613e4b42dcbee96dfcc365867bdf0687"
+    },
+    {
+      "path": "skills/frontend-code/SKILL.md",
+      "bytes": 7957,
+      "sha256": "746fbff7e76d802029cb61cf9ecf4e2d6ff46c6cb2625346bcf87b54140eb6d8"
+    },
+    {
+      "path": "skills/infrastructure-code/SKILL.md",
+      "bytes": 5741,
+      "sha256": "dec6bce5cff48c8b494ebc90442de2ce2d598a297dc86f3446d192099be0cf2b"
+    },
+    {
+      "path": "skills/testing/SKILL.md",
+      "bytes": 6374,
+      "sha256": "74f27851d682375f2ea129f322175ff9a7433f4ef798d4be40d7dd0142ae5f5a"
+    }
+  ],
+  "carriers": [
+    {
+      "path": "skills/agent-code/PACKAGE_IDENTITY.json",
+      "bytes": 416,
+      "sha256": "a3413b941e51392086c5429fc616d206b56eed63258d3e8252ea23c66eabdf97"
+    },
+    {
+      "path": "skills/app-delivery-pipeline/PACKAGE_IDENTITY.json",
+      "bytes": 416,
+      "sha256": "a3413b941e51392086c5429fc616d206b56eed63258d3e8252ea23c66eabdf97"
+    },
+    {
+      "path": "skills/application-code/PACKAGE_IDENTITY.json",
+      "bytes": 416,
+      "sha256": "a3413b941e51392086c5429fc616d206b56eed63258d3e8252ea23c66eabdf97"
+    },
+    {
+      "path": "skills/author-construct-spec/PACKAGE_IDENTITY.json",
+      "bytes": 416,
+      "sha256": "a3413b941e51392086c5429fc616d206b56eed63258d3e8252ea23c66eabdf97"
+    },
+    {
+      "path": "skills/author-decision-record/PACKAGE_IDENTITY.json",
+      "bytes": 416,
+      "sha256": "a3413b941e51392086c5429fc616d206b56eed63258d3e8252ea23c66eabdf97"
+    },
+    {
+      "path": "skills/author-execution-relay/PACKAGE_IDENTITY.json",
+      "bytes": 416,
+      "sha256": "a3413b941e51392086c5429fc616d206b56eed63258d3e8252ea23c66eabdf97"
+    },
+    {
+      "path": "skills/author-standard/PACKAGE_IDENTITY.json",
+      "bytes": 416,
+      "sha256": "a3413b941e51392086c5429fc616d206b56eed63258d3e8252ea23c66eabdf97"
+    },
+    {
+      "path": "skills/code-review/PACKAGE_IDENTITY.json",
+      "bytes": 416,
+      "sha256": "a3413b941e51392086c5429fc616d206b56eed63258d3e8252ea23c66eabdf97"
+    },
+    {
+      "path": "skills/debug/PACKAGE_IDENTITY.json",
+      "bytes": 416,
+      "sha256": "a3413b941e51392086c5429fc616d206b56eed63258d3e8252ea23c66eabdf97"
+    },
+    {
+      "path": "skills/design-review-loop/PACKAGE_IDENTITY.json",
+      "bytes": 416,
+      "sha256": "a3413b941e51392086c5429fc616d206b56eed63258d3e8252ea23c66eabdf97"
+    },
+    {
+      "path": "skills/frontend-code/PACKAGE_IDENTITY.json",
+      "bytes": 416,
+      "sha256": "a3413b941e51392086c5429fc616d206b56eed63258d3e8252ea23c66eabdf97"
+    },
+    {
+      "path": "skills/infrastructure-code/PACKAGE_IDENTITY.json",
+      "bytes": 416,
+      "sha256": "a3413b941e51392086c5429fc616d206b56eed63258d3e8252ea23c66eabdf97"
+    },
+    {
+      "path": "skills/testing/PACKAGE_IDENTITY.json",
+      "bytes": 416,
+      "sha256": "a3413b941e51392086c5429fc616d206b56eed63258d3e8252ea23c66eabdf97"
+    }
+  ],
+  "carriers_byte_identical": true,
+  "host": {
+    "path": "/Applications/ChatGPT.app",
+    "CFBundleIdentifier": "com.openai.codex",
+    "CFBundleShortVersionString": "26.924.22138",
+    "CFBundleVersion": "11645"
+  },
+  "cli": {
+    "path": "/Applications/ChatGPT.app/Contents/Resources/codex-cli/bin/codex",
+    "sha256": "50ab38ba21d0d9f8346f32f41848382f15b556190f3c7a07e885a4fb73e379c8",
+    "version": "codex-cli 0.158.0-alpha.2.1"
+  },
+  "classic": {
+    "path": "/Applications/ChatGPT Classic.app",
+    "CFBundleIdentifier": "com.openai.codex",
+    "CFBundleShortVersionString": "26.831.21537",
+    "CFBundleVersion": "7579",
+    "cli_path": "/Applications/ChatGPT Classic.app/Contents/Resources/codex",
+    "cli_sha256": "99a6fdb0e0f9188e62dd6681c7ed3c5cc343358291a53ea21a9d4202e09cde9e",
+    "cli_version": "0.152.1",
+    "version_basis": "Read-only byte match to HEB-149 removal-control.md Appendix A. Classic was not launched, executed, moved, renamed or modified."
+  },
+  "codex_state": {
+    "config_sha256": "4e944b3a602c5fd41d32e35e25c90c68dc497f7ce459d04a9e49b9f89af34d70",
+    "bedrock_plugin_config": {
+      "bedrock@bedrock": {
+        "enabled": true
+      }
+    },
+    "installed_bedrock": [
+      {
+        "pluginId": "bedrock@bedrock",
+        "name": "bedrock",
+        "marketplaceName": "bedrock",
+        "version": "9.1.0",
+        "installed": true,
+        "enabled": true,
+        "source": {
+          "source": "local",
+          "path": "/Users/thaffey/.codex/.tmp/marketplaces/bedrock/plugins/bedrock"
+        },
+        "marketplaceSource": {
+          "sourceType": "git",
+          "source": "https://github.com/T-Bone-Haff/bedrock.git"
+        },
+        "installPolicy": "AVAILABLE",
+        "authPolicy": "ON_INSTALL"
+      }
+    ],
+    "excluded": "Auth material, conversation/session content and active databases are not captured. These observations do not assert all ~/.codex bytes remain static while chats run."
+  },
+  "cli_startup_warning": "",
+  "removal_status": "pending operator authorization; fresh-task post-removal verification not started"
+}

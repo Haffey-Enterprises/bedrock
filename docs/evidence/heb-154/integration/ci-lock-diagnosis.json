@@ -1,0 +1,83 @@
+{
+  "schema_version": "1.0.0",
+  "symptom": "CI fixture dependency install fails under --require-hashes.",
+  "scope": "PR53 run36612113581 at540b557492d19845524cbbc2f17fbea380de62cc; repository-only offline fixture lock. Distributed core installed and minimum-Python job passed.",
+  "mode": "offline-diagnosis",
+  "timeline": [
+    "2026-09-29 native Eastern date: first PR CI failed deterministic fixture install; live-routing skipped.",
+    "Read failing step whole: annotated-types version pin has no hash; all20 fixture pins were hashless.",
+    "Added wheel hashes for exactly the existing versions, resolved Linux3.13 wheels and installed into a fresh local venv; offline91 tests pass."
+  ],
+  "evidence": [
+    {
+      "source": "raw/ci-lock-repair/first-ci-job.log.gz",
+      "captured_at": "2026-09-29T14:33:20.935204-04:00",
+      "classification": "Repository-only CI/installation evidence; synthetic offline tests; no model requests",
+      "integrity": "sha256:3a3e319852eb1b48d2a40f0710eb969e2bcc7a82a0c945de923f7b1799d003a3"
+    },
+    {
+      "source": "raw/ci-lock-repair/hash-provenance.json",
+      "captured_at": "2026-09-29T14:33:20.935204-04:00",
+      "classification": "Repository-only CI/installation evidence; synthetic offline tests; no model requests",
+      "integrity": "sha256:7077635e76608b7142a9b0205e190411f5abd9e4bd7aaa198baceddc2a9e8c5a"
+    },
+    {
+      "source": "raw/ci-lock-repair/linux-resolution.txt",
+      "captured_at": "2026-09-29T14:33:20.935204-04:00",
+      "classification": "Repository-only CI/installation evidence; synthetic offline tests; no model requests",
+      "integrity": "sha256:27e7c4ce73432cc1fe426883b1046ed6e95ee857d03328bef403eec2d5daf66f"
+    },
+    {
+      "source": "raw/ci-lock-repair/offline-run.txt.gz",
+      "captured_at": "2026-09-29T14:33:20.935204-04:00",
+      "classification": "Repository-only CI/installation evidence; synthetic offline tests; no model requests; exact raw bytes compressed, readable copy removes extra EOF newlines",
+      "integrity": "sha256:17e42c5c9b3531cf9b727303bab149f3b248f38a3ebbccf47748bd6c0e8e9fa7"
+    },
+    {
+      "source": "raw/ci-lock-repair/wrong-hash-control.txt.gz",
+      "captured_at": "2026-09-29T14:33:20.935204-04:00",
+      "classification": "Repository-only CI/installation evidence; synthetic offline tests; no model requests; exact raw bytes compressed, readable copy removes extra EOF newlines",
+      "integrity": "sha256:99b6c4af8795a3010ab0cbcfcccce83554a9233f6a33ba852bf8915ab3ae0a42"
+    }
+  ],
+  "hypotheses": [
+    {
+      "iteration": 1,
+      "hypothesis": "The distributed core is incompatible with the CI host.",
+      "prediction": "Core installation/import identity or dependency check fails.",
+      "falsifier": "Core install, import identity and pip check succeed before fixture pip fails.",
+      "evidence": "Failing job log shows successful agent-core0.2.0 installation and identity; separate core-minimum job succeeded.",
+      "disposition": "falsified",
+      "unexplained": []
+    },
+    {
+      "iteration": 2,
+      "hypothesis": "Fixture lock lacks the artifact hashes required by its CI command.",
+      "prediction": "pip rejects a pinned requirement for a missing hash. Supplying authentic hashes without changing versions permits resolution/install; wrong hash still fails.",
+      "falsifier": "Complete authenticated wheel hashes fail at the same missing-hash boundary, or a wrong hash is accepted.",
+      "evidence": "First CI rejection on annotated-types; complete original20 pins had no hashes. New20-pin/368-wheel lock resolves Linux3.13 and fresh Mac3.14 installation,91 offline tests and pip check pass. Corrupted hash is rejected by pip.",
+      "disposition": "supported",
+      "unexplained": [
+        "Native full CI on the corrected lock remains pending."
+      ]
+    }
+  ],
+  "containment": "Failed job stopped the pipeline; PR live-routing was skipped and its one-run allowance remains unused.",
+  "conclusion": {
+    "status": "root_cause_identified",
+    "confidence": "high",
+    "statement": "Workflow demanded hash checking for a version-only fixture lock. The defect is independent of platform; the earlier platform-specific description was corrected. Core distribution and routing payload did not cause this failure."
+  },
+  "repair": {
+    "authorized": true,
+    "action": "Add PyPI wheel hashes to the unchanged20 exact fixture dependency versions; preserve --require-hashes. This is a routine integration-gate repair within the original task."
+  },
+  "verification": [
+    "Linux CPython3.13 manylinux2014_x86_64 wheel resolution passes with --require-hashes; this is resolution, not Linux execution.",
+    "Fresh macOS3.14 environment installs,91 offline tests pass and pip check passes.",
+    "Deliberately wrong artifact hash is rejected.",
+    "Independent repair review approves with no findings; actual corrected CI still required before closure."
+  ],
+  "residual_risk": "All published wheel hashes are recorded; this does not qualify execution on every platform. Native CI remains pending. Routing catalog/fixture/policy/harness and all distributed plugin bytes are unchanged, so the existing189/189 release result retains its input identity.",
+  "owner": "HEB-154 implementation; HEB-161 composed release owner"
+}

@@ -1,0 +1,29 @@
+{
+  "status": "explicitly ratified; launching once",
+  "date": "2026-09-29",
+  "reason": "Replace a consumed, contaminated release run after independently reviewed input isolation repair",
+  "destination": "Anthropic via Claude Code 2.1.226, haiku",
+  "payload_sha256": "16fddaedd3e56c651ec3e757a508108bdcd93b4be75f390aafd5b43b815c89ca",
+  "harness_sha256": "b363cdccde9090de91c514879d639396e13a7763900953bf5cde96c40fb6aab8",
+  "fixture_sha256": "ffa8329b6b554d702293b7c746198c706016ee31125992e6a9db8af20e109188",
+  "cases": 63,
+  "draws_per_case": 3,
+  "planned_draws": 189,
+  "max_total_budget_usd": 3.0,
+  "max_budget_usd_per_draw": 0.06,
+  "timeout_seconds_per_draw": 120,
+  "automatic_retries": false,
+  "accounting": "New allowance separate from consumed release run; existing one PR run max USD3 remains reserved. Preserve both runs.",
+  "stop_conditions": [
+    "Adapter failure",
+    "Suite budget exhausted",
+    "Unexpected payload or subject mismatch",
+    "Complete first outcome"
+  ],
+  "result_file": "routing-release-replacement-1.json",
+  "authorized_by": "Tad: ratify the replacement release run and posting the results to HEB-154 and HEB-161",
+  "started_at": "2026-09-29T13:55:06.345277-04:00",
+  "staged_tree": "0b69748421e59b3d20d28bc3f37cb7aa1047705f",
+  "source_parent": "2ab76b447cdb1a975c801e6833682c0c1f94cef0",
+  "cli_version": "2.1.226 (Claude Code)"
+}

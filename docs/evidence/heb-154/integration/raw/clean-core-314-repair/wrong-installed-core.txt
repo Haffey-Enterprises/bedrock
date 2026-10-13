@@ -1,0 +1,10 @@
+No broken requirements found.
+Traceback (most recent call last):
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/clean-core-314-repair/agent-builder/scripts/install_core.py", line 110, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/clean-core-314-repair/agent-builder/scripts/install_core.py", line 93, in main
+    observed=check(args.python,component)
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/clean-core-314-repair/agent-builder/scripts/install_core.py", line 71, in check
+    raise ValueError("installed core verification failed: " + result.stderr.strip())
+ValueError: installed core verification failed: installed core source digest mismatch: agent_core/__init__.py

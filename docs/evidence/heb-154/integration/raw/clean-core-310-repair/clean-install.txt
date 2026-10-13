@@ -1,0 +1,47 @@
+Processing /Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/clean-core-310-repair/agent-builder/assets/python/agent_core-0.2.0-py3-none-any.whl
+Collecting attrs==26.1.0
+  Downloading attrs-26.1.0-py3-none-any.whl (67 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 67.5/67.5 kB 579.4 kB/s eta 0:00:00
+Collecting jsonschema==4.25.1
+  Downloading jsonschema-4.25.1-py3-none-any.whl (90 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 90.0/90.0 kB 3.8 MB/s eta 0:00:00
+Collecting jsonschema-specifications==2025.9.1
+  Downloading jsonschema_specifications-2025.9.1-py3-none-any.whl (18 kB)
+Collecting referencing==0.37.0
+  Downloading referencing-0.37.0-py3-none-any.whl (26 kB)
+Collecting rpds-py==0.30.0
+  Downloading rpds_py-0.30.0-cp310-cp310-macosx_11_0_arm64.whl (359 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 359.8/359.8 kB 6.2 MB/s eta 0:00:00
+Collecting typing-extensions==4.16.0
+  Using cached typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+Installing collected packages: typing-extensions, rpds-py, attrs, referencing, jsonschema-specifications, jsonschema, agent-core
+Successfully installed agent-core-0.2.0 attrs-26.1.0 jsonschema-4.25.1 jsonschema-specifications-2025.9.1 referencing-0.37.0 rpds-py-0.30.0 typing-extensions-4.16.0
+No broken requirements found.
+{
+  "schema_version": 1,
+  "repository": "https://github.com/T-Bone-Haff/bedrock",
+  "bedrock_revision": null,
+  "component": "agent-core",
+  "component_version": "0.2.0",
+  "wheel": "agent_core-0.2.0-py3-none-any.whl",
+  "wheel_sha256": "fdeba49630b213a12d437bdd6836585f39d96eeea619d8efe7fd8cfed368cfa0",
+  "requirements_sha256": "a7daaf5f9de005d868ec97784f24cd8aa16244c73451fdd159adacfc4ed47501",
+  "observed": {
+    "python": "3.10.20",
+    "executable": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/clean-core-310-repair/venv/bin/python",
+    "import_path": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/clean-core-310-repair/venv/lib/python3.10/site-packages/agent_core/__init__.py",
+    "core_version": "0.2.0",
+    "dependencies": {
+      "agent-core": "0.2.0",
+      "attrs": "26.1.0",
+      "jsonschema": "4.25.1",
+      "jsonschema-specifications": "2025.9.1",
+      "referencing": "0.37.0",
+      "rpds-py": "0.30.0",
+      "typing-extensions": "4.16.0"
+    }
+  }
+}
+
+[notice] A new release of pip is available: 23.0.1 -> 26.2.1
+[notice] To update, run: /Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/clean-core-310-repair/venv/bin/python -m pip install --upgrade pip

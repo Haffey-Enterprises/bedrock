@@ -64,6 +64,100 @@ class PackageGovernanceTests(unittest.TestCase):
             path.write_text(encoded, encoding="utf-8")
         return carrier_paths
 
+    def test_planning_has_accepted_explicit_adoption_and_source_identity(self) -> None:
+        skill = self.root / "plugins/bedrock/skills/planning"
+        self.assertTrue((skill / "SKILL.md").is_file(), "accepted planning entrypoint is absent")
+        adoption = json.loads((skill / "PACKAGE_ADOPTION.json").read_text())
+        self.assertEqual("accepted-supervised-advisory", adoption["status"])
+        self.assertEqual("explicit", adoption["invocation"])
+        self.assertEqual("pending-HEB-161", adoption["release_qualification"])
+        self.assertEqual("open-after-shared-release", adoption["hex_reconsumption"])
+        self.assertIn("adoption remains pending", (skill / "reference/provenance.md").read_text())
+        self.assertEqual([], validate_package_governance(self.root))
+
+    def test_planning_adoption_and_exact_source_fail_closed(self) -> None:
+        skill = self.root / "plugins/bedrock/skills/planning"
+        for name in ("SKILL.md", "reference/provenance.md"):
+            with self.subTest(source=name):
+                path = skill / name
+                original = path.read_bytes()
+                path.write_bytes(original + b"\nchanged\n")
+                self.assert_has_error("accepted planning source digest mismatch")
+                path.write_bytes(original)
+        path = skill / "PACKAGE_ADOPTION.json"
+        original = path.read_bytes()
+        payload = json.loads(original)
+        for key, bad in (("status", "proposed"), ("invocation", "implicit"),
+                         ("release_qualification", "accepted"), ("hex_reconsumption", "complete")):
+            with self.subTest(field=key):
+                changed = dict(payload, **{key: bad})
+                path.write_text(json.dumps(changed))
+                self.assert_has_error("planning adoption authority drift")
+        path.write_bytes(original)
+        path.unlink()
+        self.assert_has_error("planning adoption authority is unavailable")
+
+    def test_planning_invocation_policy_cannot_be_omitted_or_implicit(self) -> None:
+        policy = self.root / "plugins/bedrock/skills/planning/agents/openai.yaml"
+        original = policy.read_bytes()
+        for value in ("true", "0", "null", "\"false\""):
+            with self.subTest(value=value):
+                policy.write_text(f"policy:\n  allow_implicit_invocation: {value}\n")
+                self.assert_has_error("planning requires explicit invocation policy")
+        policy.unlink()
+        self.assert_has_error("planning requires explicit invocation policy")
+        policy.write_bytes(original)
+        self.assertEqual([], validate_package_governance(self.root))
+
+    def test_planning_authorities_reject_duplicate_keys_before_collapse(self) -> None:
+        skill = self.root / "plugins/bedrock/skills/planning"
+        policy = skill / "agents/openai.yaml"
+        original_policy = policy.read_bytes()
+        for text in ("policy:\n  allow_implicit_invocation: true\n  allow_implicit_invocation: false\n",
+                     "policy: {allow_implicit_invocation: true}\npolicy: {allow_implicit_invocation: false}\n",
+                     "policy: {<<: {allow_implicit_invocation: true}, allow_implicit_invocation: false}\n"):
+            with self.subTest(policy=text):
+                policy.write_text(text)
+                self.assert_has_error("duplicate YAML key")
+        policy.write_bytes(original_policy)
+        adoption = skill / "PACKAGE_ADOPTION.json"
+        original_adoption = adoption.read_bytes()
+        adoption.write_text(original_adoption.decode().replace('{', '{"invocation":"implicit",', 1))
+        self.assert_has_error("duplicate JSON key")
+        adoption.write_bytes(original_adoption)
+        self.assertEqual([], validate_package_governance(self.root))
+
+    def test_data_hygiene_surface_and_template_defects_refuse(self) -> None:
+        surface = self.root / "plugins/bedrock/scripts/data-hygiene"
+        self.assertEqual([], validate_package_governance(self.root))
+        hook = surface / "pre-commit"
+        original, mode = hook.read_bytes(), hook.stat().st_mode
+        for defect in ("missing", "empty", "mode", "symlink", "extra"):
+            with self.subTest(defect=defect):
+                if defect == "missing": hook.unlink()
+                elif defect == "empty": hook.write_bytes(b"")
+                elif defect == "mode": hook.chmod(0o644)
+                elif defect == "symlink":
+                    hook.unlink(); hook.symlink_to(surface / "manager.py")
+                else: (surface / "unexpected").write_text("fixture")
+                self.assert_has_error("data-hygiene")
+                if hook.is_symlink(): hook.unlink()
+                hook.write_bytes(original); hook.chmod(mode)
+                (surface / "unexpected").unlink(missing_ok=True)
+        for relative in ("project-template/README.md", "project-template/CLAUDE.md"):
+            path = self.root / relative
+            old = path.read_text()
+            path.write_text(old.replace("audit-repo", "removed-checkpoint"))
+            self.assert_has_error("data-hygiene")
+            path.write_text(old)
+        self.assertEqual([], validate_package_governance(self.root))
+
+    def test_main_validator_consumes_data_hygiene_gate(self) -> None:
+        (self.root / "plugins/bedrock/scripts/data-hygiene/pre-commit").chmod(0o644)
+        errors, _ = validate_repository(self.root, validate_retained_evidence=False,
+                                        run_host_cli=False)
+        self.assertTrue(any("data-hygiene" in error for error in errors), errors)
+
     def test_repository_package_governance_passes(self) -> None:
         self.assertEqual([], validate_package_governance(self.root))
 
@@ -109,6 +203,7 @@ class PackageGovernanceTests(unittest.TestCase):
         path = self.root / "plugins/bedrock/governance/registry.yaml"
         payload = yaml.safe_load(path.read_text(encoding="utf-8"))
         payload["skills"][0]["status"] = "retired"
+        payload["skills"][0]["migration"] = None
         path.write_text(yaml.safe_dump(payload, sort_keys=False), encoding="utf-8")
         self.assert_has_error("non-active skill requires migration treatment")
 
@@ -117,7 +212,41 @@ class PackageGovernanceTests(unittest.TestCase):
         payload = yaml.safe_load(path.read_text(encoding="utf-8"))
         payload["consumer_surfaces"] = payload["consumer_surfaces"][:1]
         path.write_text(yaml.safe_dump(payload, sort_keys=False), encoding="utf-8")
-        self.assert_has_error("must contain claude-ai and claude-code exactly")
+        self.assert_has_error("must contain claude-ai, claude-code, and codex exactly")
+
+    def test_consumer_surface_set_is_exact(self) -> None:
+        path = self.root / "plugins/bedrock/governance/registry.yaml"
+        payload = yaml.safe_load(path.read_text(encoding="utf-8"))
+        expected = {"claude-ai", "claude-code", "codex"}
+        self.assertEqual(expected, {row["id"] for row in payload["consumer_surfaces"]})
+        self.assertEqual([], validate_package_governance(self.root))
+        original = path.read_bytes()
+        valid_rows = payload["consumer_surfaces"]
+        cases = {
+            **{f"missing-{name}": [row for row in valid_rows if row["id"] != name]
+               for name in expected},
+            "stale-two-surface": [row for row in valid_rows if row["id"] != "codex"],
+            "unknown": valid_rows + [{"id": "unknown-host"}],
+        }
+        for label, rows in cases.items():
+            with self.subTest(case=label):
+                payload["consumer_surfaces"] = rows
+                path.write_text(yaml.safe_dump(payload, sort_keys=False), encoding="utf-8")
+                self.assert_has_error("must contain claude-ai, claude-code, and codex exactly")
+        path.write_bytes(original)
+        self.assertEqual([], validate_package_governance(self.root))
+
+    def test_rollout_schema_and_template_declare_three_surfaces(self) -> None:
+        governance = self.root / "plugins/bedrock/governance"
+        schema = json.loads((governance / "rollout-ledger.schema.json").read_text())
+        template = yaml.safe_load((governance / "rollout-ledger.template.yaml").read_text())
+        expected = ["claude-ai", "claude-code", "codex"]
+        self.assertEqual(expected, schema["properties"]["surfaces"]["items"]["properties"]["id"]["enum"])
+        self.assertCountEqual(expected, [row["id"] for row in template["surfaces"]])
+        for row in template["surfaces"]:
+            self.assertEqual("pending", row["status"])
+            self.assertIsNone(row["evidence"])
+            self.assertEqual("MANIFEST_VERSION and 15 skills", row["expected_identity"])
 
     def test_rejects_non_merge_commit_landing_method(self) -> None:
         path = self.root / "plugins/bedrock/governance/registry.yaml"
@@ -587,13 +716,13 @@ class PackageGovernanceTests(unittest.TestCase):
                 {
                     "id": surface,
                     "expected_action": "verify",
-                    "expected_identity": f"{manifest_version} and 13 skills",
+                    "expected_identity": f"{manifest_version} and 15 skills",
                     "status": "verified",
                     "evidence": surface,
                     "owner": "operator",
                     "waiver": None,
                 }
-                for surface in ("claude-ai", "claude-code")
+                for surface in ("claude-ai", "claude-code", "codex")
             ],
             "rollback": {"triggered": False, "last_accepted_tag": None, "evidence": None},
             "status": "complete",
@@ -615,6 +744,41 @@ class PackageGovernanceTests(unittest.TestCase):
                 rollout_ledger=rollout_path,
             ),
         )
+
+    def test_rollout_rejects_inexact_surface_populations(self) -> None:
+        evidence_path, rollout_path = self.write_release_fixture()
+        def validate() -> list[str]:
+            return validate_package_governance(
+                self.root, release=True, release_evidence=evidence_path,
+                rollout_ledger=rollout_path,
+            )
+        self.assertEqual([], validate())
+        original = rollout_path.read_bytes()
+        rollout = yaml.safe_load(original)
+        rows = rollout["surfaces"]
+        expected = {"claude-ai", "claude-code", "codex"}
+        self.assertEqual(expected, {row["id"] for row in rows})
+        cases = {
+            **{f"missing-{name}": [row for row in rows if row["id"] != name]
+               for name in expected},
+            **{f"duplicate-{name}": rows + [next(row for row in rows if row["id"] == name)]
+               for name in expected},
+            "unknown": rows + [dict(rows[0], id="unknown-host")],
+            "stale-two-surface": [row for row in rows if row["id"] != "codex"],
+            "duplicate-replaces-missing": [rows[0], rows[1], rows[1]],
+            "unknown-replaces-codex": [dict(row, id="unknown-host") if row["id"] == "codex" else row for row in rows],
+        }
+        for label, population in cases.items():
+            with self.subTest(case=label):
+                rollout["surfaces"] = population
+                rollout_path.write_text(yaml.safe_dump(rollout, sort_keys=False), encoding="utf-8")
+                errors = validate()
+                self.assertTrue(any(
+                    "rollout must enumerate claude-ai, claude-code, and codex exactly once" in error
+                    for error in errors
+                ), errors)
+        rollout_path.write_bytes(original)
+        self.assertEqual([], validate())
 
     def test_release_mode_rejects_landing_before_acceptance(self) -> None:
         evidence_path, rollout_path = self.write_release_fixture(

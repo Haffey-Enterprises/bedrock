@@ -1,0 +1,11 @@
+{
+  "command": [
+    "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+    "scripts/build_agent_core.py",
+    "--check"
+  ],
+  "cwd": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-155-2026-09-30/snapshot",
+  "returncode": 0,
+  "elapsed_seconds": 0.65,
+  "log": "wheel.log"
+}

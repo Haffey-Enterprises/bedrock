@@ -1,0 +1,32 @@
+{
+  "command": [
+    "/usr/local/bin/python3",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-p",
+    "test_data_hygiene.py",
+    "-v"
+  ],
+  "exit": 1,
+  "before": {
+    "plugins/bedrock/scripts/data-hygiene/pre-commit": "8be35b7f746096aa443f18f13aa2ac2fdf289b761825a5c7c2584fcdcd1bef4c",
+    "plugins/bedrock/scripts/data-hygiene/manager.py": "0839eecda09ab6cd29f3638008cdb3533ee5030f617312133f447cc03c597527",
+    "plugins/bedrock/scripts/data-hygiene/dispatcher.sh.tmpl": "5997fc0e2bf0dce7acea9dcb7cf013eb1b0f117d4d5f49386788d003c7119d39",
+    "plugins/bedrock/scripts/data-hygiene/README.md": "778def42496067c603567ee7edb4ef12487109eeb4c43d05b39b34f64511619d",
+    "tests/test_data_hygiene.py": "145f113a35f06253347b499c77237dccac73fb43659a89814da152a44a432fba",
+    "scripts/validate_package_governance.py": "7f8916803756100e122b2f1caa93177238defd44c510b81d11780bc9a5812496"
+  },
+  "after": {
+    "plugins/bedrock/scripts/data-hygiene/pre-commit": "8be35b7f746096aa443f18f13aa2ac2fdf289b761825a5c7c2584fcdcd1bef4c",
+    "plugins/bedrock/scripts/data-hygiene/manager.py": "0839eecda09ab6cd29f3638008cdb3533ee5030f617312133f447cc03c597527",
+    "plugins/bedrock/scripts/data-hygiene/dispatcher.sh.tmpl": "5997fc0e2bf0dce7acea9dcb7cf013eb1b0f117d4d5f49386788d003c7119d39",
+    "plugins/bedrock/scripts/data-hygiene/README.md": "778def42496067c603567ee7edb4ef12487109eeb4c43d05b39b34f64511619d",
+    "tests/test_data_hygiene.py": "7e40534f3f48f48b0ef0e45eea0d33be6ec2a47dc40243c647a483161d5c208b",
+    "scripts/validate_package_governance.py": "7f8916803756100e122b2f1caa93177238defd44c510b81d11780bc9a5812496"
+  },
+  "unchanged": false,
+  "log": "/private/tmp/heb155-rereview-focused-final.log"
+}

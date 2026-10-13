@@ -1,0 +1,301 @@
+{
+  "schema_version": 1,
+  "skill_count": 14,
+  "description_limit": 1024,
+  "routing_schema_version": 2,
+  "sample_classifications": {
+    "illustrative": 5,
+    "fixture-backed": 3
+  },
+  "skills": [
+    {
+      "path": "plugins/bedrock/skills/agent-builder/SKILL.md",
+      "description": "Build checked fleet specialist agents from requirements through implementation, bounded verification and handoff, using the shared Python core and published interfaces. Use for a requested running fleet specialist, including a single structured-output model call. Do not use for mechanism-only LLM-call work (agent-code), observed failures (debug), ordinary services (application-code), tests alone (testing), finished-diff review, or deployment.",
+      "description_length": 446,
+      "positive_cases": [
+        "agent-builder-positive",
+        "agent-builder-one-shot"
+      ],
+      "negative_cases": [
+        "agent-builder-mechanism-negative",
+        "agent-builder-debug-collision",
+        "agent-builder-review-collision",
+        "agent-builder-prompt-only-negative"
+      ],
+      "overlap_cases": [],
+      "name": "agent-builder"
+    },
+    {
+      "path": "plugins/bedrock/skills/agent-code/SKILL.md",
+      "description": "LLM-call implementation only, including structured-output parsing, bounded salvage and recovery, model transport, tool loops, budgets, and evidence. Use this skill when an LLM call is the code's central act. Do not use for observed-failure diagnosis (debug), ordinary service code (application-code), executor handoffs (author-execution-relay), or design-record review (design-review-loop).",
+      "description_length": 390,
+      "positive_cases": [
+        "agent-code-positive",
+        "application-code-negative",
+        "agent-builder-mechanism-negative"
+      ],
+      "negative_cases": [
+        "agent-code-negative",
+        "agent-builder-positive",
+        "agent-builder-one-shot",
+        "agent-builder-prompt-only-negative"
+      ],
+      "overlap_cases": [
+        "overlap-test-agent-output",
+        "overlap-adr-model-vendor"
+      ],
+      "name": "agent-code"
+    },
+    {
+      "path": "plugins/bedrock/skills/app-delivery-pipeline/SKILL.md",
+      "description": "Application-artifact CI/CD only; exclude every Terraform or infrastructure plan/apply job and every executor relay or handoff, even when either uses GitHub Actions or delivery gates. Use this skill to author or conform portable application build, test, artifact, provenance, promotion, deploy, preview, migration, and rollout workflows, including the static-frontend delivery seam. The Haffey profile binds GitHub Actions and GCP. Do not use for application or frontend behavior, infrastructure mutation, existing failures, or finished-diff review.",
+      "description_length": 548,
+      "positive_cases": [
+        "app-delivery-pipeline-positive",
+        "app-delivery-pipeline-main-only-profile",
+        "app-delivery-pipeline-static-seam",
+        "infrastructure-code-negative"
+      ],
+      "negative_cases": [
+        "app-delivery-pipeline-negative",
+        "frontend-code-browser-security-readiness",
+        "infrastructure-code-portable-profile",
+        "infrastructure-code-actions-ownership"
+      ],
+      "overlap_cases": [
+        "overlap-debug-deployment"
+      ],
+      "name": "app-delivery-pipeline"
+    },
+    {
+      "path": "plugins/bedrock/skills/application-code/SKILL.md",
+      "description": "Author or conform conventional backend service and application behavior, including API boundaries, concurrency, configuration, logging, errors, resilience, security, data handling, containers, and operational shell code. Use for planned implementation or restructuring. Do not use when an LLM call is central (agent-code), for new tests (testing), observed failures or flakes (debug), finished-diff review, infrastructure, or delivery workflows.",
+      "description_length": 445,
+      "positive_cases": [
+        "agent-code-negative",
+        "application-code-positive",
+        "application-code-portable-profile",
+        "author-execution-relay-negative",
+        "debug-negative",
+        "frontend-code-negative",
+        "overlap-frontend-backend-enforcement",
+        "adversarial-implementation-misroute"
+      ],
+      "negative_cases": [
+        "application-code-negative"
+      ],
+      "overlap_cases": [
+        "overlap-frontend-backend-enforcement",
+        "testing-regression-after-diagnosis"
+      ],
+      "name": "application-code"
+    },
+    {
+      "path": "plugins/bedrock/skills/author-construct-spec/SKILL.md",
+      "description": "Internal engineering machinery only; product or feature requirements documents (PRDs) are explicitly outside this skill and have no Bedrock route. Use this skill to author or amend an implementation-complete construct spec for one runner, harness, instrument, pipeline, or other internal mechanism when an implementer must build it from the document alone. Never infer construct-spec ownership merely because a request says specification or requirements. Do not use for reusable standards (author-standard), finished-code review, or general architecture documentation; author-decision-record owns engineering doctype selection and integrity.",
+      "description_length": 641,
+      "positive_cases": [
+        "author-construct-spec-positive"
+      ],
+      "negative_cases": [
+        "author-construct-spec-negative"
+      ],
+      "overlap_cases": [
+        "overlap-relay-construct"
+      ],
+      "name": "author-construct-spec"
+    },
+    {
+      "path": "plugins/bedrock/skills/author-decision-record/SKILL.md",
+      "description": "Select the correct engineering decision-record type, then author, amend, or de-drift an ADR, DDR, or SDD while preserving deliberation, provenance, lifecycle metadata, and body integrity. Use when recording why an architecture or design choice was made, documenting a service design, choosing among the house doctypes, or repairing an existing ADR, DDR, or SDD. If selection identifies an implementation-complete construct spec, route its authorship or amendment to author-construct-spec. Do not use for direct construct-spec authorship, reusable standards (author-standard), implementation handoffs (author-execution-relay), product PRDs, finished-code review, or convergence review of a record set (design-review-loop).",
+      "description_length": 721,
+      "positive_cases": [
+        "author-decision-record-positive",
+        "author-standard-negative",
+        "overlap-adr-model-vendor"
+      ],
+      "negative_cases": [
+        "author-decision-record-negative",
+        "implicit-standard-membership"
+      ],
+      "overlap_cases": [
+        "overlap-adr-model-vendor"
+      ],
+      "name": "author-decision-record"
+    },
+    {
+      "path": "plugins/bedrock/skills/author-execution-relay/SKILL.md",
+      "description": "Authoring executor prompts and handoffs only. Use this skill when the requested deliverable is a gated instruction, execution relay, implementation handoff, or session kickoff for Code or another executor, including one about delivery gates or a construct spec. Direct implementation, build, or deployment work stays with its domain skill even when gated. Relays delegate bounded file and git toil while reserving judgment and per-gate ratification for the operator. Here Code means the executor, not application source code. Do not use this to perform implementation, write a general design record or reusable standard, or review a finished diff.",
+      "description_length": 647,
+      "positive_cases": [
+        "author-execution-relay-positive",
+        "author-execution-relay-instrument-discrimination",
+        "overlap-relay-construct"
+      ],
+      "negative_cases": [
+        "author-execution-relay-negative",
+        "adversarial-implementation-misroute"
+      ],
+      "overlap_cases": [
+        "author-execution-relay-instrument-discrimination",
+        "overlap-relay-construct"
+      ],
+      "name": "author-execution-relay"
+    },
+    {
+      "path": "plugins/bedrock/skills/author-standard/SKILL.md",
+      "description": "Decide whether to create, then author or amend, a reusable standard such as an engineering convention, skill, governing checklist, or template. Use when defining rules for future work, selecting authoritative sources, declaring binding and exceptions, shaping the standard, or proving it on a real consumer. Do not use for a single ADR, DDR, SDD, or construct spec (author-decision-record), an executor handoff, or mechanical skill packaging and routing evals (skill-creator).",
+      "description_length": 476,
+      "positive_cases": [
+        "author-standard-positive",
+        "implicit-standard-membership"
+      ],
+      "negative_cases": [
+        "author-standard-negative"
+      ],
+      "overlap_cases": [],
+      "name": "author-standard"
+    },
+    {
+      "path": "plugins/bedrock/skills/code-review/SKILL.md",
+      "description": "Review a finished code change, diff, or pull request for correctness, security, performance, conformance, and fit, producing evidence-backed severity findings and a merge verdict. Use for review this PR, is this ready, what is wrong with this change, or a pre-merge self-review. Do not use to author the code, diagnose an unexplained runtime failure (debug), write tests, or review an ADR/DDR/SDD set to convergence (design-review-loop). Apply stack-specific authoring standards only when relevant or explicitly rebound.",
+      "description_length": 520,
+      "positive_cases": [
+        "author-decision-record-negative",
+        "code-review-positive",
+        "design-review-loop-negative",
+        "overlap-review-frontend",
+        "overlap-review-terraform",
+        "implicit-review-ship-readiness",
+        "adversarial-design-review-misroute",
+        "agent-builder-review-collision"
+      ],
+      "negative_cases": [
+        "code-review-negative"
+      ],
+      "overlap_cases": [
+        "overlap-review-frontend",
+        "overlap-review-terraform",
+        "agent-builder-review-collision"
+      ],
+      "name": "code-review"
+    },
+    {
+      "path": "plugins/bedrock/skills/debug/SKILL.md",
+      "description": "Diagnose an observed error, regression, failure, or flake, including CI-only and environment-specific failures. Use to contain active harm, preserve evidence, reproduce when safe, isolate variables, form and falsify hypotheses, identify cause or report insufficient evidence, and verify an authorized repair. Do not use for planned implementation, new tests without an observed failure, generic error-handling guidance, finished-diff review, or incident command.",
+      "description_length": 462,
+      "positive_cases": [
+        "debug-positive",
+        "debug-nonreproducible-production",
+        "debug-active-harm",
+        "debug-claim-subject-discrimination",
+        "overlap-debug-frontend",
+        "testing-negative",
+        "overlap-debug-deployment",
+        "implicit-debug-regression",
+        "adversarial-debug-misroute",
+        "agent-builder-debug-collision"
+      ],
+      "negative_cases": [
+        "author-execution-relay-instrument-discrimination",
+        "debug-negative",
+        "overlap-testing-frontend",
+        "testing-risk-strategy",
+        "testing-silent-success-counterfactual",
+        "testing-regression-after-diagnosis"
+      ],
+      "overlap_cases": [
+        "debug-claim-subject-discrimination",
+        "overlap-debug-frontend",
+        "overlap-debug-deployment",
+        "agent-builder-debug-collision"
+      ],
+      "name": "debug"
+    },
+    {
+      "path": "plugins/bedrock/skills/design-review-loop/SKILL.md",
+      "description": "Design-record review through stance-isolated findings, cross-record coherence, arbitration, escalation, and profile-honest completion claims. Use this skill to review ADR, DDR, or SDD sets or assess whether an applicable declared review profile completed. Do not use to author records (author-decision-record), review code (code-review), or validate this skill's own correction.",
+      "description_length": 378,
+      "positive_cases": [
+        "code-review-negative",
+        "design-review-loop-positive",
+        "design-review-loop-direct-profile"
+      ],
+      "negative_cases": [
+        "design-review-loop-negative",
+        "adversarial-design-review-misroute"
+      ],
+      "overlap_cases": [],
+      "name": "design-review-loop"
+    },
+    {
+      "path": "plugins/bedrock/skills/frontend-code/SKILL.md",
+      "description": "Author or conform browser-facing application behavior under a portable frontend contract, then bind it to a declared stack profile. Use for components, state and data seams, responsive and accessible interaction, browser capabilities and media, client security, performance obligations, or prototype promotion. Do not use for backend enforcement (application-code), planned test strategy alone (testing), an observed failure (debug), delivery or hosting machinery (app-delivery-pipeline), or a finished-diff review (code-review).",
+      "description_length": 529,
+      "positive_cases": [
+        "frontend-code-positive",
+        "frontend-code-portable-profile",
+        "frontend-code-prototype-promotion",
+        "frontend-code-browser-security-readiness"
+      ],
+      "negative_cases": [
+        "app-delivery-pipeline-static-seam",
+        "frontend-code-negative"
+      ],
+      "overlap_cases": [
+        "overlap-testing-frontend",
+        "overlap-debug-frontend",
+        "overlap-review-frontend",
+        "overlap-frontend-backend-enforcement"
+      ],
+      "name": "frontend-code"
+    },
+    {
+      "path": "plugins/bedrock/skills/infrastructure-code/SKILL.md",
+      "description": "Own every Terraform or infrastructure plan/apply workflow, including protected jobs implemented in GitHub Actions; these are infrastructure-code, never app-delivery-pipeline. Use this skill to author or conform portable infrastructure-as-code, remote state, identity, workload manifests, recovery controls, and the protected plan/apply pipeline. A different IaC engine or cloud still routes here as a declared profile rebind. The Haffey profile binds Terraform, GCP, Kubernetes, and GitHub Actions. Do not use for application artifact delivery, application or frontend behavior, existing failures, executor handoffs, or finished-diff review.",
+      "description_length": 641,
+      "positive_cases": [
+        "app-delivery-pipeline-negative",
+        "infrastructure-code-positive",
+        "infrastructure-code-portable-profile",
+        "infrastructure-code-actions-ownership"
+      ],
+      "negative_cases": [
+        "app-delivery-pipeline-main-only-profile",
+        "infrastructure-code-negative"
+      ],
+      "overlap_cases": [
+        "overlap-review-terraform"
+      ],
+      "name": "infrastructure-code"
+    },
+    {
+      "path": "plugins/bedrock/skills/testing/SKILL.md",
+      "description": "Author new tests, test strategy, fixtures, and planned coverage. Use for test-first specification of new or changed behavior, risk-based test selection, isolation, contract testing, coverage design, and deterministic or nondeterministic evaluation. Do not use to diagnose any observed failing or flaky test, including CI-only flakes (debug), to implement production behavior, or to review a finished diff. Select a stack profile; a materially different unprofiled test stack is a rebind.",
+      "description_length": 487,
+      "positive_cases": [
+        "overlap-testing-frontend",
+        "testing-positive",
+        "testing-risk-strategy",
+        "testing-silent-success-counterfactual",
+        "testing-regression-after-diagnosis",
+        "overlap-test-agent-output"
+      ],
+      "negative_cases": [
+        "debug-nonreproducible-production",
+        "debug-claim-subject-discrimination",
+        "overlap-debug-frontend",
+        "testing-negative",
+        "implicit-debug-regression",
+        "adversarial-debug-misroute"
+      ],
+      "overlap_cases": [
+        "overlap-testing-frontend",
+        "testing-silent-success-counterfactual",
+        "testing-regression-after-diagnosis",
+        "overlap-test-agent-output"
+      ],
+      "name": "testing"
+    }
+  ]
+}

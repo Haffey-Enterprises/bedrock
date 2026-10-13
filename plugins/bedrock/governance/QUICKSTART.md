@@ -5,6 +5,9 @@ skill owns the output; a domain overlay does not take over another operation.
 
 | Example request | Cue | Expected route | Expected output or boundary |
 |---|---|---|---|
+| “Use planning to assess this declared backlog against accepted intent and current rulings; return advisory gaps, dependencies and sequence.” | explicit supervised invocation | `planning` | Read [current adoption](../skills/planning/PACKAGE_ADOPTION.json) alongside the instruction and provenance; no mutation or work-start authority |
+| “Run planning unattended and automatically reprioritize the backlog.” | outside accepted scope | no planning route | Requires separately owned lifecycle and mutation authority |
+| “Build a checked requirements-readiness specialist for the fleet, with a runnable handoff.” | construction outcome | `agent-builder` | requirements, installed core, implementation, bounded verification and fleet interface |
 | “Implement a bounded LLM tool loop with structured output and retry budgets.” | implicit | `agent-code` | model-call implementation and execution evidence |
 | “Build the FastAPI endpoint and async persistence adapter.” | implicit | `application-code` | backend application behavior |
 | “Define the Terraform plan/apply workflow in GitHub Actions.” | explicit domain | `infrastructure-code` | infrastructure desired-state and protected plan/apply workflow |

@@ -1,0 +1,58 @@
+test_planning_authorities_reject_duplicate_keys_before_collapse (tests.test_package_governance.PackageGovernanceTests.test_planning_authorities_reject_duplicate_keys_before_collapse) ... 
+  test_planning_authorities_reject_duplicate_keys_before_collapse (tests.test_package_governance.PackageGovernanceTests.test_planning_authorities_reject_duplicate_keys_before_collapse) (policy='policy:\n  allow_implicit_invocation: true\n  allow_implicit_invocation: false\n') ... FAIL
+  test_planning_authorities_reject_duplicate_keys_before_collapse (tests.test_package_governance.PackageGovernanceTests.test_planning_authorities_reject_duplicate_keys_before_collapse) (policy='policy: {allow_implicit_invocation: true}\npolicy: {allow_implicit_invocation: false}\n') ... FAIL
+  test_planning_authorities_reject_duplicate_keys_before_collapse (tests.test_package_governance.PackageGovernanceTests.test_planning_authorities_reject_duplicate_keys_before_collapse) (policy='policy: {<<: {allow_implicit_invocation: true}, allow_implicit_invocation: false}\n') ... FAIL
+test_planning_authorities_reject_duplicate_keys_before_collapse (tests.test_package_governance.PackageGovernanceTests.test_planning_authorities_reject_duplicate_keys_before_collapse) ... FAIL
+
+======================================================================
+FAIL: test_planning_authorities_reject_duplicate_keys_before_collapse (tests.test_package_governance.PackageGovernanceTests.test_planning_authorities_reject_duplicate_keys_before_collapse) (policy='policy:\n  allow_implicit_invocation: true\n  allow_implicit_invocation: false\n')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-184-2026-09-30/review-red/tests/test_package_governance.py", line 121, in test_planning_authorities_reject_duplicate_keys_before_collapse
+    self.assert_has_error("duplicate YAML key")
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-184-2026-09-30/review-red/tests/test_package_governance.py", line 37, in assert_has_error
+    self.assertTrue(any(needle in error for error in errors), errors)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : []
+
+======================================================================
+FAIL: test_planning_authorities_reject_duplicate_keys_before_collapse (tests.test_package_governance.PackageGovernanceTests.test_planning_authorities_reject_duplicate_keys_before_collapse) (policy='policy: {allow_implicit_invocation: true}\npolicy: {allow_implicit_invocation: false}\n')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-184-2026-09-30/review-red/tests/test_package_governance.py", line 121, in test_planning_authorities_reject_duplicate_keys_before_collapse
+    self.assert_has_error("duplicate YAML key")
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-184-2026-09-30/review-red/tests/test_package_governance.py", line 37, in assert_has_error
+    self.assertTrue(any(needle in error for error in errors), errors)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : []
+
+======================================================================
+FAIL: test_planning_authorities_reject_duplicate_keys_before_collapse (tests.test_package_governance.PackageGovernanceTests.test_planning_authorities_reject_duplicate_keys_before_collapse) (policy='policy: {<<: {allow_implicit_invocation: true}, allow_implicit_invocation: false}\n')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-184-2026-09-30/review-red/tests/test_package_governance.py", line 121, in test_planning_authorities_reject_duplicate_keys_before_collapse
+    self.assert_has_error("duplicate YAML key")
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-184-2026-09-30/review-red/tests/test_package_governance.py", line 37, in assert_has_error
+    self.assertTrue(any(needle in error for error in errors), errors)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : []
+
+======================================================================
+FAIL: test_planning_authorities_reject_duplicate_keys_before_collapse (tests.test_package_governance.PackageGovernanceTests.test_planning_authorities_reject_duplicate_keys_before_collapse)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-184-2026-09-30/review-red/tests/test_package_governance.py", line 126, in test_planning_authorities_reject_duplicate_keys_before_collapse
+    self.assert_has_error("duplicate JSON key")
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-184-2026-09-30/review-red/tests/test_package_governance.py", line 37, in assert_has_error
+    self.assertTrue(any(needle in error for error in errors), errors)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : []
+
+----------------------------------------------------------------------
+Ran 1 test in 0.385s
+
+FAILED (failures=4)

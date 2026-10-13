@@ -3,6 +3,69 @@
 The package manifest is the sole authority for the current version. This file
 records candidate and released changes; a version heading is not release proof.
 
+## 10.0.0 — bundled engineering and planning candidate
+
+- Add the HEB-155 local staged-content gate, explicit runtime manager, repository
+  dispatcher, offline contract tests and future-project readiness checkpoint.
+  Package proof is separate from HEB-161 acceptance/release and later HEB-155
+  runtime deployment, repository rollout and estate audit.
+
+- Admit the unchanged accepted planning instruction and provenance from HEX
+  (HEB-178 / HEB-184) for explicitly invoked supervised advisory backlog
+  assessment. Ship separate current adoption authority and explicit-invocation
+  metadata. Preserve C1/C2/A1/A2 limits and the single-backlog empirical floor.
+  Composed routing and cross-host acceptance, release, and HEX reconsumption
+  remain open under HEB-161; no new broad reasoning trial is claimed.
+
+- Replace the maintained Terraform setup guidance and pull-request image-build
+  fixture with exact upstream-verified Node 24 action pins (HEB-160). Add offline
+  regression protection for both identities and parse YAML action steps,
+  including unnamed and flow-style steps, in the SHA-pin validator. Preserve plan/apply authority and unprivileged PR builds.
+
+- Add the HEB-159 carried-value amendment in PROVING: relays carry subjects,
+  pins and rules; keep outcomes and revision narratives in records; check each
+  text-removing shrink against predecessor anchors; and require the reader to
+  report bounded tightenings or explicitly state that nothing changed.
+  Sweeps bind to author-time dry-run and executor receipt; pins are checked
+  first with a planted mismatch, and dropped anchors receive dispositions.
+  Provenance: RBT-153 candidates 1 and 3, derived from RBT-124 Leg 4. The
+  evidence concerns one consumer arc. Counterevidence includes defects in
+  mechanical gate rules with few carried values: this removes a defect class,
+  not all relay defects. Pattern-edge misses and anchor-less prose remain
+  limitations. HEB-159 retains component proof; adoption and bundled release
+  acceptance are not claimed. The relay schema and interaction contract remain
+  unchanged; the unratified RBT-154 proposals are excluded.
+
+- Declare Codex (ChatGPT desktop), at codex-cli >=0.153.4, as the explicit third
+  consumer surface alongside claude-ai and claude-code; require each exactly
+  once in rollout. No Codex strict manifest validator, CI minimum pin, cloud-task
+  support, or routing proof is claimed. HEB-153 records completed host cleanup
+  and fresh-task verification of the surviving installed package; candidate
+  installation and release acceptance remain separate.
+
+- Reject fractional token usage and integer budget limits instead of truncating
+  them. Bound best-effort parser candidates by unique normalized source spans,
+  including malformed occurrences, while preserving fence-path precedence.
+
+- Clarify that author-execution-relay routes requests to author executor-facing
+  handoffs; direct implementation, build, and deploy tasks retain their domain
+  owner even when gated. Routing fixtures and thresholds remain unchanged.
+
+- Add agent-builder 1.0.0 for checked fleet-agent construction; agent-code 2.0.0
+  retains LLM mechanism ownership. Portable core advances to 3.0.0.
+- Integrate shared Python agent-core 0.2.0 under the Bedrock MIT license. Its
+  reproducible wheel ships with agent-builder; projects explicitly install and
+  pin the wheel and dependencies in their own virtual environment. Updates
+  require project qualification.
+- Advance portable agent-execution evidence to 2.0.0: unknown totals remain
+  null, known subtotals and reserved exposure remain separate, absent responses
+  have no hash, and tool dispatches do not consume model-attempt limits.
+- Preserve the accepted one-provider bounded trial as repository history;
+  distribute only skill resources and shared Python components. No broader
+  provider claim or new specialist trial is implied.
+- Cold acceptance, bundled-release coordination, and explicit production
+  proceed remain required before release and rollout.
+
 ## 9.1.0 — claim-subject discrimination candidate
 
 - Require diagnostic readings to demonstrate that their instrument

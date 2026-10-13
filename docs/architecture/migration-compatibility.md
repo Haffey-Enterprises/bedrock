@@ -1,15 +1,15 @@
 # Bedrock portable-core migration and compatibility notes
 
 **Status:** ACCEPTED
-**Version:** 2.0.0
-**Date:** 2026-08-12
+**Version:** 3.0.0
+**Date:** 2026-09-29
 **Governing principle:** [ADR-001](../adr/ADR-001-portable-core-and-surface-adapter-architecture.md)
 
 **Coverage boundary:** [Bedrock product coverage map](coverage-map.md)
 
 ## 1. Current state
 
-The current distributable is a Claude plugin with thirteen skill directories and one package version. The repository has deterministic structure and routing validation, a clean-install smoke test, and a deterministic safety-contract validator with regression fixtures for the initial safety tranche. It does not yet ship separate Codex/OpenAI or Cursor adapters, a capability registry, an authority registry, independent core/adapter versions, or a generated compatibility matrix.
+The candidate is a Claude plugin with fifteen skill directories and a bundled separately versioned Python core. The repository has deterministic structure and routing validation, a clean-install smoke test, and a deterministic safety-contract validator with regression fixtures for the initial safety tranche. Registry and compatibility records declare core/adapter identities and capabilities. Separate Codex/OpenAI and Cursor adapters remain outside this candidate.
 
 The current skill names are the compatibility anchors for this migration. Existing names and explicit invocations remain valid while content is separated into portable contracts and profiles.
 
@@ -89,9 +89,9 @@ Prompt generations, repeated draws, calibration, replay, cost attribution, run d
 
 - No skill is removed, renamed, or merged in the proposed Wave 2 contract.
 - Existing `design-review-loop` invocations remain valid while its portable actor contract and product execution bindings are separated.
-- The Claude plugin remains the only implemented distribution surface until adapters land.
+- The Claude-format plugin is the implemented package distribution. The supported Codex desktop host ingests it natively; no separate Codex/OpenAI adapter is required or distributed.
 - Products may consume Bedrock contracts, but none receives a Bedrock-assigned orchestration role.
-- Claims of Codex/OpenAI or Cursor support remain future and conditional until their adapter and cold-acceptance evidence exist.
+- Codex desktop support is bounded by the installed [compatibility matrix](../../plugins/bedrock/governance/COMPATIBILITY.md); cloud Codex tasks and a separate Codex/OpenAI or Cursor adapter remain unsupported. Candidate cold acceptance remains a separate release gate.
 - The existing package version is not retroactively treated as a core-contract or adapter version.
 - The next package version is derived at landing; this record does not pre-claim it.
 - Consumer rollout remains blocked pending cross-surface acceptance and an explicit release decision.
@@ -100,6 +100,38 @@ Prompt generations, repeated draws, calibration, replay, cost attribution, run d
 
 | Version | Date | Ticket | Change |
 |---|---|---|---|
+| 3.0.0 | 2026-09-29 | HEB-154 | Ratified agent-builder/core split, explicit Python dependency and evidence-v2 migration. |
 | 2.0.0 | 2026-08-12 | HEB-126 | Accepted major migration repair for product-owned orchestration and evidence-driven promotion. |
 | 1.0.0 | 2026-08-09 | HEB-111 | Accepted after direct audit; reconciled the landed safety baseline without changing the migration contract. |
 | 0.1.0 | 2026-08-09 | HEB-111 | Initial migration, coverage, actor/recipe/kernel compatibility, rebind/package-major rules, and consumer impact. |
+
+## HEB-154 consumer migration
+
+Checked fleet-specialist requests now route primarily to agent-builder; direct
+mechanism work remains agent-code. Install the shipped agent-core wheel into the
+project environment, pin its Bedrock revision/digest and dependencies, and run
+project checks on upgrades. No project uses plugin-cache imports. Core version
+0.2.0 and EvidenceRecord v0.1 do not share the portable-core 3.0.0 or portable
+execution evidence 2.0.0 identity. Migrate portable v1 records explicitly to
+known/unknown usage with null unknown totals and separate reservation exposure;
+absent responses have null hashes. The previous plugin and project dependency
+pins provide rollback. Historical evidence is retained in the repository and
+is not shipped with skills. HEB-161 composition and HEB-119 acceptance still gate
+release; these migration notes confer neither acceptance nor additional live calls.
+
+## HEB-184 bounded planning admission
+
+HEB-184 ratifies this concrete addition within the existing manifest candidate.
+Its admission reconciliation answers HEB-127's promotion questions without claiming
+the general promotion standard is complete or making it a universal start blocker.
+The originating HEX product's shared-release reconsumption and private-fork
+reconciliation remain open HEB-184 completion gates in HEB-161's later rollout.
+This bounded authorization qualifies step 3 for this admission only; it does not
+change the product-owned orchestration boundary or promote an execution mechanic.
+
+The accepted instruction and historical provenance retain their exact source
+bytes. The skill-local PACKAGE_ADOPTION.json is current adoption authority.
+Use planning explicitly for supervised advice only. Existing specialist, mutation
+and lifecycle owners remain unchanged. HEB-161 must qualify discovery, usable
+explicit invocation and identity on Codex, Claude Code and Claude.ai, as well as
+live routing, before release. No personal-copy reconciliation occurs here.

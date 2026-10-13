@@ -377,3 +377,148 @@ cases:
     prompt: Run the design-review loop on this completed code diff and give me the merge verdict.
     expected: code-review
     excluded: [design-review-loop]
+  - id: agent-builder-positive
+    kind: positive
+    cue: direct
+    surface: portable-core
+    prompt: Build a checked specialist agent for our fleet from these functional requirements, with a runnable handoff and published interface.
+    expected: agent-builder
+    excluded: [agent-code]
+  - id: agent-builder-one-shot
+    kind: positive
+    cue: implicit
+    surface: portable-core
+    prompt: I need a fleet specialist that classifies one brief with one structured model call. Take it from requirements through implementation, bounded verification and handoff.
+    expected: agent-builder
+    excluded: [agent-code]
+  - id: agent-builder-mechanism-negative
+    kind: negative
+    cue: direct
+    surface: portable-core
+    prompt: Implement duplicate-key rejection and whole-first JSON parsing in this existing LLM-call adapter. No new specialist or fleet handoff is needed.
+    expected: agent-code
+    excluded: [agent-builder]
+  - id: agent-builder-debug-collision
+    kind: overlap
+    cue: implicit
+    surface: portable-core
+    prompt: Our deployed fleet specialist now double-counts failed model calls. Diagnose the observed failure before changing its code.
+    expected: debug
+    excluded: [agent-builder]
+  - id: agent-builder-review-collision
+    kind: overlap
+    cue: implicit
+    surface: portable-core
+    prompt: Review this completed fleet specialist implementation and give a merge verdict.
+    expected: code-review
+    excluded: [agent-builder]
+  - id: agent-builder-prompt-only-negative
+    kind: negative
+    cue: adversarial
+    surface: portable-core
+    prompt: Polish this short prose prompt for clarity only. Do not build software, an agent, a structured-output contract, or a fleet interface.
+    expected: null
+    excluded: [agent-builder, agent-code]
+  - id: planning-explicit-assessment
+    kind: positive
+    cue: direct
+    surface: portable-core
+    prompt: Use planning for a supervised assessment of this declared backlog against
+      accepted intent and current operator rulings. Identify gaps, overlaps, dependencies,
+      ownership and evidence-loss risks; return advice only.
+    expected: planning
+    excluded: []
+    planning_boundary: explicit-assessment
+    source_obligation: 'SKILL.md: Bind the assessment; Read and establish coverage'
+  - id: planning-sequence-overlap
+    kind: overlap
+    cue: direct
+    surface: portable-core
+    prompt: Use planning to recommend feasible sequencing for these already-defined
+      engineering tasks, separating hard completion dependencies from advisory order.
+      Do not author a specialist design or an executor handoff.
+    expected: planning
+    excluded:
+    - author-execution-relay
+    - author-construct-spec
+    planning_boundary: sequence-overlap
+    source_obligation: 'SKILL.md: Map obligations and relationships'
+  - id: planning-product-discovery
+    kind: negative
+    cue: implicit
+    surface: portable-core
+    prompt: Discover new customer problems and brainstorm product concepts before a
+      product backlog or accepted intent exists.
+    expected: null
+    excluded:
+    - planning
+    planning_boundary: product-discovery
+    source_obligation: 'SKILL.md description: product discovery excluded'
+  - id: planning-record-mutation
+    kind: negative
+    cue: implicit
+    surface: portable-core
+    prompt: Apply these ratified backlog dispositions by editing issue priorities, owners
+      and dependencies now.
+    expected: null
+    excluded:
+    - planning
+    planning_boundary: record-mutation
+    source_obligation: 'SKILL.md: no record mutation, priority change or coordination-state
+      authority'
+  - id: planning-executor-handoff
+    kind: overlap
+    cue: implicit
+    surface: portable-core
+    prompt: Write a gated executor handoff to implement this settled design and stop
+      before committing.
+    expected: author-execution-relay
+    excluded:
+    - planning
+    planning_boundary: executor-handoff
+    source_obligation: 'SKILL.md description: executor handoffs excluded'
+  - id: planning-specialist-design
+    kind: overlap
+    cue: implicit
+    surface: portable-core
+    prompt: Author an implementation-complete construct specification for an internal
+      evaluation harness.
+    expected: author-construct-spec
+    excluded:
+    - planning
+    planning_boundary: specialist-design
+    source_obligation: 'SKILL.md description: specialist design excluded'
+  - id: planning-unattended
+    kind: negative
+    cue: adversarial
+    surface: portable-core
+    prompt: Run planning as an unattended durable steward that continuously reprioritizes
+      the backlog and starts work without supervision.
+    expected: null
+    excluded:
+    - planning
+    planning_boundary: unattended
+    source_obligation: 'SKILL.md introduction: broader lifecycle and unattended use
+      require separately accepted scope'
+  - id: planning-tests
+    kind: overlap
+    cue: implicit
+    surface: portable-core
+    prompt: Author new tests and an evaluation strategy for the planned backlog-assessment
+      feature.
+    expected: testing
+    excluded:
+    - planning
+    planning_boundary: tests
+    source_obligation: 'SKILL.md description: test authoring excluded'
+  - id: planning-finished-review
+    kind: overlap
+    cue: implicit
+    surface: portable-core
+    prompt: Review the completed planning-tool implementation diff for correctness and
+      give a merge verdict.
+    expected: code-review
+    excluded:
+    - planning
+    planning_boundary: finished-review
+    source_obligation: 'SKILL.md description: finished-change review excluded'

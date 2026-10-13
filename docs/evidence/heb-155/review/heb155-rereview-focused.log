@@ -1,0 +1,38 @@
+test_amend_and_conflict_resolution_commit (test_data_hygiene.HygieneTests.test_amend_and_conflict_resolution_commit) ... ok
+test_binary_paths_and_complete_locations (test_data_hygiene.HygieneTests.test_binary_paths_and_complete_locations) ... ok
+test_cleanup_failure_is_operational (test_data_hygiene.HygieneTests.test_cleanup_failure_is_operational) ... ok
+test_deleted_and_unmodified_historical_blobs_are_excluded (test_data_hygiene.HygieneTests.test_deleted_and_unmodified_historical_blobs_are_excluded) ... ok
+test_enumeration_type_and_blob_read_faults (test_data_hygiene.HygieneTests.test_enumeration_type_and_blob_read_faults) ... ok
+test_gitlink_refuses (test_data_hygiene.HygieneTests.test_gitlink_refuses) ... ok
+test_matcher_and_self_control_faults (test_data_hygiene.HygieneTests.test_matcher_and_self_control_faults) ... ok
+test_missing_nonregular_unreadable_empty_invalid_patterns (test_data_hygiene.HygieneTests.test_missing_nonregular_unreadable_empty_invalid_patterns) ... ok
+test_modification_copy_rename_typechange_symlink_and_deletion (test_data_hygiene.HygieneTests.test_modification_copy_rename_typechange_symlink_and_deletion) ... ok
+test_normal_commit_refuses_invented_content (test_data_hygiene.HygieneTests.test_normal_commit_refuses_invented_content) ... ok
+test_normalization_dependencies_and_partial_enumeration_fail_closed (test_data_hygiene.HygieneTests.test_normalization_dependencies_and_partial_enumeration_fail_closed) ... ok
+test_normalization_fixed_ascii_and_nonascii (test_data_hygiene.HygieneTests.test_normalization_fixed_ascii_and_nonascii) ... ok
+test_pattern_disappears_after_precheck_without_path_disclosure (test_data_hygiene.HygieneTests.test_pattern_disappears_after_precheck_without_path_disclosure) ... ok
+test_positive_control_read_status_is_not_discarded (test_data_hygiene.HygieneTests.test_positive_control_read_status_is_not_discarded) ... ok
+test_post_control_matcher_and_redactor_failures (test_data_hygiene.HygieneTests.test_post_control_matcher_and_redactor_failures) ... ok
+test_precedence_and_empty_environment_refusal (test_data_hygiene.HygieneTests.test_precedence_and_empty_environment_refusal) ... ok
+test_redaction_fault_and_exact_clean_output (test_data_hygiene.HygieneTests.test_redaction_fault_and_exact_clean_output) ... ok
+test_safe_commit_and_empty_population (test_data_hygiene.HygieneTests.test_safe_commit_and_empty_population) ... ok
+test_staged_not_working_tree_and_filename_exclusion (test_data_hygiene.HygieneTests.test_staged_not_working_tree_and_filename_exclusion) ... ok
+test_tab_trim_preserves_literal_t_and_last_line (test_data_hygiene.HygieneTests.test_tab_trim_preserves_literal_t_and_last_line) ... ok
+test_deploy_audit_receipt_and_worktree_source_ignored (test_data_hygiene.ManagerTests.test_deploy_audit_receipt_and_worktree_source_ignored) ... ok
+test_dispatcher_integrity_containment_and_neutral_failure (test_data_hygiene.ManagerTests.test_dispatcher_integrity_containment_and_neutral_failure) ... ok
+test_dispatcher_resolves_current_once_and_refuses_symlink_payload (test_data_hygiene.ManagerTests.test_dispatcher_resolves_current_once_and_refuses_symlink_payload) ... ok
+test_explicit_default_hook_path_is_not_a_redirection (test_data_hygiene.ManagerTests.test_explicit_default_hook_path_is_not_a_redirection) ... ok
+test_fresh_clone_unmanaged_and_dispatcher_drift_refuse (test_data_hygiene.ManagerTests.test_fresh_clone_unmanaged_and_dispatcher_drift_refuse) ... ok
+test_install_idempotence_all_hooks_worktree_audit_and_bypass (test_data_hygiene.ManagerTests.test_install_idempotence_all_hooks_worktree_audit_and_bypass) ... ok
+test_linked_worktree_commit_and_per_worktree_redirect (test_data_hygiene.ManagerTests.test_linked_worktree_commit_and_per_worktree_redirect) ... ok
+test_offline_custody_receipt_and_reachability_are_distinct (test_data_hygiene.ManagerTests.test_offline_custody_receipt_and_reachability_are_distinct) ... ok
+test_pattern_pointer_and_missing_runtime (test_data_hygiene.ManagerTests.test_pattern_pointer_and_missing_runtime) ... ok
+test_release_draft_wrong_identity_lightweight_and_bad_version_refuse (test_data_hygiene.ManagerTests.test_release_draft_wrong_identity_lightweight_and_bad_version_refuse) ... ok
+test_release_stub_cannot_fall_through_to_host (test_data_hygiene.ManagerTests.test_release_stub_cannot_fall_through_to_host) ... ok
+test_rollback_retains_versions_and_refuses_unknown (test_data_hygiene.ManagerTests.test_rollback_retains_versions_and_refuses_unknown) ... ok
+test_two_versions_rollback_and_atomic_selection_failure (test_data_hygiene.ManagerTests.test_two_versions_rollback_and_atomic_selection_failure) ... ok
+
+----------------------------------------------------------------------
+Ran 33 tests in 58.042s
+
+OK

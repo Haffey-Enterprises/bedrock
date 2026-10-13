@@ -1,6 +1,9 @@
 from __future__ import annotations
 
 import json
+import contextlib
+import io
+from unittest.mock import patch
 from pathlib import Path
 import shutil
 import tempfile
@@ -159,13 +162,14 @@ class ValidatorTests(unittest.TestCase):
     def test_valid_fixture_passes(self) -> None:
         errors, report = validate_repository(
             self.root,
+            validate_retained_evidence=False,  # This synthetic fixture has no model observations.
             run_host_cli=False,
             run_safety_checks=False,
             require_authoring_contracts=False,
             require_package_governance=False,
         )
         self.assertEqual([], errors)
-        self.assertEqual(13, report["skill_count"])
+        self.assertEqual(len(EXPECTED_SKILLS), report["skill_count"])
 
     def test_rejects_malformed_frontmatter(self) -> None:
         path = self.root / "plugins" / "bedrock" / "skills" / "agent-code" / "SKILL.md"
@@ -354,6 +358,24 @@ class ValidatorTests(unittest.TestCase):
         report = self.root / "docs/evidence/heb-109/routing-results.json"
         report.write_text("{}\n", encoding="utf-8")
         self.assert_has_error("routing report schema_version must be 2")
+
+    def test_component_cli_preserves_default_evidence_gate_and_labels_scope(self) -> None:
+        from scripts.validate_plugin import main
+        for component in (False, True):
+            with self.subTest(component=component):
+                argv = ["validate_plugin.py", "--root", str(self.root), "--skip-host-cli"]
+                if component:
+                    argv.append("--component")
+                def validate(root, **kwargs):
+                    errors = [] if not kwargs["validate_retained_evidence"] else ["stale retained routing evidence"]
+                    return errors, {"skill_count": len(EXPECTED_SKILLS)}
+                output = io.StringIO()
+                with patch("sys.argv", argv), patch("scripts.validate_plugin.validate_repository", side_effect=validate) as check:
+                    with contextlib.redirect_stdout(output), contextlib.redirect_stderr(output):
+                        status = main()
+                self.assertEqual(0 if component else 1, status)
+                self.assertIs(check.call_args.kwargs["validate_retained_evidence"], not component)
+                self.assertIn("COMPONENT ONLY" if component else "stale retained routing evidence", output.getvalue())
 
     def test_rejects_duplicate_yaml_key_before_value_collapse(self) -> None:
         policy = self.root / "validation/eval-policy.yaml"

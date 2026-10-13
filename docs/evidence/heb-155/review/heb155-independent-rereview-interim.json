@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "profile": "high-risk",
+  "scope": "Repair re-review regression observed after R1/R2 repair; preserves original findings separately.",
+  "checked_surfaces": [
+    "Whole repaired pre-commit and dispatcher; whole expanded test_data_hygiene module.",
+    "Invented safe staged blob paired with cat-file blob failure shim; complete command output read."
+  ],
+  "gates": [
+    {
+      "name": "Neutral diagnostics after scan-stage failure",
+      "disposition": "failed",
+      "reason": "Safe control exited 0; Git shim cat-file blob failure produced hook exit 2 and empty stderr."
+    }
+  ],
+  "findings": [
+    {
+      "id": "HEB155-R3",
+      "class": "operational",
+      "impact": "medium",
+      "likelihood": "medium",
+      "confidence": "high",
+      "exploitability": "not-applicable",
+      "locus": "plugins/bedrock/scripts/data-hygiene/pre-commit:75",
+      "evidence": "The scan loop compound redirection done 2>/dev/null suppresses stderr throughout its body, including fail() diagnostics on type/blob/matcher/redaction faults. Independent invented-data counterexample: git shim refusing cat-file blob with status23 yields hook status2 and no diagnostic. Neutral D4 operational diagnostic is lost. Narrow suppression to the open operation or keep a separate diagnostic descriptor, and assert diagnostic content for fault cases.",
+      "blocking": true
+    }
+  ],
+  "verdict": "pause"
+}

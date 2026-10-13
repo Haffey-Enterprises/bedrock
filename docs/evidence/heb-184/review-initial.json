@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "profile": "standard",
+  "scope": "Independent HEB-184 finished-delta review before repair",
+  "checked_surfaces": [
+    "New planning authority loader calls, canonical policy/adoption, duplicate and contrary controls in receipt-free candidate-1. Full final review is separate."
+  ],
+  "gates": [
+    {
+      "name": "planning-authority-ambiguity",
+      "disposition": "failed",
+      "reason": "Duplicate JSON and YAML authority keys collapse before comparison."
+    }
+  ],
+  "findings": [
+    {
+      "id": "HEB184-REV-001",
+      "class": "conformance",
+      "impact": "medium",
+      "likelihood": "medium",
+      "confidence": "high",
+      "locus": "scripts/validate_package_governance.py:_validate_planning_adoption",
+      "evidence": "Independent reviewer reproduced contradictory nested/root YAML keys and duplicate adoption status passing; foreground review-red.log adds merge collision and duplicate invocation controls. Canonical metadata passes and single contrary values reject.",
+      "blocking": true
+    }
+  ],
+  "verdict": "pause"
+}

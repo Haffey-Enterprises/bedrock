@@ -1,0 +1,949 @@
+{
+  "base": "2ab76b447cdb1a975c801e6833682c0c1f94cef0",
+  "status": "Exact intended candidate paths reconciled before staging; pending routing evidence is added separately.",
+  "paths": [
+    {
+      "path": ".claude-plugin/marketplace.json",
+      "sha256": "4dc9abacdb2f66aacd1fd90b27e278ac583ed5b1d6b3b64af47daa2c794573fc",
+      "basis": "Checked catalog description only if new construction route requires it; preserve source"
+    },
+    {
+      "path": ".github/workflows/plugin-validation.yml",
+      "sha256": "c50b9cf0fa7ecd9bbb1bf939b35c12120d43e29d473825dbc214c3b0a25e44ee",
+      "basis": "D1 core wheel/source checks; preserve unrelated CI requirements and live-routing gate"
+    },
+    {
+      "path": "README.md",
+      "sha256": "7b171122ce49886a2a2a956ce14c5b2d9c74922d3c4b83d8727ca28239c4f7b3",
+      "basis": "Current inventory and install/dependency instructions"
+    },
+    {
+      "path": "docs/adr/ADR-001-portable-core-and-surface-adapter-architecture.md",
+      "sha256": "c4f25c99b9b35cb1a991da368f50e5dbd306e1115b47231e4dd8cd13384ef02d",
+      "basis": "D4 architecture/version amendment for ratified construction route and evidence change"
+    },
+    {
+      "path": "docs/architecture/migration-compatibility.md",
+      "sha256": "354ff64fbc48685d713b2eb882a6310ebafd8fc6974abdf6664f7703f3d65743",
+      "basis": "D4 migration and independent version identities"
+    },
+    {
+      "path": "docs/architecture/skill-architecture.md",
+      "sha256": "ae2ee9326d18bc0b26b84b00bbc11cf8be295259c07ed51627bd540804ba6233",
+      "basis": "D4 agent-builder route, collisions and explicit sibling dependency"
+    },
+    {
+      "path": "docs/evidence/heb-118/context-budget.json",
+      "sha256": "21edce702eaeb6a2d6e5fc5e3c3fc1f00e212e9561e65bf045731e7355402678",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-136/rule-trigger-audit.yaml",
+      "sha256": "054679d2a33e1635a8ef2a58138aaa24689fed4a2e0c4279cf63fb6ad353217c",
+      "basis": "Refresh affected trigger dispositions and derived identity after whole instrument read"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/README.md",
+      "sha256": "93103c722af376065c9819bb370c2b1d250075af9ee53d1ee794cd81eb7166e4",
+      "basis": "Input source identities, fourteen AC2 dispositions, proof limits, reproduced gate index"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/accepted-trial/archive-receipt.json",
+      "sha256": "6dde65d2168b04695ed9acac6567bd9f4b20a44f36ed04e24d91a58807a44f7d",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/accepted-trial/bounded-trial-result.md",
+      "sha256": "17c35486290f87820ba2bfe437db1d76f0cd7294abc5cc71c1d0fa2d6e0e1f61",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/accepted-trial/import-verification.json",
+      "sha256": "9c75b5b8bc2f879d9f483242dbd5a4a294f595a693dd5eb5d3c22dd84213f4cf",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/accepted-trial/manifest.json",
+      "sha256": "b496efedd1ef59a2535866f1eb67866eb4a6f83da5ca728c81b3746e8b75c07f",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/accepted-trial/proof.tar.gz",
+      "sha256": "7e574fa699fcd855b67f535627a9d22c1ad7b526694d3fce2dabd42d42232fdc",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/distribution-clarification.md",
+      "sha256": "5f0d50e79cbf6ce48a5627e235a794ac279b5b836049214b7d1b408a6619ac2d",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/imported-builder-handoff.md",
+      "sha256": "a2451eb3f49264d02ed9c255940267075c64ae7e9e9586f13ea87bc9f828de89",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/input-verification.json",
+      "sha256": "5652d4f067f5ae13d9d33046b115709209175adad4167ab8f434331513a2a463",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/integration-map.md",
+      "sha256": "3cd2df366037fdb2d8e6b99803bb89c9a896e54a4c443772fbc8de66761639e6",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/preserved-checkout-inventory.json",
+      "sha256": "ef7acb20363524593b5a85af597c1ec95090ea7fa1c4beb9c9f91543db5f54e1",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/prior-context-budget.json",
+      "sha256": "10f7f48b58ab06115e123e8c5ca6489601c869746466532f53922bfb00e2fd30",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/prior-routing-results.json",
+      "sha256": "a5504c0b9d1839c45bcfab5c8b70bca3a6f6476b19cb886d48963b16e17964ed",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/prior-rule-trigger-audit.yaml",
+      "sha256": "074c43fef930ea3579eb6bb061a012eb04ee6fc2ead4025b2d786250a1fe0575",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/build-check.txt",
+      "sha256": "efdea99414cf5c911351eb0c3ef4566ef4b90898334f0f9add84d209106845ad",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/clean-core-310-repair/clean-install.txt",
+      "sha256": "16ebc799a690cd152b5edb9010ba2d16c97c3126a25286de8d23dc6e0fd1ec2b",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/clean-core-310-repair/missing-install.txt",
+      "sha256": "f5371cb66f4e01a125fd93e9952c9a6f781a662a1fcad9eb3abbef3cbd12f6f8",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/clean-core-310-repair/reload.txt",
+      "sha256": "7ba150d45c3b4c0d37708126db5bd4b7e8c3e975afc4634f6958a06c448a18ee",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/clean-core-310-repair/restored-install.txt",
+      "sha256": "7ba150d45c3b4c0d37708126db5bd4b7e8c3e975afc4634f6958a06c448a18ee",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/clean-core-310-repair/results.json",
+      "sha256": "dfcca6231c82fcb7b92db99bab0cd06867a03bacb6fa6b4e593abc2a99bedd97",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/clean-core-310-repair/wrong-bundled-wheel.txt",
+      "sha256": "bb1b64c27e2006d46b23ba9846262d0e719e1308d3341e70db33f52df0a619af",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/clean-core-310-repair/wrong-installed-core.txt",
+      "sha256": "3184cbd246af454aa9dbf9b99326216f0e0fbc524b785f0c164df185c1bdbbf5",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/clean-core-314-repair/clean-install.txt",
+      "sha256": "a6a6edb8e4e617608cdac860c70844b46f515bfd6e8bf0e9c57bab339d941713",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/clean-core-314-repair/missing-install.txt",
+      "sha256": "6601b81f813533771abbc539710139b3147f29f1ab6f3df3ad19daa68ea8b638",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/clean-core-314-repair/reload.txt",
+      "sha256": "b39ac0c881107e9eb39f7bae32f517897296d21c8d2655688ebaff1a48bf5676",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/clean-core-314-repair/restored-install.txt",
+      "sha256": "b39ac0c881107e9eb39f7bae32f517897296d21c8d2655688ebaff1a48bf5676",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/clean-core-314-repair/results.json",
+      "sha256": "0bd04a8150f578f43c9bc51f19328c39b350581afd602b26ec0ec89bfe5bddfe",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/clean-core-314-repair/wrong-bundled-wheel.txt",
+      "sha256": "1eac670d22c1d7ae50d4c7fc0cb4e4907fe051b654b9cbaa69609d263dcb7f61",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/clean-core-314-repair/wrong-installed-core.txt",
+      "sha256": "71cc8925ae54384595432a80bb6adcf5310cfdf5e40948c4cdf44a549a1392a4",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/clean-core-314/missing-install.txt",
+      "sha256": "6b9b33228028a58532c6cd51f72eb46af7e91690be99f8cb2041810fbc7446b4",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/clean-core-314/results.json",
+      "sha256": "4e6ddd7484ef1527a1b2c43af757eca99d56569a45da1dc4268a94d986b65971",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/core-310-repair.log",
+      "sha256": "9eb396d73be436cb0c09363ed7c7e7484267f04a37ac2d58d86cdd82e1658ba6",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/core-310.log",
+      "sha256": "8f7778c23d32e7784fb68776df1461cccb07a4b0be57e3e28f3b33c8dd544c38",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/core-tests-310.txt",
+      "sha256": "f5945f70584d6cfa9e9a259bbacd444bd55c5bb66f762b0d01c22b0e0c9ceff0",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/final-build.txt",
+      "sha256": "f44b0392e28d2645c161e5a5bb20f460c0231b36d3c2a8c43b5248905e0032da",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/final-contracts.txt",
+      "sha256": "e2f5edb5229370569ad2269c7e857af1df57e84a4e02e7890e88df377f411d99",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/final-governance.txt",
+      "sha256": "05f17bafb57ab56c8ab6022857376aaea4fbd747ed411cd65b123370126abbea",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/final-host-current.txt",
+      "sha256": "20dd4ea41ac2465bf2d7eb76ce1360118c3a05b16675516b2528bf50898e3097",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/final-host-current/details-first.txt",
+      "sha256": "abf50ddb6fdfe44eba50ac04cf2c9e551fa1a669e1aadb0821001dae4ddf3675",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/final-host-current/details-reloaded.txt",
+      "sha256": "abf50ddb6fdfe44eba50ac04cf2c9e551fa1a669e1aadb0821001dae4ddf3675",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/final-host-current/installed.json",
+      "sha256": "3e2dc39bd5ce7f1582211078577468eafa6a817a5a352fc2841a0254fd6f131b",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/final-host-minimum.txt",
+      "sha256": "20dd4ea41ac2465bf2d7eb76ce1360118c3a05b16675516b2528bf50898e3097",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/final-host-minimum/details-first.txt",
+      "sha256": "24e951a70b59da86d11130d6695c470e21f85df8bd0fd7a3f02250cd4f30e086",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/final-host-minimum/details-reloaded.txt",
+      "sha256": "24e951a70b59da86d11130d6695c470e21f85df8bd0fd7a3f02250cd4f30e086",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/final-host-minimum/installed.json",
+      "sha256": "e1db32123392d7d17965fd384df94122af286fbebe9f0737f40a828421c7d42b",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/final-qualification.json",
+      "sha256": "0cb2d96941133454af0d014248f8427bbf320afb8476bed17f3082c0455e169f",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/final-trigger.txt",
+      "sha256": "438d280d2a694b5f6cc3485daa22852d4bfa4c8d812a4bd41dca2ab0bcd951f5",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/final-unit.txt",
+      "sha256": "a7a9541336750c835669e97c415c0c182ef23b02df0eff906a9b86868f22493a",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/host-current.log",
+      "sha256": "20dd4ea41ac2465bf2d7eb76ce1360118c3a05b16675516b2528bf50898e3097",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/host-current/details-first.txt",
+      "sha256": "abf50ddb6fdfe44eba50ac04cf2c9e551fa1a669e1aadb0821001dae4ddf3675",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/host-current/details-reloaded.txt",
+      "sha256": "abf50ddb6fdfe44eba50ac04cf2c9e551fa1a669e1aadb0821001dae4ddf3675",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/host-current/installed.json",
+      "sha256": "e746a1b635e60e48a103ae1ebd77cd9d8d1dda2b9e3a4e5060c021d46d779ffb",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/host-minimum-repair.log",
+      "sha256": "20dd4ea41ac2465bf2d7eb76ce1360118c3a05b16675516b2528bf50898e3097",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/host-minimum-repair/details-first.txt",
+      "sha256": "24e951a70b59da86d11130d6695c470e21f85df8bd0fd7a3f02250cd4f30e086",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/host-minimum-repair/details-reloaded.txt",
+      "sha256": "24e951a70b59da86d11130d6695c470e21f85df8bd0fd7a3f02250cd4f30e086",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/host-minimum-repair/installed.json",
+      "sha256": "a3eb9eaa9c0dc2c88513efa0fc2ac682b0b9ca7360fbec2d48c7ee7fb53de9d4",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/host-minimum.log",
+      "sha256": "254d513567d98f0eb11f8f9c4f7c06de5efaf5521f8642744ac44382f205fb00",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/integration-environment.txt",
+      "sha256": "04262e60f373876b71215424a895bbde9628a236b1906dbd0315fe80927f3e65",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/offline-1/pytest.txt",
+      "sha256": "e07d836fda68a47aded8723518bab1972186e68e12c719148bc506dd53f43412",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/qualification-0.txt",
+      "sha256": "c3202ba9110632077582f1ce80c5c0f41c7ae66aab7cc5f1f3ddb11692205c50",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/qualification-1.txt",
+      "sha256": "c3202ba9110632077582f1ce80c5c0f41c7ae66aab7cc5f1f3ddb11692205c50",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/qualification-2.txt",
+      "sha256": "05f17bafb57ab56c8ab6022857376aaea4fbd747ed411cd65b123370126abbea",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/qualification-3.txt",
+      "sha256": "cc663aeed5bcb0ac0b0595bde66cb399113385f78d8d4444204413f61ef7fb24",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/qualification-4.txt",
+      "sha256": "61a2bf8b2314cd288ef55c0c47941b91d0cf9de8853b7b450a281632589d9cd4",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/qualification-5.txt",
+      "sha256": "1ec04559c4845d2ed69f3f5c8cdc9b266df5ebd9dbb9ed96fa244c0b93a32c30",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/qualification-6.txt",
+      "sha256": "438d280d2a694b5f6cc3485daa22852d4bfa4c8d812a4bd41dca2ab0bcd951f5",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/qualification-7.txt",
+      "sha256": "992473f4c0487e47ed416fac141d51adfb5d15d3a7ee2338f156f7a2d6e5de90",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/qualification-results.json",
+      "sha256": "5b84faad0cb250ea6b4dc297cc65764a17c15fd5face187f744cbbf17878ba1f",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/sdk-install.txt",
+      "sha256": "f098acf20a258c71e2cce19b282438825c6fe6547c963c19c0420afe2d188fbf",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/unittest-1.txt",
+      "sha256": "ca9f997b6a7b804376b6778854dd2766acbb13263072c577228d240e19ba0bcc",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/raw/unittest-2.txt",
+      "sha256": "5d5a1a2f73259e159fadbfedf4c54f0bc514f887960672b77e3925412ed097a1",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/review-history.md",
+      "sha256": "ec85706556325f409c7aca9c6540f7c830f5e3dfd33e22afb5e814c66668552f",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "docs/evidence/heb-154/integration/review.json",
+      "sha256": "cf70443cf0e0decdfc31d3b4bb194de17a79fea710173a07b0177abc7bebdf7c",
+      "basis": "Independent finished-delta review; no historical-green substitution"
+    },
+    {
+      "path": "docs/repository-orientation.md",
+      "sha256": "f65313990064554449e573e68ca1dfe3bdb9749a0d16d45331520e661093b101",
+      "basis": "Current inventory only; preserve pre-merge acceptance order"
+    },
+    {
+      "path": "packages/agent-core/DESIGN-NOTES.md",
+      "sha256": "ce64c7ea9839c0d6d6bc0f0dd43c54e59770996e6a9ddfa28c83d010f393697f",
+      "basis": "R1-R3 and F1-F3; D1/D2 required for library placement/license; D3/D4 for portable schema/metadata"
+    },
+    {
+      "path": "packages/agent-core/LICENSE",
+      "sha256": "c2510fd2fcf7107265a784f8f403d34aafb874726626215a13355fae5e5af2ae",
+      "basis": "D2 license decision"
+    },
+    {
+      "path": "packages/agent-core/README.md",
+      "sha256": "a976aa7c42322c1aff6c9a87acc9dc590a048b565bb7d432a6d78f8a155b95fd",
+      "basis": "R1-R3 and F1-F3; D1/D2 required for library placement/license; D3/D4 for portable schema/metadata"
+    },
+    {
+      "path": "packages/agent-core/USAGE.md",
+      "sha256": "f7a3ad2168d7ab9f3f846abd63b350a8abeac33b607ac8aa20cf8370c3b1727f",
+      "basis": "R1-R3 and F1-F3; D1/D2 required for library placement/license; D3/D4 for portable schema/metadata"
+    },
+    {
+      "path": "packages/agent-core/build-requirements.txt",
+      "sha256": "12d95d3f58681aa8e07423fd2bf2c164f8d41af73508cbc5bf093c3b6e790f4e",
+      "basis": "D1 qualified build dependencies"
+    },
+    {
+      "path": "packages/agent-core/pyproject.toml",
+      "sha256": "807531b1a73b330aeadd3c5ed1d80eb09202f14720a942bba0077aa014f28ca5",
+      "basis": "R1-R3 and F1-F3; D1/D2 required for library placement/license; D3/D4 for portable schema/metadata"
+    },
+    {
+      "path": "packages/agent-core/requirements-lock.txt",
+      "sha256": "a7daaf5f9de005d868ec97784f24cd8aa16244c73451fdd159adacfc4ed47501",
+      "basis": "D1 qualified runtime dependency closure, hashes derived during build"
+    },
+    {
+      "path": "packages/agent-core/src/agent_core/__init__.py",
+      "sha256": "251cd09b7a1c57fd20e36f8db262547af3443b401f34a0d7caa5d89962d4f626",
+      "basis": "R1-R3 and F1-F3; D1/D2 required for library placement/license; D3/D4 for portable schema/metadata"
+    },
+    {
+      "path": "packages/agent-core/src/agent_core/budget.py",
+      "sha256": "787865dcd1aadefca31565910dfb4bad67e783f83aa74c0b1a9f2e350b93a539",
+      "basis": "R1-R3 and F1-F3; D1/D2 required for library placement/license; D3/D4 for portable schema/metadata"
+    },
+    {
+      "path": "packages/agent-core/src/agent_core/config.py",
+      "sha256": "240d3a591926b54e2afdae92565c45840767e73aaf52e826b4b3e93e899012a2",
+      "basis": "R1-R3 and F1-F3; D1/D2 required for library placement/license; D3/D4 for portable schema/metadata"
+    },
+    {
+      "path": "packages/agent-core/src/agent_core/evidence.py",
+      "sha256": "0c275569eebeb3e262957203c546fd3c1e0704b55f90e48a209afebef3038898",
+      "basis": "R1-R3 and F1-F3; D1/D2 required for library placement/license; D3/D4 for portable schema/metadata"
+    },
+    {
+      "path": "packages/agent-core/src/agent_core/py.typed",
+      "sha256": "f0f8f2675695a10a5156fb7bd66bafbaae6a13e8d315990af862c792175e6e67",
+      "basis": "R1-R3 and F1-F3; D1/D2 required for library placement/license; D3/D4 for portable schema/metadata"
+    },
+    {
+      "path": "packages/agent-core/src/agent_core/security.py",
+      "sha256": "b0d5fd3371dd924775c4ea91a3682b5ec46c6d85a8f61857cf987df0f33d6dc9",
+      "basis": "R1-R3 and F1-F3; D1/D2 required for library placement/license; D3/D4 for portable schema/metadata"
+    },
+    {
+      "path": "packages/agent-core/src/agent_core/structured.py",
+      "sha256": "4882cdb846525d5cadb64c625e3a81aa4bc7c5fd8fba8bca842b399b48bfa839",
+      "basis": "R1-R3 and F1-F3; D1/D2 required for library placement/license; D3/D4 for portable schema/metadata"
+    },
+    {
+      "path": "packages/agent-core/src/agent_core/tools.py",
+      "sha256": "fbde0b630fe4c82fc1df9a470665a2187fda5734b867eeb6da01aed6e9607553",
+      "basis": "R1-R3 and F1-F3; D1/D2 required for library placement/license; D3/D4 for portable schema/metadata"
+    },
+    {
+      "path": "packages/agent-core/src/agent_core/types.py",
+      "sha256": "122a79d7da32003524d1fb5df64abd967be0ec9437746372a0908abdaf9bb121",
+      "basis": "R1-R3 and F1-F3; D1/D2 required for library placement/license; D3/D4 for portable schema/metadata"
+    },
+    {
+      "path": "packages/agent-core/src/agent_core/version.py",
+      "sha256": "f4ec3a0530ca113cbfe889e49ccf6a8b656e912af95926c0e65e562ee8aa0689",
+      "basis": "R1-R3 and F1-F3; D1/D2 required for library placement/license; D3/D4 for portable schema/metadata"
+    },
+    {
+      "path": "packages/agent-core/tests/test_budget.py",
+      "sha256": "99c4916d21978f62a373f5e2699f14c088ff4e8add43b585014b7a67b24c5b9e",
+      "basis": "R1-R3 and F1-F3; D1/D2 required for library placement/license; D3/D4 for portable schema/metadata"
+    },
+    {
+      "path": "packages/agent-core/tests/test_config.py",
+      "sha256": "0e3b9b6804046b560460106d0ffa693f9939be6f94a2c51a95e77b5d895163f2",
+      "basis": "R1-R3 and F1-F3; D1/D2 required for library placement/license; D3/D4 for portable schema/metadata"
+    },
+    {
+      "path": "packages/agent-core/tests/test_evidence_security.py",
+      "sha256": "c16c698a425453625522f80205eaa2405055f3ee202de6c6edbc491b81698acd",
+      "basis": "R1-R3 and F1-F3; D1/D2 required for library placement/license; D3/D4 for portable schema/metadata"
+    },
+    {
+      "path": "packages/agent-core/tests/test_parser_regressions.py",
+      "sha256": "eb3aa24ca73657b90a512abaae374f63331f43619fc828ab322531e668ed6a06",
+      "basis": "R1-R3 and F1-F3; D1/D2 required for library placement/license; D3/D4 for portable schema/metadata"
+    },
+    {
+      "path": "packages/agent-core/tests/test_structured.py",
+      "sha256": "a2fa5f251e2c0e8e78767088d24fedd16d0ba554e3e1029355c45cbb90061752",
+      "basis": "R1-R3 and F1-F3; D1/D2 required for library placement/license; D3/D4 for portable schema/metadata"
+    },
+    {
+      "path": "packages/agent-core/tests/test_tools.py",
+      "sha256": "a0559846c1a899b8228005ac7fb75976f0dff3551fe6562a5dd17496fe78c8bf",
+      "basis": "R1-R3 and F1-F3; D1/D2 required for library placement/license; D3/D4 for portable schema/metadata"
+    },
+    {
+      "path": "packages/agent-core/tests/test_usage_example.py",
+      "sha256": "912dff1df28a12ddd5b8e91e40ff03c7c829c5c14d40ea66e4ffb9838d7beb76",
+      "basis": "R1-R3 and F1-F3; D1/D2 required for library placement/license; D3/D4 for portable schema/metadata"
+    },
+    {
+      "path": "plugins/bedrock/.claude-plugin/plugin.json",
+      "sha256": "e294a8c122b0343e8b813a3213b4d02ddf625811dcb78e1e9b32b023a2a98555",
+      "basis": "D4 major candidate identity in same transaction as skills"
+    },
+    {
+      "path": "plugins/bedrock/CHANGELOG.md",
+      "sha256": "cd3978e8e78c87bddbdc0b08a69c88191fa59567da8cd4d044176299993df8b8",
+      "basis": "Candidate delta and proof limits"
+    },
+    {
+      "path": "plugins/bedrock/governance/COMPATIBILITY.md",
+      "sha256": "b5b7e993f3f3b858dbe25dff536048650f944230df431434556e66a0258897be",
+      "basis": "D1 executable prerequisite and D4 migration; no unimplemented Codex support"
+    },
+    {
+      "path": "plugins/bedrock/governance/QUICKSTART.md",
+      "sha256": "326ad068006976320f45e1b0ef7852b7d55d501bfc6b755d58a15f94ad20c6b3",
+      "basis": "New construction route and prerequisite behavior"
+    },
+    {
+      "path": "plugins/bedrock/governance/README.md",
+      "sha256": "7c28513c37212da44ccf64d7bc3dc273a682e093906d260440b5fc36d21aa4d6",
+      "basis": "D1 dependency-source acceptance and landing equivalence"
+    },
+    {
+      "path": "plugins/bedrock/governance/authority-inventory.yaml",
+      "sha256": "b263f43b0955e5c45a94918dc6b75eec21702bd13058efb3242773781345814d",
+      "basis": "Inventory, dependency and identity carriers"
+    },
+    {
+      "path": "plugins/bedrock/governance/registry.yaml",
+      "sha256": "22a2186d5728596dc4b663682180197098287458873e9b7a66f4d07584f8e6e8",
+      "basis": "D1 dependency, D4 inventory/contracts, D5 release boundary"
+    },
+    {
+      "path": "plugins/bedrock/skills/agent-builder/PACKAGE_IDENTITY.json",
+      "sha256": "c1756e02222d2c8bd9db2f478240fe351619df8de1a2e97819fa1b1e158e7630",
+      "basis": "D4 new route"
+    },
+    {
+      "path": "plugins/bedrock/skills/agent-builder/SKILL.md",
+      "sha256": "0e51fedc992fcc2cb0b3c5ef96b1e4eaaad4cd771589ba6ddb49f51f23fdcf71",
+      "basis": "R1-R3 and F1-F3; D1/D2 required for library placement/license; D3/D4 for portable schema/metadata"
+    },
+    {
+      "path": "plugins/bedrock/skills/agent-builder/assets/python/agent_core-0.2.0-py3-none-any.whl",
+      "sha256": "fdeba49630b213a12d437bdd6836585f39d96eeea619d8efe7fd8cfed368cfa0",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "plugins/bedrock/skills/agent-builder/assets/python/component.json",
+      "sha256": "62466fbf17029fb2d3c9ac870fb467d272953e2e846642af8411308fab3aa6d1",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "plugins/bedrock/skills/agent-builder/assets/python/requirements-lock.txt",
+      "sha256": "a7daaf5f9de005d868ec97784f24cd8aa16244c73451fdd159adacfc4ed47501",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "plugins/bedrock/skills/agent-builder/reference/README.md",
+      "sha256": "3fb44cbaba3bffce029a6b88fa6a407f0e9652f716489c6bba1920039e87eea7",
+      "basis": "R1-R3 and F1-F3; D1/D2 required for library placement/license; D3/D4 for portable schema/metadata"
+    },
+    {
+      "path": "plugins/bedrock/skills/agent-builder/reference/dependencies.json",
+      "sha256": "75d1660a762f3d44d71fc2fc99b54d388ff34ee11ed44c485a8e8ca7651b6a6e",
+      "basis": "D1/D4 machine-readable core and sibling dependencies, detection, failure behavior"
+    },
+    {
+      "path": "plugins/bedrock/skills/agent-builder/reference/installation.md",
+      "sha256": "a371d9082af2d63b7360af2e8ca888ae1895baca7b4edfb259824a5d0bd006ef",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "plugins/bedrock/skills/agent-builder/scripts/install_core.py",
+      "sha256": "52f532bdebbc2f3ef10a0781f7723346dea1426e5aa2769e7ea27127d1773ec8",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "plugins/bedrock/skills/agent-builder/shared/README.md",
+      "sha256": "9b34b27aaf2955e0cb809b4d2e42e893f12b2e12ba7903ee0f6b7bef045dba1d",
+      "basis": "R1-R3 and F1-F3; D1/D2 required for library placement/license; D3/D4 for portable schema/metadata"
+    },
+    {
+      "path": "plugins/bedrock/skills/agent-code/PACKAGE_IDENTITY.json",
+      "sha256": "c1756e02222d2c8bd9db2f478240fe351619df8de1a2e97819fa1b1e158e7630",
+      "basis": "D4 manifest transaction"
+    },
+    {
+      "path": "plugins/bedrock/skills/agent-code/README.md",
+      "sha256": "e61210588e24fddb1899bd3286f9aa7d8b6a1b506917be74a5fe7ff36ef8a5ab",
+      "basis": "R1-R3 and F1-F3; D1/D2 required for library placement/license; D3/D4 for portable schema/metadata"
+    },
+    {
+      "path": "plugins/bedrock/skills/agent-code/SKILL.md",
+      "sha256": "0e6b50a73716291cee4c04f1c02b18fdf67093f28db464e9f0a9a7562b89fd81",
+      "basis": "R1-R3 and F1-F3; D1/D2 required for library placement/license; D3/D4 for portable schema/metadata"
+    },
+    {
+      "path": "plugins/bedrock/skills/agent-code/reference/agent-core-0.2-binding.md",
+      "sha256": "cbe07ee6ef37f45df1f5279cb18dc59b99e6d8da6e9876abac4070e786f80709",
+      "basis": "R1-R3 and F1-F3; D1/D2 required for library placement/license; D3/D4 for portable schema/metadata"
+    },
+    {
+      "path": "plugins/bedrock/skills/agent-code/reference/agent-execution.schema.json",
+      "sha256": "6a3cb937a7b7f30bc8390847431468023a557973fac253a7998d50b7c986697b",
+      "basis": "R1-R3 and F1-F3; D1/D2 required for library placement/license; D3/D4 for portable schema/metadata"
+    },
+    {
+      "path": "plugins/bedrock/skills/agent-code/reference/mcp-server-authoring.md",
+      "sha256": "cc1d5f6067cbb6b68b01bd00b23984e85d69de571c65246cc5d8a80afc755316",
+      "basis": "R1-R3 and F1-F3; D1/D2 required for library placement/license; D3/D4 for portable schema/metadata"
+    },
+    {
+      "path": "plugins/bedrock/skills/agent-code/reference/mechanism-contract.md",
+      "sha256": "61b137d45f78d4f78719bd899867512df7a79806e2d38001af9dfd2a24ebad2a",
+      "basis": "Move detail from over-budget entrypoint with explicit link and no normative loss"
+    },
+    {
+      "path": "plugins/bedrock/skills/app-delivery-pipeline/PACKAGE_IDENTITY.json",
+      "sha256": "c1756e02222d2c8bd9db2f478240fe351619df8de1a2e97819fa1b1e158e7630",
+      "basis": "D4 manifest transaction"
+    },
+    {
+      "path": "plugins/bedrock/skills/application-code/PACKAGE_IDENTITY.json",
+      "sha256": "c1756e02222d2c8bd9db2f478240fe351619df8de1a2e97819fa1b1e158e7630",
+      "basis": "D4 manifest transaction"
+    },
+    {
+      "path": "plugins/bedrock/skills/author-construct-spec/PACKAGE_IDENTITY.json",
+      "sha256": "c1756e02222d2c8bd9db2f478240fe351619df8de1a2e97819fa1b1e158e7630",
+      "basis": "D4 manifest transaction"
+    },
+    {
+      "path": "plugins/bedrock/skills/author-decision-record/PACKAGE_IDENTITY.json",
+      "sha256": "c1756e02222d2c8bd9db2f478240fe351619df8de1a2e97819fa1b1e158e7630",
+      "basis": "D4 manifest transaction"
+    },
+    {
+      "path": "plugins/bedrock/skills/author-execution-relay/PACKAGE_IDENTITY.json",
+      "sha256": "c1756e02222d2c8bd9db2f478240fe351619df8de1a2e97819fa1b1e158e7630",
+      "basis": "D4 manifest transaction"
+    },
+    {
+      "path": "plugins/bedrock/skills/author-standard/PACKAGE_IDENTITY.json",
+      "sha256": "c1756e02222d2c8bd9db2f478240fe351619df8de1a2e97819fa1b1e158e7630",
+      "basis": "D4 manifest transaction"
+    },
+    {
+      "path": "plugins/bedrock/skills/code-review/PACKAGE_IDENTITY.json",
+      "sha256": "c1756e02222d2c8bd9db2f478240fe351619df8de1a2e97819fa1b1e158e7630",
+      "basis": "D4 manifest transaction"
+    },
+    {
+      "path": "plugins/bedrock/skills/debug/PACKAGE_IDENTITY.json",
+      "sha256": "c1756e02222d2c8bd9db2f478240fe351619df8de1a2e97819fa1b1e158e7630",
+      "basis": "D4 manifest transaction"
+    },
+    {
+      "path": "plugins/bedrock/skills/design-review-loop/PACKAGE_IDENTITY.json",
+      "sha256": "c1756e02222d2c8bd9db2f478240fe351619df8de1a2e97819fa1b1e158e7630",
+      "basis": "D4 manifest transaction"
+    },
+    {
+      "path": "plugins/bedrock/skills/frontend-code/PACKAGE_IDENTITY.json",
+      "sha256": "c1756e02222d2c8bd9db2f478240fe351619df8de1a2e97819fa1b1e158e7630",
+      "basis": "D4 manifest transaction"
+    },
+    {
+      "path": "plugins/bedrock/skills/infrastructure-code/PACKAGE_IDENTITY.json",
+      "sha256": "c1756e02222d2c8bd9db2f478240fe351619df8de1a2e97819fa1b1e158e7630",
+      "basis": "D4 manifest transaction"
+    },
+    {
+      "path": "plugins/bedrock/skills/testing/PACKAGE_IDENTITY.json",
+      "sha256": "c1756e02222d2c8bd9db2f478240fe351619df8de1a2e97819fa1b1e158e7630",
+      "basis": "D4 manifest transaction"
+    },
+    {
+      "path": "scripts/build_agent_core.py",
+      "sha256": "6a0303acd9c0cc158f9070df2c4c0f14bbbab88d19e0d5a22da9f4b40b9193c9",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "scripts/smoke_clean_install.sh",
+      "sha256": "7fb9b5f7e5bb8a0b76abfe141482165c417a25be9be6702bea7580bffc70acb5",
+      "basis": "D4 inventory, exact installed subject, isolated host proof"
+    },
+    {
+      "path": "scripts/validate_agent_review_contracts.py",
+      "sha256": "ef4de86e6fce84e58f9a5c48c118a190cff3814920dcec3d0583647e787378e8",
+      "basis": "D3 physical model/tool counts and truthful terminal/unknown usage semantics"
+    },
+    {
+      "path": "scripts/validate_package_governance.py",
+      "sha256": "6403d1a43a155a51ffa1d8133fbc30c199e7ef01bdc22589a32b87bdd203e1e5",
+      "basis": "D1 dependency and landing identity, D4 exact inventory"
+    },
+    {
+      "path": "scripts/validate_plugin.py",
+      "sha256": "d859cb3fb74cc249d3aadf9c7bd2dcba41300a83fb9504c375ca4a4579b3b847",
+      "basis": "D4 exact skill inventory and dependency checks"
+    },
+    {
+      "path": "scripts/verify_agent_core_install.py",
+      "sha256": "0ac62594a175a292785ae17803adb8850c72f53709c783802220fe85f1e1bc85",
+      "basis": "D1 clean wheel import/exercise and wrong-subject/failed-install controls"
+    },
+    {
+      "path": "tests/fixtures/agent-readiness/EVIDENCE-MAPPING.md",
+      "sha256": "da558abdfb6dc795f54d4def23d52814d26440ad02a5a7f9b3293e7ab3e35c92",
+      "basis": "Preserve SDK binding, accounting, persistence and sanitization regression controls; test-only consumer"
+    },
+    {
+      "path": "tests/fixtures/agent-readiness/README.md",
+      "sha256": "105ce9c90f7b191ce69fcb21294c448b169bf8a4792833682cff954f3dfb79db",
+      "basis": "Ratified D1/D3/D5: component installation/CI, contract controls, or repository-only evidence"
+    },
+    {
+      "path": "tests/fixtures/agent-readiness/bootstrap.py",
+      "sha256": "a92438bd23e86b16cceadd148c30a5cf4fb9125aab3f2d9df4682c40deba546d",
+      "basis": "Preserve SDK binding, accounting, persistence and sanitization regression controls; test-only consumer"
+    },
+    {
+      "path": "tests/fixtures/agent-readiness/config-1.0.0.json",
+      "sha256": "c5b1f660b12fc0773871bbf6a611b14e8159f79bd86a1d2d45b736aefa46bf2f",
+      "basis": "Preserve SDK binding, accounting, persistence and sanitization regression controls; test-only consumer"
+    },
+    {
+      "path": "tests/fixtures/agent-readiness/contract.md",
+      "sha256": "84c64232f273035a87f638b4bbe9b75890c2ad1bf25a49e60fa173eadc398c39",
+      "basis": "Preserve SDK binding, accounting, persistence and sanitization regression controls; test-only consumer"
+    },
+    {
+      "path": "tests/fixtures/agent-readiness/dev-complete.json",
+      "sha256": "4daeecf11700502f2f12cca5214f0ff4667f492c30f326e9cf33da70f3952e7a",
+      "basis": "Preserve SDK binding, accounting, persistence and sanitization regression controls; test-only consumer"
+    },
+    {
+      "path": "tests/fixtures/agent-readiness/dev-vague.json",
+      "sha256": "5699115104fd9514ce84668759269bc3552cb5275c5a7731c124182d6abd6a82",
+      "basis": "Preserve SDK binding, accounting, persistence and sanitization regression controls; test-only consumer"
+    },
+    {
+      "path": "tests/fixtures/agent-readiness/development-cases.json",
+      "sha256": "f66481e35be77e3440ceb3006430d533f4694cb3edc5fda5c06af8be0e10d97b",
+      "basis": "Preserve SDK binding, accounting, persistence and sanitization regression controls; test-only consumer"
+    },
+    {
+      "path": "tests/fixtures/agent-readiness/fleet-interface-1.0.0.json",
+      "sha256": "e6668a4f2c561a36663617c7594010917b90492dd1a85d0a16a87742d71bcc10",
+      "basis": "Preserve SDK binding, accounting, persistence and sanitization regression controls; test-only consumer"
+    },
+    {
+      "path": "tests/fixtures/agent-readiness/identity.py",
+      "sha256": "9ea0cd24806690da4e1ee072c0110e876b8116858c58ec1e67351a8d09a7b156",
+      "basis": "Preserve SDK binding, accounting, persistence and sanitization regression controls; test-only consumer"
+    },
+    {
+      "path": "tests/fixtures/agent-readiness/policy.json",
+      "sha256": "3df7a7f9e9326679450aef19027b486bba6cc51d8a7e7478a77b0a1bb921dd14",
+      "basis": "Preserve SDK binding, accounting, persistence and sanitization regression controls; test-only consumer"
+    },
+    {
+      "path": "tests/fixtures/agent-readiness/prompts/system-1.0.0.txt",
+      "sha256": "c3e16a93caa05851973a5514a1e138ff2cbb372430f5ebb1dd479aac9be69bfb",
+      "basis": "Preserve SDK binding, accounting, persistence and sanitization regression controls; test-only consumer"
+    },
+    {
+      "path": "tests/fixtures/agent-readiness/readiness.py",
+      "sha256": "556b3da390f11ad21b40e7594464ffab123a01c1cdc6cc1e1a9cae007fea1b59",
+      "basis": "Preserve SDK binding, accounting, persistence and sanitization regression controls; test-only consumer"
+    },
+    {
+      "path": "tests/fixtures/agent-readiness/requirements-lock.txt",
+      "sha256": "09c787394f292d926bb28797eff759c4a24c24a32753b98aad9ac954c6082f37",
+      "basis": "Preserve SDK binding, accounting, persistence and sanitization regression controls; test-only consumer"
+    },
+    {
+      "path": "tests/fixtures/agent-readiness/requirements.txt",
+      "sha256": "cfcfb1343d0522a3739edb400ef230ef7e3dcd094bd26fce6d4e62582ee296ea",
+      "basis": "Preserve SDK binding, accounting, persistence and sanitization regression controls; test-only consumer"
+    },
+    {
+      "path": "tests/fixtures/agent-readiness/run_offline_tests.py",
+      "sha256": "effe16894c3524668c475d65af7f6fbfb4383796aa05e29b84b6324cf05f723e",
+      "basis": "Preserve SDK binding, accounting, persistence and sanitization regression controls; test-only consumer"
+    },
+    {
+      "path": "tests/fixtures/agent-readiness/schemas/error-1.0.0.json",
+      "sha256": "4686251545a5b1721a8bcb8452850ac91ab40a2f1749c4302525a087b7fc67b0",
+      "basis": "Preserve SDK binding, accounting, persistence and sanitization regression controls; test-only consumer"
+    },
+    {
+      "path": "tests/fixtures/agent-readiness/schemas/evidence-1.0.0.json",
+      "sha256": "7a8acf5c1b654b4808c890e1be9a6dd5833dc3e91a0a9057176710728cc7a916",
+      "basis": "Preserve SDK binding, accounting, persistence and sanitization regression controls; test-only consumer"
+    },
+    {
+      "path": "tests/fixtures/agent-readiness/schemas/input-1.0.0.json",
+      "sha256": "8e7919971f44bf5c1cb6067664f21ab72a2b47182bd5dbff60a0733073ea0e98",
+      "basis": "Preserve SDK binding, accounting, persistence and sanitization regression controls; test-only consumer"
+    },
+    {
+      "path": "tests/fixtures/agent-readiness/schemas/native-task-1.0.0.json",
+      "sha256": "ca5fd9041c748fd55dcf6667e4ca3658bff5047906c9b98b05d6d12a811f100e",
+      "basis": "Preserve SDK binding, accounting, persistence and sanitization regression controls; test-only consumer"
+    },
+    {
+      "path": "tests/fixtures/agent-readiness/schemas/return-1.0.0.json",
+      "sha256": "937199fe99458d506dfcd831612efb731b2833fc46b85efbdad935abde4c6ffb",
+      "basis": "Preserve SDK binding, accounting, persistence and sanitization regression controls; test-only consumer"
+    },
+    {
+      "path": "tests/fixtures/agent-readiness/schemas/task-1.0.0.json",
+      "sha256": "cfd1c3c5819ed789f92d0ad81d76a0732a0f783c1019a5a16bef5008318f8a7a",
+      "basis": "Preserve SDK binding, accounting, persistence and sanitization regression controls; test-only consumer"
+    },
+    {
+      "path": "tests/fixtures/agent-readiness/schemas/tool-input-1.0.0.json",
+      "sha256": "3d5fad2b7b24f88096a3735c5e05722edb57e65113e058c212d8a6ec7c9b7639",
+      "basis": "Preserve SDK binding, accounting, persistence and sanitization regression controls; test-only consumer"
+    },
+    {
+      "path": "tests/fixtures/agent-readiness/schemas/tool-result-1.0.0.json",
+      "sha256": "3624bc0b0b94f60633b0f884835aa4d295e1c71f05e3bb390b9b3b4916fda4ef",
+      "basis": "Preserve SDK binding, accounting, persistence and sanitization regression controls; test-only consumer"
+    },
+    {
+      "path": "tests/fixtures/agent-readiness/tests/test_controls.py",
+      "sha256": "0896d3e6904d941b2d3dab09e4edde04d886667a4a3a2b99a65d9dd85b3a0451",
+      "basis": "Preserve SDK binding, accounting, persistence and sanitization regression controls; test-only consumer"
+    },
+    {
+      "path": "tests/fixtures/agent-readiness/transport.py",
+      "sha256": "b19c2350cf85e289746229137ea81092cbe8059767c4f5c73936bb95d70e7026",
+      "basis": "Preserve SDK binding, accounting, persistence and sanitization regression controls; test-only consumer"
+    },
+    {
+      "path": "tests/fixtures/agent-review-contracts/invalid/agent-execution-false-success.json",
+      "sha256": "a845c75660c9a84486a1c7757cf1bb32d9035db3bb923cbd2375438ca72aee91",
+      "basis": "D3 semantic contradiction control"
+    },
+    {
+      "path": "tests/fixtures/agent-review-contracts/invalid/agent-execution-false-zero.json",
+      "sha256": "a15f47f41ee5853e310ffbe35d4e060814c4d7bea3b3899a309dc57c07915a22",
+      "basis": "D3 unknown-to-zero control"
+    },
+    {
+      "path": "tests/fixtures/agent-review-contracts/valid/agent-execution-unknown.json",
+      "sha256": "e213bbceabd119505c006bdf2fe0f3798869dfbbc6500e1da45ebca81ab85810",
+      "basis": "D3 unknown usage with known subtotal and outstanding exposure"
+    },
+    {
+      "path": "tests/fixtures/agent-review-contracts/valid/agent-execution.json",
+      "sha256": "689a1937310544060cc0731892e8e16ea891bde1664d39da78a4e21f04379ffe",
+      "basis": "D3 known-usage successor example"
+    },
+    {
+      "path": "tests/fixtures/routing.yaml",
+      "sha256": "ffa8329b6b554d702293b7c746198c706016ee31125992e6a9db8af20e109188",
+      "basis": "D4 positive/negative/collision/prose cases"
+    },
+    {
+      "path": "tests/test_agent_core_install.py",
+      "sha256": "f5357ff97ce6fe73eab2b7fec68c90e06c3207220b7cf0add27ca55411a12973",
+      "basis": "D1 install control regression coverage"
+    },
+    {
+      "path": "tests/test_agent_review_contracts.py",
+      "sha256": "3ff409cb2d56024a44b66893c936462d0bae105304204dfb92ebcb81ae57ff97",
+      "basis": "D3 zero-model false success and one-model/one-tool false rejection controls"
+    },
+    {
+      "path": "tests/test_package_governance.py",
+      "sha256": "59e7c12ee97f01d5249c01bd705b666eda50173a848052df985c7d0b4ed5afa0",
+      "basis": "D1 dependency-substitution and D4 inventory controls"
+    },
+    {
+      "path": "tests/test_validate_plugin.py",
+      "sha256": "005cca07ea7ace680661d0a89b4c8f072f90021823bf20915f046c63b930605c",
+      "basis": "D4 inventory and dependency declarations"
+    },
+    {
+      "path": "validation/agent-review-contracts.yaml",
+      "sha256": "677df5d769a44e9771940f45d314be79d89d133d3e58ce96a36eab1ed847a4d3",
+      "basis": "D3 valid/invalid evidence cases and D4 builder contract markers"
+    }
+  ],
+  "planned_but_unused": [
+    "docs/evidence/heb-109/metadata-inventory.json",
+    "docs/evidence/heb-154/integration/input-manifest.json",
+    "docs/evidence/heb-154/integration/integration-manifest.json",
+    "docs/evidence/heb-154/integration/results.json",
+    "plugins/bedrock/governance/release-evidence.schema.json",
+    "plugins/bedrock/governance/release-evidence.template.yaml",
+    "plugins/bedrock/skills/agent-builder/HANDOFF.md",
+    "plugins/bedrock/skills/agent-code/reference/anthropic-python-profile.md",
+    "tests/fixtures/agent-readiness/BUILD-USE-TRACE.md",
+    "tests/fixtures/agent-readiness/HANDOFF.md",
+    "tests/fixtures/agent-readiness/_build.py",
+    "tests/fixtures/agent-readiness/_identity_build.py",
+    "tests/fixtures/agent-readiness/candidate-input-identity.json",
+    "tests/fixtures/agent-readiness/cli.py",
+    "tests/fixtures/agent-readiness/dependency-identity.json",
+    "validation/executable-samples.yaml",
+    "validation/package-contract.yaml"
+  ],
+  "private_term_scan": {
+    "population": "All intended changed path text and file bytes; nested wheel ZIP contents. Historical proof archive separately scanned recursively before import.",
+    "control": "in-memory private term rejected; none printed or retained"
+  }
+}

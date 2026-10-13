@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "profile": "standard",
+  "scope": "Routing subprocess stdin isolation and its offline regression",
+  "checked_surfaces": [
+    "scripts/run_routing_evals.py",
+    "tests/test_routing_adapter.py",
+    "Completed stdin diagnostic captures and red/green controls"
+  ],
+  "gates": [
+    {
+      "name": "Focused offline regression",
+      "disposition": "passed",
+      "reason": "22 tests passed; removing the fix independently reproduced both expected failures."
+    },
+    {
+      "name": "Live routing",
+      "disposition": "not-relevant",
+      "reason": "Outside this narrow repair review; no fresh live allowance."
+    }
+  ],
+  "findings": [],
+  "verdict": "approve"
+}

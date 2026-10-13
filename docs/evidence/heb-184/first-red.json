@@ -1,0 +1,21 @@
+{
+  "date_eastern": "2026-09-30",
+  "command": [
+    "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+    "-B",
+    "-m",
+    "unittest",
+    "tests.test_package_governance.PackageGovernanceTests.test_planning_has_accepted_explicit_adoption_and_source_identity",
+    "tests.test_routing_adapter.RoutingAdapterResultTests.test_planning_fixture_boundaries_and_adapter_discrimination",
+    "-v"
+  ],
+  "cwd": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-184-2026-09-30/baseline",
+  "returncode": 1,
+  "baseline": "f0ac9a0d81dbdb37cdb7b29b61b59f114802a489",
+  "overlay": "first-red-tests/",
+  "meaningful_failures": [
+    "accepted planning entrypoint is absent",
+    "planning fixture boundary population absent"
+  ],
+  "archive_custody": "baseline.tar retained pending archive capture; its exact SHA-256 is in preflight.json"
+}

@@ -1,0 +1,19 @@
+{
+  "read_depth": "Whole report parsed and every case/run pair checked; console dispositions read throughout; not a manual prose review of every successful rationale",
+  "cases": 63,
+  "draws": 189,
+  "passed": 189,
+  "excluded_selections": 0,
+  "cost_usd": 1.853696,
+  "resolved_models": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "eligible": true,
+  "source_unchanged_during_run": true,
+  "identity": {
+    "fixture_sha256": "ffa8329b6b554d702293b7c746198c706016ee31125992e6a9db8af20e109188",
+    "catalog_sha256": "d248130b4df9b4ead25c75a8cc87b597613a8b9127f702467b568721006504f2",
+    "policy_sha256": "4e3aedf467f4d353a9903a31f8dfd3fa9224f01eb449a473051177b5f626b67d"
+  },
+  "initial_identity_check": "git write-tree denied by sandbox before mutation; rerun under worktree filesystem permission succeeded"
+}

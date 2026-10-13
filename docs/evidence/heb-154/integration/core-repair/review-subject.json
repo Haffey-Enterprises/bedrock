@@ -1,0 +1,19 @@
+{
+  "reviewer": "Independent clean-context agent /root/repair_review",
+  "review_mode": "read-only finished-delta review",
+  "source_parent": "dec05792cc59ebb9b3feb5b01a3466036e748212",
+  "files": {
+    "docs/evidence/heb-154/integration/README.md": "4305476a91b679e2f58bfbd68c997f16bd689a0cc0e090b471cc60c9adda36b6",
+    "docs/evidence/heb-154/integration/core-repair/diagnosis.json": "2cf80d56ea048b5ad62ab6c9d27c704260447b0a19ad084ae079585be18818d3",
+    "docs/evidence/heb-154/integration/core-repair/manifest.json": "bc4371f24e3de1d56776f3a860e7db82d2f5cad2e46a950067d69ff0f7e0afd8",
+    "docs/evidence/heb-154/integration/core-repair/proof.tar.gz": "24b8a43a3ce79ecd3a486a5238717ec49dd4fd7a7bb937f64d2f79e9c4931304",
+    "docs/evidence/heb-154/integration/core-repair/result.json": "a0db77080d4f01aac48983c294c1d5504ea83fa8904d9bce460b4ec433034742",
+    "packages/agent-core/src/agent_core/budget.py": "81dc65405bdc0156bb126bdeaf369d97a296fd6c9efc5b76ca59faaa15686a49",
+    "packages/agent-core/src/agent_core/structured.py": "e824793d790f61d64769418f506e9a5b58c3ab2cfd1b06b0c9a143e4b970097a",
+    "packages/agent-core/tests/test_integer_budget_and_span_limits.py": "2d49048d8cfbd5f30f06bdb7ff1eccce4297e3ce75f5b8b869e8f8c75a3496bc",
+    "plugins/bedrock/CHANGELOG.md": "7ff48e4bcd95c19ebae28fa72b57d6beba893ceb0f56bd07508f1e481ad5e352",
+    "plugins/bedrock/skills/agent-builder/assets/python/agent_core-0.2.0-py3-none-any.whl": "215673be310d4f2ab9ea20c4119978a608f07507b8fbd6ea54d17a3dfb7da895",
+    "plugins/bedrock/skills/agent-builder/assets/python/component.json": "56448d56d01e3b6e3e938e3f9c1b1b83ada870557896c94440d71c37bda3fb04",
+    "tests/fixtures/agent-readiness/README.md": "8807df5617d7c9da475df252dc2657ea336df8accaa8f5de5e382fd86b5128ca"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "profile": "release",
+  "requested_model": "haiku",
+  "runs_per_case": 3,
+  "case_count": 63,
+  "max_budget_usd_per_case_run": 0.06,
+  "max_total_budget_usd": 3.0,
+  "authorization": "Tad D6 plus explicit approval of routing payload/destination in latest user message; one release run, no automatic retry; PR run reserved for GitHub CI",
+  "staged_tree": "8568d4cbe1552e8062d5945fb4374e701ba7e80c",
+  "source_parent": "2ab76b447cdb1a975c801e6833682c0c1f94cef0",
+  "outbound_payload_sha256": "16fddaedd3e56c651ec3e757a508108bdcd93b4be75f390aafd5b43b815c89ca",
+  "sha256": {
+    "scripts/run_routing_evals.py": "06c762416524ace8286da6ec89b24ea81083440c3dce336f69553667d7818386",
+    "tests/fixtures/routing.yaml": "ffa8329b6b554d702293b7c746198c706016ee31125992e6a9db8af20e109188",
+    "validation/eval-policy.yaml": "4e3aedf467f4d353a9903a31f8dfd3fa9224f01eb449a473051177b5f626b67d",
+    "plugins/bedrock/.claude-plugin/plugin.json": "e294a8c122b0343e8b813a3213b4d02ddf625811dcb78e1e9b32b023a2a98555"
+  }
+}

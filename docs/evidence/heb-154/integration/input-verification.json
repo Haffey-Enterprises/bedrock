@@ -1,0 +1,55 @@
+{
+  "recorded_date_eastern": "2026-09-29",
+  "base": "2ab76b447cdb1a975c801e6833682c0c1f94cef0",
+  "checkout": "/Users/thaffey/.codex/worktrees/heb-154-integration/bedrock",
+  "candidate_manifest": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-28/current-package-review/correction-evidence/candidate-manifest.json",
+  "premise": "confirmed",
+  "population": "Every regular file recursively under corrected-candidate; path-set equality and every SHA-256 compared to manifest. No other candidate population implied.",
+  "raw_outcome": {
+    "manifest_equals_actual": true,
+    "altered_digest_manifest_equals_actual": false
+  },
+  "control": "A copied manifest with one SHA-256 falsified was rejected; source unchanged.",
+  "archive": {
+    "path": "/Users/thaffey/Documents/Haffey Enterprises/Development Archives/HEB-154-2026-09-29/accepted-bounded-trial/proof.tar.gz",
+    "sha256": "7e574fa699fcd855b67f535627a9d22c1ad7b526694d3fce2dabd42d42232fdc",
+    "unchanged": true
+  },
+  "candidate": {
+    "agent_core_pkg/USAGE.md": "28e9787225cd9ce2ca96cb36c8b8984ebd1db4de157785bfdfef574aef4b0706",
+    "agent_core_pkg/pyproject.toml": "5117324dd8a9b56e23734d50b8901edce3e02d4e359112a295682aa4ae4f4e78",
+    "agent_core_pkg/README.md": "312880314aa0ac2a17243824231215ad5afd2480917a4d7e04e10e73461c8a36",
+    "agent_core_pkg/DESIGN-NOTES.md": "ce64c7ea9839c0d6d6bc0f0dd43c54e59770996e6a9ddfa28c83d010f393697f",
+    "agent-builder/SKILL.md": "d025422d9b31d55a35229eab377c94cc1f3ad9d59e26db3b06b9d60dbac0d0e7",
+    "agent-builder/HANDOFF.md": "a2451eb3f49264d02ed9c255940267075c64ae7e9e9586f13ea87bc9f828de89",
+    "agent-code/README.md": "e61210588e24fddb1899bd3286f9aa7d8b6a1b506917be74a5fe7ff36ef8a5ab",
+    "agent-code/SKILL.md": "0d1e6e6d028c61b918562b4b698cfd2e0f4fb1ff2ebec2edf26d38b185816a63",
+    "agent-code/reference/mcp-server-authoring.md": "cc1d5f6067cbb6b68b01bd00b23984e85d69de571c65246cc5d8a80afc755316",
+    "agent-code/reference/agent-execution.schema.json": "cbf1677c3e62c439c8463c3b0a5f5e46eb10649ed04f519bb6d92f23cdd9f004",
+    "agent-code/reference/anthropic-python-profile.md": "79329d30f20adfe6be0297e781180d0fbdb5a49b6217448adeedbeaf2dd918b7",
+    "agent-code/reference/agent-core-0.2-binding.md": "0f34cedf84a6dacaba882d858a65b77a295617b8b0b3cbc08b3b564741dc6708",
+    "agent-builder/shared/README.md": "d31619e144293dbc417a7060b985b19503a89da1e068ac5d84b697edf4d1fad7",
+    "agent-builder/reference/README.md": "b58b72142c12802fdfed0e183d1bce903cef09a527a87ffd114da75fea95da1f",
+    "agent_core_pkg/tests/test_usage_example.py": "912dff1df28a12ddd5b8e91e40ff03c7c829c5c14d40ea66e4ffb9838d7beb76",
+    "agent_core_pkg/tests/test_structured.py": "a2fa5f251e2c0e8e78767088d24fedd16d0ba554e3e1029355c45cbb90061752",
+    "agent_core_pkg/tests/test_config.py": "0e3b9b6804046b560460106d0ffa693f9939be6f94a2c51a95e77b5d895163f2",
+    "agent_core_pkg/tests/test_evidence_security.py": "c16c698a425453625522f80205eaa2405055f3ee202de6c6edbc491b81698acd",
+    "agent_core_pkg/tests/test_budget.py": "99c4916d21978f62a373f5e2699f14c088ff4e8add43b585014b7a67b24c5b9e",
+    "agent_core_pkg/tests/test_tools.py": "a0559846c1a899b8228005ac7fb75976f0dff3551fe6562a5dd17496fe78c8bf",
+    "agent_core_pkg/tests/test_parser_regressions.py": "eb3aa24ca73657b90a512abaae374f63331f43619fc828ab322531e668ed6a06",
+    "agent_core_pkg/src/agent_core/config.py": "240d3a591926b54e2afdae92565c45840767e73aaf52e826b4b3e93e899012a2",
+    "agent_core_pkg/src/agent_core/version.py": "f4ec3a0530ca113cbfe889e49ccf6a8b656e912af95926c0e65e562ee8aa0689",
+    "agent_core_pkg/src/agent_core/budget.py": "787865dcd1aadefca31565910dfb4bad67e783f83aa74c0b1a9f2e350b93a539",
+    "agent_core_pkg/src/agent_core/tools.py": "fbde0b630fe4c82fc1df9a470665a2187fda5734b867eeb6da01aed6e9607553",
+    "agent_core_pkg/src/agent_core/security.py": "b0d5fd3371dd924775c4ea91a3682b5ec46c6d85a8f61857cf987df0f33d6dc9",
+    "agent_core_pkg/src/agent_core/__init__.py": "c8346f0a9317aa6513251f16a1032f6f9de41d2f2a1492d5e653ce7148abdbab",
+    "agent_core_pkg/src/agent_core/types.py": "122a79d7da32003524d1fb5df64abd967be0ec9437746372a0908abdaf9bb121",
+    "agent_core_pkg/src/agent_core/structured.py": "4882cdb846525d5cadb64c625e3a81aa4bc7c5fd8fba8bca842b399b48bfa839",
+    "agent_core_pkg/src/agent_core/py.typed": "f0f8f2675695a10a5156fb7bd66bafbaae6a13e8d315990af862c792175e6e67",
+    "agent_core_pkg/src/agent_core/evidence.py": "0c275569eebeb3e262957203c546fd3c1e0704b55f90e48a209afebef3038898"
+  },
+  "limitations": [
+    "No integrated-source, wheel, minimum-Python, host, routing or release result claimed.",
+    "Archive hash validates retained bytes, not executable installation or authority."
+  ]
+}

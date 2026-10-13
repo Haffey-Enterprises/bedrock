@@ -24,7 +24,7 @@ Apply only the exact unexpired plan when all bound identities still match. A new
 Use least-privilege job permissions, SHA-pinned third-party actions, GitHub Environment protection for mutation, and GCP Workload Identity Federation with audience/attribute conditions. Separate plan and apply identities. Never export a long-lived service-account key.
 
 ```yaml
-uses: hashicorp/setup-terraform@b9cd54a3c349d3f38e8881555d616ced269862dd # v3
+uses: hashicorp/setup-terraform@dfe3c3f87815947d99a8997f908cb6525fc44e9e # v4.0.1 (Node 24)
 ```
 
 Use concurrency keyed by state target. Read-only verification may cancel stale runs; mutation must queue or fail closed and uses `cancel-in-progress: false`. Retain run, environment approval, OIDC subject, plan/apply manifest, policy output, Terraform result, and recovery/escalation evidence.

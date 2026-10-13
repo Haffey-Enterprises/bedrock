@@ -1,0 +1,15 @@
+test_behavior_fixture_cases_match_terminal_contracts (test_authoring_contracts.AuthoringContractTests.test_behavior_fixture_cases_match_terminal_contracts) ... ok
+test_construct_template_size_is_bounded (test_authoring_contracts.AuthoringContractTests.test_construct_template_size_is_bounded) ... ok
+test_high_assurance_relay_without_authorization_fails (test_authoring_contracts.AuthoringContractTests.test_high_assurance_relay_without_authorization_fails) ... ok
+test_missing_interaction_field_fails (test_authoring_contracts.AuthoringContractTests.test_missing_interaction_field_fails) ... ok
+test_missing_registry_fails_closed (test_authoring_contracts.AuthoringContractTests.test_missing_registry_fails_closed) ... ok
+test_provisional_relation_without_owner_fails (test_authoring_contracts.AuthoringContractTests.test_provisional_relation_without_owner_fails) ... ok
+test_relay_instrument_contract_is_required (test_authoring_contracts.AuthoringContractTests.test_relay_instrument_contract_is_required) ... ok
+test_repository_contracts_pass (test_authoring_contracts.AuthoringContractTests.test_repository_contracts_pass) ... ok
+test_review_with_blocker_cannot_approve (test_authoring_contracts.AuthoringContractTests.test_review_with_blocker_cannot_approve) ... ok
+test_reviewer_charge_instrument_is_required (test_authoring_contracts.AuthoringContractTests.test_reviewer_charge_instrument_is_required) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 2.189s
+
+OK

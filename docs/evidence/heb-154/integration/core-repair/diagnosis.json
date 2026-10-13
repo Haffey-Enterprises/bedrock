@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0.0",
+  "symptom": "Fractional token usage and integer dimensions are truncated; duplicate fence/balanced discoveries exhaust the bound before unique occurrence accounting.",
+  "scope": "Only agent-core budget.py and structured.py defects named in the ratified repair; generated distribution and evidence required by that delta.",
+  "mode": "offline-diagnosis",
+  "timeline": [
+    "2026-09-29 America/New_York: verified clean required checkout and source commit, reproduced both defects, retained meaningful red, repaired and ran local deterministic qualification."
+  ],
+  "evidence": [
+    {
+      "source": "proof.tar.gz: regression-before.txt, probe-before.json, probe-after.json, reproduce.py, initial-checks.json and runtime/repository checks",
+      "captured_at": "2026-09-29T18:07:12-04:00",
+      "classification": "Internal synthetic fixtures and local tool output; no live provider response or credentials",
+      "integrity": "manifest.json binds every retained raw file and repaired subject by SHA-256; proof archive round-trip checked"
+    }
+  ],
+  "hypotheses": [
+    {
+      "iteration": 1,
+      "hypothesis": "Unchecked int conversion discards fractional usage and fractional integer limits.",
+      "prediction": "Two 0.75 token recordings produce zero consumption; limits 1.5 become 1.",
+      "falsifier": "Baseline refuses fractional input, or same test detector remains green on defective source.",
+      "evidence": "probe-before.json and 10 fractional refusal regression failures; matching nonfractional/invalid controls pass. After repair the same cases pass.",
+      "disposition": "supported",
+      "unexplained": []
+    },
+    {
+      "iteration": 2,
+      "hypothesis": "Bound is applied to raw path discoveries before normalized source-span deduplication.",
+      "prediction": "33 fenced occurrences fail while same 33 unfenced occurrences pass with one valid candidate.",
+      "falsifier": "Unfenced control also hits candidate_limit, or exact-bound/malformed controls fail after deduplication.",
+      "evidence": "probe-before.json versus probe-after.json; regression-before.txt and regression-after.txt preserve the same test population.",
+      "disposition": "supported",
+      "unexplained": []
+    }
+  ],
+  "containment": "All work remains local on codex/heb-154-integration. No live call, push, PR/Linear mutation, release or plugin installation.",
+  "conclusion": {
+    "status": "root_cause_identified",
+    "confidence": "high",
+    "statement": "The two local deterministic defects are reproduced and discriminated by input shape and unchanged before/after controls. No broader runtime or provider reliability claim follows."
+  },
+  "repair": {
+    "authorized": true,
+    "action": "Reject nonintegral finite floats in integer accounting/limits; normalize and deduplicate source spans before enforcing the candidate limit, including malformed spans and fence-first precedence."
+  },
+  "verification": [
+    "53 new regression cases: 19 failed and 34 passed on baseline; all 53 pass after repair.",
+    "Complete core tests: 110 pass from source and each clean installed wheel on Python 3.10.20/3.14.6.",
+    "91 offline specialist tests and 178 repository unittest methods pass.",
+    "Wheel parity, absent/wrong-install controls, package governance, strict validation and diff checks pass."
+  ],
+  "residual_risk": "One Python 3.10 pytest cleanup warning remains visible. Deterministic single-run observations do not establish provider-neutrality, live behavior or composed-package acceptance.",
+  "owner": "Tad Haffey; HEB-161 owns composed candidate qualification"
+}

@@ -1,0 +1,32 @@
+{
+  "checks": [
+    {
+      "log": "clean-core.txt",
+      "returncode": 0
+    },
+    {
+      "log": "clean-fixture-install.txt",
+      "returncode": 0
+    },
+    {
+      "log": "test-tool-install.txt",
+      "returncode": 0
+    },
+    {
+      "log": "offline-run.txt",
+      "returncode": 0
+    },
+    {
+      "log": "pip-check.txt",
+      "returncode": 0
+    },
+    {
+      "log": "wrong-hash-control.txt",
+      "returncode": 1,
+      "expected": "hash rejection"
+    }
+  ],
+  "linux_target": "CPython3.13 manylinux2014_x86_64 resolution only; native execution remains CI",
+  "local_target": "Fresh macOS arm64 Python3.14.6 venv",
+  "live_calls": 0
+}

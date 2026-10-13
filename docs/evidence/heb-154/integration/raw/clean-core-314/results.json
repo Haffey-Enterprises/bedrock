@@ -1,0 +1,16 @@
+[
+  {
+    "name": "missing-install",
+    "command": [
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/clean-core-314/agent-builder/scripts/install_core.py",
+      "--python",
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/clean-core-314/venv/bin/python",
+      "--check"
+    ],
+    "returncode": 1,
+    "expected": "reject",
+    "passed": false,
+    "log": "missing-install.txt"
+  }
+]

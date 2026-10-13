@@ -1,0 +1,187 @@
+{
+  "status": "Revised relay catalog release qualified 189/189; final source publication and single authorized PR evaluation pending",
+  "date": "2026-09-29",
+  "source_base": "2ab76b447cdb1a975c801e6833682c0c1f94cef0",
+  "branch": "codex/heb-154-integration",
+  "package_version": "10.0.0",
+  "wheel_sha256": "fdeba49630b213a12d437bdd6836585f39d96eeea619d8efe7fd8cfed368cfa0",
+  "local_gates": {
+    "repository_unittest": {
+      "result": "confirmed",
+      "count": 178,
+      "evidence": "raw/routing-stdin/repository-unit-after-repair.txt"
+    },
+    "core_regressions": {
+      "result": "confirmed",
+      "count_per_interpreter": 57,
+      "interpreters": [
+        "3.10.20",
+        "3.14.6"
+      ],
+      "evidence": [
+        "raw/core-tests-310.txt",
+        "raw/qualification-7.txt"
+      ]
+    },
+    "offline_specialist": {
+      "result": "confirmed",
+      "count": 91,
+      "evidence": "raw/offline-1/pytest.txt",
+      "limit": "Synthetic transports/mock SDK; no live provider call"
+    },
+    "source_wheel_parity": {
+      "result": "confirmed",
+      "evidence": "raw/final-build.txt"
+    },
+    "missing_wrong_install_controls": {
+      "result": "confirmed",
+      "evidence": [
+        "raw/clean-core-310-repair/results.json",
+        "raw/clean-core-314-repair/results.json"
+      ]
+    },
+    "strict_host": {
+      "result": "confirmed",
+      "hosts": [
+        "2.1.226",
+        "2.1.284"
+      ],
+      "evidence": [
+        "raw/qualification-0.txt",
+        "raw/qualification-1.txt"
+      ]
+    },
+    "isolated_install_reload": {
+      "result": "confirmed",
+      "hosts": [
+        "2.1.226",
+        "2.1.284"
+      ],
+      "evidence": [
+        "raw/staged-host-current.txt",
+        "raw/staged-host-minimum.txt"
+      ],
+      "control": "Full copied-package population and digest comparison; contrary manifest identity rejected"
+    },
+    "governance_and_domain_contracts": {
+      "result": "confirmed",
+      "evidence": [
+        "raw/final-governance.txt",
+        "raw/final-contracts.txt",
+        "raw/final-trigger.txt",
+        "raw/qualification-results.json"
+      ]
+    },
+    "independent_review": {
+      "result": "confirmed",
+      "evidence": [
+        "review.json",
+        "review-history.md"
+      ],
+      "limit": "Two repaired defects independently rechecked; no unresolved code findings; overall merge verdict pause for pending gates"
+    },
+    "routing_input_repair": {
+      "result": "confirmed",
+      "evidence": [
+        "routing-diagnosis.json",
+        "routing-repair-review.json",
+        "raw/routing-stdin/regression-green.txt"
+      ],
+      "limit": "Offline transport isolation; does not establish live routing quality"
+    },
+    "release_routing": {
+      "result": "confirmed on revised relay catalog",
+      "evidence": "raw/relay-qualification/release-verification.json",
+      "limit": "One complete release evaluation; not broader reliability or composed acceptance"
+    },
+    "strict_current_evidence": {
+      "result": "confirmed",
+      "evidence": "raw/relay-qualification/final-strict-validation.json"
+    },
+    "fixture_hash_lock_repair": {
+      "result": "confirmed locally and corrected-head Linux CI",
+      "evidence": [
+        "ci-lock-diagnosis.json",
+        "raw/ci-lock-repair/results.json",
+        "raw/ci-lock-repair/hash-provenance.json"
+      ],
+      "limit": "Corrected-head deterministic CI passed in run 36613553576; later description-only candidate not pushed"
+    }
+  },
+  "pending": [
+    "Commit/push qualified revised-relay candidate once; one authorized PR evaluation maximum USD3 without retry",
+    "Composed HEB-161 candidate, including its other listed components, and HEB-119 cold acceptance before merge",
+    "Explicit proceed, accepted landing parity, immutable release and supported-surface rollout"
+  ],
+  "limitations": [
+    "Counts name separate overlapping populations; do not sum as unique coverage.",
+    "Historical 8-case specialist trial is exhausted and has not been repeated.",
+    "Codex/Claude.ai execution is not inferred from Claude Code local proofs.",
+    "The interrupted first routing run remains ineligible and is not pooled with the passing replacement. Its interrupted-call final usage remains unknown.",
+    "Prior-head deterministic/minimum CI passed; PR routing failed 62/63. No further push, merge, tag, release or production update."
+  ],
+  "routing": {
+    "first_attempt": {
+      "completed_draws": 26,
+      "planned_draws": 189,
+      "passed_draws": 24,
+      "reported_cost_usd": 0.33017495,
+      "interrupted_call_cost": null,
+      "eligible": false,
+      "reason": "Incomplete and contaminated by inherited launcher stdin; no retry",
+      "release_allowance": "consumed",
+      "pr_allowance": "unused"
+    },
+    "replacement": {
+      "cases": 63,
+      "draws": 189,
+      "passed": 189,
+      "excluded_selections": 0,
+      "reported_cost_usd": 1.853696,
+      "eligible": true,
+      "automatic_retry": false,
+      "evidence": "raw/routing-replacement/routing-release-replacement-1.json",
+      "qualifies_current_catalog": false
+    },
+    "pr_allowance": "consumed once: run 36613553576, 62/63, USD0.586343",
+    "pr_result": {
+      "head": "2d1cd0d949b1691568afdc99b2f036c2c99be158",
+      "passed": 62,
+      "total": 63,
+      "cost_usd": 0.586343,
+      "gate": "failed",
+      "evidence": "raw/relay-clarification/prior-pr-routing-results.json"
+    },
+    "relay_clarification": {
+      "cases": 63,
+      "draws": 189,
+      "passed": 189,
+      "reported_cost_usd": 1.822348,
+      "excluded_selections": 0,
+      "eligible": true,
+      "catalog_sha256": "2818b491baddff723354eb6dbb54827f9049f6c5df640c85d72a64097ae7734f",
+      "evidence": "raw/relay-qualification/routing-release-relay-1.json"
+    },
+    "new_pr_allowance": "approved; not started; maximum USD3, no automatic retry"
+  },
+  "tracker_updates": {
+    "status": "approved original comments posted",
+    "HEB-154": "8a2c7d8d-e711-471a-b2dd-5dd9a7883b52",
+    "HEB-161": "d49eefe2-571a-471e-b314-e308cd5cc351",
+    "post_run_update": "Previously blocked diagnosis/results update explicitly ratified and successfully posted to both tickets.",
+    "diagnosis_comments": {
+      "HEB-154": "24e29e69-be2a-4d8c-bebd-47c8b5b4931d",
+      "HEB-161": "08f3a8c3-ae52-4dd7-ac8a-bc9b56155e00"
+    }
+  },
+  "pull_request": "https://github.com/T-Bone-Haff/bedrock/pull/53",
+  "initial_commit": "540b557492d19845524cbbc2f17fbea380de62cc",
+  "ci_first_attempt": {
+    "run": 36612113581,
+    "source_commit": "540b557492d19845524cbbc2f17fbea380de62cc",
+    "deterministic": "failed: fixture requires hashes but old lock was version-only",
+    "core-minimum": "passed",
+    "live-routing": "skipped; allowance unused"
+  },
+  "current_checkpoint": "relay-clarification.json"
+}

@@ -1,0 +1,5 @@
+{
+  "version": "1.0.0",
+  "policy_id": "readiness-v1",
+  "brief": "[S1] A library member needs to see which books are overdue so they can return them. [S2] On the Loans page, each loan with a due date before today displays the exact label Overdue; all other loans display no overdue label."
+}

@@ -1,0 +1,13 @@
+Processing /var/folders/sw/1svfc1j50yb7tdd8_fb98v1m0000gn/T/bedrock-core-build-x0guwrw1/source
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: agent-core
+  Building wheel for agent-core (pyproject.toml): started
+  Building wheel for agent-core (pyproject.toml): finished with status 'done'
+  Created wheel for agent-core: filename=agent_core-0.2.0-py3-none-any.whl size=21625 sha256=215673be310d4f2ab9ea20c4119978a608f07507b8fbd6ea54d17a3dfb7da895
+  Stored in directory: /private/var/folders/sw/1svfc1j50yb7tdd8_fb98v1m0000gn/T/pip-ephem-wheel-cache-8h50yssc/wheels/18/44/28/2125b9d44fc0ff68da6cb164a603f6f38221420c46b4bbebc5
+Successfully built agent-core
+
+[notice] A new release of pip is available: 26.1.2 -> 26.2.1
+[notice] To update, run: /Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python -m pip install --upgrade pip
+PASS: source, wheel payload, license and bundled dependency identity agree

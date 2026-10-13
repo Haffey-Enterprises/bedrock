@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "version": {
+      "const": "1.0.0"
+    },
+    "policy_id": {
+      "const": "readiness-v1"
+    },
+    "brief": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 16000
+    }
+  },
+  "required": [
+    "version",
+    "policy_id",
+    "brief"
+  ],
+  "additionalProperties": false
+}

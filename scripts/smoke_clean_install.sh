@@ -22,13 +22,14 @@ claude plugin details bedrock@bedrock > "$smoke_root/details-first.txt"
 # A second process using the same isolated configuration is the reload boundary.
 claude plugin details bedrock@bedrock > "$smoke_root/details-reloaded.txt"
 
-python3 - "$smoke_root" <<'PY'
+python3 - "$smoke_root" "$repo_root" <<'PY'
 from __future__ import annotations
 
 import json
 import hashlib
 from pathlib import Path
 import re
+import stat
 import sys
 
 root = Path(sys.argv[1])
@@ -60,6 +61,40 @@ manifest = json.loads((install_path / ".claude-plugin/plugin.json").read_text(en
 if manifest.get("version") != record.get("version"):
     raise SystemExit("clean-install smoke failed: installed record and manifest versions differ")
 
+source = Path(sys.argv[2]) / "plugins/bedrock"
+def population(directory):
+    return {str(p.relative_to(directory)): hashlib.sha256(p.read_bytes()).hexdigest()
+            for p in directory.rglob("*") if p.is_file() and "__pycache__" not in p.parts}
+expected_files = population(source)
+installed_files = population(install_path)
+if installed_files != expected_files:
+    raise SystemExit("clean-install smoke failed: installed bytes/population differ from candidate")
+contrary = dict(expected_files)
+contrary[".claude-plugin/plugin.json"] = "0" * 64
+if installed_files == contrary:
+    raise SystemExit("clean-install smoke failed: wrong-subject control did not discriminate")
+if any(name.startswith(("docs/evidence/", "tests/")) for name in installed_files):
+    raise SystemExit("clean-install smoke failed: repository evidence or tests entered distribution")
+hygiene_modes = {"README.md": 0o644, "manager.py": 0o755,
+                 "pre-commit": 0o755, "dispatcher.sh.tmpl": 0o644}
+def hygiene_identity(base):
+    directory = base / "scripts/data-hygiene"
+    if not directory.is_dir() or directory.is_symlink():
+        raise SystemExit("clean-install smoke failed: missing data-hygiene surface")
+    result = {}
+    for path in directory.iterdir():
+        info = path.lstat()
+        if not stat.S_ISREG(info.st_mode):
+            raise SystemExit("clean-install smoke failed: nonregular data-hygiene file")
+        result[path.name] = stat.S_IMODE(info.st_mode)
+    return result
+source_modes, installed_modes = hygiene_identity(source), hygiene_identity(install_path)
+if source_modes != hygiene_modes or installed_modes != source_modes:
+    raise SystemExit("clean-install smoke failed: data-hygiene mode/population drift")
+contrary_modes = dict(source_modes, **{"pre-commit": 0o644})
+if installed_modes == contrary_modes:
+    raise SystemExit("clean-install smoke failed: executable-mode control did not discriminate")
+print("PASS: data-hygiene four-file byte/mode parity; changed-byte and missing-executable controls discriminated")
 registry_text = (install_path / "governance/registry.yaml").read_text(encoding="utf-8")
 adapter_match = re.search(r"^  claude_adapter: ([0-9]+\.[0-9]+\.[0-9]+)$", registry_text, re.MULTILINE)
 if adapter_match is None:
@@ -81,20 +116,25 @@ expected_identity = {
 }
 expected_identity_bytes = (json.dumps(expected_identity, indent=2) + "\n").encode("utf-8")
 carrier_paths = sorted((install_path / "skills").glob("*/PACKAGE_IDENTITY.json"))
-if len(carrier_paths) != 13:
-    raise SystemExit(f"clean-install smoke failed: expected 13 package identity carriers, found {len(carrier_paths)}")
+if len(carrier_paths) != 15:
+    raise SystemExit(f"clean-install smoke failed: expected 15 package identity carriers, found {len(carrier_paths)}")
 if any(path.read_bytes() != expected_identity_bytes for path in carrier_paths):
     raise SystemExit("clean-install smoke failed: installed package identity carrier drift")
 
 for filename in ("details-first.txt", "details-reloaded.txt"):
     text = (root / filename).read_text(encoding="utf-8")
-    if "Skills (13)" not in text:
-        raise SystemExit(f"clean-install smoke failed: {filename} does not report 13 skills")
+    if "Skills (15)" not in text:
+        raise SystemExit(f"clean-install smoke failed: {filename} does not report 15 skills")
 
 first = (root / "details-first.txt").read_text(encoding="utf-8")
 reloaded = (root / "details-reloaded.txt").read_text(encoding="utf-8")
 if first != reloaded:
     raise SystemExit("clean-install smoke failed: component inventory changed after reload")
 
-print("PASS: isolated install and reload discovered bedrock@bedrock with 13 skills, identity carriers, and packaged governance")
+print("PASS: isolated install and reload discovered bedrock@bedrock with 15 skills, identity carriers, and packaged governance")
 PY
+
+if [[ -n "${BEDROCK_INSTALL_EVIDENCE_DIR:-}" ]]; then
+  mkdir -p "$BEDROCK_INSTALL_EVIDENCE_DIR"
+  cp "$smoke_root/installed.json" "$smoke_root/details-first.txt" "$smoke_root/details-reloaded.txt" "$BEDROCK_INSTALL_EVIDENCE_DIR/"
+fi

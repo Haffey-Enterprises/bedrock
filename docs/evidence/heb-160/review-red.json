@@ -1,0 +1,18 @@
+{
+  "tree": "5a24a634922308cb6327313aed718383ec949360",
+  "cwd": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-160-2026-09-30/review-red-snapshot",
+  "command": [
+    "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-p",
+    "test_safety_contracts.py",
+    "-v"
+  ],
+  "exit_code": 1,
+  "expected": "flow mappings, quoted keys and folded scalars expose line-regex omission"
+}

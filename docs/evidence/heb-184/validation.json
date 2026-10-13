@@ -1,0 +1,207 @@
+[
+  {
+    "name": "component",
+    "command": [
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+      "-B",
+      "scripts/validate_plugin.py",
+      "--component"
+    ],
+    "cwd": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-184-2026-09-30/candidate-1",
+    "exit_code": 0,
+    "log": "validation-1/component.log",
+    "environment": {
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "HEB110_REQUIRE_DOCKER": "1",
+      "HEB110_REQUIRE_TERRAFORM": "1"
+    }
+  },
+  {
+    "name": "repository-suite",
+    "command": [
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+      "-B",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-v"
+    ],
+    "cwd": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-184-2026-09-30/candidate-1",
+    "exit_code": 0,
+    "log": "validation-1/repository-suite.log",
+    "environment": {
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "HEB110_REQUIRE_DOCKER": "1",
+      "HEB110_REQUIRE_TERRAFORM": "1"
+    }
+  },
+  {
+    "name": "identity",
+    "command": [
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+      "-B",
+      "scripts/sync_package_identity.py",
+      "--check"
+    ],
+    "cwd": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-184-2026-09-30/candidate-1",
+    "exit_code": 0,
+    "log": "validation-1/identity.log",
+    "environment": {
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "HEB110_REQUIRE_DOCKER": "1",
+      "HEB110_REQUIRE_TERRAFORM": "1"
+    }
+  },
+  {
+    "name": "audit",
+    "command": [
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+      "-B",
+      "scripts/validate_rule_trigger_audit.py",
+      "--require-complete"
+    ],
+    "cwd": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-184-2026-09-30/candidate-1",
+    "exit_code": 0,
+    "log": "validation-1/audit.log",
+    "environment": {
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "HEB110_REQUIRE_DOCKER": "1",
+      "HEB110_REQUIRE_TERRAFORM": "1"
+    }
+  },
+  {
+    "name": "source-wheel-parity",
+    "command": [
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+      "-B",
+      "scripts/build_agent_core.py",
+      "--check"
+    ],
+    "cwd": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-184-2026-09-30/candidate-1",
+    "exit_code": 0,
+    "log": "validation-1/source-wheel-parity.log",
+    "environment": {
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "HEB110_REQUIRE_DOCKER": "1",
+      "HEB110_REQUIRE_TERRAFORM": "1"
+    }
+  },
+  {
+    "name": "default-routing-gate",
+    "command": [
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+      "-B",
+      "scripts/validate_plugin.py"
+    ],
+    "cwd": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-184-2026-09-30/candidate-1",
+    "environment": {
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "HEB110_REQUIRE_DOCKER": "1",
+      "HEB110_REQUIRE_TERRAFORM": "1"
+    },
+    "exit_code": 1,
+    "expected_exit_code": 1,
+    "log": "validation-1/default-routing-gate.log"
+  },
+  {
+    "name": "agent-core-suite",
+    "command": [
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+      "-B",
+      "-m",
+      "pytest",
+      "-q",
+      "-p",
+      "no:cacheprovider"
+    ],
+    "cwd": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-184-2026-09-30/candidate-1/packages/agent-core",
+    "environment": {
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "HEB110_REQUIRE_DOCKER": "1",
+      "HEB110_REQUIRE_TERRAFORM": "1",
+      "PYTHONPATH": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-184-2026-09-30/candidate-1/packages/agent-core/src"
+    },
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "log": "validation-1/agent-core-suite.log"
+  },
+  {
+    "name": "hex-linear-suite",
+    "command": [
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-164-2026-09-23/linear-client-proof/venv/bin/python",
+      "-B",
+      "-m",
+      "pytest",
+      "-q",
+      "-p",
+      "no:cacheprovider"
+    ],
+    "cwd": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-184-2026-09-30/candidate-1/packages/hex-linear",
+    "environment": {
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "HEB110_REQUIRE_DOCKER": "1",
+      "HEB110_REQUIRE_TERRAFORM": "1",
+      "PYTHONPATH": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-184-2026-09-30/candidate-1/packages/hex-linear/src"
+    },
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "log": "validation-1/hex-linear-suite.log"
+  },
+  {
+    "name": "isolated-install",
+    "command": [
+      "bash",
+      "scripts/smoke_clean_install.sh"
+    ],
+    "cwd": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-184-2026-09-30/candidate-1",
+    "environment": {
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "HEB110_REQUIRE_DOCKER": "1",
+      "HEB110_REQUIRE_TERRAFORM": "1",
+      "BEDROCK_INSTALL_EVIDENCE_DIR": "/Users/thaffey/.codex/worktrees/heb-154-integration/bedrock/docs/evidence/heb-184/isolated-install"
+    },
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "log": "validation-1/isolated-install.log"
+  },
+  {
+    "name": "component",
+    "command": [
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+      "-B",
+      "scripts/validate_plugin.py",
+      "--component"
+    ],
+    "cwd": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-184-2026-09-30/candidate-2",
+    "environment": {
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "HEB110_REQUIRE_DOCKER": "1",
+      "HEB110_REQUIRE_TERRAFORM": "1"
+    },
+    "exit_code": 0,
+    "log": "validation-2/component.log"
+  },
+  {
+    "name": "repository-suite",
+    "command": [
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+      "-B",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-v"
+    ],
+    "cwd": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-184-2026-09-30/candidate-2",
+    "environment": {
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "HEB110_REQUIRE_DOCKER": "1",
+      "HEB110_REQUIRE_TERRAFORM": "1"
+    },
+    "exit_code": 0,
+    "log": "validation-2/repository-suite.log"
+  }
+]

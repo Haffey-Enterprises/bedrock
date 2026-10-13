@@ -1,0 +1,166 @@
+{
+  "README.md": {
+    "sha256": "30b5c222cff75f8898d6e0117389261c58027151b6bbeeac3cb0bd37e0702abe",
+    "mode": "0o644"
+  },
+  "docs/evidence/heb-155/admission-instrument.json": {
+    "sha256": "59e2cbd12c0543a22c29b9031aa8d23c64032cf018da1a9400bc815e874227a3",
+    "mode": "0o644"
+  },
+  "docs/evidence/heb-155/execution-incident.json": {
+    "sha256": "7b451ec692b710c581f9380b690810e340035fae5384c4293f1e528c17eae884",
+    "mode": "0o644"
+  },
+  "docs/evidence/heb-155/first-red-tests.py": {
+    "sha256": "66b78e1624494697372b1ca2c55a22f8e951f0f13042ffca1220643b150d2733",
+    "mode": "0o644"
+  },
+  "docs/evidence/heb-155/first-red.json": {
+    "sha256": "5c2a81d33e92b6824a878bbc075239c65f2f805dd4e9bd6c855c6948e8eb7761",
+    "mode": "0o644"
+  },
+  "docs/evidence/heb-155/incident-pre-repair/plugins/bedrock/scripts/data-hygiene/dispatcher.sh.tmpl": {
+    "sha256": "8617f4172ce7fadce0d7551ef41b6c07d58090396f1a0f8a391b9c7c0617f7b6",
+    "mode": "0o644"
+  },
+  "docs/evidence/heb-155/incident-pre-repair/plugins/bedrock/scripts/data-hygiene/manager.py": {
+    "sha256": "cc580b62a9df9529f7dd7f1a6fb226aae9bf4fafbdbecc049c7c77d133e0c72d",
+    "mode": "0o755"
+  },
+  "docs/evidence/heb-155/incident-pre-repair/plugins/bedrock/scripts/data-hygiene/pre-commit": {
+    "sha256": "a14e5b098e161f9456fd7b0ae453f59630013d49fdedcce7de484e37a2aa64f0",
+    "mode": "0o755"
+  },
+  "docs/evidence/heb-155/incident-pre-repair/tests/test_data_hygiene.py": {
+    "sha256": "66b78e1624494697372b1ca2c55a22f8e951f0f13042ffca1220643b150d2733",
+    "mode": "0o644"
+  },
+  "docs/evidence/heb-155/preflight.json": {
+    "sha256": "87eb4d8437bc7bbf583477f7f9b2f218d7dd35141e874467d46b1d44110372c5",
+    "mode": "0o644"
+  },
+  "docs/evidence/heb-155/raw/containment-control.log": {
+    "sha256": "7e963d597a382c22d017c10a8134ad01fe0193ceb077971b9d6f44d9c0549e88",
+    "mode": "0o644"
+  },
+  "docs/evidence/heb-155/raw/first-red.log": {
+    "sha256": "b6ae701631ed86b91b7335c1940eebb7449bac3516ad2a4614a3ec34e2c35b92",
+    "mode": "0o644"
+  },
+  "docs/evidence/heb-155/raw/focused-first.log": {
+    "sha256": "7f549b4d5a546f6287d3c2128f1b21e4f7466cf76fc30d73b64d245b5ed9ac96",
+    "mode": "0o644"
+  },
+  "docs/evidence/heb-155/raw/preflight-0.log": {
+    "sha256": "bbb931c0afdf20554fcb03c4414a67092e2d8db87226567a6ad5be3c1bcc1a15",
+    "mode": "0o644"
+  },
+  "docs/evidence/heb-155/raw/preflight-1.log": {
+    "sha256": "2aa6da9ca331dc6de6fe72460146b9d1ebc22c8df24f3eb2a4c4f7c3c41b93ca",
+    "mode": "0o644"
+  },
+  "docs/evidence/heb-155/raw/preflight-2.log": {
+    "sha256": "215c184c92e8d88278ffeeb5a09fa4b98d3940de7811d890b911662e1a7d5d92",
+    "mode": "0o644"
+  },
+  "docs/evidence/heb-155/raw/preflight-3.log": {
+    "sha256": "ef5a4d39b097310ed885c4a4dc78e963c7ef42c92ed56ab09571200962f53779",
+    "mode": "0o644"
+  },
+  "docs/evidence/heb-155/raw/preflight-4.log": {
+    "sha256": "ef5a4d39b097310ed885c4a4dc78e963c7ef42c92ed56ab09571200962f53779",
+    "mode": "0o644"
+  },
+  "docs/evidence/heb-155/raw/preflight-5.log": {
+    "sha256": "fc98bd467a36dbd776ff3042aab76f7745e3ed5b237816c41d2cc42ad7c9fb82",
+    "mode": "0o644"
+  },
+  "docs/evidence/heb-155/raw/preflight-6.log": {
+    "sha256": "de66f854eb65ba5cf4e67295e4c19d13481c6d6ed87ad30ae440e3a3716d74e9",
+    "mode": "0o644"
+  },
+  "docs/evidence/heb-155/raw/preflight-7.log": {
+    "sha256": "7a8a56a91062c36891ff4f11452c04e4a1dc912ab0b5c02ffef5d74496cda111",
+    "mode": "0o644"
+  },
+  "docs/evidence/heb-155/raw/preflight-8.log": {
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "mode": "0o644"
+  },
+  "docs/evidence/heb-155/raw/stub-diagnosis.log": {
+    "sha256": "3c627c5fa9d4b697614c29d63beb355e2b7a5be84c8faf0544b58719ca4d635e",
+    "mode": "0o644"
+  },
+  "docs/evidence/heb-155/resumption.json": {
+    "sha256": "04fa5ebc9419b6912ee315605fd3eb0d06cc90634453b99b6858ccda38f800a4",
+    "mode": "0o644"
+  },
+  "docs/evidence/heb-155/stop-receipt.json": {
+    "sha256": "d6fd1f2551e6055afde41896cd40af1cb42ed361a10179390cd03f01f44c5ad8",
+    "mode": "0o644"
+  },
+  "plugins/bedrock/CHANGELOG.md": {
+    "sha256": "c7a73f28378dca09a7ede5f0869af9fe4e24312f261b5e5c01ee40f9a7579c6e",
+    "mode": "0o644"
+  },
+  "plugins/bedrock/governance/COMPATIBILITY.md": {
+    "sha256": "e7a59a7c8c28886f81e3706c80d3f9aa501f9840443d0c11276186c11f800439",
+    "mode": "0o644"
+  },
+  "plugins/bedrock/governance/README.md": {
+    "sha256": "a36fc46c92894aff106cdd6504fe16813862728daf181b5fab5e0cef169ce891",
+    "mode": "0o644"
+  },
+  "plugins/bedrock/governance/THREAT-MODEL.md": {
+    "sha256": "6297a6837c8e4db848437209bc64ad61dd404e63efad1bc15cf3bbdb53b288b8",
+    "mode": "0o644"
+  },
+  "plugins/bedrock/governance/authority-inventory.yaml": {
+    "sha256": "47cb8be345e8c7d153b4c10100f45ce8931aa02566be8944b91c72cff24712c9",
+    "mode": "0o644"
+  },
+  "plugins/bedrock/governance/registry.yaml": {
+    "sha256": "9b809b1fd84fd24bd5ae28b7bded5a93d45da325474e13047f4d75d75844a015",
+    "mode": "0o644"
+  },
+  "plugins/bedrock/scripts/data-hygiene/README.md": {
+    "sha256": "8e86ce91c2aa5caf6948cd175a4cb35f2d6f20a67e34f6df10e6ce8620db0774",
+    "mode": "0o644"
+  },
+  "plugins/bedrock/scripts/data-hygiene/dispatcher.sh.tmpl": {
+    "sha256": "5997fc0e2bf0dce7acea9dcb7cf013eb1b0f117d4d5f49386788d003c7119d39",
+    "mode": "0o644"
+  },
+  "plugins/bedrock/scripts/data-hygiene/manager.py": {
+    "sha256": "fa12a7f1998e5c26f435d57723e809ed7f89880be3c9b9e4bf01904089b559a1",
+    "mode": "0o755"
+  },
+  "plugins/bedrock/scripts/data-hygiene/pre-commit": {
+    "sha256": "31303c05ac4e8fa5200c6dcdee544d7bccd99b85296a43a263397178cbc78ede",
+    "mode": "0o755"
+  },
+  "project-template/CLAUDE.md": {
+    "sha256": "55bc4ad9afd3ed2800645efb016ff76e95839573b0f99348b25821523cabf53b",
+    "mode": "0o644"
+  },
+  "project-template/README.md": {
+    "sha256": "85b876f302567abf875fc94684df0913ca4cced24c4ca35f866c922cecd8fa21",
+    "mode": "0o644"
+  },
+  "scripts/smoke_clean_install.sh": {
+    "sha256": "a6d2556e3e9a8496d0ad3a579aee59e227c00a4a996c404ec99c9d3118ddd62f",
+    "mode": "0o644"
+  },
+  "scripts/validate_package_governance.py": {
+    "sha256": "7f8916803756100e122b2f1caa93177238defd44c510b81d11780bc9a5812496",
+    "mode": "0o644"
+  },
+  "tests/test_data_hygiene.py": {
+    "sha256": "8d092a6c50bdf5d7698910497e7411242c700e514428cdbf60018d457d33ffce",
+    "mode": "0o644"
+  },
+  "tests/test_package_governance.py": {
+    "sha256": "1a267a275829018a4bc54b74626fa22d7001712ac17a6071e22ed35801c68ed1",
+    "mode": "0o644"
+  }
+}

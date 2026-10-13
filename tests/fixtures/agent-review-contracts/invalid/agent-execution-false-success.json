@@ -1,0 +1,49 @@
+{
+  "schema_version": "2.0.0",
+  "invocation_id": "inv-001",
+  "actor_id": "reviewer-laa",
+  "profile": "direct",
+  "prompt": {
+    "version": "3",
+    "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  },
+  "output_schema": {
+    "version": "1.0.0",
+    "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+  },
+  "budget": {
+    "max_attempts": 2,
+    "max_tool_iterations": 0,
+    "deadline_ms": 30000,
+    "max_input_tokens": 10000,
+    "max_output_tokens": 2000,
+    "max_spend_micros": 500000,
+    "max_concurrency": 1
+  },
+  "attempts": [],
+  "parse": {
+    "path": "native",
+    "candidate_count": 1,
+    "response_sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+    "response_status": "present",
+    "schema_valid_count": 1
+  },
+  "usage": {
+    "status": "known",
+    "input_tokens": 900,
+    "output_tokens": 120,
+    "spend_micros": 8000,
+    "known_subtotal": {
+      "input_tokens": 900,
+      "output_tokens": 120,
+      "spend_micros": 8000
+    },
+    "reserved_exposure": {
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "spend_micros": 0
+    },
+    "unknown_reason": null
+  },
+  "terminal_disposition": "succeeded"
+}

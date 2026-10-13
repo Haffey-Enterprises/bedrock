@@ -1,0 +1,96 @@
+[
+  {
+    "command": [
+      "/bin/bash",
+      "--version"
+    ],
+    "exit": 0,
+    "log": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-155-2026-09-30/raw/preflight-0.log",
+    "output": "GNU bash, version 3.2.57(1)-release (arm64-apple-darwin25)\nCopyright (C) 2007 Free Software Foundation, Inc.\n"
+  },
+  {
+    "command": [
+      "git",
+      "--version"
+    ],
+    "exit": 0,
+    "log": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-155-2026-09-30/raw/preflight-1.log",
+    "output": "git version 2.54.0 (Apple Git-157)\n"
+  },
+  {
+    "command": [
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+      "-m",
+      "unittest",
+      "discover",
+      "--help"
+    ],
+    "exit": 0,
+    "log": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-155-2026-09-30/raw/preflight-2.log",
+    "output": "usage: python -m unittest discover [-h] [-v] [-q] [--locals] [--durations N]\n                                   [-f] [-c] [-b] [-k TESTNAMEPATTERNS]\n                                   [-s START] [-p PATTERN] [-t TOP]\n\noptions:\n  -h, --help            show this help message and exit\n  -v, --verbose         Verbose output\n  -q, --quiet           Quiet output\n  --locals              Show local variables in tracebacks\n  --durations N         Show the N slowest test cases (N=0 for all)\n  -f, --failfast        Stop on first fail or error\n  -c, --catch           Catch Ctrl-C and display results so far\n  -b, --buffer          Buffer stdout and stderr during tests\n  -k TESTNAMEPATTERNS   Only run tests which match the given substring\n  -s, --start-directory START\n                        Directory to start discovery ('.' default)\n  -p, --pattern PATTERN\n                        Pattern to match tests ('test*.py' default)\n  -t, --top-level-directory TOP\n                        Top level directory of project (defaults to start\n                        directory)\n\nFor test discovery all test modules must be importable from the top level\ndirectory of the project.\n"
+  },
+  {
+    "command": [
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+      "-m",
+      "pytest",
+      "--version"
+    ],
+    "exit": 0,
+    "log": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-155-2026-09-30/raw/preflight-3.log",
+    "output": "pytest 9.1.1\n"
+  },
+  {
+    "command": [
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-164-2026-09-23/linear-client-proof/venv/bin/python",
+      "-m",
+      "pytest",
+      "--version"
+    ],
+    "exit": 0,
+    "log": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-155-2026-09-30/raw/preflight-4.log",
+    "output": "pytest 9.1.1\n"
+  },
+  {
+    "command": [
+      "claude",
+      "plugin",
+      "validate",
+      "--strict",
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-155-2026-09-30/baseline/plugins/bedrock"
+    ],
+    "exit": 0,
+    "log": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-155-2026-09-30/raw/preflight-5.log",
+    "output": "Validating plugin manifest: /Users/thaffey/Documents/Haffey Enterprises/Working/HEB-155-2026-09-30/baseline/plugins/bedrock/.claude-plugin/plugin.json\n\n\u2714 Validation passed\n"
+  },
+  {
+    "command": [
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+      "scripts/validate_plugin.py",
+      "--help"
+    ],
+    "exit": 0,
+    "log": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-155-2026-09-30/raw/preflight-6.log",
+    "output": "usage: validate_plugin.py [-h] [--root ROOT] [--skip-host-cli] [--component]\n                          [--inventory INVENTORY]\n\nDeterministic Bedrock plugin validation for HEB-108 / minimum HEB-109.\n\noptions:\n  -h, --help            show this help message and exit\n  --root ROOT\n  --skip-host-cli       Skip Claude CLI plugin-manifest validation (tests\n                        only).\n  --component           Component checks only: retain historical routing\n                        evidence without claiming current routing acceptance.\n                        Default still verifies current retained evidence.\n  --inventory INVENTORY\n                        Write the derived metadata/routing inventory as JSON.\n"
+  },
+  {
+    "command": [
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+      "scripts/validate_package_governance.py",
+      "--help"
+    ],
+    "exit": 0,
+    "log": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-155-2026-09-30/raw/preflight-7.log",
+    "output": "usage: validate_package_governance.py [-h] [--root ROOT] [--release]\n                                      [--release-evidence RELEASE_EVIDENCE]\n                                      [--rollout-ledger ROLLOUT_LEDGER]\n\nValidate Bedrock package lifecycle and release-governance contracts.\n\noptions:\n  -h, --help            show this help message and exit\n  --root ROOT\n  --release             Require post-acceptance tag, evidence, and rollout\n                        proof\n  --release-evidence RELEASE_EVIDENCE\n                        Schema-valid operator release-evidence export\n  --rollout-ledger ROLLOUT_LEDGER\n                        Schema-valid completed rollout-ledger export\n"
+  },
+  {
+    "command": [
+      "/bin/bash",
+      "-n",
+      "scripts/smoke_clean_install.sh"
+    ],
+    "exit": 0,
+    "log": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-155-2026-09-30/raw/preflight-8.log",
+    "output": ""
+  }
+]

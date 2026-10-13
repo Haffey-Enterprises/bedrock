@@ -1,0 +1,14 @@
+{
+  "date_et": "2026-09-30",
+  "authorization": "Tad ratified repair of three blockers, separate composed evidence selection and durable per-draw retention after verified private backup.",
+  "paths": {
+    "scripts/validate_plugin.py": "R1 explicit evidence selection, missing evidence fails closed",
+    "scripts/run_routing_evals.py": "R2 append-only durable draw custody and no overwrite; R3 CLI/model identity enforcement",
+    ".github/workflows/plugin-validation.yml": "Wire selected composed evidence and retain new execution journal",
+    "tests/test_composed_routing.py": "Offline regression controls for R1-R3",
+    "tests/test_validate_plugin.py": "Make structural-only fixture explicit about absent routing evidence",
+    "README.md": "Document evidence selection/custody/identity interface",
+    "docs/evidence/heb-161/**": "Retain exact repair evidence and independent review"
+  },
+  "excluded": "No prior evidence edit, skill/manifest change, live call, public push, PR action, install, merge or release."
+}

@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "ticket": "HEB-161",
+  "date_et": "2026-10-02",
+  "original_execution_subject": {
+    "commit": "6c92e7a16fdb41b54864758f7d4b90fd034d63e8",
+    "tree": "a71f51bddc3b05e15bc276565f079f469dc58a1d",
+    "parent": "a40d8e0ea1684e46fd1f1a1197c62053afead461",
+    "manifest_version": "10.0.0"
+  },
+  "selected_evidence": {
+    "path": "docs/evidence/heb-161/routing-results.json",
+    "sha256": "db85e5cf3e6be2a18cdd23a76e5bacbbc6ab882e08ba8738251473f4e7daa9d9",
+    "bytes": 202913,
+    "profile": "release",
+    "input_identity": {
+      "fixture_sha256": "fc675749e5b43ce479a5187be4faebba33e6e7a987c61a2bd6d229adfde53d84",
+      "catalog_sha256": "b7b3b7c36870fa9fcd43ba69b5aba9a429d416217b724f18b730a708a6d18205",
+      "policy_sha256": "4e3aedf467f4d353a9903a31f8dfd3fa9224f01eb449a473051177b5f626b67d"
+    }
+  },
+  "durable_source": {
+    "archive": "Development Archives/HEB-161-2026-10-01/live-routing-6c92e7a/",
+    "report": "report.json",
+    "journal": "report.jsonl",
+    "journal_sha256": "41c2af570cd0d0738a41b4f6e9693d5335c56f82105403a79bc46cfe81a5704c",
+    "completion_receipt_sha256": "a0427d4c472774fbf7b2a458ce69003fce98b32a80941d96aa277b8d0ed09d79",
+    "independent_review_sha256": "cda4d812d538180fb21736b7adbc6f713eb45ea952f71d85090bc457287d61ee"
+  },
+  "carried_evidence_semantics": "This report records the completed release-profile execution on the original subject above. The freeze adds only selected and derived HEB-161 evidence; every pre-existing tracked path, mode and byte must remain identical. It does not claim a new execution on the evidence-only descendant. Hosted PR evidence and HEB-119 cold acceptance remain separate gates.",
+  "freeze_delta": {
+    "operation": "add",
+    "paths": [
+      "docs/evidence/heb-161/routing-results.json",
+      "docs/evidence/heb-161/freeze/provenance.json"
+    ],
+    "all_other_tracked_paths": "unchanged bytes, modes and path population"
+  },
+  "hosted_subject_rule": "Retain the frozen PR-head commit and actually executed synthetic merge commit separately. Accept the hosted checkout only if its complete tree equals the frozen candidate tree; any difference or unavailable comparison stops qualification.",
+  "empirical_limits": "One fixed fixture, one CLI and one model with three release draws per case. The retained miss remains included. No broad routing reliability, provider-wire request count, independent billing verification, cold acceptance or release claim."
+}

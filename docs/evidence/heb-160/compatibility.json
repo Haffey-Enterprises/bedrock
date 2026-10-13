@@ -1,0 +1,15 @@
+{
+  "upstream_manifest_compatibility": [
+    {
+      "repository": "actions/checkout",
+      "entire_manifest_except_runs_using_unchanged": true
+    },
+    {
+      "repository": "hashicorp/setup-terraform",
+      "entire_manifest_except_runs_using_unchanged": true
+    }
+  ],
+  "fixture_other_semantics_unchanged": true,
+  "reference_other_bytes_unchanged": true,
+  "limit": "Action manifests and local calling contract compared; upstream implementation behavior and hosted execution are not proven equivalent."
+}

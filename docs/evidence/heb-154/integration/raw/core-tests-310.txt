@@ -1,0 +1,15 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.10.20, pytest-9.1.1, pluggy-1.6.0
+rootdir: /Users/thaffey/.codex/worktrees/heb-154-integration/bedrock/packages/agent-core
+configfile: pyproject.toml
+collected 57 items
+
+packages/agent-core/tests/test_budget.py .......                         [ 12%]
+packages/agent-core/tests/test_config.py .......                         [ 24%]
+packages/agent-core/tests/test_evidence_security.py ....                 [ 31%]
+packages/agent-core/tests/test_parser_regressions.py .................   [ 61%]
+packages/agent-core/tests/test_structured.py ...............             [ 87%]
+packages/agent-core/tests/test_tools.py ....                             [ 94%]
+packages/agent-core/tests/test_usage_example.py ...                      [100%]
+
+============================== 57 passed in 0.10s ==============================

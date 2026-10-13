@@ -1,0 +1,18 @@
+{
+  "tree": "5b5036010f62fc4e1aadf5c6416708e11fc0c7f6",
+  "command": [
+    "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-p",
+    "test_safety_contracts.py",
+    "-v"
+  ],
+  "cwd": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-160-2026-09-30/red-snapshot",
+  "exit_code": 1,
+  "expected": "assertions identify stale pins and missing unnamed-step enforcement"
+}

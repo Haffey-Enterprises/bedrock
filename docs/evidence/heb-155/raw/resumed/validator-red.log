@@ -1,0 +1,94 @@
+test_data_hygiene_surface_and_template_defects_refuse (tests.test_package_governance.PackageGovernanceTests.test_data_hygiene_surface_and_template_defects_refuse) ... 
+  test_data_hygiene_surface_and_template_defects_refuse (tests.test_package_governance.PackageGovernanceTests.test_data_hygiene_surface_and_template_defects_refuse) (defect='missing') ... FAIL
+  test_data_hygiene_surface_and_template_defects_refuse (tests.test_package_governance.PackageGovernanceTests.test_data_hygiene_surface_and_template_defects_refuse) (defect='empty') ... FAIL
+  test_data_hygiene_surface_and_template_defects_refuse (tests.test_package_governance.PackageGovernanceTests.test_data_hygiene_surface_and_template_defects_refuse) (defect='mode') ... FAIL
+  test_data_hygiene_surface_and_template_defects_refuse (tests.test_package_governance.PackageGovernanceTests.test_data_hygiene_surface_and_template_defects_refuse) (defect='symlink') ... FAIL
+  test_data_hygiene_surface_and_template_defects_refuse (tests.test_package_governance.PackageGovernanceTests.test_data_hygiene_surface_and_template_defects_refuse) (defect='extra') ... FAIL
+test_data_hygiene_surface_and_template_defects_refuse (tests.test_package_governance.PackageGovernanceTests.test_data_hygiene_surface_and_template_defects_refuse) ... FAIL
+test_main_validator_consumes_data_hygiene_gate (tests.test_package_governance.PackageGovernanceTests.test_main_validator_consumes_data_hygiene_gate) ... FAIL
+
+======================================================================
+FAIL: test_data_hygiene_surface_and_template_defects_refuse (tests.test_package_governance.PackageGovernanceTests.test_data_hygiene_surface_and_template_defects_refuse) (defect='missing')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-155-2026-09-30/snapshot/tests/test_package_governance.py", line 143, in test_data_hygiene_surface_and_template_defects_refuse
+    self.assert_has_error("data-hygiene")
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-155-2026-09-30/snapshot/tests/test_package_governance.py", line 37, in assert_has_error
+    self.assertTrue(any(needle in error for error in errors), errors)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : []
+
+======================================================================
+FAIL: test_data_hygiene_surface_and_template_defects_refuse (tests.test_package_governance.PackageGovernanceTests.test_data_hygiene_surface_and_template_defects_refuse) (defect='empty')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-155-2026-09-30/snapshot/tests/test_package_governance.py", line 143, in test_data_hygiene_surface_and_template_defects_refuse
+    self.assert_has_error("data-hygiene")
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-155-2026-09-30/snapshot/tests/test_package_governance.py", line 37, in assert_has_error
+    self.assertTrue(any(needle in error for error in errors), errors)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : []
+
+======================================================================
+FAIL: test_data_hygiene_surface_and_template_defects_refuse (tests.test_package_governance.PackageGovernanceTests.test_data_hygiene_surface_and_template_defects_refuse) (defect='mode')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-155-2026-09-30/snapshot/tests/test_package_governance.py", line 143, in test_data_hygiene_surface_and_template_defects_refuse
+    self.assert_has_error("data-hygiene")
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-155-2026-09-30/snapshot/tests/test_package_governance.py", line 37, in assert_has_error
+    self.assertTrue(any(needle in error for error in errors), errors)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : []
+
+======================================================================
+FAIL: test_data_hygiene_surface_and_template_defects_refuse (tests.test_package_governance.PackageGovernanceTests.test_data_hygiene_surface_and_template_defects_refuse) (defect='symlink')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-155-2026-09-30/snapshot/tests/test_package_governance.py", line 143, in test_data_hygiene_surface_and_template_defects_refuse
+    self.assert_has_error("data-hygiene")
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-155-2026-09-30/snapshot/tests/test_package_governance.py", line 37, in assert_has_error
+    self.assertTrue(any(needle in error for error in errors), errors)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : []
+
+======================================================================
+FAIL: test_data_hygiene_surface_and_template_defects_refuse (tests.test_package_governance.PackageGovernanceTests.test_data_hygiene_surface_and_template_defects_refuse) (defect='extra')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-155-2026-09-30/snapshot/tests/test_package_governance.py", line 143, in test_data_hygiene_surface_and_template_defects_refuse
+    self.assert_has_error("data-hygiene")
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-155-2026-09-30/snapshot/tests/test_package_governance.py", line 37, in assert_has_error
+    self.assertTrue(any(needle in error for error in errors), errors)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : []
+
+======================================================================
+FAIL: test_data_hygiene_surface_and_template_defects_refuse (tests.test_package_governance.PackageGovernanceTests.test_data_hygiene_surface_and_template_defects_refuse)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-155-2026-09-30/snapshot/tests/test_package_governance.py", line 151, in test_data_hygiene_surface_and_template_defects_refuse
+    self.assert_has_error("data-hygiene")
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-155-2026-09-30/snapshot/tests/test_package_governance.py", line 37, in assert_has_error
+    self.assertTrue(any(needle in error for error in errors), errors)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : []
+
+======================================================================
+FAIL: test_main_validator_consumes_data_hygiene_gate (tests.test_package_governance.PackageGovernanceTests.test_main_validator_consumes_data_hygiene_gate)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-155-2026-09-30/snapshot/tests/test_package_governance.py", line 159, in test_main_validator_consumes_data_hygiene_gate
+    self.assertTrue(any("data-hygiene" in error for error in errors), errors)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : []
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.999s
+
+FAILED (failures=7)

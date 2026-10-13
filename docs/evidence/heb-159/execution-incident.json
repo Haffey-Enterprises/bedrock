@@ -1,0 +1,53 @@
+{
+  "ticket": "HEB-159",
+  "recorded_date": "2026-09-29",
+  "status": "stopped-for-operator-disposition",
+  "incident": "The pre-implementation regression command ran with cwd at the isolated checkout, not the prepared tracked-only snapshot. AuthoringContractTests.setUp recursively copied that checkout, including the protected untracked receipts, into temporary test trees. This violated the explicit protected-population restriction.",
+  "temporary_copy_lifecycle": "The test runner reached normal completion; tearDown calls TemporaryDirectory.cleanup(). The temporary paths were not captured, so their removal was not independently verified.",
+  "original_receipts": "Both remain untracked and their SHA-256 hashes were rechecked against the supplied pins after the incident; no original edit, stage, commit, move, or deletion occurred. No receipt contents are retained in this incident record.",
+  "checkout": "/Users/thaffey/.codex/worktrees/heb-154-integration/bedrock",
+  "branch": "codex/heb-161-candidate",
+  "head": "5208b5c62456932dc77f5d1b9a95a35da4be1201",
+  "head_parent": "be8b1f626b32ba71b3a5616472cede72468d29b8",
+  "tracked_changes": [
+    "tests/test_authoring_contracts.py"
+  ],
+  "commit_created": false,
+  "package_content_changed": false,
+  "independent_review": "not reached",
+  "qualification": "not claimed",
+  "baseline_commands": [
+    {
+      "command": "python -B scripts/validate_authoring_contracts.py",
+      "exit": 0,
+      "scope": "validator reported 5/5 existing HEB-117 interaction contracts; baseline only"
+    },
+    {
+      "command": "python -B scripts/validate_rule_trigger_audit.py --require-complete",
+      "exit": 0,
+      "scope": "existing ledger shape, inventory and derived counts; no new semantic whole-corpus audit"
+    }
+  ],
+  "regression_command": "python -B -m unittest tests.test_authoring_contracts.AuthoringContractTests.test_carried_value_contract_cannot_lose_a_rule tests.test_authoring_contracts.AuthoringContractTests.test_template_sweep_and_stop_guidance_is_required -v",
+  "python": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+  "regression_result": {
+    "methods": 2,
+    "subtest_failures": 15,
+    "scope": "Only the two newly added methods ran, with overlapping contract checks; not the complete suite. The run is ineligible as compliant amendment proof because of the receipt-population breach."
+  },
+  "log": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-159-2026-09-29/meaningful-red.txt",
+  "authority_reads": "AGENTS.md, repository orientation, recall Bedrock fact sheet, HEB-159 and HEB-161 descriptions and all comments, amendment upload, current relay skill/templates/schema/reference, author-standard skill/lifecycle, testing skill/profile, authoring/audit validators and tests, audit ledger, identity generator, package lifecycle/policies/compatibility/changelog read whole. Truncated outputs were reread except the broad archive inventory, which remains a partial inventory and supports no completeness claim. CI and main validator were inspected only by relevant excerpts/search results.",
+  "linear_comment_populations": {
+    "HEB-159": {
+      "comments": 4,
+      "hasNextPage": false
+    },
+    "HEB-161": {
+      "comments": 8,
+      "hasNextPage": false
+    }
+  },
+  "attachment_sha256": "11daffb7cc9fcf403bb0d7d7ec9dfc7fe1fdad1f5eef2f60d27c97e2d41b4b49",
+  "next_recommendation": "After operator disposition, continue from the same branch and HEAD, account for the pending test-only diff, and bind every test subprocess cwd to the tracked-only snapshot; verify its module source paths before invoking recursive fixtures. Retain this first failure separately. Implement only the already-ratified amendment.",
+  "boundaries": "No push, PR mutation, Linear mutation, live routing/model call, release action, plugin installation, SOFIA working-tree access, private hygiene-file inspection, or RBT-154 clause implementation occurred."
+}

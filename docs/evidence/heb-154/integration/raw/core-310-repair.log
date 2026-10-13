@@ -1,0 +1,2 @@
+PASS: clean skill-only install/reload, absent install, wrong installed core, and wrong bundled wheel controls
+/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/clean-core-310-repair/results.json

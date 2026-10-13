@@ -1,0 +1,120 @@
+{
+  "ticket": "HEB-153",
+  "date_eastern": "2026-09-29",
+  "status": "pre-removal checkpoint preparation; HEB-153 incomplete; no release/rollout claim",
+  "repository": "T-Bone-Haff/bedrock",
+  "checkout": "/Users/thaffey/.codex/worktrees/heb-154-integration/bedrock",
+  "branch": "codex/heb-161-candidate",
+  "inherited_commit": "458d6806f06ae8a6af569d71126fb2035fb0b524",
+  "kickoff": {
+    "worktree": "clean; git status --porcelain=v1 --untracked-files=all, git diff --exit-code and git diff --cached --exit-code; tracked AGENTS.md positive control",
+    "initial_branch": "codex/heb-154-integration",
+    "initial_head": "458d6806f06ae8a6af569d71126fb2035fb0b524",
+    "integration_ref_preserved": "458d6806f06ae8a6af569d71126fb2035fb0b524",
+    "parent_chain": [
+      "540b557492d19845524cbbc2f17fbea380de62cc",
+      "dd1e455fdbded85065c69606ebef514ca992e1dd",
+      "2d1cd0d949b1691568afdc99b2f036c2c99be158",
+      "dec05792cc59ebb9b3feb5b01a3466036e748212",
+      "458d6806f06ae8a6af569d71126fb2035fb0b524"
+    ],
+    "remote_control": "git ls-remote --heads origin refs/heads/codex/heb-161-candidate refs/heads/codex/heb-154-integration refs/heads/main: candidate absent, integration dec05792cc59ebb9b3feb5b01a3466036e748212 and main 2ab76b447cdb1a975c801e6833682c0c1f94cef0 returned",
+    "use_check": "API view of all pinned plus 50 recent chats: prior integration and repair idle, source orchestrator active in primary. This is a bounded chat view. Unbounded ps matching checkout and lsof cwd matching checkout found only this inspection process tree; not a filesystem lock or proof against future concurrency."
+  },
+  "authorities": {
+    "whole_reads": [
+      "AGENTS.md",
+      "docs/repository-orientation.md",
+      "recall projects/bedrock.md",
+      "scripts/validate_package_governance.py",
+      "tests/test_package_governance.py",
+      "scripts/sync_package_identity.py",
+      "README.md",
+      "plugins/bedrock/CHANGELOG.md",
+      "plugins/bedrock/governance/registry.yaml",
+      "plugins/bedrock/governance/COMPATIBILITY.md",
+      "plugins/bedrock/governance/rollout-ledger.schema.json",
+      "plugins/bedrock/governance/rollout-ledger.template.yaml",
+      "plugins/bedrock/governance/authority-inventory.yaml",
+      ".github/workflows/plugin-validation.yml"
+    ],
+    "linear": "Fresh whole issue descriptions and every returned comment: HEB-153 0, HEB-149 4, HEB-154 11, HEB-161 6; each hasNextPage=false. Attachments were not downloaded. Historical text does not widen relay.",
+    "github": "PR #53 fresh metadata: open draft, unmerged, four commits, head dec05792cc59ebb9b3feb5b01a3466036e748212. Repository default branch main. No PR mutation.",
+    "targeted_reads": [
+      "validate_plugin.py entrypoint, strict-host invocation and inventory-generation sections; not a whole file read",
+      "Other portable validators: CLI entrypoints and host/subprocess references; tests execute their full declared contracts",
+      "HEB-149 durable removal-control.md Appendix A and related matching lines only; not a whole record read"
+    ]
+  },
+  "touch_reconciliation": [
+    {
+      "path": "plugins/bedrock/CHANGELOG.md",
+      "reason": "Record additive HEB-153 scope under the existing 10.0.0 candidate; cleanup and fresh-task gate pending.",
+      "sha256": "d1c6a85f20b4c8bd194cc12bab7e7ff283d974820ee25dd51a13223d3090caec"
+    },
+    {
+      "path": "plugins/bedrock/governance/COMPATIBILITY.md",
+      "reason": "Ratified desktop support row and four stated limitations; distinguish native ingestion from a separate distributed adapter.",
+      "sha256": "cabd64f4dc2c7f1dcb6fcf61cff326ed38e434fa8c2373315e931b5ad36595c2"
+    },
+    {
+      "path": "plugins/bedrock/governance/registry.yaml",
+      "reason": "Current consumer_surfaces authority gains the explicit codex row and floor/desktop/verification limitations.",
+      "sha256": "b8156511abbde73204be882996f8aaf26c28a31a0b4ff4f968229d79af35ec03"
+    },
+    {
+      "path": "plugins/bedrock/governance/rollout-ledger.schema.json",
+      "reason": "Schema id enum must permit codex; exact multiplicity remains owned by release-mode Counter.",
+      "sha256": "49eb79739cef57e528d33440cd65efcb750333ec1408d9b143af31b7acc589b1"
+    },
+    {
+      "path": "plugins/bedrock/governance/rollout-ledger.template.yaml",
+      "reason": "Add pending codex rollout row; all expected identities reflect the current 14-skill candidate.",
+      "sha256": "a234593f64d9ac871899d9050ba3bcbe671eb2151e8ed048d1f054f52f113e54"
+    },
+    {
+      "path": "scripts/validate_package_governance.py",
+      "reason": "The two executable pinned assertions own registry set equality and rollout Counter equality; both become the literal three-element set.",
+      "sha256": "402742e597c601fe218c6397b1c6642104f710a88b6c402b3dd16e9ebd867a5c"
+    },
+    {
+      "path": "tests/test_package_governance.py",
+      "reason": "Positive three-surface controls, schema/template parity, missing/unknown registry cases, all missing/duplicate/unknown/stale rollout cases through owning validator.",
+      "sha256": "4ea111f1acf89cb307e78fdd42be53b316009903b462561334008ab1b99e6b20"
+    }
+  ],
+  "generated_disposition": {
+    "manifest": "10.0.0 unchanged; same composed candidate transaction, no second bump",
+    "identity_carriers": "All 14 canonical generated carriers verify unchanged. Generator input is manifest bytes and claude_adapter contract, neither changed. No gratuitous rewrite.",
+    "metadata_inventory": "Fresh validate_repository derived report equals docs/evidence/heb-109/metadata-inventory.json; no change required.",
+    "routing": "Descriptions, fixtures, policy, and retained routing identity unchanged. No live calls.",
+    "README_and_authority_inventory": "Read for scope. No consumer enum or mechanically required new identity carrier. No unrelated cleanup; existing orientation-inventory wording is inherited and outside this delta."
+  },
+  "verification": {
+    "python": "3.14.6",
+    "python_executable": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+    "PyYAML": "6.0.3",
+    "jsonschema": "4.25.1",
+    "test_profile": "Existing synchronous unittest repository profile; application-code/testing portable rules applied without FastAPI/service assumptions.",
+    "governance": "56 methods passed; command: PYTHON -m unittest tests.test_package_governance -v; governance-tests.txt",
+    "broader_unit": "178 methods passed, zero failures/errors/skips. Exact modules/test IDs in unit-population.json; unittest.TestLoader.loadTestsFromNames(modules), TextTestRunner(verbosity=2). Governance methods overlap; counts are not additive.",
+    "meaningful_red": "Three pre-implementation tests failed at the intended missing codex/schema/two-surface assertions, not imports. meaningful-red.txt retains the raw result.",
+    "portable": "All eight standalone portable validators plus full validate_plugin --skip-host-cli passed; exact argv/stdout/stderr/exit codes in validation-results.json.",
+    "strict": "validate_plugin.py passed with Claude Code 2.1.284; its seeded-invalid-manifest control also passed in the selected unit population. This is separate Claude host proof, not a Codex host validator.",
+    "discrimination": "discrimination-control.json: stale two-surface registry copy returns exit 1 with owning enumeration error; restored identical source returns 0.",
+    "diff": "git diff --check passed; complete authored diff read."
+  },
+  "first_failures_and_limits": [
+    "Initial broad tool listing and combined authority output were truncated; narrowed and re-read before relying on them. Initial ps output truncated; rerun with narrowed process identity and cwd population.",
+    "Sandbox git ls-remote could not resolve github.com; approved read-only escalation returned branch controls. Sandbox ps denied; approved metadata-only inspection succeeded.",
+    "Default /usr/local/bin/python3 3.14.6 lacked PyYAML; reused existing pinned validation virtualenv without installation.",
+    "Codex help/list under sandbox emitted PATH-alias creation denied warning. Later approved read-only invocation did not emit that warning; no all-state immutability claim is made.",
+    "No fresh Codex minimum-floor execution; HEB-149 floor observation is cited. Current host/CLI identity is in pre-removal-identity.json.",
+    "No Docker/Terraform runtime, browser engines, standalone core/trial suite, cloud task, live routing, plugin upgrade/install, rollout, or HEB-119 cold acceptance. Their code/contract surfaces did not change; no fresh passing result is claimed."
+  ],
+  "operator_gate": {
+    "pending_action": "Remove only /Applications/ChatGPT Classic.app after explicit Tad authorization. No ~/.codex or ChatGPT.app removal.",
+    "before_action": "Recheck baseline identity and application selector; compare active manifest, complete carrier/skill population and relevant state hashes after removal; fresh-task catalog verification follows separately.",
+    "completion": "Cleanup and fresh-task post-removal verification remain pending. HEB-153 is not complete."
+  }
+}

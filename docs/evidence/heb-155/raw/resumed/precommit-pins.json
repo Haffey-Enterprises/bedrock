@@ -1,0 +1,15 @@
+{
+  "head": "bfc36490e151b2bac580bdd1123ab2bd9899a3d8",
+  "parent": "f0ac9a0d81dbdb37cdb7b29b61b59f114802a489",
+  "branch": "codex/heb-161-candidate",
+  "wrong_head_control_refused": true,
+  "index_empty": true,
+  "protected_receipt_hashes": {
+    "docs/evidence/heb-153/host-cleanup.json": "59a722ef5a1cee618aca78d59acd47b470d065255df60689f7f104f017379aee",
+    "docs/evidence/heb-153/post-removal-verification.json": "fe8963e816a7985b4f3623c1167e4829dcd5fb03e645ddf90a916e62d44a3f63"
+  },
+  "protected_receipts_unchanged": true,
+  "effective_precommit_exists": false,
+  "hook_metadata_positive_control": true,
+  "no_hook_contents_read": true
+}

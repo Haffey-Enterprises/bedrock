@@ -1,0 +1,6 @@
+{
+  "mode": "inherited-regular-eof",
+  "returncode": 1,
+  "stdout": "",
+  "stderr": "Error parsing streaming input line: from pathlib import Path: SyntaxError: JSON Parse error: Unexpected identifier \"from\"\n"
+}

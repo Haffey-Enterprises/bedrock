@@ -1,0 +1,1 @@
+PASS: frontend profile, evidence, behavior, browser fixture, and contract markers

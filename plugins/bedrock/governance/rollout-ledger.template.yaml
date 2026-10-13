@@ -5,14 +5,21 @@ source_commit: SOURCE_COMMIT_SHA
 surfaces:
   - id: claude-ai
     expected_action: Push marketplace release and open a new session.
-    expected_identity: MANIFEST_VERSION and 13 skills
+    expected_identity: MANIFEST_VERSION and 15 skills
     status: pending
     evidence: null
     owner: RELEASE_OWNER
     waiver: null
   - id: claude-code
     expected_action: Refresh or update marketplace, update plugin, and open a new session.
-    expected_identity: MANIFEST_VERSION and 13 skills
+    expected_identity: MANIFEST_VERSION and 15 skills
+    status: pending
+    evidence: null
+    owner: RELEASE_OWNER
+    waiver: null
+  - id: codex
+    expected_action: Verify codex-cli >=0.153.4 in ChatGPT desktop, upgrade the bedrock marketplace from the configured Git source, and open a new task; verify one active package root and single-backed skill identities.
+    expected_identity: MANIFEST_VERSION and 15 skills
     status: pending
     evidence: null
     owner: RELEASE_OWNER

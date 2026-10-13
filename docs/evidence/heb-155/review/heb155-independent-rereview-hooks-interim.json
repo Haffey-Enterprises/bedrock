@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "profile": "high-risk",
+  "scope": "Follow-up review of explicit-default hooksPath contract alignment; independent of repaired R1-R3.",
+  "checked_surfaces": [
+    "Changed repo_population path-equivalence check, explicit-default success/redirection failure test, README contract and all-native-hook fixture population.",
+    "Complete focused module: 33 tests pass with before/after identity equality; independent redirected-directory/symlinked-file counterexample."
+  ],
+  "gates": [
+    {
+      "name": "Focused module",
+      "disposition": "passed",
+      "reason": "33 tests, stable subject; /private/tmp/heb155-rereview-focused.log and subject JSON."
+    },
+    {
+      "name": "Non-default hook directory refusal",
+      "disposition": "failed",
+      "reason": "Independent fixture audit returns success despite redirected native hook directory."
+    }
+  ],
+  "findings": [
+    {
+      "id": "HEB155-R4",
+      "class": "correctness",
+      "impact": "medium",
+      "likelihood": "low",
+      "confidence": "high",
+      "exploitability": "low",
+      "locus": "plugins/bedrock/scripts/data-hygiene/manager.py:260",
+      "evidence": "Resolved full pre-commit equality permits an unrelated hooks directory containing only pre-commit symlinked to the managed default. Audit reports installed and audited while post-commit resolves into unrelated directory. This defeats D1 non-default hook-path refusal and continued native-hook execution. Check directory equivalence before dereferencing final pre-commit entry; retain redirected-directory/file-symlink negative control. Independent default audit control exits0; redirected audit also exits0; native_post_commit_resolves_default=false.",
+      "blocking": true
+    }
+  ],
+  "verdict": "pause"
+}

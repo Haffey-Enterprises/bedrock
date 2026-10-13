@@ -1,0 +1,6 @@
+{
+  "control_exit": 0,
+  "redirect_audit_exit": 0,
+  "redirect_accepted": "local pre-commit gate installed and audited",
+  "native_post_commit_resolves_default": false
+}

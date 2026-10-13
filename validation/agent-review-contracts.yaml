@@ -7,15 +7,21 @@ fixtures:
     - tests/fixtures/agent-review-contracts/valid/agent-execution.json
     - tests/fixtures/agent-review-contracts/valid/reviewer-empty.json
     - tests/fixtures/agent-review-contracts/valid/arbitration.json
+    - tests/fixtures/agent-review-contracts/valid/agent-execution-unknown.json
   invalid:
+    - path: tests/fixtures/agent-review-contracts/invalid/agent-execution-false-success.json
+      expected: success requires a model attempt
+    - path: tests/fixtures/agent-review-contracts/invalid/agent-execution-false-zero.json
+      expected: unknown usage cannot have numeric totals
     - path: tests/fixtures/agent-review-contracts/invalid/ambiguous-salvage.txt
       expected: ambiguous salvage
     - path: tests/fixtures/agent-review-contracts/invalid/low-confidence-resolvable.json
       expected: low-confidence resolvable
 required_contract_markers:
   plugins/bedrock/skills/agent-code/SKILL.md:
-    - "Never accept “the first parseable payload.”"
     - "One aggregate execution budget"
+  plugins/bedrock/skills/agent-code/reference/mechanism-contract.md:
+    - "Never accept “the first parseable payload.”"
     - "Content capture is off by default."
   plugins/bedrock/skills/design-review-loop/SKILL.md:
     - "Direct review"

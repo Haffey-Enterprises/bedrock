@@ -1,0 +1,8 @@
+{
+  "manager_sha256": "75617b0b353bb1e5733f905e2cbdca4c970f1dca0041a699e9348db4d84d296a",
+  "control_exit": 0,
+  "redirect_audit_exit": 2,
+  "stdout": "",
+  "stderr": "data-hygiene: operation unavailable\n",
+  "native_post_commit_resolves_default": false
+}

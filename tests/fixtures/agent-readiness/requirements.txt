@@ -1,0 +1,3 @@
+anthropic==1.8.0
+pytest==9.1.1
+# Install the bundled agent-core with its qualified lock before running this fixture.

@@ -1,0 +1,25 @@
+{
+  "subject_sha256": "924d603ffca59f7308cf634b7ebf698564f9d9218f93050765a6622136c4aa85",
+  "private_open_race": {
+    "control_exit": 0,
+    "fault_exit": 2,
+    "stdout": "",
+    "stderr": "data-hygiene: check unavailable\n",
+    "invented_pattern_path_leaked": false
+  },
+  "control_read_status": {
+    "control_exit": 0,
+    "fault_exit": 2,
+    "stdout": "",
+    "stderr": "data-hygiene: check unavailable\n",
+    "invented_pattern_path_leaked": false
+  },
+  "blob_read_diagnostic": {
+    "control_exit": 0,
+    "fault_exit": 2,
+    "stdout": "",
+    "stderr": "",
+    "invented_pattern_path_leaked": false
+  },
+  "subject_unchanged": true
+}

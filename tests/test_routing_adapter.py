@@ -2,6 +2,10 @@ from __future__ import annotations
 
 import json
 import os
+import shlex
+import subprocess
+import sys
+import tempfile
 from pathlib import Path
 import unittest
 from unittest.mock import patch
@@ -25,6 +29,35 @@ from scripts.run_routing_evals import (
 
 
 class RoutingAdapterResultTests(unittest.TestCase):
+    def test_planning_fixture_boundaries_and_adapter_discrimination(self) -> None:
+        from scripts.validate_plugin import load_routing_cases, validate_skills, validate_routing
+        root = Path(__file__).resolve().parents[1]
+        errors = []
+        inventory = validate_skills(root, errors)
+        cases = validate_routing(root, inventory, errors)
+        self.assertEqual([], errors)
+        planning = [case for case in cases if case["id"].startswith("planning-")]
+        required = {"explicit-assessment", "sequence-overlap", "product-discovery",
+                    "record-mutation", "executor-handoff", "specialist-design",
+                    "unattended", "tests", "finished-review"}
+        self.assertEqual(required, {case.get("planning_boundary") for case in planning})
+        self.assertEqual(len(required), len(planning))
+        for case in planning:
+            with self.subTest(case=case["id"]):
+                catalog = [dict(row, name=name) for name, row in inventory.items()]
+                prompt = build_routing_prompt(case, catalog)
+                self.assertTrue(prompt.endswith(case["prompt"]))
+                self.assertIn(inventory["planning"]["description"], prompt)
+                for selected, passed in ((case["expected"], True),
+                                         ("planning" if "planning" in case["excluded"] else None, False)):
+                    envelope = unittest.mock.Mock(returncode=0, stderr="", stdout=json.dumps({
+                        "structured_output": {"skill": selected, "reason": "deterministic envelope control"},
+                        "total_cost_usd": 0.0}))
+                    with patch("scripts.run_routing_evals.subprocess.run", return_value=envelope) as invoke:
+                        result = run_case("offline-cli", root, case, catalog, "offline", 0.01, 10)
+                    self.assertIs(result.passed, passed)
+                    self.assertEqual(subprocess.DEVNULL, invoke.call_args.kwargs["stdin"])
+
     def test_default_call_budget_matches_documented_contract(self) -> None:
         readme = (Path(__file__).resolve().parents[1] / "README.md").read_text(encoding="utf-8")
         normalized_readme = " ".join(readme.split())
@@ -67,6 +100,61 @@ class RoutingAdapterResultTests(unittest.TestCase):
         self.assertIsNone(result.passed)
         self.assertEqual(["--bare", "--print"], command[1:3])
         self.assertNotIn("auth", command)
+
+    def test_routing_subprocess_excludes_inherited_launcher_input(self) -> None:
+        """The CLI may reread a consumed regular fd or accept a pipe as user input."""
+        root = Path(__file__).resolve().parents[1]
+        prompt = build_routing_prompt({"prompt": "Diagnose a flaky test."}, [])
+        launcher_text = "UNRELATED_LAUNCHER_INPUT_CANARY"
+        with tempfile.TemporaryDirectory() as temporary:
+            directory = Path(temporary)
+            executable = directory / "capture-cli"
+            capture = directory / "capture.py"
+            capture.write_text(
+                "import json, os, sys\n"
+                "try:\n    os.lseek(0, 0, os.SEEK_SET)\n"
+                "except OSError:\n    pass\n"
+                "received = {'stdin': sys.stdin.read(), 'prompt': sys.argv[-1]}\n"
+                "print(json.dumps({'total_cost_usd': 0.0, 'structured_output': {'skill': 'debug', "
+                "'reason': json.dumps(received)}}))\n",
+                encoding="utf-8",
+            )
+            executable.write_text(
+                "#!/bin/sh\nexec " + shlex.quote(sys.executable) + " "
+                + shlex.quote(str(capture)) + ' "$@"\n', encoding="utf-8",
+            )
+            executable.chmod(0o700)
+            runner = (
+                "import json, sys; from pathlib import Path; "
+                "from scripts.run_routing_evals import run_case; "
+                "result = run_case(sys.argv[1], Path(sys.argv[2]), "
+                "{'prompt': 'Diagnose a flaky test.', 'expected': 'debug'}, "
+                "[], 'offline', 0.01, 10); "
+                "print(json.dumps({'classification': result.classification, "
+                "'detail': result.detail}))"
+            )
+            for mode in ("pipe", "consumed_regular_file"):
+                with self.subTest(mode=mode), tempfile.TemporaryFile(mode="w+") as inherited:
+                    inherited.write(launcher_text)
+                    inherited.flush()  # Keep fd at EOF, as after Python reads a heredoc.
+                    stdin_args = {"input": launcher_text} if mode == "pipe" else {"stdin": inherited}
+                    control = subprocess.run(
+                        [str(executable), prompt], capture_output=True, text=True,
+                        check=True, timeout=10, **stdin_args,
+                    )
+                    received_control = json.loads(json.loads(control.stdout)["structured_output"]["reason"])
+                    self.assertEqual(launcher_text, received_control["stdin"])
+                    inherited.seek(0, os.SEEK_END)
+                    result = subprocess.run(
+                        [sys.executable, "-c", runner, str(executable), str(directory)],
+                        cwd=root, capture_output=True, text=True, check=True, timeout=15,
+                        **stdin_args,
+                    )
+                    envelope = json.loads(result.stdout)
+                    self.assertEqual("route_result", envelope["classification"])
+                    received = json.loads(envelope["detail"])
+                    self.assertEqual(prompt, received["prompt"])
+                    self.assertEqual("", received["stdin"])
 
     def test_typed_authentication_failure_after_evaluation_begins_fails_fast(self) -> None:
         calls: list[str] = []
@@ -214,13 +302,13 @@ class RoutingAdapterResultTests(unittest.TestCase):
         self.assertEqual((0.033976, ["resolved-model"]), _extract_usage(payload))
 
     def test_unstructured_failure_has_no_claimed_usage(self) -> None:
-        self.assertEqual((0.0, []), _extract_usage("transport failed"))
+        self.assertEqual((None, []), _extract_usage("transport failed"))
 
     def test_malformed_failure_usage_cannot_mask_terminal_classification(self) -> None:
         payload = json.dumps(
             {"subtype": "authentication_error", "total_cost_usd": "not-a-number"}
         )
-        self.assertEqual((0.0, []), _extract_usage(payload))
+        self.assertEqual((None, []), _extract_usage(payload))
         self.assertEqual("authentication_failure", _classify_invocation_failure(payload, "", 1))
 
     def test_prompt_embeds_authoritative_catalog_and_request(self) -> None:

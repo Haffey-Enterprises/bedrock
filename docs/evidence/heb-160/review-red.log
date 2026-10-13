@@ -1,0 +1,110 @@
+test_cosmetic_decision_bearing_combination_is_invalid (test_safety_contracts.SafetyContractTests.test_cosmetic_decision_bearing_combination_is_invalid) ... ok
+test_cosmetic_finding_never_blocks_convergence (test_safety_contracts.SafetyContractTests.test_cosmetic_finding_never_blocks_convergence) ... ok
+test_material_decision_bearing_finding_halts (test_safety_contracts.SafetyContractTests.test_material_decision_bearing_finding_halts) ... ok
+test_repository_satisfies_safety_contracts (test_safety_contracts.SafetyContractTests.test_repository_satisfies_safety_contracts) ... ok
+test_cosmetic_decision_halt_guidance_fails (test_safety_contracts.SafetyValidatorNegativeTests.test_cosmetic_decision_halt_guidance_fails) ... ok
+test_maintained_actions_require_verified_node24_identities (test_safety_contracts.SafetyValidatorNegativeTests.test_maintained_actions_require_verified_node24_identities) ... ok
+test_malformed_workflow_events_fail_cleanly (test_safety_contracts.SafetyValidatorNegativeTests.test_malformed_workflow_events_fail_cleanly) ... ok
+test_non_string_manifest_identifier_fails_cleanly (test_safety_contracts.SafetyValidatorNegativeTests.test_non_string_manifest_identifier_fails_cleanly) ... ok
+test_old_runtime_cannot_hide_in_yaml_syntax (test_safety_contracts.SafetyValidatorNegativeTests.test_old_runtime_cannot_hide_in_yaml_syntax) ... 
+  test_old_runtime_cannot_hide_in_yaml_syntax (test_safety_contracts.SafetyValidatorNegativeTests.test_old_runtime_cannot_hide_in_yaml_syntax) (surface='tests/fixtures/safety/pr-image-build.yml', step='- {uses: "actions/checkout@11d5960a326750d5838078e36cf38b85af677262"}') ... FAIL
+  test_old_runtime_cannot_hide_in_yaml_syntax (test_safety_contracts.SafetyValidatorNegativeTests.test_old_runtime_cannot_hide_in_yaml_syntax) (surface='tests/fixtures/safety/pr-image-build.yml', step='- "uses": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262"') ... FAIL
+  test_old_runtime_cannot_hide_in_yaml_syntax (test_safety_contracts.SafetyValidatorNegativeTests.test_old_runtime_cannot_hide_in_yaml_syntax) (surface='tests/fixtures/safety/pr-image-build.yml', step='- uses: >-\n    actions/checkout@11d5960a326750d5838078e36cf38b85af677262') ... FAIL
+  test_old_runtime_cannot_hide_in_yaml_syntax (test_safety_contracts.SafetyValidatorNegativeTests.test_old_runtime_cannot_hide_in_yaml_syntax) (surface='plugins/bedrock/skills/infrastructure-code/reference/05-delivery-pipeline.md', step='- {uses: "hashicorp/setup-terraform@b9cd54a3c349d3f38e8881555d616ced269862dd"}') ... FAIL
+  test_old_runtime_cannot_hide_in_yaml_syntax (test_safety_contracts.SafetyValidatorNegativeTests.test_old_runtime_cannot_hide_in_yaml_syntax) (surface='plugins/bedrock/skills/infrastructure-code/reference/05-delivery-pipeline.md', step='- "uses": "hashicorp/setup-terraform@b9cd54a3c349d3f38e8881555d616ced269862dd"') ... FAIL
+  test_old_runtime_cannot_hide_in_yaml_syntax (test_safety_contracts.SafetyValidatorNegativeTests.test_old_runtime_cannot_hide_in_yaml_syntax) (surface='plugins/bedrock/skills/infrastructure-code/reference/05-delivery-pipeline.md', step='- uses: >-\n    hashicorp/setup-terraform@b9cd54a3c349d3f38e8881555d616ced269862dd') ... FAIL
+test_pull_request_push_fails (test_safety_contracts.SafetyValidatorNegativeTests.test_pull_request_push_fails) ... ok
+test_python_minor_site_packages_path_fails (test_safety_contracts.SafetyValidatorNegativeTests.test_python_minor_site_packages_path_fails) ... ok
+test_secret_state_denial_fails (test_safety_contracts.SafetyValidatorNegativeTests.test_secret_state_denial_fails) ... ok
+test_unnamed_unpinned_action_reference_fails (test_safety_contracts.SafetyValidatorNegativeTests.test_unnamed_unpinned_action_reference_fails) ... ok
+test_unpinned_action_reference_fails (test_safety_contracts.SafetyValidatorNegativeTests.test_unpinned_action_reference_fails) ... ok
+test_unpinned_flow_action_fails (test_safety_contracts.SafetyValidatorNegativeTests.test_unpinned_flow_action_fails) ... FAIL
+
+======================================================================
+FAIL: test_old_runtime_cannot_hide_in_yaml_syntax (test_safety_contracts.SafetyValidatorNegativeTests.test_old_runtime_cannot_hide_in_yaml_syntax) (surface='tests/fixtures/safety/pr-image-build.yml', step='- {uses: "actions/checkout@11d5960a326750d5838078e36cf38b85af677262"}')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-160-2026-09-30/review-red-snapshot/tests/test_safety_contracts.py", line 168, in test_old_runtime_cannot_hide_in_yaml_syntax
+    self.assert_has_error("must use the verified Node 24 action identity")
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-160-2026-09-30/review-red-snapshot/tests/test_safety_contracts.py", line 86, in assert_has_error
+    self.assertTrue(any(needle in error for error in errors), errors)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : []
+
+======================================================================
+FAIL: test_old_runtime_cannot_hide_in_yaml_syntax (test_safety_contracts.SafetyValidatorNegativeTests.test_old_runtime_cannot_hide_in_yaml_syntax) (surface='tests/fixtures/safety/pr-image-build.yml', step='- "uses": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262"')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-160-2026-09-30/review-red-snapshot/tests/test_safety_contracts.py", line 168, in test_old_runtime_cannot_hide_in_yaml_syntax
+    self.assert_has_error("must use the verified Node 24 action identity")
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-160-2026-09-30/review-red-snapshot/tests/test_safety_contracts.py", line 86, in assert_has_error
+    self.assertTrue(any(needle in error for error in errors), errors)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : []
+
+======================================================================
+FAIL: test_old_runtime_cannot_hide_in_yaml_syntax (test_safety_contracts.SafetyValidatorNegativeTests.test_old_runtime_cannot_hide_in_yaml_syntax) (surface='tests/fixtures/safety/pr-image-build.yml', step='- uses: >-\n    actions/checkout@11d5960a326750d5838078e36cf38b85af677262')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-160-2026-09-30/review-red-snapshot/tests/test_safety_contracts.py", line 168, in test_old_runtime_cannot_hide_in_yaml_syntax
+    self.assert_has_error("must use the verified Node 24 action identity")
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-160-2026-09-30/review-red-snapshot/tests/test_safety_contracts.py", line 86, in assert_has_error
+    self.assertTrue(any(needle in error for error in errors), errors)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : []
+
+======================================================================
+FAIL: test_old_runtime_cannot_hide_in_yaml_syntax (test_safety_contracts.SafetyValidatorNegativeTests.test_old_runtime_cannot_hide_in_yaml_syntax) (surface='plugins/bedrock/skills/infrastructure-code/reference/05-delivery-pipeline.md', step='- {uses: "hashicorp/setup-terraform@b9cd54a3c349d3f38e8881555d616ced269862dd"}')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-160-2026-09-30/review-red-snapshot/tests/test_safety_contracts.py", line 168, in test_old_runtime_cannot_hide_in_yaml_syntax
+    self.assert_has_error("must use the verified Node 24 action identity")
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-160-2026-09-30/review-red-snapshot/tests/test_safety_contracts.py", line 86, in assert_has_error
+    self.assertTrue(any(needle in error for error in errors), errors)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : []
+
+======================================================================
+FAIL: test_old_runtime_cannot_hide_in_yaml_syntax (test_safety_contracts.SafetyValidatorNegativeTests.test_old_runtime_cannot_hide_in_yaml_syntax) (surface='plugins/bedrock/skills/infrastructure-code/reference/05-delivery-pipeline.md', step='- "uses": "hashicorp/setup-terraform@b9cd54a3c349d3f38e8881555d616ced269862dd"')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-160-2026-09-30/review-red-snapshot/tests/test_safety_contracts.py", line 168, in test_old_runtime_cannot_hide_in_yaml_syntax
+    self.assert_has_error("must use the verified Node 24 action identity")
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-160-2026-09-30/review-red-snapshot/tests/test_safety_contracts.py", line 86, in assert_has_error
+    self.assertTrue(any(needle in error for error in errors), errors)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : []
+
+======================================================================
+FAIL: test_old_runtime_cannot_hide_in_yaml_syntax (test_safety_contracts.SafetyValidatorNegativeTests.test_old_runtime_cannot_hide_in_yaml_syntax) (surface='plugins/bedrock/skills/infrastructure-code/reference/05-delivery-pipeline.md', step='- uses: >-\n    hashicorp/setup-terraform@b9cd54a3c349d3f38e8881555d616ced269862dd')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-160-2026-09-30/review-red-snapshot/tests/test_safety_contracts.py", line 168, in test_old_runtime_cannot_hide_in_yaml_syntax
+    self.assert_has_error("must use the verified Node 24 action identity")
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-160-2026-09-30/review-red-snapshot/tests/test_safety_contracts.py", line 86, in assert_has_error
+    self.assertTrue(any(needle in error for error in errors), errors)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : []
+
+======================================================================
+FAIL: test_unpinned_flow_action_fails (test_safety_contracts.SafetyValidatorNegativeTests.test_unpinned_flow_action_fails)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-160-2026-09-30/review-red-snapshot/tests/test_safety_contracts.py", line 174, in test_unpinned_flow_action_fails
+    self.assert_has_error("must use a full commit SHA")
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-160-2026-09-30/review-red-snapshot/tests/test_safety_contracts.py", line 86, in assert_has_error
+    self.assertTrue(any(needle in error for error in errors), errors)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : []
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.464s
+
+FAILED (failures=7)

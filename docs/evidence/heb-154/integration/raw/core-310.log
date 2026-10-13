@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "/Users/thaffey/.codex/worktrees/heb-154-integration/bedrock/scripts/verify_agent_core_install.py", line 65, in <module>
+    main()
+  File "/Users/thaffey/.codex/worktrees/heb-154-integration/bedrock/scripts/verify_agent_core_install.py", line 25, in main
+    venv.EnvBuilder(with_pip=True).create(env)
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/python-runtimes/cpython-3.10.20-macos-aarch64-none/lib/python3.10/venv/__init__.py", line 76, in create
+    self._setup_pip(context)
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/python-runtimes/cpython-3.10.20-macos-aarch64-none/lib/python3.10/venv/__init__.py", line 329, in _setup_pip
+    self._call_new_python(context, '-m', 'ensurepip', '--upgrade',
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/python-runtimes/cpython-3.10.20-macos-aarch64-none/lib/python3.10/venv/__init__.py", line 325, in _call_new_python
+    subprocess.check_output(args, **kwargs)
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/python-runtimes/cpython-3.10.20-macos-aarch64-none/lib/python3.10/subprocess.py", line 421, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/python-runtimes/cpython-3.10.20-macos-aarch64-none/lib/python3.10/subprocess.py", line 526, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/clean-core-310/venv/bin/python3.10', '-m', 'ensurepip', '--upgrade', '--default-pip']' died with <Signals.SIGABRT: 6>.

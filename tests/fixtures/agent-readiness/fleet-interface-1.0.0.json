@@ -1,0 +1,51 @@
+{
+  "interface_version": "1.0.0",
+  "agent_id": "requirements-readiness",
+  "agent_version": "1.0.0",
+  "standalone": true,
+  "core_version": "0.2.0",
+  "core_compatibility": "==0.2.0 plus exact source hashes in dependency-identity.json",
+  "input_schema": "schemas/input-1.0.0.json",
+  "return_schema": "schemas/return-1.0.0.json",
+  "task_schema": "schemas/task-1.0.0.json",
+  "error_schema": "schemas/error-1.0.0.json",
+  "prompt": "prompts/system-1.0.0.txt",
+  "config": "config-1.0.0.json",
+  "capabilities": [
+    {
+      "name": "get_policy",
+      "version": "1.0.0",
+      "compatibility": "==1.0.0",
+      "input_schema": "schemas/tool-input-1.0.0.json",
+      "result_schema": "schemas/tool-result-1.0.0.json",
+      "side_effect": "none",
+      "idempotent": true,
+      "authorization": "read-only fixed policy; no model-selected path",
+      "deprecation": "frozen trial only; incompatible future contract requires explicit new version"
+    }
+  ],
+  "terminal_dispositions": [
+    "success",
+    "budget_exhausted",
+    "parse_failed",
+    "schema_invalid",
+    "tool_denied",
+    "tool_error",
+    "cancelled",
+    "provider_error"
+  ],
+  "evidence": {
+    "format": "JSONL",
+    "core_record_version": "0.1",
+    "mapping": "EVIDENCE-MAPPING.md",
+    "unknown_usage": "explicit marker plus retained reservation; not measured consumption",
+    "content_policy": "synthetic content in this trial-agent folder only; no keys, headers, raw SDK errors or hidden reasoning",
+    "schema": "schemas/evidence-1.0.0.json"
+  },
+  "invocation": "CLI one JSON input file or await readiness.invoke(input_value,transport=...,campaign_dir=...)",
+  "return": "One strict JSON envelope; CLI exit0 on success,2 on terminal failure",
+  "orchestrator_note": "Not orchestrator-verified. Trusted caller must respect immutable campaign state, external semantic stop and explicit live authority. No subagents supported.",
+  "concurrency": 1,
+  "circuit_breaker": "stop on first failed case; no retry/fallback",
+  "idempotency": "No automatic resubmission; unique invocation ID; campaign preserves failed attempts; local policy read is idempotent."
+}

@@ -1,0 +1,1161 @@
+{
+  "focused-tests": {
+    "methods": [
+      {
+        "id": "test_authoring_contracts.AuthoringContractTests.test_behavior_fixture_cases_match_terminal_contracts",
+        "status": "ok"
+      },
+      {
+        "id": "test_authoring_contracts.AuthoringContractTests.test_carried_value_contract_cannot_lose_a_rule",
+        "status": "ok"
+      },
+      {
+        "id": "test_authoring_contracts.AuthoringContractTests.test_construct_template_size_is_bounded",
+        "status": "ok"
+      },
+      {
+        "id": "test_authoring_contracts.AuthoringContractTests.test_high_assurance_relay_without_authorization_fails",
+        "status": "ok"
+      },
+      {
+        "id": "test_authoring_contracts.AuthoringContractTests.test_missing_interaction_field_fails",
+        "status": "ok"
+      },
+      {
+        "id": "test_authoring_contracts.AuthoringContractTests.test_missing_registry_fails_closed",
+        "status": "ok"
+      },
+      {
+        "id": "test_authoring_contracts.AuthoringContractTests.test_provisional_relation_without_owner_fails",
+        "status": "ok"
+      },
+      {
+        "id": "test_authoring_contracts.AuthoringContractTests.test_relay_instrument_contract_is_required",
+        "status": "ok"
+      },
+      {
+        "id": "test_authoring_contracts.AuthoringContractTests.test_repository_contracts_pass",
+        "status": "ok"
+      },
+      {
+        "id": "test_authoring_contracts.AuthoringContractTests.test_required_instrument_reference_cannot_be_missing_or_weakened",
+        "status": "ok"
+      },
+      {
+        "id": "test_authoring_contracts.AuthoringContractTests.test_review_with_blocker_cannot_approve",
+        "status": "ok"
+      },
+      {
+        "id": "test_authoring_contracts.AuthoringContractTests.test_reviewer_charge_instrument_is_required",
+        "status": "ok"
+      },
+      {
+        "id": "test_authoring_contracts.AuthoringContractTests.test_template_sweep_and_stop_guidance_is_required",
+        "status": "ok"
+      },
+      {
+        "id": "test_authoring_contracts.RelayValueControlTests.test_anchor_backstop_does_not_claim_clause_semantics",
+        "status": "ok"
+      },
+      {
+        "id": "test_authoring_contracts.RelayValueControlTests.test_counts_are_candidates_including_verdict_bearing_counts",
+        "status": "ok"
+      },
+      {
+        "id": "test_authoring_contracts.RelayValueControlTests.test_issue_and_receipt_sweeps_detect_all_planted_forms",
+        "status": "ok"
+      },
+      {
+        "id": "test_authoring_contracts.RelayValueControlTests.test_native_pin_checks_accept_valid_and_refuse_planted_mismatch",
+        "status": "ok"
+      },
+      {
+        "id": "test_authoring_contracts.RelayValueControlTests.test_pattern_edges_are_explicit_not_semantic_coverage",
+        "status": "ok"
+      },
+      {
+        "id": "test_authoring_contracts.RelayValueControlTests.test_pins_outside_block_and_duplicates_are_named",
+        "status": "ok"
+      },
+      {
+        "id": "test_authoring_contracts.RelayValueControlTests.test_reader_must_disclose_nothing_or_complete_tightening",
+        "status": "ok"
+      },
+      {
+        "id": "test_authoring_contracts.RelayValueControlTests.test_shrink_retained_dropped_and_dispositioned_anchors",
+        "status": "ok"
+      },
+      {
+        "id": "test_rule_trigger_audit.RuleTriggerAuditTests.test_complete_empty_finding_ledger_passes",
+        "status": "ok"
+      },
+      {
+        "id": "test_rule_trigger_audit.RuleTriggerAuditTests.test_complete_gate_rejects_pending_inspections",
+        "status": "ok"
+      },
+      {
+        "id": "test_rule_trigger_audit.RuleTriggerAuditTests.test_complete_gate_rejects_pending_markdown_inspections",
+        "status": "ok"
+      },
+      {
+        "id": "test_rule_trigger_audit.RuleTriggerAuditTests.test_internal_state_rule_without_disposition_fails",
+        "status": "ok"
+      },
+      {
+        "id": "test_rule_trigger_audit.RuleTriggerAuditTests.test_inventory_ledger_matches_live_populations",
+        "status": "ok"
+      },
+      {
+        "id": "test_rule_trigger_audit.RuleTriggerAuditTests.test_missing_ledger_fails_closed",
+        "status": "ok"
+      },
+      {
+        "id": "test_rule_trigger_audit.RuleTriggerAuditTests.test_missing_markdown_carrier_fails",
+        "status": "ok"
+      },
+      {
+        "id": "test_rule_trigger_audit.RuleTriggerAuditTests.test_multi_digit_ordered_items_are_individual_screen_units",
+        "status": "ok"
+      },
+      {
+        "id": "test_rule_trigger_audit.RuleTriggerAuditTests.test_reported_count_drift_fails",
+        "status": "ok"
+      },
+      {
+        "id": "test_rule_trigger_audit.RuleTriggerAuditTests.test_unlisted_live_structured_file_fails",
+        "status": "ok"
+      },
+      {
+        "id": "test_rule_trigger_audit.RuleTriggerAuditTests.test_workflow_event_cannot_be_recorded_as_internal_state_finding",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_cli_entrypoints_report_same_unexpected_package_identity_carrier",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_consumer_surface_set_is_exact",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rejects_canonical_orientation_acceptance_order_drift",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rejects_canonical_orientation_codex_adapter_classification_drift",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rejects_ci_host_floor_drift",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rejects_claude_carrier_codex_adapter_classification_drift",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rejects_claude_code_minimum_version_semantics_drift",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rejects_codex_adapter_drift",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rejects_compatibility_minimum_host_drift",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rejects_compatibility_portable_core_version_drift",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rejects_divergent_package_identity_copy",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rejects_every_package_identity_carrier_in_stale_skill_directories",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rejects_incomplete_consumer_enumeration",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rejects_license_carrier_drift",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rejects_malformed_package_identity_carrier",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rejects_manifest_metadata_drift",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rejects_marketplace_authority_drift",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rejects_marketplace_source_boundary_drift",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rejects_missing_codex_adapter",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rejects_missing_governance_link",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rejects_missing_package_finding",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rejects_missing_package_identity_carrier",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rejects_nested_noncanonical_package_identity_carrier",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rejects_non_merge_commit_landing_method",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rejects_nonexact_verified_host_identity",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rejects_orphaned_skill_lifecycle",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rejects_package_identity_contract_drift",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rejects_package_identity_extra_field",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rejects_portable_core_authority_provenance_drift",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rejects_portable_core_version_drift_from_accepted_adr",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rejects_release_template_without_pending_landing",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rejects_retired_skill_without_migration",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rejects_stale_context_measurement",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rejects_stale_package_identity_digest",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rejects_stale_package_identity_version",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rejects_uncontrolled_duplicate_authority",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rejects_verified_host_below_minimum",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rejects_vocabulary_schema_drift",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_release_mode_accepts_external_evidence_after_immutable_tag",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_release_mode_fails_closed_before_acceptance",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_release_mode_rejects_distribution_drift_during_landing",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_release_mode_rejects_landing_before_acceptance",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_release_mode_rejects_landing_not_reachable_from_main",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_release_mode_rejects_malformed_decision_record_cleanly",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_release_mode_rejects_merge_mislabeled_as_fast_forward",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_release_mode_rejects_merge_with_source_as_third_parent",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_release_mode_rejects_rebased_candidate_claimed_as_fast_forward",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_release_mode_rejects_side_branch_fold_mislabeled_as_fast_forward",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_release_mode_rejects_swapped_parent_merge_mislabeled_as_fast_forward",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_release_mode_rejects_timezone_naive_landing_timestamp",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_release_mode_rejects_true_fast_forward_landing",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_repository_package_governance_passes",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rollout_rejects_inexact_surface_populations",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rollout_schema_and_template_declare_three_surfaces",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_seeded_governance_defect_manifest_names_existing_tests",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_write_refuses_unexpected_package_identity_carrier_before_mutation",
+        "status": "ok"
+      }
+    ],
+    "total": 88,
+    "by_module": {
+      "test_authoring_contracts": 21,
+      "test_rule_trigger_audit": 11,
+      "test_package_governance": 56
+    }
+  },
+  "repository-tests": {
+    "methods": [
+      {
+        "id": "test_agent_core_install.CoreIdentityTests.test_changed_wheel_and_lock_are_rejected",
+        "status": "ok"
+      },
+      {
+        "id": "test_agent_core_install.CoreIdentityTests.test_current_bundle",
+        "status": "ok"
+      },
+      {
+        "id": "test_agent_core_install.CoreIdentityTests.test_manifest_cannot_escape_asset_directory",
+        "status": "ok"
+      },
+      {
+        "id": "test_agent_core_install.CoreIdentityTests.test_sibling_dependency_drift_is_rejected",
+        "status": "ok"
+      },
+      {
+        "id": "test_agent_review_contracts.AgentAccountingTests.test_known_subtotal_cannot_disagree_with_reported_totals",
+        "status": "ok"
+      },
+      {
+        "id": "test_agent_review_contracts.AgentAccountingTests.test_one_valid_salvage_candidate_among_several_is_accepted",
+        "status": "ok"
+      },
+      {
+        "id": "test_agent_review_contracts.AgentAccountingTests.test_tool_dispatch_does_not_consume_model_attempt_limit",
+        "status": "ok"
+      },
+      {
+        "id": "test_agent_review_contracts.AgentAccountingTests.test_unknown_usage_remains_a_truthful_failure",
+        "status": "ok"
+      },
+      {
+        "id": "test_agent_review_contracts.AgentAccountingTests.test_valid_candidate_count_cannot_exceed_population",
+        "status": "ok"
+      },
+      {
+        "id": "test_agent_review_contracts.AgentAccountingTests.test_zero_model_attempts_cannot_succeed",
+        "status": "ok"
+      },
+      {
+        "id": "test_agent_review_contracts.AgentReviewContractTests.test_forbidden_product_specific_profile_path_fails_closed",
+        "status": "ok"
+      },
+      {
+        "id": "test_agent_review_contracts.AgentReviewContractTests.test_low_confidence_resolvable_is_rejected",
+        "status": "ok"
+      },
+      {
+        "id": "test_agent_review_contracts.AgentReviewContractTests.test_missing_registry_fails_closed",
+        "status": "ok"
+      },
+      {
+        "id": "test_agent_review_contracts.AgentReviewContractTests.test_nested_object_is_one_candidate",
+        "status": "ok"
+      },
+      {
+        "id": "test_agent_review_contracts.AgentReviewContractTests.test_product_binding_version_is_opaque_and_runner_accepts_full_semver",
+        "status": "ok"
+      },
+      {
+        "id": "test_agent_review_contracts.AgentReviewContractTests.test_repository_contracts_pass",
+        "status": "ok"
+      },
+      {
+        "id": "test_agent_review_contracts.AgentReviewContractTests.test_runner_accepts_subject_bound_falsification_control",
+        "status": "ok"
+      },
+      {
+        "id": "test_agent_review_contracts.AgentReviewContractTests.test_runner_backed_claim_rejects_narration_only_evidence_boolean",
+        "status": "ok"
+      },
+      {
+        "id": "test_agent_review_contracts.AgentReviewContractTests.test_runner_backed_claim_requires_complete_subject_bound_evidence",
+        "status": "ok"
+      },
+      {
+        "id": "test_agent_review_contracts.AgentReviewContractTests.test_runner_backed_claim_requires_replayable_binding_and_invocation",
+        "status": "ok"
+      },
+      {
+        "id": "test_agent_review_contracts.AgentReviewContractTests.test_runner_profile_case_expectations_are_enforced",
+        "status": "ok"
+      },
+      {
+        "id": "test_agent_review_contracts.AgentReviewContractTests.test_runner_rejects_malformed_semver",
+        "status": "ok"
+      },
+      {
+        "id": "test_agent_review_contracts.AgentReviewContractTests.test_salvage_enumerates_ambiguity",
+        "status": "ok"
+      },
+      {
+        "id": "test_application_test_debug_contracts.ApplicationTestDebugContractTests.test_invalid_evidence_timestamp_is_rejected",
+        "status": "ok"
+      },
+      {
+        "id": "test_application_test_debug_contracts.ApplicationTestDebugContractTests.test_malformed_registry_row_fails_loudly",
+        "status": "ok"
+      },
+      {
+        "id": "test_application_test_debug_contracts.ApplicationTestDebugContractTests.test_missing_registry_fails_closed",
+        "status": "ok"
+      },
+      {
+        "id": "test_application_test_debug_contracts.ApplicationTestDebugContractTests.test_repository_contracts_pass",
+        "status": "ok"
+      },
+      {
+        "id": "test_application_test_debug_contracts.ApplicationTestDebugContractTests.test_unauthorized_repair_action_is_rejected",
+        "status": "ok"
+      },
+      {
+        "id": "test_application_test_debug_contracts.ApplicationTestDebugContractTests.test_universal_async_rule_is_rejected",
+        "status": "ok"
+      },
+      {
+        "id": "test_application_test_debug_contracts.ApplicationTestDebugContractTests.test_unresolved_hypothesis_cannot_claim_root_cause",
+        "status": "ok"
+      },
+      {
+        "id": "test_authoring_contracts.AuthoringContractTests.test_behavior_fixture_cases_match_terminal_contracts",
+        "status": "ok"
+      },
+      {
+        "id": "test_authoring_contracts.AuthoringContractTests.test_carried_value_contract_cannot_lose_a_rule",
+        "status": "ok"
+      },
+      {
+        "id": "test_authoring_contracts.AuthoringContractTests.test_construct_template_size_is_bounded",
+        "status": "ok"
+      },
+      {
+        "id": "test_authoring_contracts.AuthoringContractTests.test_high_assurance_relay_without_authorization_fails",
+        "status": "ok"
+      },
+      {
+        "id": "test_authoring_contracts.AuthoringContractTests.test_missing_interaction_field_fails",
+        "status": "ok"
+      },
+      {
+        "id": "test_authoring_contracts.AuthoringContractTests.test_missing_registry_fails_closed",
+        "status": "ok"
+      },
+      {
+        "id": "test_authoring_contracts.AuthoringContractTests.test_provisional_relation_without_owner_fails",
+        "status": "ok"
+      },
+      {
+        "id": "test_authoring_contracts.AuthoringContractTests.test_relay_instrument_contract_is_required",
+        "status": "ok"
+      },
+      {
+        "id": "test_authoring_contracts.AuthoringContractTests.test_repository_contracts_pass",
+        "status": "ok"
+      },
+      {
+        "id": "test_authoring_contracts.AuthoringContractTests.test_required_instrument_reference_cannot_be_missing_or_weakened",
+        "status": "ok"
+      },
+      {
+        "id": "test_authoring_contracts.AuthoringContractTests.test_review_with_blocker_cannot_approve",
+        "status": "ok"
+      },
+      {
+        "id": "test_authoring_contracts.AuthoringContractTests.test_reviewer_charge_instrument_is_required",
+        "status": "ok"
+      },
+      {
+        "id": "test_authoring_contracts.AuthoringContractTests.test_template_sweep_and_stop_guidance_is_required",
+        "status": "ok"
+      },
+      {
+        "id": "test_authoring_contracts.RelayValueControlTests.test_anchor_backstop_does_not_claim_clause_semantics",
+        "status": "ok"
+      },
+      {
+        "id": "test_authoring_contracts.RelayValueControlTests.test_counts_are_candidates_including_verdict_bearing_counts",
+        "status": "ok"
+      },
+      {
+        "id": "test_authoring_contracts.RelayValueControlTests.test_issue_and_receipt_sweeps_detect_all_planted_forms",
+        "status": "ok"
+      },
+      {
+        "id": "test_authoring_contracts.RelayValueControlTests.test_native_pin_checks_accept_valid_and_refuse_planted_mismatch",
+        "status": "ok"
+      },
+      {
+        "id": "test_authoring_contracts.RelayValueControlTests.test_pattern_edges_are_explicit_not_semantic_coverage",
+        "status": "ok"
+      },
+      {
+        "id": "test_authoring_contracts.RelayValueControlTests.test_pins_outside_block_and_duplicates_are_named",
+        "status": "ok"
+      },
+      {
+        "id": "test_authoring_contracts.RelayValueControlTests.test_reader_must_disclose_nothing_or_complete_tightening",
+        "status": "ok"
+      },
+      {
+        "id": "test_authoring_contracts.RelayValueControlTests.test_shrink_retained_dropped_and_dispositioned_anchors",
+        "status": "ok"
+      },
+      {
+        "id": "test_frontend_contracts.FrontendContractTests.test_frontend_contracts_pass",
+        "status": "ok"
+      },
+      {
+        "id": "test_infrastructure_delivery_contracts.InfrastructureDeliveryContractTests.test_ambiguous_release_is_rejected",
+        "status": "ok"
+      },
+      {
+        "id": "test_infrastructure_delivery_contracts.InfrastructureDeliveryContractTests.test_apply_actor_requires_explicit_authority",
+        "status": "ok"
+      },
+      {
+        "id": "test_infrastructure_delivery_contracts.InfrastructureDeliveryContractTests.test_duplicate_behavior_case_fails_loudly",
+        "status": "ok"
+      },
+      {
+        "id": "test_infrastructure_delivery_contracts.InfrastructureDeliveryContractTests.test_malformed_registry_row_fails_loudly",
+        "status": "ok"
+      },
+      {
+        "id": "test_infrastructure_delivery_contracts.InfrastructureDeliveryContractTests.test_missing_registry_fails_closed",
+        "status": "ok"
+      },
+      {
+        "id": "test_infrastructure_delivery_contracts.InfrastructureDeliveryContractTests.test_mutable_workload_image_is_rejected",
+        "status": "ok"
+      },
+      {
+        "id": "test_infrastructure_delivery_contracts.InfrastructureDeliveryContractTests.test_mutation_cancellation_is_rejected",
+        "status": "ok"
+      },
+      {
+        "id": "test_infrastructure_delivery_contracts.InfrastructureDeliveryContractTests.test_old_absolutism_is_rejected",
+        "status": "ok"
+      },
+      {
+        "id": "test_infrastructure_delivery_contracts.InfrastructureDeliveryContractTests.test_repository_contracts_pass",
+        "status": "ok"
+      },
+      {
+        "id": "test_infrastructure_delivery_contracts.InfrastructureDeliveryContractTests.test_stale_state_invalidates_apply",
+        "status": "ok"
+      },
+      {
+        "id": "test_infrastructure_delivery_contracts.InfrastructureDeliveryContractTests.test_static_profile_requires_complete_header_set",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_cli_entrypoints_report_same_unexpected_package_identity_carrier",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_consumer_surface_set_is_exact",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rejects_canonical_orientation_acceptance_order_drift",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rejects_canonical_orientation_codex_adapter_classification_drift",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rejects_ci_host_floor_drift",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rejects_claude_carrier_codex_adapter_classification_drift",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rejects_claude_code_minimum_version_semantics_drift",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rejects_codex_adapter_drift",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rejects_compatibility_minimum_host_drift",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rejects_compatibility_portable_core_version_drift",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rejects_divergent_package_identity_copy",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rejects_every_package_identity_carrier_in_stale_skill_directories",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rejects_incomplete_consumer_enumeration",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rejects_license_carrier_drift",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rejects_malformed_package_identity_carrier",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rejects_manifest_metadata_drift",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rejects_marketplace_authority_drift",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rejects_marketplace_source_boundary_drift",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rejects_missing_codex_adapter",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rejects_missing_governance_link",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rejects_missing_package_finding",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rejects_missing_package_identity_carrier",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rejects_nested_noncanonical_package_identity_carrier",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rejects_non_merge_commit_landing_method",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rejects_nonexact_verified_host_identity",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rejects_orphaned_skill_lifecycle",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rejects_package_identity_contract_drift",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rejects_package_identity_extra_field",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rejects_portable_core_authority_provenance_drift",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rejects_portable_core_version_drift_from_accepted_adr",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rejects_release_template_without_pending_landing",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rejects_retired_skill_without_migration",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rejects_stale_context_measurement",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rejects_stale_package_identity_digest",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rejects_stale_package_identity_version",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rejects_uncontrolled_duplicate_authority",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rejects_verified_host_below_minimum",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rejects_vocabulary_schema_drift",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_release_mode_accepts_external_evidence_after_immutable_tag",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_release_mode_fails_closed_before_acceptance",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_release_mode_rejects_distribution_drift_during_landing",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_release_mode_rejects_landing_before_acceptance",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_release_mode_rejects_landing_not_reachable_from_main",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_release_mode_rejects_malformed_decision_record_cleanly",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_release_mode_rejects_merge_mislabeled_as_fast_forward",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_release_mode_rejects_merge_with_source_as_third_parent",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_release_mode_rejects_rebased_candidate_claimed_as_fast_forward",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_release_mode_rejects_side_branch_fold_mislabeled_as_fast_forward",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_release_mode_rejects_swapped_parent_merge_mislabeled_as_fast_forward",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_release_mode_rejects_timezone_naive_landing_timestamp",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_release_mode_rejects_true_fast_forward_landing",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_repository_package_governance_passes",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rollout_rejects_inexact_surface_populations",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_rollout_schema_and_template_declare_three_surfaces",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_seeded_governance_defect_manifest_names_existing_tests",
+        "status": "ok"
+      },
+      {
+        "id": "test_package_governance.PackageGovernanceTests.test_write_refuses_unexpected_package_identity_carrier_before_mutation",
+        "status": "ok"
+      },
+      {
+        "id": "test_routing_adapter.RoutingAdapterResultTests.test_api_access_failure_is_not_a_route_miss",
+        "status": "ok"
+      },
+      {
+        "id": "test_routing_adapter.RoutingAdapterResultTests.test_api_key_authentication_satisfies_bare_adapter_contract",
+        "status": "ok"
+      },
+      {
+        "id": "test_routing_adapter.RoutingAdapterResultTests.test_default_call_budget_matches_documented_contract",
+        "status": "ok"
+      },
+      {
+        "id": "test_routing_adapter.RoutingAdapterResultTests.test_failure_diagnostic_does_not_retain_secret_output",
+        "status": "ok"
+      },
+      {
+        "id": "test_routing_adapter.RoutingAdapterResultTests.test_genuine_wrong_route_remains_an_evaluation_miss",
+        "status": "ok"
+      },
+      {
+        "id": "test_routing_adapter.RoutingAdapterResultTests.test_malformed_failure_usage_cannot_mask_terminal_classification",
+        "status": "ok"
+      },
+      {
+        "id": "test_routing_adapter.RoutingAdapterResultTests.test_prompt_embeds_authoritative_catalog_and_request",
+        "status": "ok"
+      },
+      {
+        "id": "test_routing_adapter.RoutingAdapterResultTests.test_reads_json_result_fallback",
+        "status": "ok"
+      },
+      {
+        "id": "test_routing_adapter.RoutingAdapterResultTests.test_reads_structured_output",
+        "status": "ok"
+      },
+      {
+        "id": "test_routing_adapter.RoutingAdapterResultTests.test_recovers_billed_usage_from_typed_error_envelope",
+        "status": "ok"
+      },
+      {
+        "id": "test_routing_adapter.RoutingAdapterResultTests.test_rejects_non_object_envelope",
+        "status": "ok"
+      },
+      {
+        "id": "test_routing_adapter.RoutingAdapterResultTests.test_report_carries_reproducibility_identity_and_evaluation",
+        "status": "ok"
+      },
+      {
+        "id": "test_routing_adapter.RoutingAdapterResultTests.test_report_fails_when_aggregate_budget_is_exceeded",
+        "status": "ok"
+      },
+      {
+        "id": "test_routing_adapter.RoutingAdapterResultTests.test_routing_subprocess_excludes_inherited_launcher_input",
+        "status": "ok"
+      },
+      {
+        "id": "test_routing_adapter.RoutingAdapterResultTests.test_subscription_status_does_not_satisfy_bare_adapter_contract",
+        "status": "ok"
+      },
+      {
+        "id": "test_routing_adapter.RoutingAdapterResultTests.test_successful_auth_status_cannot_mask_not_logged_in_invocation",
+        "status": "ok"
+      },
+      {
+        "id": "test_routing_adapter.RoutingAdapterResultTests.test_targeted_report_cannot_claim_retained_release_evidence",
+        "status": "ok"
+      },
+      {
+        "id": "test_routing_adapter.RoutingAdapterResultTests.test_thresholds_require_aggregate_case_and_exclusion_gates",
+        "status": "ok"
+      },
+      {
+        "id": "test_routing_adapter.RoutingAdapterResultTests.test_transport_failure_is_not_a_route_miss",
+        "status": "ok"
+      },
+      {
+        "id": "test_routing_adapter.RoutingAdapterResultTests.test_typed_authentication_failure_after_evaluation_begins_fails_fast",
+        "status": "ok"
+      },
+      {
+        "id": "test_routing_adapter.RoutingAdapterResultTests.test_typed_model_failure_is_not_a_route_miss",
+        "status": "ok"
+      },
+      {
+        "id": "test_routing_adapter.RoutingAdapterResultTests.test_unstructured_failure_has_no_claimed_usage",
+        "status": "ok"
+      },
+      {
+        "id": "test_rule_trigger_audit.RuleTriggerAuditTests.test_complete_empty_finding_ledger_passes",
+        "status": "ok"
+      },
+      {
+        "id": "test_rule_trigger_audit.RuleTriggerAuditTests.test_complete_gate_rejects_pending_inspections",
+        "status": "ok"
+      },
+      {
+        "id": "test_rule_trigger_audit.RuleTriggerAuditTests.test_complete_gate_rejects_pending_markdown_inspections",
+        "status": "ok"
+      },
+      {
+        "id": "test_rule_trigger_audit.RuleTriggerAuditTests.test_internal_state_rule_without_disposition_fails",
+        "status": "ok"
+      },
+      {
+        "id": "test_rule_trigger_audit.RuleTriggerAuditTests.test_inventory_ledger_matches_live_populations",
+        "status": "ok"
+      },
+      {
+        "id": "test_rule_trigger_audit.RuleTriggerAuditTests.test_missing_ledger_fails_closed",
+        "status": "ok"
+      },
+      {
+        "id": "test_rule_trigger_audit.RuleTriggerAuditTests.test_missing_markdown_carrier_fails",
+        "status": "ok"
+      },
+      {
+        "id": "test_rule_trigger_audit.RuleTriggerAuditTests.test_multi_digit_ordered_items_are_individual_screen_units",
+        "status": "ok"
+      },
+      {
+        "id": "test_rule_trigger_audit.RuleTriggerAuditTests.test_reported_count_drift_fails",
+        "status": "ok"
+      },
+      {
+        "id": "test_rule_trigger_audit.RuleTriggerAuditTests.test_unlisted_live_structured_file_fails",
+        "status": "ok"
+      },
+      {
+        "id": "test_rule_trigger_audit.RuleTriggerAuditTests.test_workflow_event_cannot_be_recorded_as_internal_state_finding",
+        "status": "ok"
+      },
+      {
+        "id": "test_safety_contracts.SafetyContractTests.test_cosmetic_decision_bearing_combination_is_invalid",
+        "status": "ok"
+      },
+      {
+        "id": "test_safety_contracts.SafetyContractTests.test_cosmetic_finding_never_blocks_convergence",
+        "status": "ok"
+      },
+      {
+        "id": "test_safety_contracts.SafetyContractTests.test_material_decision_bearing_finding_halts",
+        "status": "ok"
+      },
+      {
+        "id": "test_safety_contracts.SafetyContractTests.test_repository_satisfies_safety_contracts",
+        "status": "ok"
+      },
+      {
+        "id": "test_safety_contracts.SafetyValidatorNegativeTests.test_cosmetic_decision_halt_guidance_fails",
+        "status": "ok"
+      },
+      {
+        "id": "test_safety_contracts.SafetyValidatorNegativeTests.test_malformed_workflow_events_fail_cleanly",
+        "status": "ok"
+      },
+      {
+        "id": "test_safety_contracts.SafetyValidatorNegativeTests.test_non_string_manifest_identifier_fails_cleanly",
+        "status": "ok"
+      },
+      {
+        "id": "test_safety_contracts.SafetyValidatorNegativeTests.test_pull_request_push_fails",
+        "status": "ok"
+      },
+      {
+        "id": "test_safety_contracts.SafetyValidatorNegativeTests.test_python_minor_site_packages_path_fails",
+        "status": "ok"
+      },
+      {
+        "id": "test_safety_contracts.SafetyValidatorNegativeTests.test_secret_state_denial_fails",
+        "status": "ok"
+      },
+      {
+        "id": "test_safety_contracts.SafetyValidatorNegativeTests.test_unpinned_action_reference_fails",
+        "status": "ok"
+      },
+      {
+        "id": "test_safety_integration.ContainerSafetyIntegrationTests.test_runtime_environment_image_starts_and_serves_health",
+        "status": "ok"
+      },
+      {
+        "id": "test_safety_integration.TerraformStateIntegrationTests.test_runtime_only_secret_value_is_absent_from_state",
+        "status": "ok"
+      },
+      {
+        "id": "test_safety_integration.TerraformStateIntegrationTests.test_sensitive_value_materialized_by_terraform_is_present_in_state",
+        "status": "ok"
+      },
+      {
+        "id": "test_validate_plugin.StrictHostValidatorIntegrationTests.test_seeded_invalid_manifest_fails_strict_host_validation",
+        "status": "ok"
+      },
+      {
+        "id": "test_validate_plugin.ValidatorTests.test_rejects_cross_skill_relative_link",
+        "status": "ok"
+      },
+      {
+        "id": "test_validate_plugin.ValidatorTests.test_rejects_duplicate_json_key_before_value_collapse",
+        "status": "ok"
+      },
+      {
+        "id": "test_validate_plugin.ValidatorTests.test_rejects_duplicate_name",
+        "status": "ok"
+      },
+      {
+        "id": "test_validate_plugin.ValidatorTests.test_rejects_duplicate_yaml_key_before_value_collapse",
+        "status": "ok"
+      },
+      {
+        "id": "test_validate_plugin.ValidatorTests.test_rejects_evidence_path_outside_repository",
+        "status": "ok"
+      },
+      {
+        "id": "test_validate_plugin.ValidatorTests.test_rejects_fixture_backed_sample_without_command",
+        "status": "ok"
+      },
+      {
+        "id": "test_validate_plugin.ValidatorTests.test_rejects_invalid_eval_threshold",
+        "status": "ok"
+      },
+      {
+        "id": "test_validate_plugin.ValidatorTests.test_rejects_invalid_retained_routing_report",
+        "status": "ok"
+      },
+      {
+        "id": "test_validate_plugin.ValidatorTests.test_rejects_malformed_frontmatter",
+        "status": "ok"
+      },
+      {
+        "id": "test_validate_plugin.ValidatorTests.test_rejects_manifest_description_drift",
+        "status": "ok"
+      },
+      {
+        "id": "test_validate_plugin.ValidatorTests.test_rejects_missing_application_test_debug_registry",
+        "status": "ok"
+      },
+      {
+        "id": "test_validate_plugin.ValidatorTests.test_rejects_missing_evidence_file",
+        "status": "ok"
+      },
+      {
+        "id": "test_validate_plugin.ValidatorTests.test_rejects_missing_markdown_anchor",
+        "status": "ok"
+      },
+      {
+        "id": "test_validate_plugin.ValidatorTests.test_rejects_missing_negative_route",
+        "status": "ok"
+      },
+      {
+        "id": "test_validate_plugin.ValidatorTests.test_rejects_missing_relative_markdown_target",
+        "status": "ok"
+      },
+      {
+        "id": "test_validate_plugin.ValidatorTests.test_rejects_non_mapping_route",
+        "status": "ok"
+      },
+      {
+        "id": "test_validate_plugin.ValidatorTests.test_rejects_overlong_description",
+        "status": "ok"
+      },
+      {
+        "id": "test_validate_plugin.ValidatorTests.test_rejects_private_absolute_path",
+        "status": "ok"
+      },
+      {
+        "id": "test_validate_plugin.ValidatorTests.test_rejects_stale_snapshot_declaration",
+        "status": "ok"
+      },
+      {
+        "id": "test_validate_plugin.ValidatorTests.test_rejects_tilde_home_path",
+        "status": "ok"
+      },
+      {
+        "id": "test_validate_plugin.ValidatorTests.test_rejects_undeclared_external_dependency",
+        "status": "ok"
+      },
+      {
+        "id": "test_validate_plugin.ValidatorTests.test_rejects_uninventoried_code_fence",
+        "status": "ok"
+      },
+      {
+        "id": "test_validate_plugin.ValidatorTests.test_rejects_unknown_overlap_alternate",
+        "status": "ok"
+      },
+      {
+        "id": "test_validate_plugin.ValidatorTests.test_seeded_defect_manifest_names_existing_tests",
+        "status": "ok"
+      },
+      {
+        "id": "test_validate_plugin.ValidatorTests.test_valid_fixture_passes",
+        "status": "ok"
+      }
+    ],
+    "total": 192,
+    "by_module": {
+      "test_agent_core_install": 4,
+      "test_agent_review_contracts": 19,
+      "test_application_test_debug_contracts": 7,
+      "test_authoring_contracts": 21,
+      "test_frontend_contracts": 1,
+      "test_infrastructure_delivery_contracts": 11,
+      "test_package_governance": 56,
+      "test_routing_adapter": 22,
+      "test_rule_trigger_audit": 11,
+      "test_safety_contracts": 11,
+      "test_safety_integration": 3,
+      "test_validate_plugin": 26
+    }
+  },
+  "overlap": {
+    "focused_in_repository": 88,
+    "note": "Methods, fixture subcases and repeated validator calls are overlapping evidence; do not sum run counts as independent coverage."
+  },
+  "parser_first_failure": {
+    "observed_rows": 191,
+    "reported_methods": 192,
+    "cause": "Initial parser expected the ellipsis on the method-name line. One unittest method has a docstring, so its ellipsis and result appear on the following line.",
+    "resolution": "Read the complete log, parse both unittest forms, and reconcile every method against the discovered suite."
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "profile": "standard",
+  "scope": "Unchanged-version hash completion for the offline fixture dependency lock",
+  "checked_surfaces": [
+    "Complete prior and repaired lock",
+    "Complete provenance and exact-version PyPI metadata",
+    "Core dependency overlap",
+    "Downloaded Linux wheel digests and dependency closure",
+    "Retained installation, offline-test and wrong-hash controls"
+  ],
+  "gates": [
+    {
+      "name": "Independent lock integrity and compatibility review",
+      "disposition": "passed",
+      "reason": "Complete populations agree; versions and shared-core dependencies are unchanged."
+    }
+  ],
+  "findings": [],
+  "verdict": "approve"
+}

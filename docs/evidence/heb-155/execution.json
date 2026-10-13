@@ -1,0 +1,187 @@
+{
+  "date_et": "2026-09-30",
+  "scope": "HEB-155 D1-D5 package implementation/proof only; not ticket or release completion",
+  "base": "bfc36490e151b2bac580bdd1123ab2bd9899a3d8",
+  "branch": "codex/heb-161-candidate",
+  "authority": "HEB-155-authority.md: canonical issue description freshly fetched and read whole; initial full HEB-155/HEB-161 comment reads and status gates preserved by admission/resumption history. No issue was dispositioned from title.",
+  "attachment_substitution": "Tad explicitly ratified operator confirmation of no uploaded attachments on either issue; HEB-161 linked PR49 remains separate API attachment metadata. See resumption.json.",
+  "resumed_authorization": "Tad explicitly authorized resuming after the disclosed command-resolution incident. No other scope or release restriction was loosened.",
+  "read_depth": "Changed source/docs/tests and final main gate logs read whole; truncated unit display recovered by narrowed read. Hash population covers all tracked base and non-evidence overlay files, not a semantic corpus review. Historical intermediate runs retained but never promoted over final subject.",
+  "test_populations": {
+    "root_unittest": 242,
+    "data_hygiene_subset": 35,
+    "agent_core_pytest": 110,
+    "hex_linear_pytest": 96
+  },
+  "gates": [
+    {
+      "command": [
+        "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "cwd": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-155-2026-09-30/snapshot-complete",
+      "returncode": 0,
+      "elapsed_seconds": 88.7,
+      "log": "complete-unit.log",
+      "disposition": "passed",
+      "evidence": "raw/resumed/complete-unit.log"
+    },
+    {
+      "command": [
+        "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+        "scripts/validate_plugin.py",
+        "--component"
+      ],
+      "cwd": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-155-2026-09-30/snapshot-complete",
+      "returncode": 0,
+      "elapsed_seconds": 0.68,
+      "log": "complete-component.log",
+      "disposition": "passed",
+      "evidence": "raw/resumed/complete-component.log"
+    },
+    {
+      "command": [
+        "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+        "scripts/validate_package_governance.py"
+      ],
+      "cwd": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-155-2026-09-30/snapshot-complete",
+      "returncode": 0,
+      "elapsed_seconds": 0.13,
+      "log": "complete-governance.log",
+      "disposition": "passed",
+      "evidence": "raw/resumed/complete-governance.log"
+    },
+    {
+      "command": [
+        "/bin/bash",
+        "scripts/smoke_clean_install.sh"
+      ],
+      "cwd": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-155-2026-09-30/snapshot-complete",
+      "returncode": 0,
+      "elapsed_seconds": 1.08,
+      "log": "complete-install.log",
+      "disposition": "passed",
+      "evidence": "raw/resumed/complete-install.log"
+    },
+    {
+      "command": [
+        "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+        "scripts/sync_package_identity.py",
+        "--check"
+      ],
+      "cwd": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-155-2026-09-30/snapshot",
+      "returncode": 0,
+      "elapsed_seconds": 0.05,
+      "log": "identity.log",
+      "disposition": "passed",
+      "evidence": "raw/resumed/identity.log"
+    },
+    {
+      "command": [
+        "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+        "scripts/validate_rule_trigger_audit.py",
+        "--require-complete"
+      ],
+      "cwd": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-155-2026-09-30/snapshot",
+      "returncode": 0,
+      "elapsed_seconds": 0.05,
+      "log": "rule-trigger.log",
+      "disposition": "passed",
+      "evidence": "raw/resumed/rule-trigger.log"
+    },
+    {
+      "command": [
+        "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+        "scripts/build_agent_core.py",
+        "--check"
+      ],
+      "cwd": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-155-2026-09-30/snapshot",
+      "returncode": 0,
+      "elapsed_seconds": 0.65,
+      "log": "wheel.log",
+      "disposition": "passed",
+      "evidence": "raw/resumed/wheel.log"
+    },
+    {
+      "command": [
+        "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+        "-m",
+        "pytest",
+        "-c",
+        "pyproject.toml",
+        "--rootdir",
+        ".",
+        "tests",
+        "-v"
+      ],
+      "cwd": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-155-2026-09-30/snapshot/packages/agent-core",
+      "returncode": 0,
+      "elapsed_seconds": 0.3,
+      "log": "agent-core.log",
+      "disposition": "passed",
+      "evidence": "raw/resumed/agent-core.log"
+    },
+    {
+      "command": [
+        "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-164-2026-09-23/linear-client-proof/venv/bin/python",
+        "-m",
+        "pytest",
+        "-c",
+        "pyproject.toml",
+        "--rootdir",
+        ".",
+        "tests",
+        "-v"
+      ],
+      "cwd": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-155-2026-09-30/snapshot/packages/hex-linear",
+      "returncode": 0,
+      "elapsed_seconds": 0.33,
+      "log": "hex-linear.log",
+      "disposition": "passed",
+      "evidence": "raw/resumed/hex-linear.log"
+    },
+    {
+      "command": [
+        "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+        "scripts/validate_plugin.py"
+      ],
+      "cwd": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-155-2026-09-30/snapshot-complete",
+      "returncode": 1,
+      "elapsed_seconds": 0.84,
+      "log": "complete-default.log",
+      "disposition": "known-failed-release-gate",
+      "evidence": "raw/resumed/complete-default.log"
+    }
+  ],
+  "default_gate_control": "Exact normalized diagnostic equality to freshly tested pinned baseline: thirteen retained routing identity/coverage errors; no new live routing was run. This remains failed, not waived or green.",
+  "review": "Independent clean-context high-risk review; original R1/R2 and intermediate R3/R4 findings preserved; all repaired and independently re-reviewed to approve. One failed intermediate run had a test-file hash change; explicitly ineligible.",
+  "scope_mapping": {
+    "D1": "four utility files; before-first-commit template checkpoints; manager/dispatcher/runtime/offline/worktree/rollback tests",
+    "D2": "No real rollout population derivation or installation; disposable common-directory/worktree fixtures only",
+    "D3": "normal/amend/conflict commits, accepted --no-verify bypass, bootstrap and redirect audit controls in disposable repositories",
+    "D4": "Bash3.2 normalization, controls, one NUL enumeration, staged blob pipeline/status/redaction, exact diagnostics and branch/fault tests",
+    "D5": "existing package governance and isolated-install integration; HEB161 acceptance/release and later HEB155 rollout remain external"
+  },
+  "integration_paths": "Main validator already consumes package-governance validation, so validate_plugin.py needed no edit. Existing package-contract scans skill markdown; no skill dependency changed, so package-contract.yaml remains unchanged. No skill, manifest identity, release schema or workflow changed.",
+  "empirical_limits": "One macOS host, Bash3.2.57, Python3.14.6; Python3.11 exact floor not executed. Invented data and offline release mocks; no real-pattern effectiveness, live release authenticity, estate coverage, other-machine or adversarial-operator assurance claimed.",
+  "incident": "Earlier broken gh fixture reached GitHub read-only; exact request count unavailable. Original stop/custody evidence retained. Closed command path, quoted interpreter, wrong-request and broken/missing-stub controls now pass. Do not execute preserved pre-repair fixtures.",
+  "tightenings": "No relay tightening beyond ratified attachment substitution. Unnecessary any-configured-hooksPath refusal corrected to D1 default-directory semantics; field records each worktree configuration. No design disposition reopened.",
+  "non_claims": [
+    "No real private-pattern file accessed, copied, hashed, searched or probed",
+    "No real repository hook/configuration installation or runtime deployment",
+    "No SOFIA inspection or rollout/estate inventory",
+    "No push, merge, tag, GitHub release or tracker write",
+    "No HEB161 cold acceptance, release proceed or HEB155 ticket completion"
+  ],
+  "pending": [
+    "HEB161 composed routing/cross-host qualification and cold acceptance/proceed/release",
+    "After accepted release, HEB155 machine runtime deployment and separately receipted repository rollout",
+    "SOFIA only after fresh RBT124 Done; final estate audit afterward"
+  ],
+  "postcommit_custody": "Exact staged-index and committed-blob verification plus commit SHA retained in final-commit.json in Development Archives/HEB-155-2026-09-30; prevents self-referential commit hashing."
+}

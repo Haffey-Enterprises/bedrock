@@ -1,0 +1,128 @@
+test_cli_entrypoints_report_same_unexpected_package_identity_carrier (tests.test_package_governance.PackageGovernanceTests.test_cli_entrypoints_report_same_unexpected_package_identity_carrier) ... ok
+test_consumer_surface_set_is_exact (tests.test_package_governance.PackageGovernanceTests.test_consumer_surface_set_is_exact) ... ok
+test_rejects_canonical_orientation_acceptance_order_drift (tests.test_package_governance.PackageGovernanceTests.test_rejects_canonical_orientation_acceptance_order_drift) ... ok
+test_rejects_canonical_orientation_codex_adapter_classification_drift (tests.test_package_governance.PackageGovernanceTests.test_rejects_canonical_orientation_codex_adapter_classification_drift) ... ok
+test_rejects_ci_host_floor_drift (tests.test_package_governance.PackageGovernanceTests.test_rejects_ci_host_floor_drift) ... ok
+test_rejects_claude_carrier_codex_adapter_classification_drift (tests.test_package_governance.PackageGovernanceTests.test_rejects_claude_carrier_codex_adapter_classification_drift) ... ok
+test_rejects_claude_code_minimum_version_semantics_drift (tests.test_package_governance.PackageGovernanceTests.test_rejects_claude_code_minimum_version_semantics_drift) ... ok
+test_rejects_codex_adapter_drift (tests.test_package_governance.PackageGovernanceTests.test_rejects_codex_adapter_drift) ... ok
+test_rejects_compatibility_minimum_host_drift (tests.test_package_governance.PackageGovernanceTests.test_rejects_compatibility_minimum_host_drift) ... ok
+test_rejects_compatibility_portable_core_version_drift (tests.test_package_governance.PackageGovernanceTests.test_rejects_compatibility_portable_core_version_drift) ... ok
+test_rejects_divergent_package_identity_copy (tests.test_package_governance.PackageGovernanceTests.test_rejects_divergent_package_identity_copy) ... ok
+test_rejects_every_package_identity_carrier_in_stale_skill_directories (tests.test_package_governance.PackageGovernanceTests.test_rejects_every_package_identity_carrier_in_stale_skill_directories) ... ok
+test_rejects_incomplete_consumer_enumeration (tests.test_package_governance.PackageGovernanceTests.test_rejects_incomplete_consumer_enumeration) ... ok
+test_rejects_license_carrier_drift (tests.test_package_governance.PackageGovernanceTests.test_rejects_license_carrier_drift) ... ok
+test_rejects_malformed_package_identity_carrier (tests.test_package_governance.PackageGovernanceTests.test_rejects_malformed_package_identity_carrier) ... ok
+test_rejects_manifest_metadata_drift (tests.test_package_governance.PackageGovernanceTests.test_rejects_manifest_metadata_drift) ... ok
+test_rejects_marketplace_authority_drift (tests.test_package_governance.PackageGovernanceTests.test_rejects_marketplace_authority_drift) ... ok
+test_rejects_marketplace_source_boundary_drift (tests.test_package_governance.PackageGovernanceTests.test_rejects_marketplace_source_boundary_drift) ... ok
+test_rejects_missing_codex_adapter (tests.test_package_governance.PackageGovernanceTests.test_rejects_missing_codex_adapter) ... ok
+test_rejects_missing_governance_link (tests.test_package_governance.PackageGovernanceTests.test_rejects_missing_governance_link) ... ok
+test_rejects_missing_package_finding (tests.test_package_governance.PackageGovernanceTests.test_rejects_missing_package_finding) ... ok
+test_rejects_missing_package_identity_carrier (tests.test_package_governance.PackageGovernanceTests.test_rejects_missing_package_identity_carrier) ... ok
+test_rejects_nested_noncanonical_package_identity_carrier (tests.test_package_governance.PackageGovernanceTests.test_rejects_nested_noncanonical_package_identity_carrier) ... ok
+test_rejects_non_merge_commit_landing_method (tests.test_package_governance.PackageGovernanceTests.test_rejects_non_merge_commit_landing_method) ... ok
+test_rejects_nonexact_verified_host_identity (tests.test_package_governance.PackageGovernanceTests.test_rejects_nonexact_verified_host_identity) ... ok
+test_rejects_orphaned_skill_lifecycle (tests.test_package_governance.PackageGovernanceTests.test_rejects_orphaned_skill_lifecycle) ... ok
+test_rejects_package_identity_contract_drift (tests.test_package_governance.PackageGovernanceTests.test_rejects_package_identity_contract_drift) ... ok
+test_rejects_package_identity_extra_field (tests.test_package_governance.PackageGovernanceTests.test_rejects_package_identity_extra_field) ... ok
+test_rejects_portable_core_authority_provenance_drift (tests.test_package_governance.PackageGovernanceTests.test_rejects_portable_core_authority_provenance_drift) ... ok
+test_rejects_portable_core_version_drift_from_accepted_adr (tests.test_package_governance.PackageGovernanceTests.test_rejects_portable_core_version_drift_from_accepted_adr) ... ok
+test_rejects_release_template_without_pending_landing (tests.test_package_governance.PackageGovernanceTests.test_rejects_release_template_without_pending_landing) ... ok
+test_rejects_retired_skill_without_migration (tests.test_package_governance.PackageGovernanceTests.test_rejects_retired_skill_without_migration) ... ok
+test_rejects_stale_context_measurement (tests.test_package_governance.PackageGovernanceTests.test_rejects_stale_context_measurement) ... ok
+test_rejects_stale_package_identity_digest (tests.test_package_governance.PackageGovernanceTests.test_rejects_stale_package_identity_digest) ... ok
+test_rejects_stale_package_identity_version (tests.test_package_governance.PackageGovernanceTests.test_rejects_stale_package_identity_version) ... ok
+test_rejects_uncontrolled_duplicate_authority (tests.test_package_governance.PackageGovernanceTests.test_rejects_uncontrolled_duplicate_authority) ... ok
+test_rejects_verified_host_below_minimum (tests.test_package_governance.PackageGovernanceTests.test_rejects_verified_host_below_minimum) ... ok
+test_rejects_vocabulary_schema_drift (tests.test_package_governance.PackageGovernanceTests.test_rejects_vocabulary_schema_drift) ... ok
+test_release_mode_accepts_external_evidence_after_immutable_tag (tests.test_package_governance.PackageGovernanceTests.test_release_mode_accepts_external_evidence_after_immutable_tag) ... Merge made by the 'ort' strategy.
+ candidate-marker.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 candidate-marker.txt
+ok
+test_release_mode_fails_closed_before_acceptance (tests.test_package_governance.PackageGovernanceTests.test_release_mode_fails_closed_before_acceptance) ... ok
+test_release_mode_rejects_distribution_drift_during_landing (tests.test_package_governance.PackageGovernanceTests.test_release_mode_rejects_distribution_drift_during_landing) ... Merge made by the 'ort' strategy.
+ candidate-marker.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 candidate-marker.txt
+ok
+test_release_mode_rejects_landing_before_acceptance (tests.test_package_governance.PackageGovernanceTests.test_release_mode_rejects_landing_before_acceptance) ... Merge made by the 'ort' strategy.
+ candidate-marker.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 candidate-marker.txt
+ok
+test_release_mode_rejects_landing_not_reachable_from_main (tests.test_package_governance.PackageGovernanceTests.test_release_mode_rejects_landing_not_reachable_from_main) ... Merge made by the 'ort' strategy.
+ candidate-marker.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 candidate-marker.txt
+ok
+test_release_mode_rejects_malformed_decision_record_cleanly (tests.test_package_governance.PackageGovernanceTests.test_release_mode_rejects_malformed_decision_record_cleanly) ... Merge made by the 'ort' strategy.
+ candidate-marker.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 candidate-marker.txt
+ok
+test_release_mode_rejects_merge_mislabeled_as_fast_forward (tests.test_package_governance.PackageGovernanceTests.test_release_mode_rejects_merge_mislabeled_as_fast_forward) ... Merge made by the 'ort' strategy.
+ candidate-marker.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 candidate-marker.txt
+ok
+test_release_mode_rejects_merge_with_source_as_third_parent (tests.test_package_governance.PackageGovernanceTests.test_release_mode_rejects_merge_with_source_as_third_parent) ... Fast-forwarding to: alternate
+Trying simple merge with candidate
+Merge made by the 'octopus' strategy.
+ alternate-marker.txt | 1 +
+ candidate-marker.txt | 1 +
+ 2 files changed, 2 insertions(+)
+ create mode 100644 alternate-marker.txt
+ create mode 100644 candidate-marker.txt
+ok
+test_release_mode_rejects_rebased_candidate_claimed_as_fast_forward (tests.test_package_governance.PackageGovernanceTests.test_release_mode_rejects_rebased_candidate_claimed_as_fast_forward) ... Rebasing (1/1)Successfully rebased and updated refs/heads/candidate.
+Updating 333df64..376cb44
+Fast-forward
+ candidate-marker.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 candidate-marker.txt
+ok
+test_release_mode_rejects_side_branch_fold_mislabeled_as_fast_forward (tests.test_package_governance.PackageGovernanceTests.test_release_mode_rejects_side_branch_fold_mislabeled_as_fast_forward) ... Merge made by the 'ort' strategy.
+ candidate-marker.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 candidate-marker.txt
+Merge made by the 'ort' strategy.
+ candidate-marker.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 candidate-marker.txt
+ok
+test_release_mode_rejects_swapped_parent_merge_mislabeled_as_fast_forward (tests.test_package_governance.PackageGovernanceTests.test_release_mode_rejects_swapped_parent_merge_mislabeled_as_fast_forward) ... Merge made by the 'ort' strategy.
+ plugins/bedrock/governance/README.md | 2 ++
+ 1 file changed, 2 insertions(+)
+Updating 46c9d7c..14980ff
+Fast-forward
+ candidate-marker.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 candidate-marker.txt
+ok
+test_release_mode_rejects_timezone_naive_landing_timestamp (tests.test_package_governance.PackageGovernanceTests.test_release_mode_rejects_timezone_naive_landing_timestamp) ... Merge made by the 'ort' strategy.
+ candidate-marker.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 candidate-marker.txt
+ok
+test_release_mode_rejects_true_fast_forward_landing (tests.test_package_governance.PackageGovernanceTests.test_release_mode_rejects_true_fast_forward_landing) ... Updating 9321634..669f293
+Fast-forward
+ candidate-marker.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 candidate-marker.txt
+ok
+test_repository_package_governance_passes (tests.test_package_governance.PackageGovernanceTests.test_repository_package_governance_passes) ... ok
+test_rollout_rejects_inexact_surface_populations (tests.test_package_governance.PackageGovernanceTests.test_rollout_rejects_inexact_surface_populations) ... Merge made by the 'ort' strategy.
+ candidate-marker.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 candidate-marker.txt
+ok
+test_rollout_schema_and_template_declare_three_surfaces (tests.test_package_governance.PackageGovernanceTests.test_rollout_schema_and_template_declare_three_surfaces) ... ok
+test_seeded_governance_defect_manifest_names_existing_tests (tests.test_package_governance.PackageGovernanceTests.test_seeded_governance_defect_manifest_names_existing_tests) ... ok
+test_write_refuses_unexpected_package_identity_carrier_before_mutation (tests.test_package_governance.PackageGovernanceTests.test_write_refuses_unexpected_package_identity_carrier_before_mutation) ... ok
+
+----------------------------------------------------------------------
+Ran 56 tests in 26.834s
+
+OK

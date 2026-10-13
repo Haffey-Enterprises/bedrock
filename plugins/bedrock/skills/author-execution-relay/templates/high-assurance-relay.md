@@ -7,7 +7,8 @@ The schema carries transaction identity and controls; the authored relay also ca
 - consumer configuration, parser, schema, wrapper, or gate read whole and pinned;
 - its accepted grammar and outcome taxonomy carried verbatim;
 - an exact author-time dry-run proving the command, actor, checkout, inputs, and output are jointly satisfiable;
-- touch allowlist derived bidirectionally from ratified edit-locus rows; and
+- touch allowlist derived bidirectionally from ratified edit-locus rows;
+- one pins block, and a carried-value sweep at issue and at receipt with no hits; and
 - custody evidence separated from production reachability evidence.
 
 | Property or premise | Claim subject | Verdict-bearing inputs/pins | Population derivation / expected-state oracle | Structural instrument / discrimination control | Outcomes / unavailable | Report field |

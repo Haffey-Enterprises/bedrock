@@ -5,7 +5,7 @@ from __future__ import annotations
 
 import argparse
 from collections import defaultdict
-from dataclasses import dataclass
+from dataclasses import asdict, dataclass
 from datetime import datetime
 import hashlib
 import json
@@ -15,8 +15,11 @@ from pathlib import Path
 import shutil
 import subprocess
 import sys
+import tempfile
 from typing import Any, Callable, Mapping
 from zoneinfo import ZoneInfo
+
+from jsonschema import Draft202012Validator
 
 try:
     from scripts.validate_plugin import load_eval_policy, load_routing_cases, validate_repository
@@ -36,9 +39,16 @@ OUTPUT_SCHEMA = json.dumps(
     }
 )
 
+OUTPUT_VALIDATOR = Draft202012Validator(json.loads(OUTPUT_SCHEMA))
+
 DEFAULT_MAX_BUDGET_USD = 0.04
+DEFAULT_CLI_VERSION = "2.1.226 (Claude Code)"
+DEFAULT_RESOLVED_MODEL = "claude-haiku-4-5-20251001"
 
 FAILURE_DIAGNOSTICS = {
+    "schema_failure": "Claude routing result violates the required output schema",
+    "usage_unknown": "Reported cost is missing or invalid; usage is unknown and further dispatch is prohibited",
+    "identity_mismatch": "Resolved model identity is missing or differs from the preregistered model",
     "authentication_failure": (
         "Claude adapter authentication failed on the --bare --print execution path; "
         "provide a valid ANTHROPIC_API_KEY"
@@ -55,7 +65,7 @@ class InvocationResult:
     passed: bool | None
     selected: str | None
     detail: str
-    cost_usd: float
+    cost_usd: float | None
     models: list[str]
 
     @classmethod
@@ -64,16 +74,19 @@ class InvocationResult:
         passed: bool,
         selected: str | None,
         detail: str,
-        cost_usd: float,
+        cost_usd: float | None,
         models: list[str],
     ) -> InvocationResult:
-        return cls("route_result", passed, selected, detail, cost_usd, models)
+        cost = normalize_cost(cost_usd)
+        if cost is None:
+            return cls("usage_unknown", None, selected, detail, None, models)
+        return cls("route_result", passed, selected, detail, cost, models)
 
     @classmethod
     def failure(
         cls,
         classification: str,
-        cost_usd: float = 0.0,
+        cost_usd: float | None = None,
         models: list[str] | None = None,
     ) -> InvocationResult:
         return cls(
@@ -81,17 +94,24 @@ class InvocationResult:
             None,
             None,
             FAILURE_DIAGNOSTICS[classification],
-            cost_usd,
+            normalize_cost(cost_usd),
             models or [],
         )
+
+    def as_evidence(self) -> dict[str, Any]:
+        evidence = {**asdict(self), **usage_evidence(self.cost_usd)}
+        if self.classification != "route_result":
+            evidence["diagnostic"] = FAILURE_DIAGNOSTICS[self.classification]
+        return evidence
 
     def as_failure_evidence(self) -> dict[str, Any]:
         if self.classification == "route_result":
             raise ValueError("a valid route result is not failure evidence")
         return {
             "classification": self.classification,
-            "diagnostic": self.detail,
+            "diagnostic": FAILURE_DIAGNOSTICS[self.classification],
             "cost_usd": self.cost_usd,
+            **usage_evidence(self.cost_usd),
             "resolved_models": self.models,
         }
 
@@ -102,7 +122,7 @@ class MatrixFailure:
     run: int
     classification: str
     diagnostic: str
-    cost_usd: float
+    cost_usd: float | None
     models: list[str]
 
 
@@ -113,35 +133,62 @@ class MatrixExecution:
     budget_exhausted: bool = False
 
 
+class RoutingSchemaError(ValueError):
+    """A decoded response cannot satisfy the routing contract."""
+
+
+def _unique_object(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
+    result: dict[str, Any] = {}
+    for key, value in pairs:
+        if key in result:
+            raise RoutingSchemaError("Duplicate response key")
+        result[key] = value
+    return result
+
+
 def _parse_result(stdout: str) -> dict[str, Any]:
-    payload = json.loads(stdout)
+    payload = json.loads(stdout, object_pairs_hook=_unique_object)
     if not isinstance(payload, dict):
-        raise ValueError("Claude response envelope must be an object")
-    structured = payload.get("structured_output")
-    if isinstance(structured, dict):
-        return structured
-    result = payload.get("result")
-    if isinstance(result, str):
-        parsed = json.loads(result)
-        if isinstance(parsed, dict):
-            return parsed
-    raise ValueError("Claude response did not contain a structured routing result")
+        raise RoutingSchemaError("Claude response envelope must be an object")
+    if "structured_output" in payload:
+        # A present native result is authoritative, even when malformed.
+        routed = payload["structured_output"]
+    elif isinstance(payload.get("result"), str):
+        routed = json.loads(payload["result"], object_pairs_hook=_unique_object)
+    else:
+        raise ValueError("Claude response did not contain a structured routing result")
+    if not OUTPUT_VALIDATOR.is_valid(routed):
+        raise RoutingSchemaError("Claude routing result violates OUTPUT_SCHEMA")
+    return routed
 
 
-def _extract_usage(payload: str) -> tuple[float, list[str]]:
-    """Recover billed usage from a success or typed-error Claude envelope."""
+def normalize_cost(value: Any) -> float | None:
+    """Only an explicit finite, nonnegative JSON number establishes known spend."""
+    if isinstance(value, bool) or not isinstance(value, (int, float)):
+        return None
+    try:
+        cost = float(value)
+    except (OverflowError, ValueError):
+        return None
+    return cost if math.isfinite(cost) and cost >= 0 else None
+
+
+def usage_evidence(cost: float | None) -> dict[str, Any]:
+    return {
+        "usage_status": "known" if cost is not None else "unknown",
+        "usage_reason": None if cost is not None else "missing_or_invalid_reported_cost",
+    }
+
+
+def _extract_usage(payload: str) -> tuple[float | None, list[str]]:
+    """Recover explicit usage without turning missing or invalid costs into zero."""
     try:
         envelope = json.loads(payload)
     except json.JSONDecodeError:
-        return 0.0, []
+        return None, []
     if not isinstance(envelope, dict):
-        return 0.0, []
-    try:
-        cost = float(envelope.get("total_cost_usd", 0.0) or 0.0)
-    except (TypeError, ValueError):
-        cost = 0.0
-    if not math.isfinite(cost) or cost < 0:
-        cost = 0.0
+        return None, []
+    cost = normalize_cost(envelope.get("total_cost_usd"))
     model_usage = envelope.get("modelUsage", {})
     models = sorted(model_usage) if isinstance(model_usage, dict) else []
     return cost, models
@@ -273,6 +320,8 @@ def run_case(
             ],
             cwd=plugin_dir,
             env=environment,
+            # The prompt is argv-only; inherited stdin can become extra user content.
+            stdin=subprocess.DEVNULL,
             capture_output=True,
             text=True,
             check=False,
@@ -282,8 +331,10 @@ def run_case(
         return InvocationResult.failure("transport_failure")
     if result.returncode != 0:
         cost, models = _extract_usage(result.stdout)
-        if not models and cost == 0.0:
-            cost, models = _extract_usage(result.stderr)
+        if cost is None:
+            stderr_cost, stderr_models = _extract_usage(result.stderr)
+            cost = stderr_cost
+            models = models or stderr_models
         return InvocationResult.failure(
             _classify_invocation_failure(result.stdout, result.stderr, result.returncode),
             cost,
@@ -291,20 +342,23 @@ def run_case(
         )
     try:
         routed = _parse_result(result.stdout)
+    except RoutingSchemaError:
+        cost, models = _extract_usage(result.stdout)
+        return InvocationResult.failure("schema_failure", cost, models)
     except (json.JSONDecodeError, ValueError) as exc:
         del exc
         cost, models = _extract_usage(result.stdout)
         return InvocationResult.failure(
             _classify_invocation_failure(result.stdout, result.stderr, 0), cost, models
         )
-    selected = routed.get("skill")
+    selected = routed["skill"]
     expected = case.get("expected")
     alternates = case.get("allowed_alternates", [])
     passed = selected == expected or (case.get("kind") == "overlap" and selected in alternates)
     if selected in case.get("excluded", []):
         passed = False
     cost, models = _extract_usage(result.stdout)
-    return InvocationResult.route(passed, selected, str(routed.get("reason", "")), cost, models)
+    return InvocationResult.route(passed, selected, routed["reason"], cost, models)
 
 
 def execute_case_matrix(
@@ -329,6 +383,9 @@ def execute_case_matrix(
             if remaining_usd <= 0:
                 return MatrixExecution(results=results, budget_exhausted=True)
             outcome = invoke(case, run_number, min(max_budget_usd, remaining_usd))
+            if outcome.classification == "route_result" and normalize_cost(outcome.cost_usd) is None:
+                outcome = InvocationResult.route(
+                    outcome.passed, outcome.selected, outcome.detail, None, outcome.models)
             if outcome.classification != "route_result":
                 return MatrixExecution(
                     results=results,
@@ -336,7 +393,7 @@ def execute_case_matrix(
                         case=str(case["id"]),
                         run=run_number,
                         classification=outcome.classification,
-                        diagnostic=outcome.detail,
+                        diagnostic=FAILURE_DIAGNOSTICS[outcome.classification],
                         cost_usd=outcome.cost_usd,
                         models=outcome.models,
                     ),
@@ -353,6 +410,7 @@ def execute_case_matrix(
                 "passed": outcome.passed,
                 "detail": outcome.detail,
                 "cost_usd": outcome.cost_usd,
+                **usage_evidence(outcome.cost_usd),
                 "models": outcome.models,
             }
             results.append(record)
@@ -483,9 +541,16 @@ def build_failure_report(
     generated_at: str,
     completed_case_runs: int,
     failure: MatrixFailure,
+    completed_results: list[dict[str, Any]] | None = None,
 ) -> dict[str, Any]:
     """Build sanitized non-evaluation evidence for a terminal adapter failure."""
+    known_subtotal = sum(row["cost_usd"] for row in (completed_results or []))
+    if failure.cost_usd is not None:
+        known_subtotal += failure.cost_usd
     return {
+        **usage_evidence(failure.cost_usd),
+        "total_cost_usd": known_subtotal if failure.cost_usd is not None else None,
+        "known_cost_subtotal_usd": known_subtotal,
         "schema_version": 1,
         "adapter": "claude-code",
         "status": "failed",
@@ -506,6 +571,7 @@ def build_failure_report(
             "case": failure.case,
             "run": failure.run,
             "cost_usd": failure.cost_usd,
+            **usage_evidence(failure.cost_usd),
             "resolved_models": failure.models,
         },
     }
@@ -513,15 +579,60 @@ def build_failure_report(
 
 def write_report(path: Path, report: dict[str, Any]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    temporary = path.with_suffix(path.suffix + ".tmp")
-    temporary.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
-    temporary.replace(path)
+    descriptor, name = tempfile.mkstemp(prefix=f".{path.name}.", suffix=".tmp", dir=path.parent)
+    temporary = Path(name)
+    try:
+        with os.fdopen(descriptor, "w", encoding="utf-8") as stream:
+            stream.write(json.dumps(report, indent=2) + "\n")
+            stream.flush()
+            os.fsync(stream.fileno())
+        temporary.replace(path)
+        directory = os.open(path.parent, os.O_RDONLY)
+        try:
+            os.fsync(directory)
+        finally:
+            os.close(directory)
+    finally:
+        temporary.unlink(missing_ok=True)
+
+
+def append_event(path: Path, event: dict[str, Any]) -> None:
+    """Persist before dispatch can continue; never recreate a lost journal."""
+    descriptor = os.open(path, os.O_WRONLY | os.O_APPEND)
+    with os.fdopen(descriptor, "a", encoding="utf-8") as stream:
+        stream.write(json.dumps(event, sort_keys=True) + "\n")
+        stream.flush()
+        os.fsync(stream.fileno())
+
+
+def initialize_evidence(path: Path, metadata: dict[str, Any]) -> Path:
+    """Claim a fresh report/journal pair; existing evidence is never reused."""
+    journal = path.with_suffix(".jsonl")
+    if path == journal or path.exists() or journal.exists():
+        raise FileExistsError("routing evidence paths must be fresh and distinct")
+    path.parent.mkdir(parents=True, exist_ok=True)
+    # Exclusive creates also refuse symlinks and a competing writer's claims.
+    with path.open("x", encoding="utf-8") as stream:
+        stream.write(json.dumps({"status": "incomplete", "phase": "preflight"}) + "\n")
+        stream.flush()
+        os.fsync(stream.fileno())
+    with journal.open("x", encoding="utf-8"):
+        pass
+    append_event(journal, {"event": "preregistration", **metadata})
+    directory = os.open(path.parent, os.O_RDONLY)
+    try:
+        os.fsync(directory)
+    finally:
+        os.close(directory)
+    return journal
 
 
 def _build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
     parser.add_argument("--model", default="haiku")
+    parser.add_argument("--expected-cli-version", default=DEFAULT_CLI_VERSION)
+    parser.add_argument("--expected-model", default=DEFAULT_RESOLVED_MODEL)
     parser.add_argument("--profile", choices=("pr", "release"), default="release")
     parser.add_argument("--runs", type=int, help="Must match the preregistered profile; retained for explicit replay.")
     parser.add_argument("--case", action="append", dest="case_ids")
@@ -540,7 +651,18 @@ def _build_parser() -> argparse.ArgumentParser:
 def main() -> int:
     parser = _build_parser()
     args = parser.parse_args()
+    if args.output is None:
+        parser.error("--output is required for durable routing evidence")
+    if not args.expected_cli_version.strip() or not args.expected_model.strip():
+        parser.error("CLI and resolved-model identities must be non-empty")
+    try:
+        return _run(args, parser)
+    except OSError:
+        print("FAIL: evidence or adapter I/O unavailable; stop without retry", file=sys.stderr)
+        return 2
 
+
+def _run(args: argparse.Namespace, parser: argparse.ArgumentParser) -> int:
     executable = shutil.which("claude")
     if executable is None:
         print("FAIL: Claude Code CLI is required for the Claude routing adapter", file=sys.stderr)
@@ -591,9 +713,29 @@ def main() -> int:
         [executable, "--version"], capture_output=True, text=True, check=False, timeout=10
     )
     cli_version = version_result.stdout.strip() or "unknown"
+    if version_result.returncode != 0 or cli_version != args.expected_cli_version:
+        print("FAIL: Claude CLI identity differs from preregistration; no model call", file=sys.stderr)
+        return 2
     generated_at = datetime.now(ZoneInfo("America/New_York")).isoformat()
     suite_scope = "targeted" if args.case_ids else "full"
     planned_case_ids = [str(case["id"]) for case in cases]
+    journal = initialize_evidence(args.output, {
+        "schema_version": 1,
+        "generated_at": generated_at,
+        "profile": args.profile,
+        "suite_scope": suite_scope,
+        "planned_case_ids": planned_case_ids,
+        "runs_per_case": runs,
+        "requested_model": args.model,
+        "expected_model": args.expected_model,
+        "claude_cli_version": cli_version,
+        "identity": {"fixture_sha256": fixture_digest, "catalog_sha256": catalog_digest,
+                     "policy_sha256": policy_digest},
+        "thresholds": policy,
+        "max_budget_usd_per_case_run": args.max_budget_usd,
+        "max_total_budget_usd": args.max_total_budget_usd,
+        "timeout_seconds_per_case_run": args.timeout_seconds,
+    })
     auth_error = check_authentication()
     if auth_error:
         failure = MatrixFailure(
@@ -604,6 +746,7 @@ def main() -> int:
             cost_usd=0.0,
             models=[],
         )
+        append_event(journal, {"event": "terminal_failure", "failure": {**asdict(failure), **usage_evidence(failure.cost_usd)}})
         print(f"FAIL [authentication_failure]: {auth_error}", file=sys.stderr)
         if args.output:
             write_report(
@@ -623,8 +766,10 @@ def main() -> int:
         return 2
 
     def invoke(case: dict[str, Any], run_number: int, budget_usd: float) -> InvocationResult:
-        del run_number
-        return run_case(
+        append_event(journal, {"event": "attempt_started", "case": case["id"],
+                               "run": run_number, "budget_usd": budget_usd,
+                               "prompt_sha256": _sha256_bytes(build_routing_prompt(case, inventory["skills"]).encode("utf-8"))})
+        outcome = run_case(
             executable,
             plugin_dir,
             case,
@@ -633,6 +778,13 @@ def main() -> int:
             budget_usd,
             args.timeout_seconds,
         )
+        append_event(journal, {"event": "attempt_finished", "case": case["id"],
+                               "run": run_number, "expected": case.get("expected"),
+                               "kind": case.get("kind"), "cue": case.get("cue", "direct"),
+                               "surface": case.get("surface"), "outcome": outcome.as_evidence()})
+        if outcome.classification == "route_result" and outcome.models != [args.expected_model]:
+            return InvocationResult.failure("identity_mismatch", outcome.cost_usd, outcome.models)
+        return outcome
 
     def retain_result(results: list[dict[str, Any]], record: dict[str, Any]) -> None:
         print(
@@ -673,6 +825,7 @@ def main() -> int:
         on_result=retain_result,
     )
     if execution.failure is not None:
+        append_event(journal, {"event": "terminal_failure", "failure": {**asdict(execution.failure), **usage_evidence(execution.failure.cost_usd)}})
         print(
             f"FAIL [{execution.failure.classification}] case={execution.failure.case} "
             f"run={execution.failure.run}: {execution.failure.diagnostic}",
@@ -692,6 +845,7 @@ def main() -> int:
                     generated_at=generated_at,
                     completed_case_runs=len(execution.results),
                     failure=execution.failure,
+                    completed_results=execution.results,
                 ),
             )
         return 2
@@ -719,6 +873,7 @@ def main() -> int:
         max_total_budget_usd=args.max_total_budget_usd,
         budget_exhausted=budget_exhausted,
     )
+    append_event(journal, {"event": "terminal_evaluation", "evaluation": report["evaluation"], "total_cost_usd": report["total_cost_usd"], "total": report["total"]})
     if args.output:
         write_report(args.output, report)
     return 0 if report["evaluation"]["passed"] else 1

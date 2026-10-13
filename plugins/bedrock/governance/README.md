@@ -150,3 +150,23 @@ contract rationale, compatibility, or reproduction instructions.
 The authority and conflict ordering in `registry.yaml` is mechanical. When two
 applicable authorities disagree without a declared ordering, stop and obtain
 operator disposition rather than selecting the convenient rule.
+
+## Shared Python components
+
+Bedrock distributes generated Python wheels with their owning skills. Source,
+tests and execution evidence remain repository capture; the plugin contains the
+runtime component, installation metadata and skill guidance. Build validation
+must compare the wheel's complete runtime member population against the separate
+source and verify the license and dependency lock. Installed-import and wrong-
+subject controls establish that the consumer exercises that wheel.
+
+For agent-core, accepted-to-landed identity also covers `packages/agent-core/`,
+besides the marketplace and plugin paths. The wheel is already within the
+installed-package parity boundary. Record dependency and source identities in
+candidate evidence. Project installation records the accepted Bedrock revision;
+CI retrieves that exact revision. Plugin updates do not silently upgrade project
+Python environments, and repository evidence is never required at runtime.
+
+## Data-hygiene runtime lifecycle
+
+The [data-hygiene utility](../scripts/data-hygiene/README.md) is Bedrock-owned package content. HEB-161 cold acceptance and explicit release proceed precede machine deployment; HEB-155 owns separate repository installation receipts and the estate audit. A plugin install/update alone never deploys the runtime or gates a repository. Retained runtime rollback and repository audit remain explicit operator operations.

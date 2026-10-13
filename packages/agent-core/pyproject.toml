@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agent-core"
+version = "0.2.0"
+description = "Shared Python mechanisms for Bedrock fleet agents."
+readme = "USAGE.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+authors = [{ name = "Haffey Enterprises" }]
+dependencies = [
+    "jsonschema>=4.18",
+    "referencing>=0.30",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+agent_core = ["py.typed"]

@@ -1,0 +1,77 @@
+[
+  {
+    "command": [
+      "claude",
+      "plugin",
+      "validate",
+      "/Users/thaffey/.codex/worktrees/heb-154-integration/bedrock/plugins/bedrock",
+      "--strict"
+    ],
+    "exit_code": 0,
+    "log": "qualification-0.txt"
+  },
+  {
+    "command": [
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/claude-minimum/node_modules/.bin/claude",
+      "plugin",
+      "validate",
+      "/Users/thaffey/.codex/worktrees/heb-154-integration/bedrock/plugins/bedrock",
+      "--strict"
+    ],
+    "exit_code": 0,
+    "log": "qualification-1.txt"
+  },
+  {
+    "command": [
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+      "scripts/validate_package_governance.py"
+    ],
+    "exit_code": 0,
+    "log": "qualification-2.txt"
+  },
+  {
+    "command": [
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+      "scripts/validate_safety.py"
+    ],
+    "exit_code": 0,
+    "log": "qualification-3.txt"
+  },
+  {
+    "command": [
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+      "scripts/validate_infrastructure_delivery_contracts.py"
+    ],
+    "exit_code": 0,
+    "log": "qualification-4.txt"
+  },
+  {
+    "command": [
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+      "scripts/validate_frontend_contracts.py"
+    ],
+    "exit_code": 0,
+    "log": "qualification-5.txt"
+  },
+  {
+    "command": [
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+      "scripts/validate_rule_trigger_audit.py",
+      "--require-complete"
+    ],
+    "exit_code": 0,
+    "log": "qualification-6.txt"
+  },
+  {
+    "command": [
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+      "-m",
+      "pytest",
+      "-p",
+      "no:cacheprovider",
+      "packages/agent-core/tests"
+    ],
+    "exit_code": 0,
+    "log": "qualification-7.txt"
+  }
+]

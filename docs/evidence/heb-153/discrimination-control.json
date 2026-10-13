@@ -1,0 +1,17 @@
+{
+  "mutation": "Remove only codex consumer_surfaces row from an isolated copy; leave both required Claude surfaces as the stale two-surface control.",
+  "command": [
+    "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+    "scripts/validate_package_governance.py",
+    "--root",
+    "/var/folders/sw/1svfc1j50yb7tdd8_fb98v1m0000gn/T/heb153-contrary-ccciimvc/bedrock"
+  ],
+  "returncode": 1,
+  "stdout": "FAIL: package governance\n- /private/var/folders/sw/1svfc1j50yb7tdd8_fb98v1m0000gn/T/heb153-contrary-ccciimvc/bedrock/plugins/bedrock/governance/registry.yaml: consumer surface enumeration must contain claude-ai, claude-code, and codex exactly\n",
+  "stderr": "",
+  "restored": {
+    "returncode": 0,
+    "stdout": "PASS: package lifecycle, metadata, compatibility, policy, registry, and evidence contracts\n",
+    "stderr": ""
+  }
+}

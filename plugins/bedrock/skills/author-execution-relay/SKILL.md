@@ -1,6 +1,6 @@
 ---
 name: author-execution-relay
-description: "Executor prompts and handoffs only; every gated instruction sent to Code or another executor routes here, never to app-delivery-pipeline, even when it mentions delivery gates or starts from a construct spec. Use this skill to author an execution relay, implementation handoff, or session kickoff that delegates bounded file and git toil while reserving judgment and per-gate ratification for the operator. Here Code means the executor, not application source code. Do not use this to perform implementation, write a general design record or reusable standard, or review a finished diff."
+description: "Authoring executor prompts and handoffs only. Use this skill when the requested deliverable is a gated instruction, execution relay, implementation handoff, or session kickoff for Code or another executor, including one about delivery gates or a construct spec. Direct implementation, build, or deployment work stays with its domain skill even when gated. Relays delegate bounded file and git toil while reserving judgment and per-gate ratification for the operator. Here Code means the executor, not application source code. Do not use this to perform implementation, write a general design record or reusable standard, or review a finished diff."
 ---
 
 # Author an Execution Relay
@@ -45,23 +45,19 @@ Do not require an unbounded inventory of “every external assertion.” Include
 
 ## Build the execution instrument
 
-Before issuing a relay, derive each demand from the instrument that will consume it. Read the relevant consumer configuration, parser, schema, wrapper, or gate definition whole; record its identity; and carry its accepted grammar and outcome taxonomy verbatim. When an accepted template exists, instantiate it before narrowing it—do not summarize a proven grammar into a new one.
+Before issuing a relay, read [the execution-instrument contract](reference/execution-instrument.md) whole and apply every requirement. This required reference governs authoring and execution-time comparison.
 
-For every demanded operation or verification property, complete the template's instrument table. Name the claim subject, verdict-bearing inputs and immutable pins, population derivation and expected-state oracle where comparison is involved, structural instrument and discrimination control, exact outcomes, unavailable behavior, and report field. The claim subject identifies the repository, checkout or working directory, inputs, and population the reported value concerns. A population derivation names the execution-time command, API, or parser; its canonicalization; and either a pinned baseline or a rule that mechanically derives the expected set from pinned inputs. Counts and enumerated members are derived views, never the verdict-bearing population; include them only as optional cross-checks generated from that same output. Pin the files whose bytes can change the verdict; do not turn incidental context into a universal pinning ceremony.
+## Carry pins, not derivations
 
-Dry-run the authored demand against its own constraints before delegation. The named command, actor, checkout, inputs, and expected output must be jointly satisfiable. A substitution is valid only when predeclared with its equivalence test; otherwise an impossible demand stops the relay.
+A relay carries subjects, pins and rules. It does not carry values the executor will derive from the tree — file line numbers, counts of derivable populations, member lists — because a carried value can be wrong and a wrong one is a false stop on a correct tree. The values a relay may carry are **pins**: content digests, object identities, and any count the instrument table declares verdict-bearing. Every pin appears once, in one pins block the executor checks in its first act (`sha256sum -c`, `git cat-file -e`), and the check is demonstrated on a planted mismatch once per relay lineage so it is known to fire.
 
-Model custody separately from reachability. File ownership and permissions establish custody; production references, executable code paths, actor flows, and data flows establish whether an actor can reach a capability or secret. Do not infer either property from the other.
+A relay body carries no outcome and no revision narrative. What a gate produced and what a revision changed are record material — the gate report, the register, the revision log. A stop cell states what stops the gate, never what happened at it.
 
-Derive the relay touch set from the ratified edit-locus rows and reconcile both directions: every edit locus is allowlisted, and every allowlisted mutation has a settled source.
+**Sweep, bound to the dry-run and to receipt.** Before issue, sweep the relay for carried values — `path:line` citations, bare counts of derivable populations, `rev N` tokens, outcome words in contract cells — and disposition every hit as pin, derived-at-execution, or removed. The executor repeats the sweep on receipt and reports any hit as a relay defect before running an operation. Success is the absence of hits, so the sweep is proved on a planted hit; a value the patterns do not match can survive, which is the sweep's named limit.
 
-Before a load-bearing state claim crosses from computation into a gate report or durable evidence, verify it against its named subject through a differently-shaped derivation or a falsification control that demonstrates refusal. A true value derived from a different subject is still a subject mismatch: stop and report. If neither discrimination route is available, or a route disagrees or fails to refuse, the claim is unavailable; stop rather than narrating it as verified.
+**A shrink is clause by clause.** A revision that removes text is checked by differencing the predecessor's anchors — code spans, section references, premise and finding codes — against the revision's, and every dropped anchor is dispositioned before issue. A rewrite from memory is not a shrink: it discards obligations no reader can see are gone.
 
-Resolve comparison mismatches from the declared population derivation and expected-state oracle, never from judgment. If the execution-time population differs from the mechanically expected population, state changed: stop and report. If the populations match but a carried count or enumerated cross-check disagrees, the relay has an arithmetic or transcription defect: report it and proceed from the derived population. Subject mismatch takes precedence over value agreement. If the distinction is unavailable or ambiguous, stop. Never guess which representation is authoritative or silently normalize a mismatch.
-
-These rules govern relay construction and execution-time comparison. General state-management policy outside a declared relay comparison remains outside this skill.
-
-For each load-bearing premise, include a discrimination control: a differently-shaped derivation against the same subject or a falsification control capable of producing the contrary result. The gate report records the premise as `confirmed`, `falsified`, or `unavailable`, the control performed, and the consequence for the relay. A happy-path result alone does not validate its premises.
+**The reader corrects.** Tightening is the executor's — ambiguity, wording, a subject or population the derivation shows underspecified — reported before and after, the predecessor retained, the hash reissued. Loosening a prohibition, removing a stop, or changing what a gate verifies is the operator's. An executor who adjusts nothing says so; silence is not a clean bill.
 
 ## Git and capability envelope
 

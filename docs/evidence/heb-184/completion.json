@@ -1,0 +1,38 @@
+{
+  "date_eastern": "2026-09-30",
+  "baseline": "f0ac9a0d81dbdb37cdb7b29b61b59f114802a489",
+  "state": "Component qualified and independently approved for the authorized local commit; release remains pending.",
+  "package_version": "10.0.0",
+  "accepted_source": "preflight.json; unchanged instruction and historical provenance",
+  "final_tested_tree": "5698a20d8f1a78ac9f77b234faa2ee14d0c9acdc",
+  "test_population": {
+    "root_unittest": 205,
+    "agent_core": 110,
+    "hex_linear": 96,
+    "overlap": "Focused planning/reviewer tests are subsets of the root suite; package suites are separate. Historical tests under docs/evidence are excluded. No live routing or cold consumer invocation."
+  },
+  "cross_snapshot_evidence": {
+    "changed_inputs": [
+      "scripts/validate_package_governance.py",
+      "tests/test_package_governance.py"
+    ],
+    "continued_applicability": "Both package source/test trees, installed plugin bytes, identity generator, audit input and wheel payload are identical between tested snapshots. Their prior passing evidence remains applicable. Component and full root tests reran after parser repair."
+  },
+  "review_resolution": {
+    "HEB184-REV-001": "Resolved and independently rechecked; strict duplicate-key parsing with retained first failure and passing regression. Final review approves the component checkpoint, with no remaining findings in its declared scope."
+  },
+  "validator_limits": [
+    "Instruction/provenance exact bytes and declared adoption identities are checked mechanically; adoption prose meaning remains reviewed rather than mechanically proven.",
+    "OpenAI explicit-invocation metadata is structurally checked; host enforcement and cold loaded usability remain unproven here.",
+    "Pending HEB-161/reconsumption identities are candidate constraints; their later disposition requires a separately reviewed update."
+  ],
+  "whitespace": {
+    "source_diff": "passed; planted trailing-space control rejected",
+    "raw_evidence": "review-red.log retains native unittest trailing whitespace. Full git diff --check reports that raw-log line; it was not rewritten."
+  },
+  "protected_receipts": "Both names/digests match preflight; contents never parsed, copied or staged.",
+  "release": "Not accepted. HEB-161 owns live routing, cold-host acceptance and release; HEB-184 remains In Progress through HEX shared-release reconsumption/private-fork reconciliation.",
+  "relay_adjustment": "No textual relay rewrite. Tad expressly supplemented allowlist with docs/evidence/heb-118/context-budget.json. Component CLI exposes existing bounded API; default evidence gate remains enforced.",
+  "custody": "custody.json; final committed artifact and post-commit verification to be retained externally.",
+  "independence": "Fresh-context subagent /root/planning_review; read-only independent controls; completed snapshot use."
+}

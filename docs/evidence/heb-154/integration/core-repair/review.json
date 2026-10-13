@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "profile": "standard",
+  "scope": "Independent finished-delta review of the HEB-154 repair in /Users/thaffey/.codex/worktrees/heb-154-integration/bedrock against HEAD dec05792cc59ebb9b3feb5b01a3466036e748212 on codex/heb-154-integration. Verdict applies only to one local repair commit; push, merge, installation, live execution and release acceptance are excluded.",
+  "checked_surfaces": [
+    "Scope/architecture lens: read AGENTS.md, repository orientation, code-review skill/schema/checklist, agent-code skill/mechanism contract/binding, testing skill and package lifecycle whole. Reviewed the complete tracked and untracked repair delta, including the author's final fixture README correction.",
+    "Correctness lens: read budget.py, structured.py and the new regression module whole; read existing budget and parser regression tests whole. Reviewed fractional rejection, integral-float compatibility, attempted-call accounting, source-span normalization, deduplication before the bound, malformed occurrences, ambiguity and fence precedence.",
+    "System-posture lens: checked generated wheel/component identities, installed runtime parity, evidence integrity, historical evidence preservation, content hygiene and the explicit local-versus-release qualification boundary.",
+    "Read result.json and diagnosis.json whole, including the corrected RFC3339 timestamp. Read both README changes and the CHANGELOG delta completely. Manifest was mechanically read and verified in full: eight subject files, baseline entries and all 348 proof archive members. Archive membership and hashes match exactly; no virtualenv or nonregular member is included.",
+    "Read archived reproduction/check scripts, command receipts, before/after probes and clean-install result records whole. Complete selected raw logs were mechanically inspected for outcomes, failure details and warnings; synthetic fixture bodies were hash-verified and hygiene-scanned, not manually read whole. The initial truncated combined read was replaced by targeted reads and full mechanical verification.",
+    "Independently executed the complete packages/agent-core/tests population against the installed Python 3.14 runtime: 110 passed. Verified all ten runtime source members against the wheel and installed runtime, and all fifteen wheel members against component.json.",
+    "Independently loaded baseline budget/parser source directly from HEAD into memory. Confirmed fractional usage is silently truncated before repair and refused afterward; confirmed 33 fenced occurrences fail before repair and succeed afterward, while the unfenced control succeeds on both.",
+    "Compared every HEAD-tracked docs/evidence/heb-154 file outside the declared integration README change against HEAD. Historical evidence remains byte-identical. No primary checkout, remote service, live model, copied fixture or release operation was used.",
+    "Counts describe the named overlapping populations only and must not be summed. Linux, frontend/browser, live-provider, full PR and composed-release assurance were not performed."
+  ],
+  "gates": [
+    {
+      "name": "Scope and compatibility",
+      "disposition": "passed",
+      "reason": "Delta implements the two ratified corrections plus necessary tests, generated distribution and qualification records. Integral floats remain supported; fractional spend and wall-time limits remain supported. No new dependency or public contract is introduced."
+    },
+    {
+      "name": "Independent core regression execution",
+      "disposition": "passed",
+      "reason": "Complete core suite passed: 110 tests against the verified installed wheel. The new 53-case module covers fractional and invalid values, exact limits, malformed occurrences, distinct identical payloads and fence precedence."
+    },
+    {
+      "name": "Causal counterfactual",
+      "disposition": "passed",
+      "reason": "Fresh HEAD source and repaired installed source were exercised in memory. Both defects were reproduced on baseline and corrected on the reviewed bytes; integral-token and unfenced-parser controls passed."
+    },
+    {
+      "name": "Distribution and installed-subject identity",
+      "disposition": "passed",
+      "reason": "Complete source/wheel/component/installed-runtime population parity passed. Archived reproducible-build results and Python 3.10/3.14 missing-install, corrupt-source, corrupt-wheel and restored-install controls were inspected."
+    },
+    {
+      "name": "Evidence integrity and preservation",
+      "disposition": "passed",
+      "reason": "All eight final manifest subjects, baseline digest entries, archive digest and all 348 archive members verified. Diagnosis validates against its schema with FormatChecker. Historical HEB-154 tracked evidence remains unchanged."
+    },
+    {
+      "name": "Offline specialist and repository qualification",
+      "disposition": "passed",
+      "reason": "Inspected retained command receipts and complete raw-log outcomes for 91 offline specialist tests, 178 repository unittest methods, package governance, strict validation and identity carriers. These were author executions, not independent reruns. The disclosed Python 3.10 temporary-directory cleanup warning does not conceal a test failure."
+    },
+    {
+      "name": "Content hygiene and whitespace",
+      "disposition": "passed",
+      "reason": "Scanned all changed/new text and decompressed wheel/archive contents against the private exclusion list without emitting its values. Positive and benign controls passed. git diff --check passed, with separate clean and trailing-whitespace controls."
+    },
+    {
+      "name": "Additional lint and type-check assurance",
+      "disposition": "not-relevant",
+      "reason": "No new standalone lint/type gate is required by this scoped repair. Compilation through imports, behavioral tests, retained deterministic validators and whitespace checks were assessed; broader static-analysis assurance is not claimed."
+    },
+    {
+      "name": "Deployment, live routing, Linux/frontend gates and composed cold acceptance",
+      "disposition": "not-relevant",
+      "reason": "Explicitly deferred to HEB-161 and excluded from authorization for this local repair commit. Historical routing success does not qualify the repaired composed package."
+    }
+  ],
+  "findings": [],
+  "verdict": "approve"
+}

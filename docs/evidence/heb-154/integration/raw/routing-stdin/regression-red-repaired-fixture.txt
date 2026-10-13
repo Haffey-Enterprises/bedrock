@@ -1,0 +1,29 @@
+.............FF........
+======================================================================
+FAIL: test_routing_subprocess_excludes_inherited_launcher_input (test_routing_adapter.RoutingAdapterResultTests.test_routing_subprocess_excludes_inherited_launcher_input) (mode='pipe')
+The CLI may reread a consumed regular fd or accept a pipe as user input.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/thaffey/.codex/worktrees/heb-154-integration/bedrock/tests/test_routing_adapter.py", line 128, in test_routing_subprocess_excludes_inherited_launcher_input
+    self.assertEqual("", received["stdin"])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: '' != 'UNRELATED_LAUNCHER_INPUT_CANARY'
++ UNRELATED_LAUNCHER_INPUT_CANARY
+
+
+======================================================================
+FAIL: test_routing_subprocess_excludes_inherited_launcher_input (test_routing_adapter.RoutingAdapterResultTests.test_routing_subprocess_excludes_inherited_launcher_input) (mode='consumed_regular_file')
+The CLI may reread a consumed regular fd or accept a pipe as user input.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/thaffey/.codex/worktrees/heb-154-integration/bedrock/tests/test_routing_adapter.py", line 128, in test_routing_subprocess_excludes_inherited_launcher_input
+    self.assertEqual("", received["stdin"])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: '' != 'UNRELATED_LAUNCHER_INPUT_CANARY'
++ UNRELATED_LAUNCHER_INPUT_CANARY
+
+
+----------------------------------------------------------------------
+Ran 22 tests in 0.559s
+
+FAILED (failures=2)

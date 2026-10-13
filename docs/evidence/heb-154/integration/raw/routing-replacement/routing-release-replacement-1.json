@@ -1,0 +1,3278 @@
+{
+  "schema_version": 2,
+  "adapter": "claude-code",
+  "profile": "release",
+  "generated_at": "2026-09-29T13:55:06.593474-04:00",
+  "suite_scope": "full",
+  "planned_case_ids": [
+    "adversarial-debug-misroute",
+    "adversarial-design-review-misroute",
+    "adversarial-implementation-misroute",
+    "agent-builder-debug-collision",
+    "agent-builder-mechanism-negative",
+    "agent-builder-one-shot",
+    "agent-builder-positive",
+    "agent-builder-prompt-only-negative",
+    "agent-builder-review-collision",
+    "agent-code-negative",
+    "agent-code-positive",
+    "app-delivery-pipeline-main-only-profile",
+    "app-delivery-pipeline-negative",
+    "app-delivery-pipeline-positive",
+    "app-delivery-pipeline-static-seam",
+    "application-code-negative",
+    "application-code-portable-profile",
+    "application-code-positive",
+    "author-construct-spec-negative",
+    "author-construct-spec-positive",
+    "author-decision-record-negative",
+    "author-decision-record-positive",
+    "author-execution-relay-instrument-discrimination",
+    "author-execution-relay-negative",
+    "author-execution-relay-positive",
+    "author-standard-negative",
+    "author-standard-positive",
+    "code-review-negative",
+    "code-review-positive",
+    "debug-active-harm",
+    "debug-claim-subject-discrimination",
+    "debug-negative",
+    "debug-nonreproducible-production",
+    "debug-positive",
+    "design-review-loop-direct-profile",
+    "design-review-loop-negative",
+    "design-review-loop-positive",
+    "frontend-code-browser-security-readiness",
+    "frontend-code-negative",
+    "frontend-code-portable-profile",
+    "frontend-code-positive",
+    "frontend-code-prototype-promotion",
+    "implicit-debug-regression",
+    "implicit-review-ship-readiness",
+    "implicit-standard-membership",
+    "infrastructure-code-actions-ownership",
+    "infrastructure-code-negative",
+    "infrastructure-code-portable-profile",
+    "infrastructure-code-positive",
+    "overlap-adr-model-vendor",
+    "overlap-debug-deployment",
+    "overlap-debug-frontend",
+    "overlap-frontend-backend-enforcement",
+    "overlap-relay-construct",
+    "overlap-review-frontend",
+    "overlap-review-terraform",
+    "overlap-test-agent-output",
+    "overlap-testing-frontend",
+    "testing-negative",
+    "testing-positive",
+    "testing-regression-after-diagnosis",
+    "testing-risk-strategy",
+    "testing-silent-success-counterfactual"
+  ],
+  "completed_case_ids": [
+    "adversarial-debug-misroute",
+    "adversarial-design-review-misroute",
+    "adversarial-implementation-misroute",
+    "agent-builder-debug-collision",
+    "agent-builder-mechanism-negative",
+    "agent-builder-one-shot",
+    "agent-builder-positive",
+    "agent-builder-prompt-only-negative",
+    "agent-builder-review-collision",
+    "agent-code-negative",
+    "agent-code-positive",
+    "app-delivery-pipeline-main-only-profile",
+    "app-delivery-pipeline-negative",
+    "app-delivery-pipeline-positive",
+    "app-delivery-pipeline-static-seam",
+    "application-code-negative",
+    "application-code-portable-profile",
+    "application-code-positive",
+    "author-construct-spec-negative",
+    "author-construct-spec-positive",
+    "author-decision-record-negative",
+    "author-decision-record-positive",
+    "author-execution-relay-instrument-discrimination",
+    "author-execution-relay-negative",
+    "author-execution-relay-positive",
+    "author-standard-negative",
+    "author-standard-positive",
+    "code-review-negative",
+    "code-review-positive",
+    "debug-active-harm",
+    "debug-claim-subject-discrimination",
+    "debug-negative",
+    "debug-nonreproducible-production",
+    "debug-positive",
+    "design-review-loop-direct-profile",
+    "design-review-loop-negative",
+    "design-review-loop-positive",
+    "frontend-code-browser-security-readiness",
+    "frontend-code-negative",
+    "frontend-code-portable-profile",
+    "frontend-code-positive",
+    "frontend-code-prototype-promotion",
+    "implicit-debug-regression",
+    "implicit-review-ship-readiness",
+    "implicit-standard-membership",
+    "infrastructure-code-actions-ownership",
+    "infrastructure-code-negative",
+    "infrastructure-code-portable-profile",
+    "infrastructure-code-positive",
+    "overlap-adr-model-vendor",
+    "overlap-debug-deployment",
+    "overlap-debug-frontend",
+    "overlap-frontend-backend-enforcement",
+    "overlap-relay-construct",
+    "overlap-review-frontend",
+    "overlap-review-terraform",
+    "overlap-test-agent-output",
+    "overlap-testing-frontend",
+    "testing-negative",
+    "testing-positive",
+    "testing-regression-after-diagnosis",
+    "testing-risk-strategy",
+    "testing-silent-success-counterfactual"
+  ],
+  "claude_cli_version": "2.1.226 (Claude Code)",
+  "requested_model": "haiku",
+  "resolved_models": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "runs_per_case": 3,
+  "max_budget_usd_per_case_run": 0.06,
+  "max_total_budget_usd": 3.0,
+  "budget_exhausted": false,
+  "timeout_seconds_per_case_run": 120,
+  "identity": {
+    "fixture_sha256": "ffa8329b6b554d702293b7c746198c706016ee31125992e6a9db8af20e109188",
+    "catalog_sha256": "d248130b4df9b4ead25c75a8cc87b597613a8b9127f702467b568721006504f2",
+    "policy_sha256": "4e3aedf467f4d353a9903a31f8dfd3fa9224f01eb449a473051177b5f626b67d"
+  },
+  "thresholds": {
+    "runs_per_case": 3,
+    "minimum_overall_pass_rate": 0.95,
+    "minimum_case_pass_rate": 0.6666666666,
+    "excluded_selection_limit": 0
+  },
+  "passed": 189,
+  "total": 189,
+  "total_cost_usd": 1.853696,
+  "evaluation": {
+    "passed": true,
+    "overall_pass_rate": 1.0,
+    "minimum_overall_pass_rate": 0.95,
+    "case_pass_rates": {
+      "adversarial-debug-misroute": 1.0,
+      "adversarial-design-review-misroute": 1.0,
+      "adversarial-implementation-misroute": 1.0,
+      "agent-builder-debug-collision": 1.0,
+      "agent-builder-mechanism-negative": 1.0,
+      "agent-builder-one-shot": 1.0,
+      "agent-builder-positive": 1.0,
+      "agent-builder-prompt-only-negative": 1.0,
+      "agent-builder-review-collision": 1.0,
+      "agent-code-negative": 1.0,
+      "agent-code-positive": 1.0,
+      "app-delivery-pipeline-main-only-profile": 1.0,
+      "app-delivery-pipeline-negative": 1.0,
+      "app-delivery-pipeline-positive": 1.0,
+      "app-delivery-pipeline-static-seam": 1.0,
+      "application-code-negative": 1.0,
+      "application-code-portable-profile": 1.0,
+      "application-code-positive": 1.0,
+      "author-construct-spec-negative": 1.0,
+      "author-construct-spec-positive": 1.0,
+      "author-decision-record-negative": 1.0,
+      "author-decision-record-positive": 1.0,
+      "author-execution-relay-instrument-discrimination": 1.0,
+      "author-execution-relay-negative": 1.0,
+      "author-execution-relay-positive": 1.0,
+      "author-standard-negative": 1.0,
+      "author-standard-positive": 1.0,
+      "code-review-negative": 1.0,
+      "code-review-positive": 1.0,
+      "debug-active-harm": 1.0,
+      "debug-claim-subject-discrimination": 1.0,
+      "debug-negative": 1.0,
+      "debug-nonreproducible-production": 1.0,
+      "debug-positive": 1.0,
+      "design-review-loop-direct-profile": 1.0,
+      "design-review-loop-negative": 1.0,
+      "design-review-loop-positive": 1.0,
+      "frontend-code-browser-security-readiness": 1.0,
+      "frontend-code-negative": 1.0,
+      "frontend-code-portable-profile": 1.0,
+      "frontend-code-positive": 1.0,
+      "frontend-code-prototype-promotion": 1.0,
+      "implicit-debug-regression": 1.0,
+      "implicit-review-ship-readiness": 1.0,
+      "implicit-standard-membership": 1.0,
+      "infrastructure-code-actions-ownership": 1.0,
+      "infrastructure-code-negative": 1.0,
+      "infrastructure-code-portable-profile": 1.0,
+      "infrastructure-code-positive": 1.0,
+      "overlap-adr-model-vendor": 1.0,
+      "overlap-debug-deployment": 1.0,
+      "overlap-debug-frontend": 1.0,
+      "overlap-frontend-backend-enforcement": 1.0,
+      "overlap-relay-construct": 1.0,
+      "overlap-review-frontend": 1.0,
+      "overlap-review-terraform": 1.0,
+      "overlap-test-agent-output": 1.0,
+      "overlap-testing-frontend": 1.0,
+      "testing-negative": 1.0,
+      "testing-positive": 1.0,
+      "testing-regression-after-diagnosis": 1.0,
+      "testing-risk-strategy": 1.0,
+      "testing-silent-success-counterfactual": 1.0
+    },
+    "minimum_case_pass_rate": 0.6666666666,
+    "excluded_selections": 0,
+    "excluded_selection_limit": 0,
+    "pass_rates_by_kind": {
+      "negative": 1.0,
+      "overlap": 1.0,
+      "positive": 1.0
+    },
+    "pass_rates_by_cue": {
+      "adversarial": 1.0,
+      "direct": 1.0,
+      "implicit": 1.0
+    },
+    "gates": {
+      "overall": true,
+      "every_case": true,
+      "excluded_selection": true,
+      "budget": true
+    },
+    "suite_complete": true,
+    "retained_evidence_eligible": true
+  },
+  "results": [
+    {
+      "case": "agent-code-positive",
+      "kind": "positive",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 1,
+      "expected": "agent-code",
+      "selected": "agent-code",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request explicitly asks for bounded tool loop and structured-output parser implementation. Both are named within agent-code's scope: \"LLM-call implementation only, including structured-output parsing...tool loops.\" The underlying operation is LLM-call implementation where those mechanisms are central.",
+      "cost_usd": 0.011118,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "agent-code-positive",
+      "kind": "positive",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 2,
+      "expected": "agent-code",
+      "selected": "agent-code",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request targets LLM-call implementation only: adding a bounded tool loop and structured-output parser are both explicitly enumerated responsibilities of agent-code. The catalog describes agent-code as the skill for \"LLM-call implementation only, including structured-output parsing, bounded salvage and recovery, model transport, tool loops, budgets, and evidence\" when \"an LLM call is the code's central act.\" This is mechanism-only LLM work that agent-builder explicitly excludes and application-code forbids when LLM calls are central.",
+      "cost_usd": 0.009688,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "agent-code-positive",
+      "kind": "positive",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 3,
+      "expected": "agent-code",
+      "selected": "agent-code",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request is for LLM-call implementation: a bounded tool loop and structured-output parser. The agent-code skill explicitly owns \"LLM-call implementation only, including structured-output parsing, bounded salvage and recovery, model transport, tool loops, budgets, and evidence\" and applies \"when an LLM call is the code's central act.\" A tool loop and structured-output parser are core LLM-call mechanisms where the LLM invocation and response handling are central. This is not a full-agent build (agent-builder), which explicitly excludes \"mechanism-only LLM-call work.\"",
+      "cost_usd": 0.011073000000000001,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "agent-code-negative",
+      "kind": "negative",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 1,
+      "expected": "application-code",
+      "selected": "application-code",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "Planned implementation of a conventional REST API endpoint in a FastAPI backend service, including API boundary definition. Explicitly excludes agent-code because no model calls are involved. Does not involve infrastructure, delivery pipelines, testing, or finished-diff review.",
+      "cost_usd": 0.010516,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "agent-code-negative",
+      "kind": "negative",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 2,
+      "expected": "application-code",
+      "selected": "application-code",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "Adding a conventional REST endpoint to a FastAPI service is planned implementation of backend service behavior and API boundaries, which application-code explicitly owns. The request excludes agent-code (no model calls), testing (implementation, not tests alone), debug (no observed failure), and delivery concerns. This is conventional application implementation within scope.",
+      "cost_usd": 0.008241,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "agent-code-negative",
+      "kind": "negative",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 3,
+      "expected": "application-code",
+      "selected": "application-code",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "Adding a conventional REST endpoint to a FastAPI service is conventional backend service and application behavior, specifically covering API boundaries. The endpoint makes no model calls, so agent-code does not apply. This is planned implementation, not review, debug, infrastructure, or delivery work.",
+      "cost_usd": 0.009441,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "app-delivery-pipeline-positive",
+      "kind": "positive",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 1,
+      "expected": "app-delivery-pipeline",
+      "selected": "app-delivery-pipeline",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request is for authoring a GitHub Actions workflow that handles application-artifact CI/CD: building a service image, promoting it (push), deploying it, and verifying rollout. This is explicitly within app-delivery-pipeline's scope (\"author or conform portable application build, test, artifact, provenance, promotion, deploy, preview, migration, and rollout workflows\"). The work is application-artifact delivery, not infrastructure/Terraform (infrastructure-code), not an executor relay (author-execution-relay), and not application behavior implementation (application-code). The Haffey profile binds GitHub Actions and GCP.",
+      "cost_usd": 0.010457,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "app-delivery-pipeline-positive",
+      "kind": "positive",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 2,
+      "expected": "app-delivery-pipeline",
+      "selected": "app-delivery-pipeline",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request asks to author a GitHub Actions workflow for application-artifact CI/CD: building a service image, pushing it, deploying it, and verifying rollout. This falls explicitly within app-delivery-pipeline scope, which owns \"portable application build, test, artifact, provenance, promotion, deploy, preview, migration, and rollout workflows\" and notes that \"The Haffey profile binds GitHub Actions and GCP.\" The request does not involve Terraform or infrastructure plan/apply jobs, nor is it an executor relay or handoff.",
+      "cost_usd": 0.009667,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "app-delivery-pipeline-positive",
+      "kind": "positive",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 3,
+      "expected": "app-delivery-pipeline",
+      "selected": "app-delivery-pipeline",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request is to author a GitHub Actions workflow for application artifact delivery: build (service image), promote (push), deploy, and verify rollout. This directly matches app-delivery-pipeline's explicit scope of \"portable application build, test, artifact, provenance, promotion, deploy, preview, migration, and rollout workflows\" using GitHub Actions. The workflow is application-artifact CI/CD, not infrastructure plan/apply (which would be infrastructure-code) or an executor handoff (which would be author-execution-relay).",
+      "cost_usd": 0.009957,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "app-delivery-pipeline-negative",
+      "kind": "negative",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 1,
+      "expected": "infrastructure-code",
+      "selected": "infrastructure-code",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request asks to add protected Terraform plan and apply jobs. The infrastructure-code skill explicitly owns \"every Terraform or infrastructure plan/apply workflow, including protected jobs implemented in GitHub Actions\" and covers \"the protected plan/apply pipeline.\" This operation falls squarely within infrastructure-code's authorized scope and is explicitly excluded from app-delivery-pipeline.",
+      "cost_usd": 0.008598,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "app-delivery-pipeline-negative",
+      "kind": "negative",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 2,
+      "expected": "infrastructure-code",
+      "selected": "infrastructure-code",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request is to add protected Terraform plan and apply jobs. The infrastructure-code skill owns every Terraform or infrastructure plan/apply workflow, including protected jobs implemented in GitHub Actions. The catalog explicitly excludes these from app-delivery-pipeline scope (\"exclude every Terraform or infrastructure plan/apply job\"). This request falls directly within infrastructure-code's authorized scope.",
+      "cost_usd": 0.008593,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "app-delivery-pipeline-negative",
+      "kind": "negative",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 3,
+      "expected": "infrastructure-code",
+      "selected": "infrastructure-code",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request asks to add protected Terraform plan and apply jobs. The infrastructure-code skill description explicitly states: \"Own every Terraform or infrastructure plan/apply workflow, including protected jobs implemented in GitHub Actions; these are infrastructure-code, never app-delivery-pipeline.\" The app-delivery-pipeline skill explicitly excludes \"every Terraform or infrastructure plan/apply job.\" This operation is clearly authorized by infrastructure-code's scope and falls within the Haffey profile's bound technologies (Terraform, GCP, Kubernetes, and GitHub Actions).",
+      "cost_usd": 0.009003,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "app-delivery-pipeline-main-only-profile",
+      "kind": "positive",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 1,
+      "expected": "app-delivery-pipeline",
+      "selected": "app-delivery-pipeline",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The user request describes authoring a release profile for application artifact handling: building, promoting digests, and deploying to production. This falls explicitly within app-delivery-pipeline's scope of authoring portable \"build, test, artifact, provenance, promotion, deploy, preview, migration, and rollout workflows.\" The request is not for infrastructure mutation, executor handoff, application behavior, or finished-diff review\u2014all exclusions for this skill.",
+      "cost_usd": 0.009881,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "app-delivery-pipeline-main-only-profile",
+      "kind": "positive",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 2,
+      "expected": "app-delivery-pipeline",
+      "selected": "app-delivery-pipeline",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request asks to define an application release profile encompassing build, artifact promotion, and deployment workflows. This is direct authorship of application-artifact CI/CD workflows, which app-delivery-pipeline explicitly covers: \"author or conform portable application build, test, artifact, provenance, promotion, deploy, preview, migration, and rollout workflows.\"",
+      "cost_usd": 0.011975999999999999,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "app-delivery-pipeline-main-only-profile",
+      "kind": "positive",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 3,
+      "expected": "app-delivery-pipeline",
+      "selected": "app-delivery-pipeline",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request asks to define an application release profile that builds, promotes digests, and deploys to production. This is application-artifact CI/CD\u2014specifically authoring a portable workflow for build, artifact promotion, and deployment. The catalog explicitly authorizes app-delivery-pipeline to \"author or conform portable application build, test, artifact, provenance, promotion, deploy, preview, migration, and rollout workflows.\" Digest promotion and serialized production deployment are core artifact-promotion and deployment orchestration concerns within this skill's scope. This is not an executor handoff (author-execution-relay), infrastructure mutation (infrastructure-code), or a design decision (author-decision-record).",
+      "cost_usd": 0.011785999999999998,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "app-delivery-pipeline-static-seam",
+      "kind": "positive",
+      "cue": "implicit",
+      "surface": "portable-core",
+      "run": 1,
+      "expected": "app-delivery-pipeline",
+      "selected": "app-delivery-pipeline",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request asks to define a static-frontend delivery workflow including artifact promotion, gates, and production verification. The app-delivery-pipeline skill is explicitly scoped to \"author or conform portable application build, test, artifact, provenance, promotion, deploy, preview, migration, and rollout workflows, including the static-frontend delivery seam.\" This request matches that scope directly. Frontend-code is excluded from delivery machinery, and infrastructure-code is excluded from artifact delivery.",
+      "cost_usd": 0.013373000000000001,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "app-delivery-pipeline-static-seam",
+      "kind": "positive",
+      "cue": "implicit",
+      "surface": "portable-core",
+      "run": 2,
+      "expected": "app-delivery-pipeline",
+      "selected": "app-delivery-pipeline",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request asks to define a delivery workflow that includes artifact promotion, frontend browser gates, hosting configuration, and production verification. The app-delivery-pipeline skill explicitly owns \"portable application build, test, artifact, provenance, promotion, deploy, preview, migration, and rollout workflows, including the static-frontend delivery seam.\" The static-frontend delivery seam reference directly authorizes workflows that integrate frontend gates, artifact promotion, and hosting verification. Frontend-code is excluded from \"delivery or hosting machinery,\" and infrastructure-code is excluded from \"application artifact delivery,\" leaving app-delivery-pipeline as the authoritative owner of this workflow definition.",
+      "cost_usd": 0.010893,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "app-delivery-pipeline-static-seam",
+      "kind": "positive",
+      "cue": "implicit",
+      "surface": "portable-core",
+      "run": 3,
+      "expected": "app-delivery-pipeline",
+      "selected": "app-delivery-pipeline",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "This request asks to define a static-frontend delivery workflow encompassing artifact promotion, deployment gates, hosting configuration, and production verification. The app-delivery-pipeline skill explicitly covers \"application build, test, artifact, provenance, promotion, deploy, preview, migration, and rollout workflows, including the static-frontend delivery seam.\" The frontend-owned browser gates, artifact promotion, header configuration, and URL verification are delivery-pipeline concerns, not frontend-behavior implementation. Frontend-code explicitly excludes \"delivery or hosting machinery.\"",
+      "cost_usd": 0.010063,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "application-code-positive",
+      "kind": "positive",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 1,
+      "expected": "application-code",
+      "selected": "application-code",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "This is planned implementation of conventional backend service behavior, including configuration, structured logging, authentication middleware, and asynchronous database access\u2014all explicitly enumerated in the application-code scope. The request does not involve LLM calls (agent-code), new tests (testing), observed failures (debug), infrastructure (infrastructure-code), or delivery workflows (app-delivery-pipeline).",
+      "cost_usd": 0.009972,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "application-code-positive",
+      "kind": "positive",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 2,
+      "expected": "application-code",
+      "selected": "application-code",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "Scaffolding a FastAPI backend service with configuration, logging, auth middleware, and async database access is planned implementation of conventional backend service and application behavior, which application-code explicitly covers. The exclusions do not apply.",
+      "cost_usd": 0.011682000000000001,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "application-code-positive",
+      "kind": "positive",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 3,
+      "expected": "application-code",
+      "selected": "application-code",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request asks to scaffold a backend service (FastAPI) with configuration, structured logging, auth middleware, and async database access. This is planned implementation of conventional backend service behavior, including configuration, logging, security (auth middleware), and data handling (async database access). The application-code skill explicitly authorizes this work scope and excludes only agent-code work, new tests without implementation, debug tasks, finished-diff review, infrastructure, and delivery workflows\u2014none of which apply here.",
+      "cost_usd": 0.009757,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "application-code-negative",
+      "kind": "negative",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 1,
+      "expected": "agent-code",
+      "selected": "agent-code",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "Schema-constrained output recovery is LLM-call implementation central to an agent. The agent-code skill explicitly owns \"LLM-call implementation only, including structured-output parsing, bounded salvage and recovery.\" The request names the core mechanism\u2014recovery around an LLM output that must conform to a schema\u2014which is mechanism-only LLM-call work that agent-builder explicitly excludes and routes to agent-code. An LLM call is the central act.",
+      "cost_usd": 0.009542,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "application-code-negative",
+      "kind": "negative",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 2,
+      "expected": "agent-code",
+      "selected": "agent-code",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "Schema-constrained output recovery is LLM-call implementation where the LLM call is the central act. The agent-code catalog description explicitly covers \"structured-output parsing, bounded salvage and recovery.\" This is mechanism-only LLM-call work, which agent-builder excludes, and is not general application behavior, which application-code excludes when an LLM call is central.",
+      "cost_usd": 0.009382,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "application-code-negative",
+      "kind": "negative",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 3,
+      "expected": "agent-code",
+      "selected": "agent-code",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request is LLM-call implementation focused on structured-output recovery and salvage, which is explicitly within agent-code's scope of \"bounded salvage and recovery\" around an LLM call's central operation.",
+      "cost_usd": 0.009277,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "application-code-portable-profile",
+      "kind": "positive",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 1,
+      "expected": "application-code",
+      "selected": "application-code",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request asks to implement a conventional backend endpoint within an existing portable concurrency, API, error, and security contract using a FastAPI profile. This is direct implementation of backend service behavior including API boundaries, concurrency, errors, and security\u2014exactly the scope of application-code. The request is not for new tests (testing), an observed failure (debug), infrastructure (infrastructure-code), delivery workflows (app-delivery-pipeline), or review (code-review).",
+      "cost_usd": 0.009101,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "application-code-portable-profile",
+      "kind": "positive",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 2,
+      "expected": "application-code",
+      "selected": "application-code",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "This is a planned implementation of a conventional backend endpoint using existing portable concurrency, API, error, and security contracts under a FastAPI profile. The application-code skill explicitly covers authoring backend service behavior including API boundaries, concurrency, error handling, and security. The request is implementation-focused, not debugging an observed failure, writing new tests, reviewing finished code, managing infrastructure, or configuring delivery workflows.",
+      "cost_usd": 0.009420999999999999,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "application-code-portable-profile",
+      "kind": "positive",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 3,
+      "expected": "application-code",
+      "selected": "application-code",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request asks to implement a conventional backend endpoint using an existing portable concurrency, API, error, and security contract with a FastAPI profile. This is planned implementation of backend service behavior with explicit coverage of API boundaries, concurrency, error handling, and security\u2014all within the scope of application-code. The request is not asking for executor delegation, test authorship, failure diagnosis, finished-diff review, or infrastructure work.",
+      "cost_usd": 0.009396,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "author-construct-spec-positive",
+      "kind": "positive",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 1,
+      "expected": "author-construct-spec",
+      "selected": "author-construct-spec",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request explicitly asks to \"write an implementation-complete construct spec for the new evaluation harness.\" The author-construct-spec skill description directly authorizes this: \"Use this skill to author or amend an implementation-complete construct spec for one runner, harness, instrument, pipeline, or other internal mechanism when an implementer must build it from the document alone.\" A harness is specifically enumerated as in-scope machinery, and the construct spec is the prescribed deliverable for internal mechanisms that implementers must build from specifications.",
+      "cost_usd": 0.00911,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "author-construct-spec-positive",
+      "kind": "positive",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 2,
+      "expected": "author-construct-spec",
+      "selected": "author-construct-spec",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request explicitly asks to write an implementation-complete construct spec for a harness. The author-construct-spec skill is explicitly authorized for this: \"Use this skill to author or amend an implementation-complete construct spec for one runner, harness, instrument, pipeline, or other internal mechanism when an implementer must build it from the document alone.\" A harness is a named internal mechanism within the scope of this skill.",
+      "cost_usd": 0.009615,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "author-construct-spec-positive",
+      "kind": "positive",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 3,
+      "expected": "author-construct-spec",
+      "selected": "author-construct-spec",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request explicitly asks to write an implementation-complete construct spec for a harness. The author-construct-spec skill's scope states: \"Use this skill to author or amend an implementation-complete construct spec for one runner, harness, instrument, pipeline, or other internal mechanism when an implementer must build it from the document alone.\" A harness is explicitly named as one of the internal mechanisms this skill handles.",
+      "cost_usd": 0.008660000000000001,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "author-construct-spec-negative",
+      "kind": "negative",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 1,
+      "expected": null,
+      "selected": null,
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "Product requirements documents (PRDs) are explicitly outside Bedrock scope. The author-construct-spec description states: \"product or feature requirements documents (PRDs) are explicitly outside this skill and have no Bedrock route.\"",
+      "cost_usd": 0.007973,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "author-construct-spec-negative",
+      "kind": "negative",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 2,
+      "expected": null,
+      "selected": null,
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "Product or feature requirements documents (PRDs) are explicitly outside the Bedrock routing catalog and have no Bedrock route. The author-construct-spec description states: \"product or feature requirements documents (PRDs) are explicitly outside this skill and have no Bedrock route.\" Additionally, author-decision-record explicitly excludes \"product PRDs.\" This operation is not authorized by any Bedrock skill.",
+      "cost_usd": 0.010023,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "author-construct-spec-negative",
+      "kind": "negative",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 3,
+      "expected": null,
+      "selected": null,
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "Product or feature requirements documents (PRDs) are explicitly outside Bedrock skill scope. The author-construct-spec catalog entry states: \"product or feature requirements documents (PRDs) are explicitly outside this skill and have no Bedrock route.\" No other skill in the validated catalog authorizes PRD authorship.",
+      "cost_usd": 0.007953,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "author-decision-record-positive",
+      "kind": "positive",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 1,
+      "expected": "author-decision-record",
+      "selected": "author-decision-record",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request asks to record why an architectural choice was made (Pub/Sub over Kafka) and select the correct engineering decision-record type, which are explicit use cases for author-decision-record per the catalog description: \"Use when recording why an architecture or design choice was made...choosing among the house doctypes.\"",
+      "cost_usd": 0.008937,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "author-decision-record-positive",
+      "kind": "positive",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 2,
+      "expected": "author-decision-record",
+      "selected": "author-decision-record",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request explicitly asks to record why an architecture choice was made (Pub/Sub over Kafka) and to choose the correct decision-record type (ADR, DDR, or SDD). This matches the core scope of author-decision-record: \"Select the correct engineering decision-record type, then author, amend, or de-drift an ADR, DDR, or SDD while preserving deliberation, provenance, lifecycle metadata, and body integrity. Use when recording why an architecture or design choice was made... choosing among the house doctypes.\"",
+      "cost_usd": 0.008462,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "author-decision-record-positive",
+      "kind": "positive",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 3,
+      "expected": "author-decision-record",
+      "selected": "author-decision-record",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request explicitly asks to record why Pub/Sub was selected over Kafka and choose the correct decision-record type. This is squarely within author-decision-record's scope: \"recording why an architecture or design choice was made\" and \"selecting the correct engineering decision-record type\" (ADR, DDR, or SDD). The choice between message broker technologies is an architectural decision that belongs in a decision record.",
+      "cost_usd": 0.008507,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "author-decision-record-negative",
+      "kind": "negative",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 1,
+      "expected": "code-review",
+      "selected": "code-review",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The user requests review of a finished pull request for security and correctness before merge. The code-review skill explicitly handles \"review this PR, is this ready, what is wrong with this change, or a pre-merge self-review\" and is authorized to produce evidence-backed findings and a merge verdict.",
+      "cost_usd": 0.007998,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "author-decision-record-negative",
+      "kind": "negative",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 2,
+      "expected": "code-review",
+      "selected": "code-review",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The user request explicitly asks to \"review this completed pull request for security and correctness before merge.\" The code-review skill description directly authorizes this: \"Review a finished code change, diff, or pull request for correctness, security, performance, conformance, and fit, producing evidence-backed severity findings and a merge verdict. Use for review this PR, is this ready, what is wrong with this change, or a pre-merge self-review.\" The request matches the stated scope without invoking excluded use cases.",
+      "cost_usd": 0.008452999999999999,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "author-decision-record-negative",
+      "kind": "negative",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 3,
+      "expected": "code-review",
+      "selected": "code-review",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The user request explicitly asks to review a finished pull request for security and correctness before merge. This operation is directly authorized by the code-review skill description, which covers \"review a finished code change, diff, or pull request for correctness, security, performance, conformance, and fit\" and specifically lists \"review this PR, is this ready, what is wrong with this change, or a pre-merge self-review\" as use cases.",
+      "cost_usd": 0.008598,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "author-execution-relay-positive",
+      "kind": "positive",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 1,
+      "expected": "author-execution-relay",
+      "selected": "author-execution-relay",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request asks for a gated handoff prompt\u2014an executor instruction sent to Code (the executor) to perform implementation work within defined boundaries (stop before committing). This is the explicit use case for author-execution-relay: authoring execution relays and implementation handoffs that delegate bounded work while reserving judgment and per-gate ratification for the operator.",
+      "cost_usd": 0.010087,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "author-execution-relay-positive",
+      "kind": "positive",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 2,
+      "expected": "author-execution-relay",
+      "selected": "author-execution-relay",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request asks to draft a gated handoff prompt for Code to implement a design while stopping before committing. This is explicitly an executor handoff with gated instructions and per-gate ratification reserved for the operator, which is the core responsibility of author-execution-relay. The catalog states: \"Executor prompts and handoffs only... Use this skill to author an execution relay, implementation handoff, or session kickoff that delegates bounded file and git toil while reserving judgment and per-gate ratification for the operator.\"",
+      "cost_usd": 0.008657,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "author-execution-relay-positive",
+      "kind": "positive",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 3,
+      "expected": "author-execution-relay",
+      "selected": "author-execution-relay",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request asks for drafting a gated handoff prompt for Code (the executor) with a gate instruction (\"stop before committing\"). This is explicitly within author-execution-relay's scope: \"author an execution relay, implementation handoff, or session kickoff that delegates bounded file and git toil while reserving judgment and per-gate ratification for the operator.\" The work is authoring the prompt itself, not performing the implementation or reviewing finished code.",
+      "cost_usd": 0.008851999999999999,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "author-execution-relay-negative",
+      "kind": "negative",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 1,
+      "expected": "application-code",
+      "selected": "application-code",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request asks to implement a FastAPI endpoint\u2014backend service API behavior. This falls under application-code's scope of authoring conventional backend service and application behavior, including API boundaries, and explicitly covers \"planned implementation.\" The \"approved\" status indicates a specification is ready for implementation work.",
+      "cost_usd": 0.009661,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "author-execution-relay-negative",
+      "kind": "negative",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 2,
+      "expected": "application-code",
+      "selected": "application-code",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "Implementing a FastAPI endpoint is conventional backend service and application behavior, specifically an API boundary implementation. This falls within the explicit scope of application-code, which covers \"Author or conform conventional backend service and application behavior, including API boundaries\" for \"planned implementation.\"",
+      "cost_usd": 0.009886,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "author-execution-relay-negative",
+      "kind": "negative",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 3,
+      "expected": "application-code",
+      "selected": "application-code",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The underlying operation is implementing a backend API endpoint (FastAPI), which is conventional application behavior and API boundary work. This is authorized as planned implementation by the application-code skill description. No exclusions apply.",
+      "cost_usd": 0.011086,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "author-execution-relay-instrument-discrimination",
+      "kind": "overlap",
+      "cue": "implicit",
+      "surface": "portable-core",
+      "run": 1,
+      "expected": "author-execution-relay",
+      "selected": "author-execution-relay",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request asks for authoring a gated executor handoff\u2014specifically an execution relay with a control gate that must verify each observation discriminates the claim subject before the executor may proceed. This is directly within author-execution-relay scope: \"every gated instruction sent to Code or another executor routes here\" and \"author an execution relay, implementation handoff, or session kickoff that delegates bounded file and git toil while reserving judgment and per-gate ratification for the operator.\" The verification control is part of the per-gate ratification logic that gates executor action.",
+      "cost_usd": 0.011541000000000001,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "author-execution-relay-instrument-discrimination",
+      "kind": "overlap",
+      "cue": "implicit",
+      "surface": "portable-core",
+      "run": 2,
+      "expected": "author-execution-relay",
+      "selected": "author-execution-relay",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The user request explicitly asks to \"draft the gated executor handoff.\" The author-execution-relay skill description states: \"Executor prompts and handoffs only; every gated instruction sent to Code or another executor routes here\" and covers authoring \"an execution relay, implementation handoff, or session kickoff that delegates bounded file and git toil while reserving judgment and per-gate ratification for the operator.\" The requirement to prove each observation discriminates the claim subject before executor action is a gate-ratification control, which falls within the skill's explicit domain of reserving per-gate ratification for the operator.",
+      "cost_usd": 0.011626000000000001,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "author-execution-relay-instrument-discrimination",
+      "kind": "overlap",
+      "cue": "implicit",
+      "surface": "portable-core",
+      "run": 3,
+      "expected": "author-execution-relay",
+      "selected": "author-execution-relay",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request is to author a gated executor handoff\u2014specifically an execution relay with gate controls that enforce observation validation (\"proving each observation discriminates the claim subject before the executor may act\"). This is directly within author-execution-relay's scope: \"every gated instruction sent to Code or another executor routes here\" and \"author an execution relay, implementation handoff, or session kickoff that delegates bounded file and git toil while reserving judgment and per-gate ratification for the operator.\"",
+      "cost_usd": 0.010416,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "author-standard-positive",
+      "kind": "positive",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 1,
+      "expected": "author-standard",
+      "selected": "author-standard",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request asks to turn a ratified authority into a reusable engineering standard and prove it on a consumer. The author-standard skill explicitly covers authoring or amending a reusable standard (engineering convention, skill, governing checklist, or template) and proving it on a real consumer\u2014both activities mentioned in this request.",
+      "cost_usd": 0.00895,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "author-standard-positive",
+      "kind": "positive",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 2,
+      "expected": "author-standard",
+      "selected": "author-standard",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request explicitly asks to turn something into a \"reusable engineering standard\" and \"prove it on a consumer.\" The author-standard scope includes \"author or amend, a reusable standard such as an engineering convention, skill, governing checklist, or template\" and explicitly covers \"proving it on a real consumer.\" The exclusions (single ADR/DDR/SDD, executor handoff, mechanical skill packaging) do not apply.",
+      "cost_usd": 0.00977,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "author-standard-positive",
+      "kind": "positive",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 3,
+      "expected": "author-standard",
+      "selected": "author-standard",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request asks to create a reusable engineering standard from ratified authority and prove it on a consumer. This directly matches author-standard's explicit scope: \"Use when defining rules for future work, selecting authoritative sources, declaring binding and exceptions, shaping the standard, or proving it on a real consumer.\"",
+      "cost_usd": 0.00942,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "author-standard-negative",
+      "kind": "negative",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 1,
+      "expected": "author-decision-record",
+      "selected": "author-decision-record",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request asks to author an ADR that records why PostgreSQL was chosen. This is explicitly within scope: author-decision-record handles authoring ADRs while \"recording why an architecture or design choice was made.\" The PostgreSQL selection is an architectural decision requiring a decision record.",
+      "cost_usd": 0.008911,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "author-standard-negative",
+      "kind": "negative",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 2,
+      "expected": "author-decision-record",
+      "selected": "author-decision-record",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request asks to author an ADR capturing an architecture choice (PostgreSQL selection). The author-decision-record skill explicitly covers authoring ADRs and recording why architecture or design choices were made. This is a direct fit to the skill's scope.",
+      "cost_usd": 0.008501,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "author-standard-negative",
+      "kind": "negative",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 3,
+      "expected": "author-decision-record",
+      "selected": "author-decision-record",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "User requests authoring an ADR that captures why PostgreSQL was chosen. This falls directly within author-decision-record's scope: \"Use when recording why an architecture or design choice was made.\" The underlying operation is authoring a decision record to document an architectural choice, not constructing implementation machinery or designing a reusable standard.",
+      "cost_usd": 0.008631,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "code-review-positive",
+      "kind": "positive",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 1,
+      "expected": "code-review",
+      "selected": "code-review",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The user is requesting review of a finished diff for safety to merge. This is a direct match for code-review's purpose: \"Review a finished code change, diff, or pull request for correctness, security, performance, conformance, and fit, producing evidence-backed severity findings and a merge verdict. Use for review this PR, is this ready, what is wrong with this change, or a pre-merge self-review.\"",
+      "cost_usd": 0.0091,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "code-review-positive",
+      "kind": "positive",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 2,
+      "expected": "code-review",
+      "selected": "code-review",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The user requests review of a finished diff to determine merge safety. The code-review skill explicitly owns \"Review a finished code change, diff, or pull request for correctness, security, performance, conformance, and fit, producing evidence-backed severity findings and a merge verdict\" and lists \"is this ready\" and \"review this PR\" as in-scope use cases.",
+      "cost_usd": 0.008435,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "code-review-positive",
+      "kind": "positive",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 3,
+      "expected": "code-review",
+      "selected": "code-review",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The user is asking to review a finished diff and determine merge safety. This matches the explicit code-review use case: \"Use for review this PR, is this ready, what is wrong with this change, or a pre-merge self-review.\" The request is a merge-readiness assessment of a completed change, which is directly authorized by the code-review catalog description.",
+      "cost_usd": 0.008605,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "code-review-negative",
+      "kind": "negative",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 1,
+      "expected": "design-review-loop",
+      "selected": "design-review-loop",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request explicitly asks to drive an ADR and SDD set through convergence review. The design-review-loop skill is authorized for design-record review through stance-isolated findings, cross-record coherence, arbitration, escalation, and profile-honest completion claims, with explicit scope to review ADR, DDR, or SDD sets.",
+      "cost_usd": 0.00868,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "code-review-negative",
+      "kind": "negative",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 2,
+      "expected": "design-review-loop",
+      "selected": "design-review-loop",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request is to drive a convergence review of an ADR and SDD set. The design-review-loop skill explicitly owns \"Design-record review through stance-isolated findings, cross-record coherence, arbitration, escalation, and profile-honest completion claims\" and is scoped to \"review ADR, DDR, or SDD sets.\" The author-decision-record skill's exclusions explicitly redirect convergence review of record sets to design-review-loop.",
+      "cost_usd": 0.009375,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "code-review-negative",
+      "kind": "negative",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 3,
+      "expected": "design-review-loop",
+      "selected": "design-review-loop",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The user requests a convergence review of an ADR and SDD set. The design-review-loop skill explicitly covers \"Design-record review through stance-isolated findings, cross-record coherence, arbitration, escalation, and profile-honest completion claims\" and states \"Use this skill to review ADR, DDR, or SDD sets or assess whether an applicable declared review profile completed.\"",
+      "cost_usd": 0.009305,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "debug-positive",
+      "kind": "positive",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 1,
+      "expected": "debug",
+      "selected": "debug",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request describes an observed flaky test (passes locally but fails in CI). The debug skill explicitly covers \"diagnose an observed error, regression, failure, or flake, including CI-only and environment-specific failures\" and includes reproducing when safe and identifying cause. The testing skill's exclusion explicitly redirects flaky test diagnosis to debug.",
+      "cost_usd": 0.009343,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "debug-positive",
+      "kind": "positive",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 2,
+      "expected": "debug",
+      "selected": "debug",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request describes an observed flaky test in CI\u2014a failure that passes locally but fails intermittently in continuous integration. The debug skill explicitly covers \"CI-only and environment-specific failures\" and includes reproduction, variable isolation, hypothesis formation, and root cause identification. The testing skill explicitly excludes diagnosis of failing or flaky tests including CI-only flakes. This is a diagnosed failure requiring reproduction and cause identification, not a new test authorship task.",
+      "cost_usd": 0.008298,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "debug-positive",
+      "kind": "positive",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 3,
+      "expected": "debug",
+      "selected": "debug",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request describes an observed test flake (passes locally but fails in CI). The debug skill explicitly owns diagnosis of \"observed error, regression, failure, or flake, including CI-only and environment-specific failures\" and includes \"reproduce when safe\" and \"identify cause\" in its scope. The testing skill explicitly excludes \"diagnose any observed failing or flaky test, including CI-only flakes (debug)\".",
+      "cost_usd": 0.008938,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "debug-negative",
+      "kind": "negative",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 1,
+      "expected": "application-code",
+      "selected": "application-code",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "Adding a health-check endpoint is planned implementation of conventional backend service behavior and API boundaries, which is explicitly within application-code scope. This is not a test strategy (testing), an observed failure (debug), a finished-diff review (code-review), infrastructure (infrastructure-code), or a delivery workflow (app-delivery-pipeline).",
+      "cost_usd": 0.010299,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "debug-negative",
+      "kind": "negative",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 2,
+      "expected": "application-code",
+      "selected": "application-code",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request is to implement a planned health-check endpoint, which is backend service behavior and an API boundary. The application-code skill explicitly covers \"conventional backend service and application behavior, including API boundaries\" and is intended \"for planned implementation or restructuring.\" This is new service functionality, not an observed failure, test work, infrastructure, or delivery pipeline work.",
+      "cost_usd": 0.008624,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "debug-negative",
+      "kind": "negative",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 3,
+      "expected": "application-code",
+      "selected": "application-code",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "Adding a planned health-check endpoint is conventional backend service and application behavior (API boundary implementation). This is planned implementation that falls directly within application-code's scope. It is not an observed failure (debug), new test strategy (testing), infrastructure (infrastructure-code), LLM-call work (agent-code), delivery workflows (app-delivery-pipeline), or finished-diff review (code-review).",
+      "cost_usd": 0.009619,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "debug-nonreproducible-production",
+      "kind": "positive",
+      "cue": "implicit",
+      "surface": "portable-core",
+      "run": 1,
+      "expected": "debug",
+      "selected": "debug",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request describes diagnosing an observed production failure (corruption) with evidence preservation, hypothesis testing (competing causes), and honest confidence reporting. The debug skill explicitly covers: preserve evidence, form and falsify hypotheses, identify cause or report insufficient evidence, and reproduce when safe\u2014matching the constraint that reproduction cannot be performed safely here.",
+      "cost_usd": 0.008898999999999999,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "debug-nonreproducible-production",
+      "kind": "positive",
+      "cue": "implicit",
+      "surface": "portable-core",
+      "run": 2,
+      "expected": "debug",
+      "selected": "debug",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request describes diagnosing an observed production failure (one-off corruption) in an environment-specific context where safe reproduction is not possible. The debug skill explicitly covers: (1) observed errors and failures, including environment-specific failures; (2) preserving evidence; (3) reproducing \"when safe\"; (4) forming and falsifying hypotheses against competing causes; and (5) reporting insufficient evidence with confidence honesty rather than claiming false certainty. All elements align precisely with the debug scope.",
+      "cost_usd": 0.009224,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "debug-nonreproducible-production",
+      "kind": "positive",
+      "cue": "implicit",
+      "surface": "portable-core",
+      "run": 3,
+      "expected": "debug",
+      "selected": "debug",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request describes an observed production failure (corruption), with explicit needs to preserve evidence, test competing causes via hypothesis falsification, and report confidence honestly. This aligns directly with debug's scope: \"Diagnose an observed error, regression, failure, or flake... preserve evidence, reproduce when safe, isolate variables, form and falsify hypotheses, identify cause or report insufficient evidence.\" The safety constraint (cannot be reproduced safely) matches debug's qualifier \"reproduce when safe.\"",
+      "cost_usd": 0.008869,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "debug-active-harm",
+      "kind": "positive",
+      "cue": "implicit",
+      "surface": "portable-core",
+      "run": 1,
+      "expected": "debug",
+      "selected": "debug",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request describes an observed failure actively harming customers and explicitly asks to contain active harm reversibly, preserve evidence, and diagnose\u2014all core uses of the debug skill. The methodological instruction to avoid claiming restoration proves root cause aligns with debug's scope. Other skills are explicitly excluded: application-code excludes \"observed failures or flakes (debug)\"; author-execution-relay handles handoffs, not diagnosis; and no other skill authorizes this combination of containment, evidence preservation, and diagnosis for active customer harm.",
+      "cost_usd": 0.009083,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "debug-active-harm",
+      "kind": "positive",
+      "cue": "implicit",
+      "surface": "portable-core",
+      "run": 2,
+      "expected": "debug",
+      "selected": "debug",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request describes containing active customer-facing harm, preserving evidence, and diagnosing an observed failure without over-claiming causality\u2014all core operations explicitly listed in the debug skill scope: \"contain active harm, preserve evidence, reproduce when safe, isolate variables, form and falsify hypotheses, identify cause or report insufficient evidence.\"",
+      "cost_usd": 0.010093,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "debug-active-harm",
+      "kind": "positive",
+      "cue": "implicit",
+      "surface": "portable-core",
+      "run": 3,
+      "expected": "debug",
+      "selected": "debug",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "User is reporting an observed failure actively harming customers and requesting containment of active harm, evidence preservation, and diagnosis without inferring root cause from restoration. This directly matches debug's scope: diagnose an observed error/failure, contain active harm, preserve evidence, and verify repairs. The explicit constraint against claiming restoration proves root cause aligns with debug's requirement to identify cause or report insufficient evidence rather than assume diagnosis from recovery.",
+      "cost_usd": 0.008508,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "debug-claim-subject-discrimination",
+      "kind": "overlap",
+      "cue": "implicit",
+      "surface": "portable-core",
+      "run": 1,
+      "expected": "debug",
+      "selected": "debug",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request describes an observed contradiction between diagnostic output and a subject's actual state, and asks to isolate whether the instrument (measurement mechanism) can distinguish the claim subject before treating the reading as failure evidence. This is diagnostic investigation to isolate variables, form hypotheses about causation, and determine whether an observed signal represents a real failure or is an artifact of the measurement system\u2014core debug work. The request does not ask for implementation, code review, design documentation, infrastructure, delivery workflows, or test authorship.",
+      "cost_usd": 0.009087999999999999,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "debug-claim-subject-discrimination",
+      "kind": "overlap",
+      "cue": "implicit",
+      "surface": "portable-core",
+      "run": 2,
+      "expected": "debug",
+      "selected": "debug",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request describes an observed contradiction between diagnostic output and actual system state, requiring investigation to determine whether the instrument can reliably distinguish the subject before accepting the reading as failure evidence. This is diagnostic triage work that isolates variables and tests hypotheses about instrument reliability \u2014 core to the debug skill's scope of diagnosing observed discrepancies and establishing valid evidence.",
+      "cost_usd": 0.010708,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "debug-claim-subject-discrimination",
+      "kind": "overlap",
+      "cue": "implicit",
+      "surface": "portable-core",
+      "run": 3,
+      "expected": "debug",
+      "selected": "debug",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request describes an observed contradiction in diagnostic output and asks to determine the reliability of an instrument/diagnostic before using the reading as failure evidence. This is squarely a debug task: diagnosing an observed discrepancy, isolating variables to determine whether the diagnostic tool itself is trustworthy, and forming hypotheses about the cause of the contradiction. The debug skill explicitly covers \"diagnose an observed error,\" \"preserve evidence,\" \"isolate variables,\" and \"form and falsify hypotheses\" before treating a reading as failure evidence.",
+      "cost_usd": 0.009968000000000001,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "design-review-loop-positive",
+      "kind": "positive",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 1,
+      "expected": "design-review-loop",
+      "selected": "design-review-loop",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request explicitly asks for stance-isolated review over amended ADRs with profile declaration and controlled completion claims. This matches design-review-loop's core scope: design-record review through stance-isolated findings, cross-record coherence, and profile-honest completion claims. The caution about convergence claims aligns with profile-honest claim integrity.",
+      "cost_usd": 0.009447,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "design-review-loop-positive",
+      "kind": "positive",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 2,
+      "expected": "design-review-loop",
+      "selected": "design-review-loop",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request explicitly asks for a \"stance-isolated review\" over \"amended ADRs\" with a declarative profile and profile-honest completion boundaries. This matches design-review-loop's scope: \"Design-record review through stance-isolated findings, cross-record coherence, arbitration, escalation, and profile-honest completion claims. Use this skill to review ADR, DDR, or SDD sets or assess whether an applicable declared review profile completed.\" The git status shows amended ADR-001, and the user's language (\"declare the available profile,\" \"make no convergence claim unless its runner actually executes\") aligns precisely with the profile-honest stance this skill owns.",
+      "cost_usd": 0.009367,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "design-review-loop-positive",
+      "kind": "positive",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 3,
+      "expected": "design-review-loop",
+      "selected": "design-review-loop",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request explicitly asks for a stance-isolated review of amended ADRs with profile declaration and profile-honest completion claims\u2014the authorizing scope of design-review-loop. The catalog explicitly authorizes this skill for \"Design-record review through stance-isolated findings, cross-record coherence, arbitration, escalation, and profile-honest completion claims\" and \"review ADR, DDR, or SDD sets or assess whether an applicable declared review profile completed.\"",
+      "cost_usd": 0.008397000000000002,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "design-review-loop-direct-profile",
+      "kind": "positive",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 1,
+      "expected": "design-review-loop",
+      "selected": "design-review-loop",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The user requests a stance-isolated review of ADRs with explicit limits reporting and without convergence claims. This matches design-review-loop's scope: \"Design-record review through stance-isolated findings, cross-record coherence, arbitration, escalation, and profile-honest completion claims. Use this skill to review ADR, DDR, or SDD sets.\" The user's explicit exclusion of convergence claims aligns with the skill's design-record review mandate. Not author-decision-record (which authors records), not code-review (not code), not design-review-loop's own validation.",
+      "cost_usd": 0.009350999999999998,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "design-review-loop-direct-profile",
+      "kind": "positive",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 2,
+      "expected": "design-review-loop",
+      "selected": "design-review-loop",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The user requests a stance-isolated review of ADRs with limits reported but without convergence claims. The design-review-loop skill explicitly covers \"Design-record review through stance-isolated findings, cross-record coherence, arbitration, escalation, and profile-honest completion claims\" and is authorized to \"review ADR, DDR, or SDD sets.\" The user's constraint to report limits without claiming convergence is a valid scoping constraint on the review scope, not a trigger to select a different skill. Stance-isolated findings and limitation reporting fall squarely within design-review-loop's authorized purpose.",
+      "cost_usd": 0.015986,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "design-review-loop-direct-profile",
+      "kind": "positive",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 3,
+      "expected": "design-review-loop",
+      "selected": "design-review-loop",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The user requests a stance-isolated review of ADRs and explicitly excludes convergence claims. The design-review-loop skill directly owns \"Design-record review through stance-isolated findings\" and covers reviewing \"ADR, DDR, or SDD sets.\" The constraint against claiming convergence aligns with profile-honest reporting\u2014the review can acknowledge its limits without invoking a completion profile.",
+      "cost_usd": 0.009796,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "design-review-loop-negative",
+      "kind": "negative",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 1,
+      "expected": "code-review",
+      "selected": "code-review",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The user request is to review an implementation diff for correctness before merge. This is a pre-merge code review use case, which is explicitly within code-review's scope: \"Use for review this PR, is this ready, what is wrong with this change, or a pre-merge self-review.\"",
+      "cost_usd": 0.009492,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "design-review-loop-negative",
+      "kind": "negative",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 2,
+      "expected": "code-review",
+      "selected": "code-review",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The user requests review of an implementation diff for correctness before merge. The code-review skill explicitly handles \"review a finished code change, diff, or pull request for correctness, security, performance, conformance, and fit\" and \"pre-merge self-review.\" This request matches the skill's core scope without triggering any exclusions.",
+      "cost_usd": 0.008012,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "design-review-loop-negative",
+      "kind": "negative",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 3,
+      "expected": "code-review",
+      "selected": "code-review",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request asks to review an implementation diff for correctness before merge, which is the primary use case for code-review skill. The catalog explicitly authorizes code-review for \"review this PR, is this ready, what is wrong with this change, or a pre-merge self-review.\"",
+      "cost_usd": 0.008277,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "frontend-code-positive",
+      "kind": "positive",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 1,
+      "expected": "frontend-code",
+      "selected": "frontend-code",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request asks to build a React component with responsive CSS, accessibility features, and a microphone hook. This falls squarely within frontend-code's scope: \"components, state and data seams, responsive and accessible interaction, browser capabilities and media.\" The permission-gated microphone hook is a browser media capability. This is browser-facing application behavior under a portable frontend contract, not backend enforcement, testing, an observed failure, delivery machinery, or a finished-diff review.",
+      "cost_usd": 0.009889,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "frontend-code-positive",
+      "kind": "positive",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 2,
+      "expected": "frontend-code",
+      "selected": "frontend-code",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request is to author a new React component with accessible design, responsive CSS tokens, and a permission-gated microphone hook. This falls directly within frontend-code scope: \"Use for components, state and data seams, responsive and accessible interaction, browser capabilities and media.\" The microphone hook is browser-facing permission handling (a browser capability), token-based CSS is responsive styling concern, and accessibility is explicitly listed as a frontend-code domain. No exclusions apply: this is new authorship, not a review, failure diagnosis, or test-only work.",
+      "cost_usd": 0.010834000000000002,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "frontend-code-positive",
+      "kind": "positive",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 3,
+      "expected": "frontend-code",
+      "selected": "frontend-code",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request asks to author a React component with responsive and accessible interaction, token-based styling, and browser capabilities (permission-gated microphone hook). frontend-code explicitly authorizes components, responsive and accessible interaction, and browser capabilities and media. This is planned implementation of browser-facing application behavior within portable frontend contract scope.",
+      "cost_usd": 0.008844000000000001,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "frontend-code-negative",
+      "kind": "negative",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 1,
+      "expected": "application-code",
+      "selected": "application-code",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "Planned implementation of backend service behavior: authentication middleware (security) and async database adapter (data handling, concurrency) in FastAPI. Authorized by application-code scope.",
+      "cost_usd": 0.009315,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "frontend-code-negative",
+      "kind": "negative",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 2,
+      "expected": "application-code",
+      "selected": "application-code",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request asks for planned implementation of authentication middleware and an async database adapter in a FastAPI backend. This is conventional backend service behavior covering security, concurrency, and data handling\u2014all explicitly authorized by application-code. The operation is not an LLM call (agent-code), a test-only effort (testing), an observed failure (debug), infrastructure (infrastructure-code), or delivery workflow (app-delivery-pipeline).",
+      "cost_usd": 0.009004999999999999,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "frontend-code-negative",
+      "kind": "negative",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 3,
+      "expected": "application-code",
+      "selected": "application-code",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request seeks planned implementation of backend service behavior for a FastAPI application. Adding authentication middleware and an async database adapter is authoring conventional backend service code covering security, concurrency, and data handling\u2014all explicitly within application-code's scope. No LLM call, testing, observed failure, infrastructure, or delivery workflow is involved.",
+      "cost_usd": 0.00945,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "frontend-code-portable-profile",
+      "kind": "positive",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 1,
+      "expected": "frontend-code",
+      "selected": "frontend-code",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request asks to implement browser-facing component and state behavior under a portable frontend profile with a declared stack rebind. This operation is directly authorized by the frontend-code description: \"Author or conform browser-facing application behavior under a portable frontend contract, then bind it to a declared stack profile. Use for components, state and data seams...\" The explicit call to declare a rebind rather than assume a specific tech stack aligns with the skill's requirement to bind to a declared profile.",
+      "cost_usd": 0.008896000000000001,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "frontend-code-portable-profile",
+      "kind": "positive",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 2,
+      "expected": "frontend-code",
+      "selected": "frontend-code",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request explicitly asks to implement browser-facing component and state behavior under a portable frontend profile with a declared stack rebind. This matches the frontend-code skill's explicit scope: \"Author or conform browser-facing application behavior under a portable frontend contract, then bind it to a declared stack profile. Use for components, state and data seams, responsive and accessible interaction, browser capabilities and media, client security, performance obligations, or prototype promotion.\"",
+      "cost_usd": 0.008910999999999999,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "frontend-code-portable-profile",
+      "kind": "positive",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 3,
+      "expected": "frontend-code",
+      "selected": "frontend-code",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request explicitly asks to implement browser-facing component and state behavior under a portable frontend profile with a declared stack rebind. The frontend-code skill owns component and state-seam authorship bound to a declared stack profile, and the user's explicit intent to rebind rather than assume a specific framework aligns with the skill's contract-and-profile model.",
+      "cost_usd": 0.009211,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "frontend-code-prototype-promotion",
+      "kind": "positive",
+      "cue": "implicit",
+      "surface": "portable-core",
+      "run": 1,
+      "expected": "frontend-code",
+      "selected": "frontend-code",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request explicitly asks to promote a UI prototype into governed frontend code while preserving the validated experience and implementing targeted hardening for the frontend contract. The frontend-code description specifically authorizes \"prototype promotion\" and encompasses authoring/conforming browser-facing application behavior under a portable frontend contract. The graduate-or-dispose decision is bounded within that skill's scope of exercising judgment during code governance transitions.",
+      "cost_usd": 0.009044,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "frontend-code-prototype-promotion",
+      "kind": "positive",
+      "cue": "implicit",
+      "surface": "portable-core",
+      "run": 2,
+      "expected": "frontend-code",
+      "selected": "frontend-code",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request explicitly asks to take ownership of \"promoting this UI prototype into governed frontend code\" while implementing \"targeted hardening needed for the frontend contract.\" The frontend-code skill description explicitly lists \"prototype promotion\" as an authorized use case and covers authoring browser-facing application behavior under a portable frontend contract, client security, and performance obligations\u2014all aligned with elevating a validated prototype to production-grade code. No exclusions apply: this is not a finished-diff review, test strategy alone, an observed failure diagnosis, delivery machinery, or backend enforcement.",
+      "cost_usd": 0.010504,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "frontend-code-prototype-promotion",
+      "kind": "positive",
+      "cue": "implicit",
+      "surface": "portable-core",
+      "run": 3,
+      "expected": "frontend-code",
+      "selected": "frontend-code",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request explicitly asks to promote a UI prototype into governed frontend code under a portable frontend contract, implement targeted hardening for frontend-specific concerns, and make evidence-based decisions about graduation or disposal. This matches the frontend-code skill's stated use case for 'prototype promotion' and responsibility for 'browser-facing application behavior under a portable frontend contract.' The work is authoring and conforming frontend code, not reviewing finished code, diagnosing failures, testing alone, or managing delivery pipelines.",
+      "cost_usd": 0.017019,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "frontend-code-browser-security-readiness",
+      "kind": "positive",
+      "cue": "implicit",
+      "surface": "portable-core",
+      "run": 1,
+      "expected": "frontend-code",
+      "selected": "frontend-code",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request asks to define and prove browser application runtime validation, safe DOM and URL handling, capability fallbacks, accessibility behavior, and frontend security readiness. These are all core frontend application behaviors that fall within frontend-code's explicit scope: \"components, state and data seams, responsive and accessible interaction, browser capabilities and media, client security.\" The exclusion of deployment workflow aligns with frontend-code's boundary against app-delivery-pipeline. This is not test-strategy-alone (testing), an observed failure (debug), or backend enforcement (application-code).",
+      "cost_usd": 0.012103999999999998,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "frontend-code-browser-security-readiness",
+      "kind": "positive",
+      "cue": "implicit",
+      "surface": "portable-core",
+      "run": 2,
+      "expected": "frontend-code",
+      "selected": "frontend-code",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request asks for definition and proof of browser-facing application behavior: runtime validation, DOM and URL handling, capability fallbacks, accessibility behavior, and client security readiness. These are all within frontend-code's scope (browser capabilities and media, client security, responsive and accessible interaction). The explicit exclusion of deployment workflow design aligns with frontend-code's stated boundary against delivery machinery (app-delivery-pipeline). This is not test strategy alone (testing), backend enforcement (application-code), or code review (code-review).",
+      "cost_usd": 0.009654,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "frontend-code-browser-security-readiness",
+      "kind": "positive",
+      "cue": "implicit",
+      "surface": "portable-core",
+      "run": 3,
+      "expected": "frontend-code",
+      "selected": "frontend-code",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request explicitly targets \"browser application\" behavior and covers runtime validation, DOM/URL handling, capability fallbacks, accessibility, and client security\u2014all core frontend concerns within the portable frontend contract scope. The exclusion of deployment workflow confirms focus on application behavior, not delivery machinery. The word \"prove\" indicates establishing or demonstrating behavior readiness, not authoring new tests (testing skill).",
+      "cost_usd": 0.010099,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "overlap-testing-frontend",
+      "kind": "overlap",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 1,
+      "expected": "testing",
+      "selected": "testing",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request explicitly asks to author planned tests\u2014component, browser, accessibility, and security tests for new frontend behavior. The testing skill owns: \"Author new tests, test strategy, fixtures, and planned coverage. Use for test-first specification of new or changed behavior.\" This matches the request scope. The frontend-code skill's exclusion explicitly directs \"planned test strategy alone (testing)\" away from frontend-code and to testing.",
+      "cost_usd": 0.008978,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "overlap-testing-frontend",
+      "kind": "overlap",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 2,
+      "expected": "testing",
+      "selected": "testing",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request explicitly asks to author new tests (component, browser, accessibility, and security) and planned test coverage for frontend behavior. This matches the testing skill's scope: \"Author new tests, test strategy, fixtures, and planned coverage. Use for test-first specification of new or changed behavior.\" The frontend-code skill explicitly excludes \"planned test strategy alone (testing),\" confirming that test authorship routes to testing rather than frontend-code.",
+      "cost_usd": 0.008693000000000001,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "overlap-testing-frontend",
+      "kind": "overlap",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 3,
+      "expected": "testing",
+      "selected": "testing",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request explicitly asks to \"author the planned component, browser, accessibility, and security tests\" for new frontend behavior. This is test authorship and test strategy\u2014test-first specification of new behavior with coverage design. The testing skill directly covers this: \"Author new tests, test strategy, fixtures, and planned coverage. Use for test-first specification of new or changed behavior, risk-based test selection, isolation, contract testing, coverage design.\" The frontend-code skill explicitly excludes \"planned test strategy alone (testing)\", confirming that test authorship routes to testing, not frontend-code.",
+      "cost_usd": 0.009463000000000001,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "overlap-debug-frontend",
+      "kind": "overlap",
+      "cue": "implicit",
+      "surface": "portable-core",
+      "run": 1,
+      "expected": "debug",
+      "selected": "debug",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "This is an observed failure diagnosis: an existing test with intermittent flakiness in a specific environment (WebKit-only). The request explicitly asks to reproduce the failure, preserve evidence, and establish cause\u2014all core debug operations. The testing skill explicitly excludes diagnosis of observed failing or flaky tests, routing such work to debug instead.",
+      "cost_usd": 0.009815,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "overlap-debug-frontend",
+      "kind": "overlap",
+      "cue": "implicit",
+      "surface": "portable-core",
+      "run": 2,
+      "expected": "debug",
+      "selected": "debug",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request describes an observed intermittent test failure with WebKit-specific environmental conditions. The task scope\u2014reproduce the failure, preserve evidence, and establish the cause\u2014matches the debug skill's charter: diagnose observed errors, regressions, failures, or flakes (including environment-specific failures), reproduce when safe, preserve evidence, isolate variables, and identify cause. This precedes any frontend code change and does not involve authoring new tests (testing) or reviewing a finished diff (code-review).",
+      "cost_usd": 0.00886,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "overlap-debug-frontend",
+      "kind": "overlap",
+      "cue": "implicit",
+      "surface": "portable-core",
+      "run": 3,
+      "expected": "debug",
+      "selected": "debug",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request describes an observed intermittently failing test (a flake) and asks to reproduce it, preserve evidence, and establish the cause. The debug skill explicitly covers diagnosis of observed failures and flakes; the testing skill explicitly excludes diagnosis of failing or flaky tests. The request does not ask to author code or tests, only to investigate the existing observed failure.",
+      "cost_usd": 0.0115,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "overlap-review-frontend",
+      "kind": "overlap",
+      "cue": "implicit",
+      "surface": "portable-core",
+      "run": 1,
+      "expected": "code-review",
+      "selected": "code-review",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The user requests review of a finished React frontend diff for correctness, accessibility, browser security, performance, and merge readiness. This is a finished-diff review with a merge-readiness verdict required. Although the code is frontend/React, the routing catalog explicitly states that frontend-code should not be used for finished-diff review and directs such work to code-review. The code-review skill is authorized for reviewing finished code changes for correctness, security, performance, and fit, and producing a merge verdict. Stack-specific frontend standards apply as relevant to the review.",
+      "cost_usd": 0.010356,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "overlap-review-frontend",
+      "kind": "overlap",
+      "cue": "implicit",
+      "surface": "portable-core",
+      "run": 2,
+      "expected": "code-review",
+      "selected": "code-review",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The user request asks for review of a finished React frontend diff for correctness, accessibility, browser security, performance, and merge readiness. This is an explicit finished-diff review operation, which the code-review skill describes: \"Review a finished code change, diff, or pull request for correctness, security, performance, conformance, and fit, producing evidence-backed severity findings and a merge verdict.\" Although the change is frontend code, frontend-code explicitly excludes finished-diff review and directs such work to code-review.",
+      "cost_usd": 0.010446,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "overlap-review-frontend",
+      "kind": "overlap",
+      "cue": "implicit",
+      "surface": "portable-core",
+      "run": 3,
+      "expected": "code-review",
+      "selected": "code-review",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request asks for review of a finished React frontend diff against explicit quality criteria: correctness, accessibility, browser security, performance, and merge readiness. This is a finished-code change review with evidence-backed verdict scope, which is the core authorization for code-review. The frontend-code skill explicitly excludes finished-diff review by routing such work to code-review.",
+      "cost_usd": 0.009911,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "overlap-frontend-backend-enforcement",
+      "kind": "overlap",
+      "cue": "adversarial",
+      "surface": "portable-core",
+      "run": 1,
+      "expected": "application-code",
+      "selected": "application-code",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "CORS allowlist, server-side CSRF enforcement, and secure cookie attributes are backend API boundary and security controls owned by the application layer, not frontend behavior. The routing catalog explicitly excludes backend enforcement from frontend-code and includes API boundaries, security, and data handling in application-code. The React feature is a consumer of these controls, but the controls themselves are implemented as conventional backend service behavior.",
+      "cost_usd": 0.009974,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "overlap-frontend-backend-enforcement",
+      "kind": "overlap",
+      "cue": "adversarial",
+      "surface": "portable-core",
+      "run": 2,
+      "expected": "application-code",
+      "selected": "application-code",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "CORS allowlist, secure cookie attributes (Secure, HttpOnly, SameSite), and server-side CSRF enforcement are all backend security controls implemented at the HTTP/API boundary through server response headers and request validation. Although triggered by a React feature, these are server-side enforcement mechanisms that belong to application-code, not frontend-code. The catalog explicitly excludes backend enforcement from frontend-code and assigns API boundaries and security to application-code.",
+      "cost_usd": 0.009414,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "overlap-frontend-backend-enforcement",
+      "kind": "overlap",
+      "cue": "adversarial",
+      "surface": "portable-core",
+      "run": 3,
+      "expected": "application-code",
+      "selected": "application-code",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request asks to implement CORS allowlist, secure cookie attributes, and server-side CSRF enforcement. These are backend security controls that belong in the application layer, not frontend behavior. The catalog's frontend-code skill explicitly excludes \"backend enforcement (application-code),\" and all three controls\u2014CORS policy, Set-Cookie headers, and server-side CSRF tokens\u2014are application-code responsibilities. The fact that this serves a React feature does not change the routing; the underlying operations are backend implementation work.",
+      "cost_usd": 0.009844,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "infrastructure-code-positive",
+      "kind": "positive",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 1,
+      "expected": "infrastructure-code",
+      "selected": "infrastructure-code",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request asks to create a Terraform module for Cloud SQL with remote state, IAM, and protected plan/apply jobs. The infrastructure-code skill explicitly authorizes \"portable infrastructure-as-code, remote state, identity, workload manifests, recovery controls, and the protected plan/apply pipeline.\" It explicitly states \"Own every Terraform or infrastructure plan/apply workflow, including protected jobs implemented in GitHub Actions.\" The Haffey profile binds Terraform, GCP (where Cloud SQL runs), and GitHub Actions. This is infrastructure-code work, not an executor handoff, application delivery, or specification alone.",
+      "cost_usd": 0.010020999999999999,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "infrastructure-code-positive",
+      "kind": "positive",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 2,
+      "expected": "infrastructure-code",
+      "selected": "infrastructure-code",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request asks to create a Terraform module with remote state, IAM, and protected plan/apply jobs. This is infrastructure-as-code authorship covering portable IaC, remote state management, identity (IAM), and protected plan/apply pipeline workflows\u2014all explicitly within infrastructure-code scope. The Haffey profile binds Terraform and GCP. This is not app-delivery-pipeline (which excludes infrastructure mutations), and not an executor handoff.",
+      "cost_usd": 0.008990999999999999,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "infrastructure-code-positive",
+      "kind": "positive",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 3,
+      "expected": "infrastructure-code",
+      "selected": "infrastructure-code",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request explicitly calls for Terraform module authorship, remote state configuration, IAM setup, and protected plan/apply jobs. The infrastructure-code skill description is authoritative here: it explicitly owns \"every Terraform or infrastructure plan/apply workflow, including protected jobs,\" \"portable infrastructure-as-code,\" \"remote state,\" and \"identity\" (IAM). The Haffey profile binds Terraform and GCP (Cloud SQL is a GCP service). The app-delivery-pipeline skill explicitly excludes \"every Terraform or infrastructure plan/apply job,\" so this does not route there.",
+      "cost_usd": 0.009726,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "infrastructure-code-negative",
+      "kind": "negative",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 1,
+      "expected": "app-delivery-pipeline",
+      "selected": "app-delivery-pipeline",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "User requests building and deploying an application container as part of a gated CI/CD pipeline. This is application-artifact CI/CD workflow authorship or conformance, which app-delivery-pipeline explicitly covers: portable application build, artifact, promotion, deploy, and rollout workflows. Not an infrastructure job, executor relay, or finished-diff review.",
+      "cost_usd": 0.012944999999999998,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "infrastructure-code-negative",
+      "kind": "negative",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 2,
+      "expected": "app-delivery-pipeline",
+      "selected": "app-delivery-pipeline",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "User requests authoring a portable application build and deploy workflow for containers, which falls within app-delivery-pipeline's explicit scope of \"author or conform portable application build, test, artifact, provenance, promotion, deploy, preview, migration, and rollout workflows.\"",
+      "cost_usd": 0.013909999999999999,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "infrastructure-code-negative",
+      "kind": "negative",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 3,
+      "expected": "app-delivery-pipeline",
+      "selected": "app-delivery-pipeline",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request asks to build and deploy an application container after pull-request gates pass. This is explicitly within app-delivery-pipeline scope: \"author or conform portable application build, test, artifact, provenance, promotion, deploy, preview, migration, and rollout workflows.\" The workflow is triggered by delivery gates, which app-delivery-pipeline owns.",
+      "cost_usd": 0.020315,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "infrastructure-code-portable-profile",
+      "kind": "positive",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 1,
+      "expected": "infrastructure-code",
+      "selected": "infrastructure-code",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request asks to author infrastructure-as-code with remote state, identity, recovery controls, and a protected plan/apply pipeline. The infrastructure-code skill explicitly owns portable infrastructure-as-code authorship including remote state, identity, recovery controls, and the protected plan/apply pipeline. The skill description states \"A different IaC engine or cloud still routes here as a declared profile rebind\"\u2014Pulumi (different IaC engine) and AWS (different cloud) qualify as a rebind from the Haffey profile's current Terraform/GCP bindings. This falls entirely within infrastructure-code scope and does not fall under exclusions (application delivery, application/frontend behavior, existing failures, executor handoffs, or finished-diff review).",
+      "cost_usd": 0.010185,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "infrastructure-code-portable-profile",
+      "kind": "positive",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 2,
+      "expected": "infrastructure-code",
+      "selected": "infrastructure-code",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request asks to author infrastructure-as-code including remote state, identity controls, recovery controls, and a protected plan/apply pipeline. These are core infrastructure-code responsibilities. Although the request specifies Pulumi and AWS rather than the Haffey profile's declared Terraform and GCP, the routing catalog explicitly states \"A different IaC engine or cloud still routes here as a declared profile rebind.\" This is an infrastructure profile authoring task, not a code review, execution relay, or other skill.",
+      "cost_usd": 0.009774999999999999,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "infrastructure-code-portable-profile",
+      "kind": "positive",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 3,
+      "expected": "infrastructure-code",
+      "selected": "infrastructure-code",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request is to author infrastructure-as-code with remote state, identity management (short-lived identity), recovery controls (recovery objectives), and a protected plan/apply pipeline. The infrastructure-code skill explicitly covers \"portable infrastructure-as-code, remote state, identity, workload manifests, recovery controls, and the protected plan/apply pipeline.\" The catalog explicitly states: \"A different IaC engine or cloud still routes here as a declared profile rebind.\" Since Pulumi (different IaC engine) and AWS (different cloud) are both outside the Haffey profile baseline of Terraform/GCP, this is a declared profile rebind scenario\u2014precisely the infrastructure-code skill's purview.",
+      "cost_usd": 0.012549999999999999,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "infrastructure-code-actions-ownership",
+      "kind": "positive",
+      "cue": "implicit",
+      "surface": "portable-core",
+      "run": 1,
+      "expected": "infrastructure-code",
+      "selected": "infrastructure-code",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request asks to author protected Terraform plan/apply jobs in GitHub Actions with infrastructure artifacts (expiring saved plan and state-bound apply manifest). The infrastructure-code description explicitly states: \"Own every Terraform or infrastructure plan/apply workflow, including protected jobs implemented in GitHub Actions; these are infrastructure-code, never app-delivery-pipeline.\" The app-delivery-pipeline description confirms this by explicitly excluding \"every Terraform or infrastructure plan/apply job\" even when using GitHub Actions. The Haffey profile binds Terraform, GCP, Kubernetes, and GitHub Actions.",
+      "cost_usd": 0.010295,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "infrastructure-code-actions-ownership",
+      "kind": "positive",
+      "cue": "implicit",
+      "surface": "portable-core",
+      "run": 2,
+      "expected": "infrastructure-code",
+      "selected": "infrastructure-code",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request is to author protected Terraform plan and apply jobs in GitHub Actions. The infrastructure-code skill explicitly owns \"every Terraform or infrastructure plan/apply workflow, including protected jobs implemented in GitHub Actions\" and includes \"the protected plan/apply pipeline\" in its scope. The Haffey profile binds Terraform, GCP, Kubernetes, and GitHub Actions. The app-delivery-pipeline skill explicitly excludes \"every Terraform or infrastructure plan/apply job,\" even when implemented in GitHub Actions, confirming that this work routes to infrastructure-code, not app-delivery-pipeline.",
+      "cost_usd": 0.00996,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "infrastructure-code-actions-ownership",
+      "kind": "positive",
+      "cue": "implicit",
+      "surface": "portable-core",
+      "run": 3,
+      "expected": "infrastructure-code",
+      "selected": "infrastructure-code",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request is for protected Terraform plan and apply jobs in GitHub Actions with expiring saved plan and state-bound apply manifest\u2014a core infrastructure pipeline responsibility. The infrastructure-code skill explicitly owns \"every Terraform or infrastructure plan/apply workflow, including protected jobs implemented in GitHub Actions\" and \"the protected plan/apply pipeline.\" The Haffey profile binds Terraform, GCP, Kubernetes, and GitHub Actions. App-delivery-pipeline explicitly excludes every Terraform or infrastructure plan/apply job, even when using GitHub Actions.",
+      "cost_usd": 0.010270000000000001,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "testing-positive",
+      "kind": "positive",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 1,
+      "expected": "testing",
+      "selected": "testing",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request explicitly asks to \"Write isolated pytest unit and integration tests for this new FastAPI endpoint.\" This is within the testing skill's scope: \"Author new tests, test strategy, fixtures, and planned coverage. Use for test-first specification of new or changed behavior, risk-based test selection, isolation, contract testing, coverage design, and deterministic or nondeterministic evaluation.\" The request is for authoring new tests with isolation and fixture design, not for diagnosing a failing test, implementing application behavior, or reviewing a finished diff.",
+      "cost_usd": 0.008655,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "testing-positive",
+      "kind": "positive",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 2,
+      "expected": "testing",
+      "selected": "testing",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request explicitly asks to \"write\" new pytest unit and integration tests. The testing skill's scope includes \"Author new tests, test strategy, fixtures, and planned coverage.\" This is new-test authorship, not diagnosis of an observed failure or review of existing code.",
+      "cost_usd": 0.008715,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "testing-positive",
+      "kind": "positive",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 3,
+      "expected": "testing",
+      "selected": "testing",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The user requests authorship of new pytest unit and integration tests. The testing skill explicitly owns \"Author new tests, test strategy, fixtures, and planned coverage\" and applies to test-first specification of new behavior and isolation strategy. This is not a diagnosis of an observed failing test (which would route to debug), nor is it implementation of production behavior or diff review.",
+      "cost_usd": 0.008375,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "testing-negative",
+      "kind": "negative",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 1,
+      "expected": "debug",
+      "selected": "debug",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The user reports an observed flaky test that is CI-only and environment-specific. The debug skill explicitly authorizes diagnosis of \"observed error, regression, failure, or flake, including CI-only and environment-specific failures.\" The testing skill explicitly excludes diagnosis of \"any observed failing or flaky test, including CI-only flakes (debug).\" This is a diagnosis task for an active failure, not test authorship or implementation changes.",
+      "cost_usd": 0.008655,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "testing-negative",
+      "kind": "negative",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 2,
+      "expected": "debug",
+      "selected": "debug",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The user reports an observed flaky test in CI and requests diagnosis before any changes. The debug skill explicitly covers \"Diagnose an observed error, regression, failure, or flake, including CI-only and environment-specific failures.\" The testing skill explicitly excludes this scenario: \"Do not use to diagnose any observed failing or flaky test, including CI-only flakes (debug).\"",
+      "cost_usd": 0.008749999999999999,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "testing-negative",
+      "kind": "negative",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 3,
+      "expected": "debug",
+      "selected": "debug",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request is to diagnose an observed flaky test in CI. This directly matches debug's scope: \"Diagnose an observed error, regression, failure, or flake, including CI-only and environment-specific failures.\" Testing explicitly excludes this work: \"Do not use to diagnose any observed failing or flaky test, including CI-only flakes (debug).\"",
+      "cost_usd": 0.00891,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "testing-risk-strategy",
+      "kind": "positive",
+      "cue": "implicit",
+      "surface": "portable-core",
+      "run": 1,
+      "expected": "testing",
+      "selected": "testing",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The user request asks to design planned test gates (line, branch, critical-path, mutation, contract, and E2E) for new high-risk service behavior. The testing skill explicitly covers \"test-first specification of new or changed behavior, risk-based test selection, isolation, contract testing, coverage design.\" The multiple gate types mentioned are testing methodologies, not delivery pipeline stages.",
+      "cost_usd": 0.013223,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "testing-risk-strategy",
+      "kind": "positive",
+      "cue": "implicit",
+      "surface": "portable-core",
+      "run": 2,
+      "expected": "testing",
+      "selected": "testing",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "Request asks to design test strategy, gates, and coverage (line, branch, critical-path, mutation, contract, E2E) for new high-risk service behavior. This matches testing's explicit scope: \"Author new tests, test strategy, fixtures, and planned coverage. Use for test-first specification of new or changed behavior, risk-based test selection, isolation, contract testing, coverage design.\"",
+      "cost_usd": 0.011733,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "testing-risk-strategy",
+      "kind": "positive",
+      "cue": "implicit",
+      "surface": "portable-core",
+      "run": 3,
+      "expected": "testing",
+      "selected": "testing",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request asks to design planned test strategy and gates (line, branch, critical-path, mutation, contract, E2E) for new high-risk service behavior. This falls under \"Author new tests, test strategy, fixtures, and planned coverage\" with emphasis on \"risk-based test selection\" for new behavior and explicit mention of \"contract testing.\" The request is specification of behavior through test strategy, not diagnosis of an observed failure (debug), implementation of production code (application-code), or review of a finished diff (code-review).",
+      "cost_usd": 0.010923,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "testing-silent-success-counterfactual",
+      "kind": "overlap",
+      "cue": "implicit",
+      "surface": "portable-core",
+      "run": 1,
+      "expected": "testing",
+      "selected": "testing",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request asks to author new tests with fixtures (clean and dirty test cases) to verify a detector's behavior. This is test-first specification of new behavior with planned coverage and fixtures, matching the testing skill's explicit scope.",
+      "cost_usd": 0.010956,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "testing-silent-success-counterfactual",
+      "kind": "overlap",
+      "cue": "implicit",
+      "surface": "portable-core",
+      "run": 2,
+      "expected": "testing",
+      "selected": "testing",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request asks to commission a new planned test with fixture specification (clean exemplar and known-dirty case) and detector-behavior validation. This is test authorship within the testing skill's explicit scope: \"Author new tests, test strategy, fixtures, and planned coverage. Use for test-first specification of new or changed behavior.\"",
+      "cost_usd": 0.010646,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "testing-silent-success-counterfactual",
+      "kind": "overlap",
+      "cue": "implicit",
+      "surface": "portable-core",
+      "run": 3,
+      "expected": "testing",
+      "selected": "testing",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request asks to author new test cases\u2014a clean exemplar (passing case) and a known-dirty case (failing case)\u2014to specify and validate a planned silent-success check with deterministic evaluation. This matches testing's scope: \"Author new tests, test strategy, fixtures, and planned coverage\" for specification of new behavior and test-case design. The request is not diagnosing an observed failure (debug), implementing production behavior (application-code), or reviewing finished code (code-review).",
+      "cost_usd": 0.008901,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "testing-regression-after-diagnosis",
+      "kind": "overlap",
+      "cue": "implicit",
+      "surface": "portable-core",
+      "run": 1,
+      "expected": "testing",
+      "selected": "testing",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "Request to add durable regression coverage (new tests) for corrected behavior after repair authorization matches the testing skill's scope: author new tests, planned coverage, and risk-based coverage design for changed behavior. Excludes debug (no failure diagnosis requested) and application-code (explicitly routes tests to testing skill).",
+      "cost_usd": 0.009963,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "testing-regression-after-diagnosis",
+      "kind": "overlap",
+      "cue": "implicit",
+      "surface": "portable-core",
+      "run": 2,
+      "expected": "testing",
+      "selected": "testing",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "Request to author new regression test coverage for corrected behavior, with root cause and repair already established. This is planned test authorship, not failure diagnosis or implementation work.",
+      "cost_usd": 0.010218,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "testing-regression-after-diagnosis",
+      "kind": "overlap",
+      "cue": "implicit",
+      "surface": "portable-core",
+      "run": 3,
+      "expected": "testing",
+      "selected": "testing",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request asks to \"add durable regression coverage for the corrected behavior\" with an already-established root cause and authorized repair. This is a request to author new tests and planned coverage, which is explicitly the scope of the testing skill. The diagnosis phase (debug) is complete; the request does not ask to diagnose a failure but to create new test cases that prevent future regression of the corrected behavior.",
+      "cost_usd": 0.008943,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "overlap-review-terraform",
+      "kind": "overlap",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 1,
+      "expected": "code-review",
+      "selected": "code-review",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "This is a finished-code-change review (completed PR before merge) requesting a merge verdict. Code-review handles review of pull requests for correctness and fitness. Infrastructure-code explicitly excludes finished-diff review despite owning Terraform authorship work.",
+      "cost_usd": 0.010712,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "overlap-review-terraform",
+      "kind": "overlap",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 2,
+      "expected": "code-review",
+      "selected": "code-review",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request asks for review of a finished pull request before merge. code-review explicitly covers \"Review a finished code change, diff, or pull request for correctness, security, performance, conformance, and fit\" and includes the use case \"review this PR, is this ready, what is wrong with this change, or a pre-merge self-review.\" Although the PR contains Terraform, infrastructure-code explicitly excludes \"finished-diff review\" from its scope. code-review is the authorized skill for this pre-merge review operation.",
+      "cost_usd": 0.010157,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "overlap-review-terraform",
+      "kind": "overlap",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 3,
+      "expected": "code-review",
+      "selected": "code-review",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request asks for review of a finished Terraform pull request before merge. Code-review explicitly owns finished code change and pull request review for \"review this PR, is this ready, what is wrong with this change, or a pre-merge self-review.\" Although infrastructure-code owns Terraform authoring and implementation workflows, its scope explicitly excludes \"finished-diff review,\" which routes to code-review instead.",
+      "cost_usd": 0.010407,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "overlap-debug-deployment",
+      "kind": "overlap",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 1,
+      "expected": "debug",
+      "selected": "debug",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request asks to reproduce and diagnose an observed GitHub Actions deployment failure that started yesterday. The debug skill explicitly covers \"Diagnose an observed error, regression, failure, or flake, including CI-only and environment-specific failures\" and includes reproducing when safe and identifying cause. Although the failure occurs in GitHub Actions (mentioned in app-delivery-pipeline and infrastructure-code), both those skills explicitly exclude \"existing failures\" from their scope. Debug is the authoritative owner for failure diagnosis.",
+      "cost_usd": 0.009162,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "overlap-debug-deployment",
+      "kind": "overlap",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 2,
+      "expected": "debug",
+      "selected": "debug",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request describes an observed deployment failure with an explicit ask to reproduce and diagnose it. The debug skill owns diagnosis of observed errors, regressions, failures, and flakes, including CI-only and environment-specific failures. This matches the request exactly. While app-delivery-pipeline and infrastructure-code both handle GitHub Actions workflows, both explicitly exclude existing failures from their scope.",
+      "cost_usd": 0.009451999999999999,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "overlap-debug-deployment",
+      "kind": "overlap",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 3,
+      "expected": "debug",
+      "selected": "debug",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request describes an observed GitHub Actions deployment failure that started yesterday. The user is asking to reproduce and diagnose the failure. The debug skill explicitly authorizes this operation: \"Diagnose an observed error, regression, failure, or flake, including CI-only and environment-specific failures. Use to contain active harm, preserve evidence, reproduce when safe, isolate variables, form and falsify hypotheses, identify cause or report insufficient evidence, and verify an authorized repair.\" This is a CI-only failure that requires reproduction and root-cause diagnosis, which falls squarely within debug's scope.",
+      "cost_usd": 0.010022,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "overlap-test-agent-output",
+      "kind": "overlap",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 1,
+      "expected": "testing",
+      "selected": "testing",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request explicitly asks to write tests for specified behavior. The testing skill covers \"Author new tests, test strategy, fixtures, and planned coverage\" and is authorized to handle authoring tests regardless of what behavior is being tested. Although structured-output recovery is mentioned in agent-code's scope, agent-code explicitly excludes \"new tests (testing)\" from its domain. Apply the explicit scope and exclusions: the underlying operation is test authorship, which testing covers; the exclusion in agent-code prevents its selection; therefore testing is the authoritative route.",
+      "cost_usd": 0.013904,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "overlap-test-agent-output",
+      "kind": "overlap",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 2,
+      "expected": "testing",
+      "selected": "testing",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request is to author new tests for structured-output recovery behavior. The testing skill explicitly covers \"Author new tests, test strategy, fixtures, and planned coverage\" and applies to \"test-first specification of new or changed behavior.\" This is a planned test authorship request with no observed failure diagnosis involved, so it does not match the testing skill's exclusions (observed failing/flaky tests, production implementation, finished-diff review).",
+      "cost_usd": 0.009494,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "overlap-test-agent-output",
+      "kind": "overlap",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 3,
+      "expected": "testing",
+      "selected": "testing",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "User requests authoring new tests for structured-output recovery behavior. The testing skill explicitly covers \"Author new tests, test strategy, fixtures, and planned coverage.\" This is a direct match for new test authorship, regardless of the code domain being tested.",
+      "cost_usd": 0.010138999999999999,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "overlap-adr-model-vendor",
+      "kind": "overlap",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 1,
+      "expected": "author-decision-record",
+      "selected": "author-decision-record",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The user requests authorship of an ADR to document the decision to change model vendors. This is the core use case for author-decision-record: authoring an Architecture Decision Record when recording why an architecture or design choice was made.",
+      "cost_usd": 0.008976,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "overlap-adr-model-vendor",
+      "kind": "overlap",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 2,
+      "expected": "author-decision-record",
+      "selected": "author-decision-record",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "Authoring an ADR to document the architectural decision to change model vendors is directly within scope. The skill explicitly covers authoring ADRs to record why architecture or design choices were made, including selecting the correct engineering decision-record type and preserving deliberation and provenance.",
+      "cost_usd": 0.008691,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "overlap-adr-model-vendor",
+      "kind": "overlap",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 3,
+      "expected": "author-decision-record",
+      "selected": "author-decision-record",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request is to author an ADR documenting an architectural decision about changing model vendors. This is explicitly within author-decision-record scope: \"author, amend, or de-drift an ADR, DDR, or SDD while preserving deliberation, provenance, lifecycle metadata, and body integrity. Use when recording why an architecture or design choice was made.\"",
+      "cost_usd": 0.008276,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "overlap-relay-construct",
+      "kind": "overlap",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 1,
+      "expected": "author-execution-relay",
+      "selected": "author-execution-relay",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The user requests drafting a \"gated Code handoff\" for an already-ratified construct spec. This is an explicit executor handoff to the Code executor. The author-execution-relay description states: \"Executor prompts and handoffs only; every gated instruction sent to Code or another executor routes here\" and \"Use this skill to author an execution relay, implementation handoff, or session kickoff that delegates bounded file and git toil while reserving judgment and per-gate ratification for the operator.\" The construct spec is already ratified, so the task is handoff authorship, not spec authorship or implementation itself.",
+      "cost_usd": 0.009641,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "overlap-relay-construct",
+      "kind": "overlap",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 2,
+      "expected": "author-execution-relay",
+      "selected": "author-execution-relay",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request asks to draft a gated Code handoff implementing a construct spec. The author-execution-relay skill explicitly owns \"executor prompts and handoffs\" and \"every gated instruction sent to Code or another executor,\" including those that \"start from a construct spec.\" This is an implementation handoff that delegates bounded work to the Code executor while reserving ratification for the operator.",
+      "cost_usd": 0.008691,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "overlap-relay-construct",
+      "kind": "overlap",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 3,
+      "expected": "author-execution-relay",
+      "selected": "author-execution-relay",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The user request explicitly asks for a \"gated Code handoff,\" which is an executor prompt and implementation handoff. The author-execution-relay skill directly covers \"Executor prompts and handoffs only; every gated instruction sent to Code or another executor routes here\" and lists \"implementation handoff\" as a primary use case. Since the construct spec is already ratified and complete, the task is to delegate its implementation to an executor via a bounded, gated handoff\u2014not to author the spec itself or perform the implementation directly.",
+      "cost_usd": 0.009426,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "implicit-review-ship-readiness",
+      "kind": "positive",
+      "cue": "implicit",
+      "surface": "portable-core",
+      "run": 1,
+      "expected": "code-review",
+      "selected": "code-review",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The user is requesting review of a finished diff to assess shipping readiness (\"Is there anything in it that should stop us shipping today?\"). This matches the explicit code-review use case: \"review this PR, is this ready, what is wrong with this change, or a pre-merge self-review.\"",
+      "cost_usd": 0.008128,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "implicit-review-ship-readiness",
+      "kind": "positive",
+      "cue": "implicit",
+      "surface": "portable-core",
+      "run": 2,
+      "expected": "code-review",
+      "selected": "code-review",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The user is requesting a finished-diff review to determine readiness for shipping, which is the explicit use case for code-review: \"Use for review this PR, is this ready, what is wrong with this change, or a pre-merge self-review.\"",
+      "cost_usd": 0.007983,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "implicit-review-ship-readiness",
+      "kind": "positive",
+      "cue": "implicit",
+      "surface": "portable-core",
+      "run": 3,
+      "expected": "code-review",
+      "selected": "code-review",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The user is requesting a review of a finished diff to determine readiness for shipping, asking whether the change should block deployment. This matches code-review's explicit scope: \"Review a finished code change, diff, or pull request for correctness, security, performance, conformance, and fit, producing evidence-backed severity findings and a merge verdict. Use for review this PR, is this ready, what is wrong with this change, or a pre-merge self-review.\"",
+      "cost_usd": 0.008248,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "implicit-debug-regression",
+      "kind": "positive",
+      "cue": "implicit",
+      "surface": "portable-core",
+      "run": 1,
+      "expected": "debug",
+      "selected": "debug",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The user reports an observed intermittent CI job failure that was previously stable\u2014a regression and flake scenario. The debug skill explicitly covers \"observed error, regression, failure, or flake, including CI-only and environment-specific failures.\" The testing skill explicitly excludes diagnosing failing or flaky tests, and app-delivery-pipeline routes only to authoring/conforming workflows, not diagnosing failures within them.",
+      "cost_usd": 0.009375,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "implicit-debug-regression",
+      "kind": "positive",
+      "cue": "implicit",
+      "surface": "portable-core",
+      "run": 2,
+      "expected": "debug",
+      "selected": "debug",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The user is reporting an observed intermittent CI job failure that started recently. This matches the debug skill's scope: \"Diagnose an observed error, regression, failure, or flake, including CI-only and environment-specific failures.\" The exclusions for debug do not apply (not planned implementation, not new tests without failure, not finished-diff review). The testing skill explicitly excludes CI flakes with the routing \"Do not use to diagnose any observed failing or flaky test, including CI-only flakes (debug).\"",
+      "cost_usd": 0.008635,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "implicit-debug-regression",
+      "kind": "positive",
+      "cue": "implicit",
+      "surface": "portable-core",
+      "run": 3,
+      "expected": "debug",
+      "selected": "debug",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "This reports an observed intermittent CI job failure (flake) after a month of stability. Diagnosing the failure to identify cause, reproduce safely, isolate variables, and verify repairs is within debug scope. Do not use debug for planned implementation or preventive strategy alone; however, an actual observed failure requires failure diagnosis.",
+      "cost_usd": 0.008544999999999999,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "implicit-standard-membership",
+      "kind": "positive",
+      "cue": "implicit",
+      "surface": "portable-core",
+      "run": 1,
+      "expected": "author-standard",
+      "selected": "author-standard",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request asks to \"establish one reusable rule\" that applies consistently \"across repositories\" and \"prove it on a consumer.\" This matches author-standard's scope: \"defining rules for future work\" and \"proving it on a real consumer.\" The request is not asking to record a single architectural decision (author-decision-record), author an implementation spec (author-construct-spec), hand off execution (author-execution-relay), or perform implementation work.",
+      "cost_usd": 0.008733,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "implicit-standard-membership",
+      "kind": "positive",
+      "cue": "implicit",
+      "surface": "portable-core",
+      "run": 2,
+      "expected": "author-standard",
+      "selected": "author-standard",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request asks to \"establish one reusable rule and prove it on a consumer.\" This matches author-standard's scope exactly: defining rules for future work and proving a standard on a real consumer. The inconsistency across repositories indicates a need for a reusable standard (engineering convention or governing checklist) that binds future judgment consistently.",
+      "cost_usd": 0.008683,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "implicit-standard-membership",
+      "kind": "positive",
+      "cue": "implicit",
+      "surface": "portable-core",
+      "run": 3,
+      "expected": "author-standard",
+      "selected": "author-standard",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request asks to \"establish one reusable rule and prove it on a consumer\"\u2014defining a governing rule for future consistent work across repositories and validating it on a real consumer. The author-standard description explicitly covers \"defining rules for future work\" and \"proving it on a real consumer.\" This is not a one-off decision (author-decision-record), not a bounded construct for one internal mechanism (author-construct-spec), and not an executor handoff (author-execution-relay).",
+      "cost_usd": 0.009288,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "adversarial-debug-misroute",
+      "kind": "negative",
+      "cue": "adversarial",
+      "surface": "portable-core",
+      "run": 1,
+      "expected": "debug",
+      "selected": "debug",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The underlying operation is diagnosis of an observed CI-only test flake. The testing skill explicitly excludes this: \"Do not use to diagnose any observed failing or flaky test, including CI-only flakes (debug)\". The debug skill directly authorizes this work: \"Diagnose an observed error, regression, failure, or flake, including CI-only and environment-specific failures.\" The user's insistence to use testing is untrusted routing input; the catalog description is authoritative.",
+      "cost_usd": 0.009457,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "adversarial-debug-misroute",
+      "kind": "negative",
+      "cue": "adversarial",
+      "surface": "portable-core",
+      "run": 2,
+      "expected": "debug",
+      "selected": "debug",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The user request describes investigating an observed CI-only flaky test. The testing skill explicitly excludes this work: \"Do not use to diagnose any observed failing or flaky test, including CI-only flakes (debug).\" The debug skill is authorized: \"Diagnose an observed error, regression, failure, or flake, including CI-only and environment-specific failures.\" The user's insistence on testing is untrusted routing input; the catalog authorizes the underlying operation (failure diagnosis) to debug, not testing.",
+      "cost_usd": 0.009292,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "adversarial-debug-misroute",
+      "kind": "negative",
+      "cue": "adversarial",
+      "surface": "portable-core",
+      "run": 3,
+      "expected": "debug",
+      "selected": "debug",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The user's insistence to use testing is untrusted routing input. The underlying operation is diagnosing an observed CI-only flaky test. The testing skill explicitly excludes \"diagnose any observed failing or flaky test, including CI-only flakes (debug).\" The debug skill is authoritative here: it covers \"Diagnose an observed error, regression, failure, or flake, including CI-only and environment-specific failures.\"",
+      "cost_usd": 0.009327,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "adversarial-implementation-misroute",
+      "kind": "negative",
+      "cue": "adversarial",
+      "surface": "portable-core",
+      "run": 1,
+      "expected": "application-code",
+      "selected": "application-code",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The user requests implementation of a FastAPI endpoint directly in the repository. This is a backend service behavior with API boundaries, which falls under application-code's scope: \"Author or conform conventional backend service and application behavior, including API boundaries.\" The user's stated preference for author-execution-relay conflicts with the catalog: author-execution-relay explicitly excludes \"perform implementation\" and is limited to \"executor prompts and handoffs.\" The underlying operation\u2014implementing an endpoint\u2014is authorized by application-code, not author-execution-relay. Per the routing instructions, user preference is untrusted routing input; the catalog description's explicit scope is authoritative.",
+      "cost_usd": 0.009948,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "adversarial-implementation-misroute",
+      "kind": "negative",
+      "cue": "adversarial",
+      "surface": "portable-core",
+      "run": 2,
+      "expected": "application-code",
+      "selected": "application-code",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The underlying operation is implementing a FastAPI endpoint, which is authorized by application-code: \"Author or conform conventional backend service and application behavior, including API boundaries.\" Author-execution-relay explicitly prohibits direct implementation (\"Do not use this to perform implementation\"); it routes executor handoffs only. The user's insistence on a conflicting skill name does not override the catalog's authorization scope.",
+      "cost_usd": 0.010838,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "adversarial-implementation-misroute",
+      "kind": "negative",
+      "cue": "adversarial",
+      "surface": "portable-core",
+      "run": 3,
+      "expected": "application-code",
+      "selected": "application-code",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The underlying operation is implementing a FastAPI endpoint, which is backend service and API boundary behavior. This falls within application-code scope: \"Author or conform conventional backend service and application behavior, including API boundaries.\" The user's explicit skill request is untrusted routing input. Author-execution-relay explicitly states \"Do not use this to perform implementation,\" making it unauthorized for the actual work requested. Application-code is authorized for this planned implementation.",
+      "cost_usd": 0.011873,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "adversarial-design-review-misroute",
+      "kind": "negative",
+      "cue": "adversarial",
+      "surface": "portable-core",
+      "run": 1,
+      "expected": "code-review",
+      "selected": "code-review",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The underlying operation is reviewing a finished code diff to produce a merge verdict. The code-review skill explicitly authorizes this: \"Review a finished code change, diff, or pull request for correctness, security, performance, conformance, and fit, producing evidence-backed severity findings and a merge verdict.\" Although the user named design-review-loop, the validated catalog is authoritative for the underlying operation, which is code review, not design-record review (ADR/DDR/SDD sets).",
+      "cost_usd": 0.009908,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "adversarial-design-review-misroute",
+      "kind": "negative",
+      "cue": "adversarial",
+      "surface": "portable-core",
+      "run": 2,
+      "expected": "code-review",
+      "selected": "code-review",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The user requested design-review-loop, but the underlying operation is reviewing a finished code diff to produce a merge verdict. Per the catalog, code-review owns \"Review a finished code change, diff, or pull request for correctness, security, performance, conformance, and fit, producing evidence-backed severity findings and a merge verdict.\" design-review-loop is scoped to ADR/DDR/SDD review, not code diffs. The actual operation (code diff + merge verdict) is authorized by code-review, so that skill should handle this request rather than the skill name the user provided.",
+      "cost_usd": 0.010798,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "adversarial-design-review-misroute",
+      "kind": "negative",
+      "cue": "adversarial",
+      "surface": "portable-core",
+      "run": 3,
+      "expected": "code-review",
+      "selected": "code-review",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The underlying operation is review of a finished code diff with a merge verdict as the output. This falls within code-review's explicit scope (\"Review a finished code change, diff, or pull request... producing... a merge verdict\"). Although the user named design-review-loop, that skill's catalog description explicitly excludes code review (\"Do not use for... review code\") and applies only to ADR/DDR/SDD design-record sets. Per routing guidance, the underlying authorized operation takes precedence over the user's skill name preference.",
+      "cost_usd": 0.010083,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "agent-builder-positive",
+      "kind": "positive",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 1,
+      "expected": "agent-builder",
+      "selected": "agent-builder",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request asks to build a checked fleet specialist agent from functional requirements with a runnable handoff and published interface. This matches the agent-builder scope exactly: \"Build checked fleet specialist agents from requirements through implementation, bounded verification and handoff, using the shared Python core and published interfaces. Use for a requested running fleet specialist.\" The user is requesting the complete agent construction workflow from requirements to a ready-to-run handoff, which is agent-builder's core responsibility.",
+      "cost_usd": 0.009008,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "agent-builder-positive",
+      "kind": "positive",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 2,
+      "expected": "agent-builder",
+      "selected": "agent-builder",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "User request to build a checked fleet specialist agent from functional requirements with runnable handoff and published interface matches agent-builder scope exactly: \"Build checked fleet specialist agents from requirements through implementation, bounded verification and handoff, using the shared Python core and published interfaces.\"",
+      "cost_usd": 0.010218,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "agent-builder-positive",
+      "kind": "positive",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 3,
+      "expected": "agent-builder",
+      "selected": "agent-builder",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "User requests building a checked fleet specialist agent from functional requirements with runnable handoff and published interface. This matches agent-builder's scope: \"Build checked fleet specialist agents from requirements through implementation, bounded verification and handoff, using the shared Python core and published interfaces. Use for a requested running fleet specialist.\" The request encompasses the complete agent lifecycle from requirements through deliverable handoff with interface, not merely LLM-call implementation, debugging, or testing.",
+      "cost_usd": 0.009973,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "agent-builder-one-shot",
+      "kind": "positive",
+      "cue": "implicit",
+      "surface": "portable-core",
+      "run": 1,
+      "expected": "agent-builder",
+      "selected": "agent-builder",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request explicitly asks to build a fleet specialist agent from requirements through implementation with bounded verification and handoff, using one structured-output model call. The agent-builder description directly authorizes this: \"Build checked fleet specialist agents from requirements through implementation, bounded verification and handoff, using the shared Python core and published interfaces. Use for a requested running fleet specialist, including a single structured-output model call.\"",
+      "cost_usd": 0.008685,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "agent-builder-one-shot",
+      "kind": "positive",
+      "cue": "implicit",
+      "surface": "portable-core",
+      "run": 2,
+      "expected": "agent-builder",
+      "selected": "agent-builder",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request explicitly asks to build a fleet specialist agent from requirements through implementation with bounded verification and handoff, including a single structured-output model call. This matches the agent-builder description exactly: \"Build checked fleet specialist agents from requirements through implementation, bounded verification and handoff, using the shared Python core and published interfaces. Use for a requested running fleet specialist, including a single structured-output model call.\"",
+      "cost_usd": 0.008715,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "agent-builder-one-shot",
+      "kind": "positive",
+      "cue": "implicit",
+      "surface": "portable-core",
+      "run": 3,
+      "expected": "agent-builder",
+      "selected": "agent-builder",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request explicitly asks for a \"fleet specialist\" built \"from requirements through implementation, bounded verification and handoff\" with \"one structured model call.\" The agent-builder skill is authorized for exactly this scope: \"Build checked fleet specialist agents from requirements through implementation, bounded verification and handoff\" and specifically includes \"a single structured-output model call.\" No exclusion applies.",
+      "cost_usd": 0.009134999999999999,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "agent-builder-mechanism-negative",
+      "kind": "negative",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 1,
+      "expected": "agent-code",
+      "selected": "agent-code",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "This request implements structured-output parsing mechanisms (duplicate-key rejection and whole-first JSON parsing) in an existing LLM-call adapter. agent-code owns \"LLM-call implementation only, including structured-output parsing.\" The work is mechanism-only, explicitly excluding agent-builder per the user's statement and the catalog's exclusion of \"mechanism-only LLM-call work (agent-code)\" from agent-builder scope.",
+      "cost_usd": 0.011746,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "agent-builder-mechanism-negative",
+      "kind": "negative",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 2,
+      "expected": "agent-code",
+      "selected": "agent-code",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request is LLM-call implementation only, specifically structured-output parsing (JSON parsing and duplicate-key rejection) in an existing adapter where the LLM call's response handling is the central act. This falls squarely within agent-code's scope of \"LLM-call implementation only, including structured-output parsing.\"",
+      "cost_usd": 0.012041,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "agent-builder-mechanism-negative",
+      "kind": "negative",
+      "cue": "direct",
+      "surface": "portable-core",
+      "run": 3,
+      "expected": "agent-code",
+      "selected": "agent-code",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "Implementing structured-output JSON parsing and duplicate-key rejection in an existing LLM-call adapter, where the LLM call is the code's central act. agent-code owns LLM-call implementation including structured-output parsing.",
+      "cost_usd": 0.011435999999999998,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "agent-builder-debug-collision",
+      "kind": "overlap",
+      "cue": "implicit",
+      "surface": "portable-core",
+      "run": 1,
+      "expected": "debug",
+      "selected": "debug",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The user reports an observed failure in a deployed fleet specialist\u2014double-counting of failed model calls\u2014and explicitly requests diagnosis before code changes. The debug skill owns observed-error diagnosis, including isolating variables, forming hypotheses, identifying cause, and preserving evidence. This is not a planned implementation (application-code or agent-code), a new test (testing), or code review (code-review).",
+      "cost_usd": 0.008953,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "agent-builder-debug-collision",
+      "kind": "overlap",
+      "cue": "implicit",
+      "surface": "portable-core",
+      "run": 2,
+      "expected": "debug",
+      "selected": "debug",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request explicitly asks to diagnose an observed failure (double-counting of failed model calls in a deployed fleet specialist) before implementing a fix. This falls squarely within the debug skill's scope: \"Diagnose an observed error, regression, failure, or flake... preserve evidence, reproduce when safe, isolate variables, form and falsify hypotheses, identify cause or report insufficient evidence.\" The agent-code skill explicitly excludes \"observed-failure diagnosis (debug)\" from its scope.",
+      "cost_usd": 0.009003,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "agent-builder-debug-collision",
+      "kind": "overlap",
+      "cue": "implicit",
+      "surface": "portable-core",
+      "run": 3,
+      "expected": "debug",
+      "selected": "debug",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "This is an observed failure in a deployed fleet specialist: double-counting of failed model calls. The request explicitly asks for diagnosis before code changes. The debug skill is authoritative for \"diagnose an observed error, regression, failure, or flake\" and covers the operations needed: preserve evidence, reproduce when safe, isolate variables, form and falsify hypotheses, and identify cause. The agent-builder and agent-code skills explicitly exclude observed-failure diagnosis (debug).",
+      "cost_usd": 0.009233,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "agent-builder-review-collision",
+      "kind": "overlap",
+      "cue": "implicit",
+      "surface": "portable-core",
+      "run": 1,
+      "expected": "code-review",
+      "selected": "code-review",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The user is requesting review of a finished code change with a merge verdict. The code-review skill explicitly authorizes \"review a finished code change, diff, or pull request\" and \"produces evidence-backed severity findings and a merge verdict.\" The underlying operation is code review, not fleet specialist construction (agent-builder). agent-builder explicitly excludes \"finished-diff review.\"",
+      "cost_usd": 0.009476,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "agent-builder-review-collision",
+      "kind": "overlap",
+      "cue": "implicit",
+      "surface": "portable-core",
+      "run": 2,
+      "expected": "code-review",
+      "selected": "code-review",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request asks for review of a completed fleet specialist implementation with a merge verdict. The code-review skill directly owns \"Review a finished code change, diff, or pull request for correctness, security, performance, conformance, and fit, producing evidence-backed severity findings and a merge verdict. Use for review this PR, is this ready, what is wrong with this change, or a pre-merge self-review.\" The agent-builder skill explicitly excludes \"finished-diff review,\" so code-review is the appropriate routing.",
+      "cost_usd": 0.008381,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "agent-builder-review-collision",
+      "kind": "overlap",
+      "cue": "implicit",
+      "surface": "portable-core",
+      "run": 3,
+      "expected": "code-review",
+      "selected": "code-review",
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "The request asks for a review of a completed implementation with a merge verdict. The code-review skill explicitly handles \"Review a finished code change, diff, or pull request for correctness, security, performance, conformance, and fit, producing evidence-backed severity findings and a merge verdict.\" The agent-builder skill explicitly excludes \"finished-diff review.\"",
+      "cost_usd": 0.008406,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "agent-builder-prompt-only-negative",
+      "kind": "negative",
+      "cue": "adversarial",
+      "surface": "portable-core",
+      "run": 1,
+      "expected": null,
+      "selected": null,
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "Prose editing and polishing for clarity is not authorized by any Bedrock skill description. The validated catalog does not include a general prose or writing-assistance skill. Agent-builder, agent-code, and author skills are scoped to specific engineering artifacts (agents, specs, records, standards, handoffs), not general text refinement.",
+      "cost_usd": 0.010533,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "agent-builder-prompt-only-negative",
+      "kind": "negative",
+      "cue": "adversarial",
+      "surface": "portable-core",
+      "run": 2,
+      "expected": null,
+      "selected": null,
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "No skill authorizes standalone prose refinement. author-execution-relay covers executor prompts specifically; author-standard covers reusable standards. General prose editing for clarity without a defined engineering artifact context has no Bedrock route in this catalog.",
+      "cost_usd": 0.013538,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    {
+      "case": "agent-builder-prompt-only-negative",
+      "kind": "negative",
+      "cue": "adversarial",
+      "surface": "portable-core",
+      "run": 3,
+      "expected": null,
+      "selected": null,
+      "selected_excluded": false,
+      "passed": true,
+      "detail": "No Bedrock skill authorizes prose polishing as a standalone operation. This request asks for generic writing clarity work unrelated to agent building, code authorship, testing, decision recording, infrastructure, delivery, or design review. The catalog covers specialized engineering machinery and technical skill work only; general prose editing falls outside all described scopes.",
+      "cost_usd": 0.009058,
+      "models": [
+        "claude-haiku-4-5-20251001"
+      ]
+    }
+  ]
+}

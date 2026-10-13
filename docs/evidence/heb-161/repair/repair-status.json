@@ -1,0 +1,45 @@
+{
+  "date_et": "2026-09-30",
+  "status": "REPAIR CHECKPOINT; NOT COMPOSED FREEZE OR RELEASE ACCEPTANCE",
+  "base_commit": "cbc8d2f2951c3f007eeca01600ba6cbb79165ed9",
+  "reviewed_source_sha256": {
+    "scripts/validate_plugin.py": "859d067707a1c1d13690a76d7128ae30e17e2612e0d5dfca71e4a4f886a26f8c",
+    "scripts/run_routing_evals.py": "090cabd98c51dfe9129c3fb1861b3f5fdf7f8435a7a7c31aa755f945d9e7e300",
+    "tests/test_composed_routing.py": "a9d7440248190f27f83888f411bab5cad2d55adfb4336ed20f59419dba47de59",
+    "tests/test_validate_plugin.py": "576fa579c7db1a8af5c405b9de748a7225eeb21bc8282b3ae748dc02fe636227",
+    ".github/workflows/plugin-validation.yml": "18e0336626eabd1e11e54e7830c0b3a7ddf2d5eaae41d707e57597e53b24b003",
+    "README.md": "c8c170be94ed2be3b413cfcd51edec4108d57fde662f97a487b329950a4e4c10"
+  },
+  "repairs": {
+    "R1": "Explicit composed-evidence selection; absent evidence fails closed; current aggregate/per-case/exclusion policy independently recomputed. Historical evidence untouched.",
+    "R2": "Fresh report and append-only journal; fsync before subsequent draw; retains outcome details, costs, model identities and terminal failures; exclusive unique temporary summaries.",
+    "R3": "Pinned CLI enforced before dispatch; resolved-model identity enforced on every successful response; mismatch retained and stops further draws."
+  },
+  "verification": {
+    "full_discovered_tests": 258,
+    "focused_tests_independently_run": 16,
+    "suite_result": "OK",
+    "component": "PASS",
+    "identity": "PASS",
+    "governance": "PASS",
+    "historical_default": "FAIL: 14 diagnostics; unwaived",
+    "selected_composed_report": "MISSING: fails closed"
+  },
+  "limits": [
+    "Offline repair verification only; no live model observations.",
+    "Complete canonical prerequisite descriptions/comments/attachments and shared-file reconciliation remain unfinished.",
+    "Whole-candidate qualification, final freeze, and whole finished-delta approval remain unfinished.",
+    "Earlier proposed live preregistration is stale for adapter and validator; must rebind to a reviewed frozen subject before seeking live authorization.",
+    "Journal durability is local filesystem custody, not off-machine backup; interrupted attempt outcome/cost can remain unknown.",
+    "Backup covers committed history; protected untracked receipts and local archives are excluded."
+  ],
+  "backup": {
+    "repository": "https://github.com/T-Bone-Haff/bedrock-recovery",
+    "private": true,
+    "actions_enabled": false,
+    "retirement": "Archive/delete when Bedrock 10.0.0 is release ready, after verifying another durable canonical copy. Never delete the sole copy.",
+    "public_origin_changed": false
+  },
+  "independent_reviewer": "/root/review_stop_diagnosis",
+  "review_record": "independent-review.txt"
+}

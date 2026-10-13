@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import json
+import re
 from pathlib import Path
 import sys
 from typing import Any
@@ -34,10 +35,97 @@ REQUIRED_FIELDS = {
 }
 
 
+
+# HEB-159: bounded candidate detectors, not a relay parser or semantic oracle.
+# Callers identify the one pins block by inclusive, one-based line coordinates.
+# Matches retain their exact location/text; dispositions and prose remain review work.
+CARRIED_VALUE_PATTERNS = (
+    ("path-line", re.compile(r"(?<![\w/])[\w./-]+\.[\w-]+:\d+(?:[-:]\d+)?\b")),
+    ("population-count", re.compile(r"\b\d[\d,]*\s+(?:files?|paths?|members?|tests?|cases?|rows?|skills?|carriers?|items?|entries|assertions?|findings?|defects?)\b", re.I)),
+    ("population-count", re.compile(r"\b(?:files?|paths?|members?|tests?|cases?|rows?|skills?|carriers?|items?|entries|assertions?|findings?|defects?)\s*[:=]\s*\d[\d,]*\b", re.I)),
+    ("revision", re.compile(r"\brev(?:ision)?\s+\d+\b", re.I)),
+)
+PIN_PATTERN = re.compile(r"\b(?:[0-9a-f]{64}|[0-9a-f]{40})\b", re.I)
+OUTCOME_PATTERN = re.compile(r"\b(?:ACCEPTED|REJECTED|PASSED|FAILED|COMPLETED)\b", re.I)
+ANCHOR_PATTERNS = (
+    re.compile(r"`[^`\n]+`"),
+    re.compile(r"§{1,2}\s*\d+(?:\.\d+)*"),
+    re.compile(r"\b(?:P|F|G)\d+(?:[a-z]|[.-]\d+)*\b"),
+    re.compile(r"\[[^\]\n]+\]\(#[^)\n]+\)"),
+)
+
+
+def sweep_relay(text: str, *, pins_block: tuple[int, int] | None = None) -> list[dict[str, Any]]:
+    """Return candidate hits; a clean result covers only the patterns above.
+
+    Numeric prose and arbitrary member lists can escape this sweep. Outcome
+    words anywhere in a pipe-delimited row are candidates, even in a stop rule:
+    review/disposition is required, not automatic interpretation of Markdown.
+    Only full SHA-1/SHA-256 spellings are recognized as pins outside the block.
+    """
+    lines = text.splitlines()
+    if pins_block is not None:
+        start, end = pins_block
+        if not (1 <= start <= end <= len(lines)):
+            raise ValueError("pins block must name existing inclusive lines")
+    hits = []
+    pins_seen: set[str] = set()
+    for number, line in enumerate(lines, 1):
+        patterns = list(CARRIED_VALUE_PATTERNS)
+        if line.strip().startswith("|"):
+            patterns.append(("contract-outcome", OUTCOME_PATTERN))
+        for kind, pattern in patterns:
+            for match in pattern.finditer(line):
+                hits.append({"line": number, "column": match.start() + 1, "kind": kind, "text": match.group()})
+        for match in PIN_PATTERN.finditer(line):
+            value = match.group().lower()
+            inside = pins_block is not None and pins_block[0] <= number <= pins_block[1]
+            kind = "duplicate-pin" if value in pins_seen else "pin-outside-block"
+            if not inside or value in pins_seen:
+                hits.append({"line": number, "column": match.start() + 1, "kind": kind, "text": match.group()})
+            pins_seen.add(value)
+    return sorted(hits, key=lambda hit: (hit["line"], hit["column"], hit["kind"]))
+
+
+def relay_anchors(text: str) -> set[str]:
+    """Extract supported code spans, section references and premise/finding codes.
+
+    This is an anchor-set backstop, not proof of clause preservation. Duplicate
+    occurrences and anchor-less prose require the predecessor diff review.
+    """
+    return {match.group() for pattern in ANCHOR_PATTERNS for match in pattern.finditer(text)}
+
+
+def check_relay_shrink(before: str, after: str, dispositions: dict[str, str]) -> list[str]:
+    """Require an explicit nonblank disposition for exactly the dropped anchors."""
+    dropped = relay_anchors(before) - relay_anchors(after)
+    errors = [f"dropped anchor lacks disposition: {anchor}" for anchor in sorted(dropped)
+              if not isinstance(dispositions.get(anchor), str) or not dispositions[anchor].strip()]
+    errors.extend(f"disposition is not a dropped anchor: {anchor}" for anchor in sorted(set(dispositions) - dropped))
+    return errors
+
+
 def evaluate_behavior_case(case: dict[str, Any]) -> str:
     """Evaluate the deterministic portion of a contract behavior fixture."""
     kind = case.get("kind")
     data = case.get("input", {})
+    if kind == "relay-reader":
+        # Fixture receipt checks; classification of an edit is a judgment input.
+        changes = data.get("changes")
+        if not isinstance(changes, list):
+            return "stop-reader-silent"
+        if not changes:
+            return "accept" if data.get("statement") == "adjusted nothing" else "stop-reader-silent"
+        if data.get("statement") == "adjusted nothing":
+            return "reject"
+        for change in changes:
+            if not isinstance(change, dict) or not all(change.get(key) for key in ("before", "after", "predecessor_retained", "hash_reissued")):
+                return "reject"
+            if change.get("kind") not in {"tightening", "loosen-prohibition", "remove-stop", "change-gate"}:
+                return "reject"
+            if change["kind"] != "tightening" and change.get("operator_authorized") is not True:
+                return "stop-operator-reserved"
+        return "accept"
     if kind == "relay-profile":
         if data.get("risk") == "high" or data.get("reversible") is False:
             return "high-assurance"
@@ -246,6 +334,22 @@ def validate_authoring_contracts(root: Path, *, required: bool = True) -> list[s
             if "counterfactual" not in skill_text or "absence" not in skill_text:
                 errors.append(f"{skill_path}: success-as-absence contract is missing")
         if name == "author-execution-relay":
+            carried_value_contract = (
+                "## Carry pins, not derivations",
+                "Every pin appears once, in one pins block",
+                "planted mismatch once per relay lineage",
+                "A relay body carries no outcome and no revision narrative.",
+                "Before issue, sweep the relay for carried values",
+                "The executor repeats the sweep on receipt",
+                "a value the patterns do not match can survive",
+                "every dropped anchor is dispositioned before issue",
+                "the predecessor retained, the hash reissued",
+                "Loosening a prohibition, removing a stop, or changing what a gate verifies is the operator's.",
+                "An executor who adjusts nothing says so",
+            )
+            for fragment in carried_value_contract:
+                if fragment not in skill_text:
+                    errors.append(f"{skill_path}: carried-value contract is missing {fragment!r}")
             instrument_contract = (
                 "## Build the execution instrument",
                 "outcome taxonomy verbatim",
@@ -266,9 +370,18 @@ def validate_authoring_contracts(root: Path, *, required: bool = True) -> list[s
                 "falsified",
                 "unavailable",
             )
+            reference_path = skill_path.parent / "reference/execution-instrument.md"
+            pointer = "[the execution-instrument contract](reference/execution-instrument.md) whole and apply every requirement"
+            if "## Build the execution instrument" not in skill_text or pointer not in skill_text:
+                errors.append(f"{skill_path}: execution-instrument contract is missing its required read-whole pointer")
+            try:
+                instrument_text = reference_path.read_text(encoding="utf-8")
+            except OSError as exc:
+                errors.append(f"{reference_path}: execution-instrument contract cannot be read: {exc}")
+                instrument_text = ""
             for fragment in instrument_contract:
-                if fragment not in skill_text:
-                    errors.append(f"{skill_path}: execution-instrument contract is missing {fragment!r}")
+                if fragment not in instrument_text:
+                    errors.append(f"{reference_path}: execution-instrument contract is missing {fragment!r}")
 
     relay_templates = root / "plugins/bedrock/skills/author-execution-relay/templates"
     for path in relay_templates.glob("*.md"):
@@ -287,6 +400,17 @@ def validate_authoring_contracts(root: Path, *, required: bool = True) -> list[s
         ):
             if fragment.lower() not in text.lower():
                 errors.append(f"{path}: relay instrument template is missing {fragment!r}")
+        sweep_fragment = (
+            "one pins block, and a carried-value sweep at issue and at receipt with no hits"
+            if path.name == "high-assurance-relay.md" else
+            "**Pins block / sweep:** <every pin once; sweep at issue and at receipt: hits or none>"
+        )
+        required_fragments = [sweep_fragment]
+        if path.name == "standard-relay.md":
+            required_fragments.append("A gate's cell states its stop rule, never its outcome.")
+        for fragment in required_fragments:
+            if fragment not in text:
+                errors.append(f"{path}: carried-value template is missing {fragment!r}")
     reviewer_instrument = root / "plugins/bedrock/skills/design-review-loop/reference/reviewer-instrument.md"
     reviewer_text = reviewer_instrument.read_text(encoding="utf-8")
     for fragment in ("## Author the charge from its consumer", "outcome taxonomy verbatim", "Falsification control"):

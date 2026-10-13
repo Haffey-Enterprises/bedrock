@@ -1,0 +1,66 @@
+test_consumer_surface_set_is_exact (tests.test_package_governance.PackageGovernanceTests.test_consumer_surface_set_is_exact) ... FAIL
+test_rollout_schema_and_template_declare_three_surfaces (tests.test_package_governance.PackageGovernanceTests.test_rollout_schema_and_template_declare_three_surfaces) ... FAIL
+test_release_mode_accepts_external_evidence_after_immutable_tag (tests.test_package_governance.PackageGovernanceTests.test_release_mode_accepts_external_evidence_after_immutable_tag) ... Merge made by the 'ort' strategy.
+ candidate-marker.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 candidate-marker.txt
+FAIL
+
+======================================================================
+FAIL: test_consumer_surface_set_is_exact (tests.test_package_governance.PackageGovernanceTests.test_consumer_surface_set_is_exact)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/thaffey/.codex/worktrees/heb-154-integration/bedrock/tests/test_package_governance.py", line 127, in test_consumer_surface_set_is_exact
+    self.assertEqual(expected, {row["id"] for row in payload["consumer_surfaces"]})
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Items in the first set but not the second:
+'codex'
+
+======================================================================
+FAIL: test_rollout_schema_and_template_declare_three_surfaces (tests.test_package_governance.PackageGovernanceTests.test_rollout_schema_and_template_declare_three_surfaces)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/thaffey/.codex/worktrees/heb-154-integration/bedrock/tests/test_package_governance.py", line 150, in test_rollout_schema_and_template_declare_three_surfaces
+    self.assertEqual(expected, schema["properties"]["surfaces"]["items"]["properties"]["id"]["enum"])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: ['claude-ai', 'claude-code', 'codex'] != ['claude-ai', 'claude-code']
+
+First list contains 1 additional elements.
+First extra element 2:
+'codex'
+
+- ['claude-ai', 'claude-code', 'codex']
+?                            ---------
+
++ ['claude-ai', 'claude-code']
+
+======================================================================
+FAIL: test_release_mode_accepts_external_evidence_after_immutable_tag (tests.test_package_governance.PackageGovernanceTests.test_release_mode_accepts_external_evidence_after_immutable_tag)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/thaffey/.codex/worktrees/heb-154-integration/bedrock/tests/test_package_governance.py", line 644, in test_release_mode_accepts_external_evidence_after_immutable_tag
+    self.assertEqual(
+    ~~~~~~~~~~~~~~~~^
+        [],
+        ^^^
+    ...<5 lines>...
+        ),
+        ^^
+    )
+    ^
+AssertionError: Lists differ: [] != ["/var/folders/sw/1svfc1j50yb7tdd8_fb98v1m[254 chars]nce']
+
+Second list contains 2 additional elements.
+First extra element 0:
+"/var/folders/sw/1svfc1j50yb7tdd8_fb98v1m0000gn/T/tmpa0eul_bg/rollout-ledger.yaml: schema violation: 'codex' is not one of ['claude-ai', 'claude-code']"
+
+- []
++ ['/var/folders/sw/1svfc1j50yb7tdd8_fb98v1m0000gn/T/tmpa0eul_bg/rollout-ledger.yaml: '
++  "schema violation: 'codex' is not one of ['claude-ai', 'claude-code']",
++  '/var/folders/sw/1svfc1j50yb7tdd8_fb98v1m0000gn/T/tmpa0eul_bg/rollout-ledger.yaml: '
++  'rollout must enumerate claude-ai and claude-code exactly once']
+
+----------------------------------------------------------------------
+Ran 3 tests in 1.650s
+
+FAILED (failures=3)

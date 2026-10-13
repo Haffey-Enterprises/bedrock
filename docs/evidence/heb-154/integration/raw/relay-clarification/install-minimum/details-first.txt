@@ -1,0 +1,33 @@
+bedrock 10.0.0
+  Haffey Enterprises engineering skills spanning implementation, testing, diagnosis, authoring, and review. Portable actor contracts separate task authority, evidence, failure behavior, and lifecycle from Haffey stack profiles and optional host capabilities. The package covers application, infrastructure, delivery, agent construction, LLM-call, and frontend code; decision records and construct specs; reusable standards; execution relays; code review; and design-record review. Mechanical enforcement or convergence is claimed only through a declared executable capability; otherwise the applicable direct or advisory profile is explicit.
+  Source: bedrock@bedrock
+
+Component inventory
+  Skills (14)  agent-builder, agent-code, app-delivery-pipeline, application-code, author-construct-spec, author-decision-record, author-execution-relay, author-standard, code-review, debug, design-review-loop, frontend-code, infrastructure-code, testing
+  Agents (0)
+  Hooks (0)
+  MCP servers (0)
+  LSP servers (0)
+
+Projected token cost
+  Always-on:   ~1,918 tok   added to every session
+
+Per-component (rounded)
+  component               always-on  on-invoke
+  infrastructure-code          ~170      ~1.3k
+  app-delivery-pipeline        ~150      ~1.3k
+  application-code             ~120      ~1.6k
+  code-review                  ~140       ~960
+  agent-builder                ~120      ~1.8k
+  author-execution-relay       ~170        ~2k
+  author-decision-record       ~190      ~1.1k
+  design-review-loop           ~100      ~1.7k
+  author-standard              ~130      ~1.6k
+  testing                      ~130      ~1.5k
+  agent-code                   ~100      ~1.9k
+  frontend-code                ~140      ~1.9k
+  author-construct-spec        ~170      ~1.1k
+  debug                        ~120      ~1.8k
+
+  On-invoke cost is paid each time a skill or agent fires.
+  Token counts are estimates and may differ from actual usage.

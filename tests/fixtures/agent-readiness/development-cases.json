@@ -1,0 +1,24 @@
+[
+  {
+    "case_id": "dev-complete",
+    "input": {
+      "version": "1.0.0",
+      "policy_id": "readiness-v1",
+      "brief": "[S1] A library member needs to see which books are overdue so they can return them. [S2] On the Loans page, each loan with a due date before today displays the exact label Overdue; all other loans display no overdue label."
+    },
+    "expected_readiness": "ready",
+    "expected_missing": []
+  },
+  {
+    "case_id": "dev-vague",
+    "input": {
+      "version": "1.0.0",
+      "policy_id": "readiness-v1",
+      "brief": "[S1] A gardener wants to find previously saved plants so they can plan seasonal planting. [S2] Make plant search feel delightful and much better."
+    },
+    "expected_readiness": "needs_clarification",
+    "expected_missing": [
+      "R-ACCEPTANCE"
+    ]
+  }
+]

@@ -1,0 +1,1 @@
+{"valid_stub_exit": 0, "undeclared_request_exit": 42, "offline_fallback_positive_control": "OFFLINE_FALLBACK", "closed_path_broken_stub_refused": true, "closed_path_missing_stub_refused": true, "scope": "Disposable offline command-resolution controls only; no package suite or live GitHub request."}

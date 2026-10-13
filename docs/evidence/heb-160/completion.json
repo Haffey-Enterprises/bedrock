@@ -1,0 +1,96 @@
+{
+  "status": "component-validation-and-independent-review-complete; prepared for authorized local commit",
+  "date_eastern": "2026-09-30",
+  "checkout": "/Users/thaffey/.codex/worktrees/heb-154-integration/bedrock",
+  "branch": "codex/heb-161-candidate",
+  "parent_commit": "9c30fb10b2f91e4cc50a44868b9e073013db5643",
+  "final_tested_source_tree": "06fa11426f290558af77ea9438f6e3794f736394",
+  "historical_records": "execution-report.json records the initial validation stop; resumption.json records the first resumed checkpoint. Both are historical and superseded for current status by this completion record, final-validation.json and review-final.json.",
+  "changes": {
+    "terraform_setup": "v4.0.1 exact upstream Node 24 identity",
+    "fixture_checkout": "v5.1.0 exact upstream Node 24 identity",
+    "validator": "Offline exact-runtime-identity gate at both maintained loci; structural YAML action extraction with duplicate-key rejection",
+    "tests": "Meaningful first-red and parser-repair red controls retained; final 18 focused tests included in root suite",
+    "package_identity": "10.0.0 unchanged; generated identity carriers unchanged"
+  },
+  "validation": {
+    "root_unittest": {
+      "passed": 199,
+      "source": "final-repository-suite.log",
+      "docker_and_terraform": "required and exercised"
+    },
+    "focused_safety": {
+      "passed": 18,
+      "source": "final-focused-safety.log",
+      "overlap": "included in root unittest"
+    },
+    "agent_core": {
+      "passed": 110,
+      "source": "agent-core-suite.log"
+    },
+    "hex_linear": {
+      "passed": 96,
+      "source": "hex-linear-suite.log"
+    },
+    "package_input_parity": {
+      "files": 34,
+      "coverage": "Complete tracked package subtrees in initial green and final source trees; all identities match, so package suites were not rerun after parser-only repairs"
+    },
+    "validators": [
+      "safety",
+      "infrastructure-delivery",
+      "identity",
+      "governance",
+      "strict-plugin"
+    ],
+    "dependency_resolution": "Existing dependency-appropriate environments reused after original collection failure; no installation"
+  },
+  "review": {
+    "record": "review-final.json",
+    "verdict": "approve",
+    "unresolved_findings": 0,
+    "initial_findings": "Both flow-mapping omission and duplicate-key collapse resolved; original pause retained in review-initial.json"
+  },
+  "population": {
+    "record": "final-action-population.json",
+    "replay": "population-command.json and verify_population.py",
+    "coverage": "Markdown/YAML under .github/workflows, plugins/bedrock/skills, tests/fixtures/safety; only declared two substitutions; all current direct identities node24",
+    "control": "Both known-old manifests declare node20; runtime YAML and textual reads agree"
+  },
+  "input_verification": {
+    "manifest": "final-tested-inputs.json",
+    "coverage": "Every file in the final source Git tree, excluding new HEB-160 evidence and protected untracked receipts",
+    "files": 1146,
+    "staged_tree_and_worktree_match": true,
+    "committed_blob_protocol": "After the local commit, compare its entire tree to the sealed staged tree and every input blob/hash to this manifest; derive changed paths from Git and compare bidirectionally with scope.json. Postcommit outcomes are reported separately to avoid self-referential commit records."
+  },
+  "protected_receipts": {
+    "scope": "Only the two explicit filenames and SHA-256 digests were inspected; no content read, copied, parsed or staged",
+    "sha256": {
+      "docs/evidence/heb-153/host-cleanup.json": "59a722ef5a1cee618aca78d59acd47b470d065255df60689f7f104f017379aee",
+      "docs/evidence/heb-153/post-removal-verification.json": "fe8963e816a7985b4f3623c1167e4829dcd5fb03e645ddf90a916e62d44a3f63"
+    },
+    "precommit_hashes_match": true
+  },
+  "relay_adjusted": false,
+  "relay_sweep_record": "execution-report.json: relay_sweep",
+  "checkpoint": "Local component only; no push, PR, merge, release, installation, live routing, Linear change or SOFIA mutation. HEB-161 owns composed-candidate acceptance and release. Leave the managed worktree active.",
+  "cleanup": "Five named Git-object test snapshots under the session Working directory may be removed after commit verification; their commands, complete input identities, failures and final logs are retained here.",
+  "limits": [
+    "Direct parsed action references only; no transitive actions or external repository inventory",
+    "No hosted-runner execution or upstream implementation-equivalence claim",
+    "Structural YAML plus yaml/yml Markdown fences; retained line scan elsewhere, not arbitrary Markdown or hostile-input resource-bounds coverage",
+    "No browser suite, live model/routing calls, consumer installation or offline specialist rerun",
+    "Historical accepted-trial/component evidence unchanged; new review evidence is component-local"
+  ],
+  "evidence_whitespace": {
+    "initial_full_staged_check_exit": 2,
+    "cause": "Original captured unittest/pytest output contains trailing spaces in three historical failure logs. Raw evidence is preserved verbatim.",
+    "exception_paths": [
+      "docs/evidence/heb-160/first-red.log",
+      "docs/evidence/heb-160/package-suites.log",
+      "docs/evidence/heb-160/review-red.log"
+    ],
+    "checks": "All other staged paths use normal git diff --check; these three raw logs use core.whitespace=-blank-at-eol, preserving other whitespace checks."
+  }
+}

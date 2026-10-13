@@ -1,0 +1,23 @@
+test_cosmetic_decision_bearing_combination_is_invalid (test_safety_contracts.SafetyContractTests.test_cosmetic_decision_bearing_combination_is_invalid) ... ok
+test_cosmetic_finding_never_blocks_convergence (test_safety_contracts.SafetyContractTests.test_cosmetic_finding_never_blocks_convergence) ... ok
+test_material_decision_bearing_finding_halts (test_safety_contracts.SafetyContractTests.test_material_decision_bearing_finding_halts) ... ok
+test_repository_satisfies_safety_contracts (test_safety_contracts.SafetyContractTests.test_repository_satisfies_safety_contracts) ... ok
+test_cosmetic_decision_halt_guidance_fails (test_safety_contracts.SafetyValidatorNegativeTests.test_cosmetic_decision_halt_guidance_fails) ... ok
+test_duplicate_action_key_cannot_discard_old_identity (test_safety_contracts.SafetyValidatorNegativeTests.test_duplicate_action_key_cannot_discard_old_identity) ... ok
+test_maintained_actions_require_verified_node24_identities (test_safety_contracts.SafetyValidatorNegativeTests.test_maintained_actions_require_verified_node24_identities) ... ok
+test_malformed_workflow_events_fail_cleanly (test_safety_contracts.SafetyValidatorNegativeTests.test_malformed_workflow_events_fail_cleanly) ... ok
+test_missing_action_ref_and_malformed_yaml_fail (test_safety_contracts.SafetyValidatorNegativeTests.test_missing_action_ref_and_malformed_yaml_fail) ... ok
+test_non_string_manifest_identifier_fails_cleanly (test_safety_contracts.SafetyValidatorNegativeTests.test_non_string_manifest_identifier_fails_cleanly) ... ok
+test_old_runtime_cannot_hide_in_yaml_syntax (test_safety_contracts.SafetyValidatorNegativeTests.test_old_runtime_cannot_hide_in_yaml_syntax) ... ok
+test_pull_request_push_fails (test_safety_contracts.SafetyValidatorNegativeTests.test_pull_request_push_fails) ... ok
+test_python_minor_site_packages_path_fails (test_safety_contracts.SafetyValidatorNegativeTests.test_python_minor_site_packages_path_fails) ... ok
+test_secret_state_denial_fails (test_safety_contracts.SafetyValidatorNegativeTests.test_secret_state_denial_fails) ... ok
+test_unnamed_unpinned_action_reference_fails (test_safety_contracts.SafetyValidatorNegativeTests.test_unnamed_unpinned_action_reference_fails) ... ok
+test_unpinned_action_reference_fails (test_safety_contracts.SafetyValidatorNegativeTests.test_unpinned_action_reference_fails) ... ok
+test_unpinned_flow_action_fails (test_safety_contracts.SafetyValidatorNegativeTests.test_unpinned_flow_action_fails) ... ok
+test_yaml_current_identity_alias_and_cycle_are_safe (test_safety_contracts.SafetyValidatorNegativeTests.test_yaml_current_identity_alias_and_cycle_are_safe) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 0.798s
+
+OK

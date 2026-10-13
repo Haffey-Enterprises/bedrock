@@ -1,0 +1,50 @@
+test_cli_selection_is_forwarded_and_cannot_be_skipped (test_composed_routing.ComposedEvidenceTests.test_cli_selection_is_forwarded_and_cannot_be_skipped) ... ok
+test_missing_default_report_fails_closed (test_composed_routing.ComposedEvidenceTests.test_missing_default_report_fails_closed) ... ok
+test_selected_report_cannot_override_recomputed_policy_gates (test_composed_routing.ComposedEvidenceTests.test_selected_report_cannot_override_recomputed_policy_gates) ... 
+  test_selected_report_cannot_override_recomputed_policy_gates (test_composed_routing.ComposedEvidenceTests.test_selected_report_cannot_override_recomputed_policy_gates) (gate='overall') ... FAIL
+  test_selected_report_cannot_override_recomputed_policy_gates (test_composed_routing.ComposedEvidenceTests.test_selected_report_cannot_override_recomputed_policy_gates) (gate='per-case') ... FAIL
+  test_selected_report_cannot_override_recomputed_policy_gates (test_composed_routing.ComposedEvidenceTests.test_selected_report_cannot_override_recomputed_policy_gates) (gate='excluded') ... FAIL
+test_selected_report_passes_without_rewriting_historical_report (test_composed_routing.ComposedEvidenceTests.test_selected_report_passes_without_rewriting_historical_report) ... ok
+test_selected_stale_report_is_not_accepted (test_composed_routing.ComposedEvidenceTests.test_selected_stale_report_is_not_accepted) ... ok
+test_cli_drift_stops_before_model_call (test_composed_routing.RoutingCustodyTests.test_cli_drift_stops_before_model_call) ... ok
+test_each_result_is_on_disk_before_next_invocation (test_composed_routing.RoutingCustodyTests.test_each_result_is_on_disk_before_next_invocation) ... ok
+test_existing_journal_is_never_overwritten (test_composed_routing.RoutingCustodyTests.test_existing_journal_is_never_overwritten) ... ok
+test_existing_report_is_never_overwritten (test_composed_routing.RoutingCustodyTests.test_existing_report_is_never_overwritten) ... ok
+test_journal_sync_failure_prevents_dispatch (test_composed_routing.RoutingCustodyTests.test_journal_sync_failure_prevents_dispatch) ... ok
+test_report_and_journal_paths_cannot_collide (test_composed_routing.RoutingCustodyTests.test_report_and_journal_paths_cannot_collide) ... ok
+test_report_update_preserves_another_invocations_temporary_named_report (test_composed_routing.RoutingCustodyTests.test_report_update_preserves_another_invocations_temporary_named_report) ... ok
+test_resolved_model_drift_or_missing_identity_stops_next_call (test_composed_routing.RoutingCustodyTests.test_resolved_model_drift_or_missing_identity_stops_next_call) ... ok
+test_result_sync_failure_stops_before_another_draw (test_composed_routing.RoutingCustodyTests.test_result_sync_failure_stops_before_another_draw) ... ok
+test_terminal_failure_retains_all_earlier_draw_fields (test_composed_routing.RoutingCustodyTests.test_terminal_failure_retains_all_earlier_draw_fields) ... ok
+
+======================================================================
+FAIL: test_selected_report_cannot_override_recomputed_policy_gates (test_composed_routing.ComposedEvidenceTests.test_selected_report_cannot_override_recomputed_policy_gates) (gate='overall')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/thaffey/.codex/worktrees/heb-154-integration/bedrock/tests/test_composed_routing.py", line 97, in test_selected_report_cannot_override_recomputed_policy_gates
+    self.assertTrue(any("recomputed routing outcomes fail" in e for e in errors), errors)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : []
+
+======================================================================
+FAIL: test_selected_report_cannot_override_recomputed_policy_gates (test_composed_routing.ComposedEvidenceTests.test_selected_report_cannot_override_recomputed_policy_gates) (gate='per-case')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/thaffey/.codex/worktrees/heb-154-integration/bedrock/tests/test_composed_routing.py", line 97, in test_selected_report_cannot_override_recomputed_policy_gates
+    self.assertTrue(any("recomputed routing outcomes fail" in e for e in errors), errors)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : []
+
+======================================================================
+FAIL: test_selected_report_cannot_override_recomputed_policy_gates (test_composed_routing.ComposedEvidenceTests.test_selected_report_cannot_override_recomputed_policy_gates) (gate='excluded')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/thaffey/.codex/worktrees/heb-154-integration/bedrock/tests/test_composed_routing.py", line 97, in test_selected_report_cannot_override_recomputed_policy_gates
+    self.assertTrue(any("recomputed routing outcomes fail" in e for e in errors), errors)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : []
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.155s
+
+FAILED (failures=3)

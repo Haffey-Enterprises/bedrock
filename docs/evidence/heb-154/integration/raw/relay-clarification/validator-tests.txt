@@ -1,0 +1,31 @@
+test_seeded_invalid_manifest_fails_strict_host_validation (test_validate_plugin.StrictHostValidatorIntegrationTests.test_seeded_invalid_manifest_fails_strict_host_validation) ... ok
+test_rejects_cross_skill_relative_link (test_validate_plugin.ValidatorTests.test_rejects_cross_skill_relative_link) ... ok
+test_rejects_duplicate_json_key_before_value_collapse (test_validate_plugin.ValidatorTests.test_rejects_duplicate_json_key_before_value_collapse) ... ok
+test_rejects_duplicate_name (test_validate_plugin.ValidatorTests.test_rejects_duplicate_name) ... ok
+test_rejects_duplicate_yaml_key_before_value_collapse (test_validate_plugin.ValidatorTests.test_rejects_duplicate_yaml_key_before_value_collapse) ... ok
+test_rejects_evidence_path_outside_repository (test_validate_plugin.ValidatorTests.test_rejects_evidence_path_outside_repository) ... ok
+test_rejects_fixture_backed_sample_without_command (test_validate_plugin.ValidatorTests.test_rejects_fixture_backed_sample_without_command) ... ok
+test_rejects_invalid_eval_threshold (test_validate_plugin.ValidatorTests.test_rejects_invalid_eval_threshold) ... ok
+test_rejects_invalid_retained_routing_report (test_validate_plugin.ValidatorTests.test_rejects_invalid_retained_routing_report) ... ok
+test_rejects_malformed_frontmatter (test_validate_plugin.ValidatorTests.test_rejects_malformed_frontmatter) ... ok
+test_rejects_manifest_description_drift (test_validate_plugin.ValidatorTests.test_rejects_manifest_description_drift) ... ok
+test_rejects_missing_application_test_debug_registry (test_validate_plugin.ValidatorTests.test_rejects_missing_application_test_debug_registry) ... ok
+test_rejects_missing_evidence_file (test_validate_plugin.ValidatorTests.test_rejects_missing_evidence_file) ... ok
+test_rejects_missing_markdown_anchor (test_validate_plugin.ValidatorTests.test_rejects_missing_markdown_anchor) ... ok
+test_rejects_missing_negative_route (test_validate_plugin.ValidatorTests.test_rejects_missing_negative_route) ... ok
+test_rejects_missing_relative_markdown_target (test_validate_plugin.ValidatorTests.test_rejects_missing_relative_markdown_target) ... ok
+test_rejects_non_mapping_route (test_validate_plugin.ValidatorTests.test_rejects_non_mapping_route) ... ok
+test_rejects_overlong_description (test_validate_plugin.ValidatorTests.test_rejects_overlong_description) ... ok
+test_rejects_private_absolute_path (test_validate_plugin.ValidatorTests.test_rejects_private_absolute_path) ... ok
+test_rejects_stale_snapshot_declaration (test_validate_plugin.ValidatorTests.test_rejects_stale_snapshot_declaration) ... ok
+test_rejects_tilde_home_path (test_validate_plugin.ValidatorTests.test_rejects_tilde_home_path) ... ok
+test_rejects_undeclared_external_dependency (test_validate_plugin.ValidatorTests.test_rejects_undeclared_external_dependency) ... ok
+test_rejects_uninventoried_code_fence (test_validate_plugin.ValidatorTests.test_rejects_uninventoried_code_fence) ... ok
+test_rejects_unknown_overlap_alternate (test_validate_plugin.ValidatorTests.test_rejects_unknown_overlap_alternate) ... ok
+test_seeded_defect_manifest_names_existing_tests (test_validate_plugin.ValidatorTests.test_seeded_defect_manifest_names_existing_tests) ... ok
+test_valid_fixture_passes (test_validate_plugin.ValidatorTests.test_valid_fixture_passes) ... ok
+
+----------------------------------------------------------------------
+Ran 26 tests in 0.771s
+
+OK

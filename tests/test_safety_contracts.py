@@ -104,6 +104,102 @@ class SafetyValidatorNegativeTests(unittest.TestCase):
 
         self.assert_has_error("must use a full commit SHA")
 
+    def test_unnamed_unpinned_action_reference_fails(self) -> None:
+        path = self.root / "tests/fixtures/safety/pr-image-build.yml"
+        path.write_text(path.read_text() + "\n      - uses: actions/setup-python@v5\n")
+        self.assert_has_error("must use a full commit SHA")
+
+    def test_maintained_actions_require_verified_node24_identities(self) -> None:
+        cases = (
+            (
+                "plugins/bedrock/skills/infrastructure-code/reference/05-delivery-pipeline.md",
+                "hashicorp/setup-terraform",
+                "dfe3c3f87815947d99a8997f908cb6525fc44e9e",
+                "b9cd54a3c349d3f38e8881555d616ced269862dd",
+            ),
+            (
+                "tests/fixtures/safety/pr-image-build.yml",
+                "actions/checkout",
+                "fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09",
+                "11d5960a326750d5838078e36cf38b85af677262",
+            ),
+        )
+        for relative, action, current, old in cases:
+            with self.subTest(surface=relative):
+                path = self.root / relative
+                original = path.read_text()
+                # The maintained bytes themselves must use the verified identity.
+                self.assertIn(f"uses: {action}@{current}", original)
+                for identity in (old, "0" * 40):
+                    with self.subTest(identity=identity):
+                        path.write_text(original.replace(current, identity))
+                        self.assert_has_error("must use the verified Node 24 action identity")
+                # Removal cannot turn the runtime gate into a vacuous pass.
+                path.write_text(original.replace(f"uses: {action}@{current}", "run: true"))
+                self.assert_has_error("must use the verified Node 24 action identity")
+                path.write_text(original)
+        self.assertEqual([], validate_safety_contracts(self.root))
+
+    def test_old_runtime_cannot_hide_in_yaml_syntax(self) -> None:
+        cases = (
+            (
+                "tests/fixtures/safety/pr-image-build.yml",
+                "actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+            ),
+            (
+                "plugins/bedrock/skills/infrastructure-code/reference/05-delivery-pipeline.md",
+                "hashicorp/setup-terraform@b9cd54a3c349d3f38e8881555d616ced269862dd",
+            ),
+        )
+        for relative, old in cases:
+            path = self.root / relative
+            original = path.read_text()
+            for step in (
+                '- {uses: "' + old + '"}',
+                '- "uses": "' + old + '"',
+                '- uses: ' + old.upper(),
+                '- &old {uses: "' + old + '"}\n- *old',
+                '- uses: >-\n    ' + old,
+            ):
+                with self.subTest(surface=relative, step=step):
+                    if path.suffix == ".md":
+                        extra = "\n```yaml\n" + step + "\n```\n"
+                    else:
+                        extra = "\n" + "\n".join("      " + line for line in step.splitlines()) + "\n"
+                    path.write_text(original + extra)
+                    self.assert_has_error("must use the verified Node 24 action identity")
+            path.write_text(original)
+
+    def test_unpinned_flow_action_fails(self) -> None:
+        path = self.root / "tests/fixtures/safety/pr-image-build.yml"
+        path.write_text(path.read_text() + '\n      - {uses: "actions/setup-python@v5"}\n')
+        self.assert_has_error("must use a full commit SHA")
+
+    def test_yaml_current_identity_alias_and_cycle_are_safe(self) -> None:
+        path = self.root / "tests/fixtures/safety/pr-image-build.yml"
+        current = "actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09"
+        path.write_text(path.read_text() + (
+            '\n      - &good {"uses": "' + current + '"}\n      - *good\n'
+            '\nsynthetic-cycle: &cycle [*cycle]\n'
+        ))
+        self.assertEqual([], validate_safety_contracts(self.root))
+
+    def test_missing_action_ref_and_malformed_yaml_fail(self) -> None:
+        path = self.root / "tests/fixtures/safety/pr-image-build.yml"
+        original = path.read_text()
+        path.write_text(original + "\n      - uses: actions/setup-python\n")
+        self.assert_has_error("must use a full commit SHA")
+        path.write_text(original + "\n      - uses: [\n")
+        self.assert_has_error("cannot inspect Action references: invalid YAML")
+
+    def test_duplicate_action_key_cannot_discard_old_identity(self) -> None:
+        path = self.root / "tests/fixtures/safety/pr-image-build.yml"
+        path.write_text(path.read_text() + (
+            "\n      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262\n"
+            "        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09\n"
+        ))
+        self.assert_has_error("duplicate YAML key 'uses'")
+
     def test_python_minor_site_packages_path_fails(self) -> None:
         # Arrange
         path = (

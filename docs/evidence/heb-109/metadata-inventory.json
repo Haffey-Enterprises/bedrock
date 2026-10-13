@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "skill_count": 13,
+  "skill_count": 15,
   "description_limit": 1024,
   "routing_schema_version": 2,
   "sample_classifications": {
@@ -9,15 +9,36 @@
   },
   "skills": [
     {
+      "path": "plugins/bedrock/skills/agent-builder/SKILL.md",
+      "description": "Build checked fleet specialist agents from requirements through implementation, bounded verification and handoff, using the shared Python core and published interfaces. Use for a requested running fleet specialist, including a single structured-output model call. Do not use for mechanism-only LLM-call work (agent-code), observed failures (debug), ordinary services (application-code), tests alone (testing), finished-diff review, or deployment.",
+      "description_length": 446,
+      "positive_cases": [
+        "agent-builder-positive",
+        "agent-builder-one-shot"
+      ],
+      "negative_cases": [
+        "agent-builder-mechanism-negative",
+        "agent-builder-debug-collision",
+        "agent-builder-review-collision",
+        "agent-builder-prompt-only-negative"
+      ],
+      "overlap_cases": [],
+      "name": "agent-builder"
+    },
+    {
       "path": "plugins/bedrock/skills/agent-code/SKILL.md",
       "description": "LLM-call implementation only, including structured-output parsing, bounded salvage and recovery, model transport, tool loops, budgets, and evidence. Use this skill when an LLM call is the code's central act. Do not use for observed-failure diagnosis (debug), ordinary service code (application-code), executor handoffs (author-execution-relay), or design-record review (design-review-loop).",
       "description_length": 390,
       "positive_cases": [
         "agent-code-positive",
-        "application-code-negative"
+        "application-code-negative",
+        "agent-builder-mechanism-negative"
       ],
       "negative_cases": [
-        "agent-code-negative"
+        "agent-code-negative",
+        "agent-builder-positive",
+        "agent-builder-one-shot",
+        "agent-builder-prompt-only-negative"
       ],
       "overlap_cases": [
         "overlap-test-agent-output",
@@ -74,13 +95,16 @@
       "description": "Internal engineering machinery only; product or feature requirements documents (PRDs) are explicitly outside this skill and have no Bedrock route. Use this skill to author or amend an implementation-complete construct spec for one runner, harness, instrument, pipeline, or other internal mechanism when an implementer must build it from the document alone. Never infer construct-spec ownership merely because a request says specification or requirements. Do not use for reusable standards (author-standard), finished-code review, or general architecture documentation; author-decision-record owns engineering doctype selection and integrity.",
       "description_length": 641,
       "positive_cases": [
-        "author-construct-spec-positive"
+        "author-construct-spec-positive",
+        "planning-specialist-design"
       ],
       "negative_cases": [
-        "author-construct-spec-negative"
+        "author-construct-spec-negative",
+        "planning-sequence-overlap"
       ],
       "overlap_cases": [
-        "overlap-relay-construct"
+        "overlap-relay-construct",
+        "planning-specialist-design"
       ],
       "name": "author-construct-spec"
     },
@@ -104,18 +128,23 @@
     },
     {
       "path": "plugins/bedrock/skills/author-execution-relay/SKILL.md",
-      "description": "Executor prompts and handoffs only; every gated instruction sent to Code or another executor routes here, never to app-delivery-pipeline, even when it mentions delivery gates or starts from a construct spec. Use this skill to author an execution relay, implementation handoff, or session kickoff that delegates bounded file and git toil while reserving judgment and per-gate ratification for the operator. Here Code means the executor, not application source code. Do not use this to perform implementation, write a general design record or reusable standard, or review a finished diff.",
-      "description_length": 586,
+      "description": "Authoring executor prompts and handoffs only. Use this skill when the requested deliverable is a gated instruction, execution relay, implementation handoff, or session kickoff for Code or another executor, including one about delivery gates or a construct spec. Direct implementation, build, or deployment work stays with its domain skill even when gated. Relays delegate bounded file and git toil while reserving judgment and per-gate ratification for the operator. Here Code means the executor, not application source code. Do not use this to perform implementation, write a general design record or reusable standard, or review a finished diff.",
+      "description_length": 647,
       "positive_cases": [
         "author-execution-relay-positive",
-        "overlap-relay-construct"
+        "author-execution-relay-instrument-discrimination",
+        "overlap-relay-construct",
+        "planning-executor-handoff"
       ],
       "negative_cases": [
         "author-execution-relay-negative",
-        "adversarial-implementation-misroute"
+        "adversarial-implementation-misroute",
+        "planning-sequence-overlap"
       ],
       "overlap_cases": [
-        "overlap-relay-construct"
+        "author-execution-relay-instrument-discrimination",
+        "overlap-relay-construct",
+        "planning-executor-handoff"
       ],
       "name": "author-execution-relay"
     },
@@ -144,14 +173,18 @@
         "overlap-review-frontend",
         "overlap-review-terraform",
         "implicit-review-ship-readiness",
-        "adversarial-design-review-misroute"
+        "adversarial-design-review-misroute",
+        "agent-builder-review-collision",
+        "planning-finished-review"
       ],
       "negative_cases": [
         "code-review-negative"
       ],
       "overlap_cases": [
         "overlap-review-frontend",
-        "overlap-review-terraform"
+        "overlap-review-terraform",
+        "agent-builder-review-collision",
+        "planning-finished-review"
       ],
       "name": "code-review"
     },
@@ -163,21 +196,27 @@
         "debug-positive",
         "debug-nonreproducible-production",
         "debug-active-harm",
+        "debug-claim-subject-discrimination",
         "overlap-debug-frontend",
         "testing-negative",
         "overlap-debug-deployment",
         "implicit-debug-regression",
-        "adversarial-debug-misroute"
+        "adversarial-debug-misroute",
+        "agent-builder-debug-collision"
       ],
       "negative_cases": [
+        "author-execution-relay-instrument-discrimination",
         "debug-negative",
         "overlap-testing-frontend",
         "testing-risk-strategy",
+        "testing-silent-success-counterfactual",
         "testing-regression-after-diagnosis"
       ],
       "overlap_cases": [
+        "debug-claim-subject-discrimination",
         "overlap-debug-frontend",
-        "overlap-debug-deployment"
+        "overlap-debug-deployment",
+        "agent-builder-debug-collision"
       ],
       "name": "debug"
     },
@@ -239,6 +278,28 @@
       "name": "infrastructure-code"
     },
     {
+      "path": "plugins/bedrock/skills/planning/SKILL.md",
+      "description": "Assess a declared work population against accepted intent: gaps, overlaps, dependencies, feasible sequence, ownership, and evidence-loss risks. Use for source-grounded backlog assessment and planning recommendations. Initial support is supervised backlog assessment. Do not use for product discovery, specialist design, test authoring, finished-change review, executor handoffs, or record mutation.",
+      "description_length": 398,
+      "positive_cases": [
+        "planning-explicit-assessment",
+        "planning-sequence-overlap"
+      ],
+      "negative_cases": [
+        "planning-product-discovery",
+        "planning-record-mutation",
+        "planning-executor-handoff",
+        "planning-specialist-design",
+        "planning-unattended",
+        "planning-tests",
+        "planning-finished-review"
+      ],
+      "overlap_cases": [
+        "planning-sequence-overlap"
+      ],
+      "name": "planning"
+    },
+    {
       "path": "plugins/bedrock/skills/testing/SKILL.md",
       "description": "Author new tests, test strategy, fixtures, and planned coverage. Use for test-first specification of new or changed behavior, risk-based test selection, isolation, contract testing, coverage design, and deterministic or nondeterministic evaluation. Do not use to diagnose any observed failing or flaky test, including CI-only flakes (debug), to implement production behavior, or to review a finished diff. Select a stack profile; a materially different unprofiled test stack is a rebind.",
       "description_length": 487,
@@ -246,11 +307,14 @@
         "overlap-testing-frontend",
         "testing-positive",
         "testing-risk-strategy",
+        "testing-silent-success-counterfactual",
         "testing-regression-after-diagnosis",
-        "overlap-test-agent-output"
+        "overlap-test-agent-output",
+        "planning-tests"
       ],
       "negative_cases": [
         "debug-nonreproducible-production",
+        "debug-claim-subject-discrimination",
         "overlap-debug-frontend",
         "testing-negative",
         "implicit-debug-regression",
@@ -258,8 +322,10 @@
       ],
       "overlap_cases": [
         "overlap-testing-frontend",
+        "testing-silent-success-counterfactual",
         "testing-regression-after-diagnosis",
-        "overlap-test-agent-output"
+        "overlap-test-agent-output",
+        "planning-tests"
       ],
       "name": "testing"
     }

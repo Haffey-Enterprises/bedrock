@@ -1,0 +1,19 @@
+{
+  "date": "2026-09-30",
+  "event": "author-time dry-run",
+  "hit": {
+    "kind": "contract-outcome",
+    "text": "failed",
+    "line": 34,
+    "column": 40
+  },
+  "disposition": "removed",
+  "before": "failed pin check",
+  "after": "pin mismatch",
+  "judgment": "Equivalent stop condition; outcome-pattern false positive on a stop-rule phrase. No gate meaning, prohibition, or stop is relaxed.",
+  "predecessor": "relay-before-disposition.md",
+  "before_sha256": "4da702af51dd2554a158e86b382d29f9928dd2e95611adbdead2abff9982f2df",
+  "after_sha256": "a1e941586a9ddc10a299e74da9103bcf30ff1b012f24f1a40704b0f74d09151f",
+  "first_failure": "component-proof-first.txt",
+  "detector_change": "none"
+}

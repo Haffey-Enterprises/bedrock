@@ -1,0 +1,7 @@
+{
+  "scope": "Full Git tracked/untracked changed-path population; ignored files excluded. Bytes hashed, not a semantic read of all historical content.",
+  "captured_paths": 1605,
+  "head_unchanged": true,
+  "mismatches": [],
+  "limitation": "Previously captured changed paths only; ignored files and concurrent newly created paths excluded."
+}

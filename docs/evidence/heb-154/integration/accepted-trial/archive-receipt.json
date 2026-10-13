@@ -1,0 +1,38 @@
+{
+  "recorded_at_eastern": "2026-09-29 07:42:03 -0400",
+  "status": "accepted bounded trial archived and read-back verified",
+  "archive": "/Users/thaffey/Documents/Haffey Enterprises/Development Archives/HEB-154-2026-09-29/accepted-bounded-trial/proof.tar.gz",
+  "archive_sha256": "7e574fa699fcd855b67f535627a9d22c1ad7b526694d3fce2dabd42d42232fdc",
+  "archive_bytes": 1252794,
+  "source_roots": {
+    "current-package-review": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-28/current-package-review",
+    "attended-live": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/attended-live"
+  },
+  "scope_audits": [
+    {
+      "scope": "current-package-review",
+      "regular_files": 3081,
+      "bytes": 12319123,
+      "symlinks": 609,
+      "directories": 825,
+      "external_symlinks": 0,
+      "broken_symlinks": 0,
+      "external_target_control_rejected": true
+    },
+    {
+      "scope": "attended-live",
+      "regular_files": 44,
+      "bytes": 56726,
+      "symlinks": 0,
+      "directories": 0,
+      "external_symlinks": 0,
+      "broken_symlinks": 0,
+      "external_target_control_rejected": true
+    }
+  ],
+  "verification": "Every regular archive member read and SHA256 matched; exact symlink text and member population matched; all source files rehashed afterward.",
+  "hygiene": "All regular source bytes, path/link text and all ZIP member contents scanned with positive control; no term retained in this record.",
+  "zip_members_checked": 29,
+  "working_copy_retained_reason": "Exact runtime and handoff paths still reference the Working tree; no interim-proof deletion is safe before integration/custody disposition.",
+  "excluded": "External SDK/Python runtimes, repository checkout, keychain, credentials and other Working folders."
+}

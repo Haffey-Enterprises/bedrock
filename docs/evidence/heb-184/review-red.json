@@ -1,0 +1,14 @@
+{
+  "command": [
+    "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+    "-B",
+    "-m",
+    "unittest",
+    "tests.test_package_governance.PackageGovernanceTests.test_planning_authorities_reject_duplicate_keys_before_collapse",
+    "-v"
+  ],
+  "cwd": "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-184-2026-09-30/review-red",
+  "exit_code": 1,
+  "base_archive": "candidate-1.tar",
+  "overlay": "review-red-test.py"
+}

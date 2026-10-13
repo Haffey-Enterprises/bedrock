@@ -1,0 +1,22 @@
+{
+  "custody": "Transcribed from original reviewer tool calls after author repair began; not an original on-disk execution log. Original inline commands and outputs remain in review conversation. Initial structured record left unchanged.",
+  "fixtures": "Current HygieneTests setup: disposable repository, invented.patterns, safe staged blob. Initial inherited pattern variables cleared; no real pattern file accessed.",
+  "R1": {
+    "probe": "Known-good hook control; mktemp shim removes invented pattern file after precheck then execs /usr/bin/mktemp with original argv.",
+    "observed": {
+      "control_exit": 0,
+      "fault_exit": 2,
+      "invented_pattern_path_leaked": true,
+      "stderr": "Bash line 31 no-such-file diagnostic included full invented.patterns path, then data-hygiene: check unavailable."
+    }
+  },
+  "R2": {
+    "probe": "Known-good hook control; cat shim delegates /bin/cat with original argv then exits 19.",
+    "observed": {
+      "control_exit": 0,
+      "fault_exit": 0,
+      "stdout": "data-hygiene: 1 staged blobs scanned\n",
+      "stderr": ""
+    }
+  }
+}

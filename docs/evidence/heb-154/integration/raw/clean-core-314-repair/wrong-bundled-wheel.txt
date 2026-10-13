@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/clean-core-314-repair/agent-builder/scripts/install_core.py", line 110, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/clean-core-314-repair/agent-builder/scripts/install_core.py", line 85, in main
+    component = load_component(ASSETS)
+  File "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/clean-core-314-repair/agent-builder/scripts/install_core.py", line 23, in load_component
+    raise ValueError('bundled core wheel digest mismatch')
+ValueError: bundled core wheel digest mismatch

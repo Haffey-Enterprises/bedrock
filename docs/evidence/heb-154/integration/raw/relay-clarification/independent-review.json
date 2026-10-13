@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "profile": "standard",
+  "scope": "Ratified relay-description clarification and its changelog/context carriers",
+  "checked_surfaces": [
+    "Complete changed diff",
+    "Whole relay semantics and unchanged body",
+    "All 14 skills measured mechanically for description and entrypoint budgets",
+    "Whole lifecycle and context record, complete budget-checking function",
+    "Fixture, policy, manifest, registry and 14 carriers compared with pre-repair head; description comparison provided positive control"
+  ],
+  "gates": [
+    {
+      "name": "Independent semantic, budget and version review",
+      "disposition": "passed"
+    },
+    {
+      "name": "Current-catalog routing and cold acceptance",
+      "disposition": "unavailable",
+      "reason": "New catalog requires separately authorized live evidence and subsequent acceptance."
+    }
+  ],
+  "findings": [],
+  "verdict": "pause"
+}

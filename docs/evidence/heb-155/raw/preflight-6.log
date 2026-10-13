@@ -1,0 +1,15 @@
+usage: validate_plugin.py [-h] [--root ROOT] [--skip-host-cli] [--component]
+                          [--inventory INVENTORY]
+
+Deterministic Bedrock plugin validation for HEB-108 / minimum HEB-109.
+
+options:
+  -h, --help            show this help message and exit
+  --root ROOT
+  --skip-host-cli       Skip Claude CLI plugin-manifest validation (tests
+                        only).
+  --component           Component checks only: retain historical routing
+                        evidence without claiming current routing acceptance.
+                        Default still verifies current retained evidence.
+  --inventory INVENTORY
+                        Write the derived metadata/routing inventory as JSON.

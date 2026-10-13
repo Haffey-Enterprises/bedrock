@@ -2,13 +2,20 @@
 
 **Haffey Enterprises engineering skills** — by T-Bone-Haff (Tad Haffey, Haffey Enterprises LLC).
 
-Self-contained Claude skills distilled from the HE-Bedrock governance corpus. They carry the *content* — the engineering standard, the doctype templates, the testing and review disciplines — with none of the private self-governance machinery. No skill depends on another skill being loaded; a skill's own depth lives in its bundled `reference/` and `templates/` files (some skills are a single SKILL.md). Portable actor contracts name optional host profiles without embedding a private runner, tracker, path, or authority corpus.
+Self-contained Claude skills distilled from the HE-Bedrock governance corpus. They carry the *content* — the engineering standard, the doctype templates, the testing and review disciplines — with none of the private self-governance machinery. Dependencies are explicit: agent-builder requires agent-code and the bundled Python core. A skill's own depth lives in its bundled `reference/` and `templates/` files (some skills are a single SKILL.md). Portable actor contracts name optional host profiles without embedding a private runner, tracker, path, or authority corpus.
 
 ## What's in the kit
 
-The kit spans the authoring-through-review lifecycle on the house stacks — service, infrastructure, agent, frontend, and pipeline work alike. Each capability is a self-contained skill that Claude auto-discovers and triggers by task; the live roster is the plugin's [`skills/`](plugins/bedrock/skills) folder, every skill carries its own description, and the plugin manifest carries the current summary. This README deliberately restates neither.
+The kit spans the authoring-through-review lifecycle on the house stacks — service, infrastructure, agent, frontend, and pipeline work alike. Skills are discoverable by task; planning is accepted only for explicit supervised invocation; the live roster is the plugin's [`skills/`](plugins/bedrock/skills) folder, every skill carries its own description, and the plugin manifest carries the current summary. This README deliberately restates neither.
 
 ## Shared libraries
+
+[Agent core](packages/agent-core/README.md) is authored separately and distributed
+as a wheel with agent-builder. That skill installs it into a selected project
+virtual environment and records the exact Bedrock revision, wheel hash and
+qualified dependencies. Bedrock updates deliver components; consuming projects
+upgrade explicitly with their own checks. Tests and execution evidence remain
+in the repository, outside the plugin distribution.
 
 [Linear API client](packages/hex-linear/README.md) is a standalone Python library
 for direct issue and comment operations. Install it separately from the skills
@@ -76,7 +83,7 @@ supported profile.
 Edit the relevant skill's authored files directly — the SKILL.md and any bundled
 `reference/` or `templates/` files; single source of truth per skill. Do not
 hand-edit `PACKAGE_IDENTITY.json`: after a manifest or Claude-adapter identity
-change, regenerate all 13 copies with
+change, regenerate all 15 copies with
 `python3 scripts/sync_package_identity.py --write`. Releases follow the push
 discipline in the `author-standard` skill.
 
@@ -93,7 +100,9 @@ python3 scripts/validate_package_governance.py
 bash scripts/smoke_clean_install.sh
 ```
 
-`validate_plugin.py` deterministically enforces the 13-skill inventory, strict YAML frontmatter, the 1,024-character description limit, explicit positive and negative routing boundaries, unique names, plugin/marketplace coherence, package lifecycle and policy contracts, relative-link and private-path safety, declared external-root dependencies and snapshot currency markers, complete code-sample accounting, evidence-manifest integrity, and routing-fixture coverage. It separately runs `claude plugin validate --strict` against the plugin manifest; that host check does not claim recursive skill-frontmatter coverage.
+For component preparation before composed routing acceptance, `validate_plugin.py --component` runs deterministic and strict-host checks without treating prior routing evidence as current. Its success is not release acceptance; the default validator still requires current retained routing evidence. Select composed evidence explicitly with `--routing-evidence docs/evidence/heb-161/routing-results.json` (relative to `--root`), preserving the historical HEB-109 report. A missing selected or default report fails closed; explicit evidence selection cannot be combined with `--component`.
+
+`validate_plugin.py` deterministically enforces the 15-skill inventory, strict YAML frontmatter, the 1,024-character description limit, explicit positive and negative routing boundaries, unique names, plugin/marketplace coherence, package lifecycle and policy contracts, relative-link and private-path safety, declared external-root dependencies and snapshot currency markers, complete code-sample accounting, evidence-manifest integrity, and routing-fixture coverage. It separately runs `claude plugin validate --strict` against the plugin manifest; that host check does not claim recursive skill-frontmatter coverage.
 
 `validate_package_governance.py` separately exposes the package gate for seeded
 tests and release automation. Its default mode validates a candidate. Its
@@ -104,7 +113,7 @@ the distributed paths retained byte parity, and the tag and rollout identities
 agree. It is a final release-closure check, not the pre-merge HEB-119 candidate
 gate itself.
 
-`sync_package_identity.py --check` proves the 13 skill-local identity carriers
+`sync_package_identity.py --check` proves the 15 skill-local identity carriers
 are byte-identical, canonical generations of the manifest and registry
 authorities. The package-governance validator enforces the same contract.
 
@@ -113,7 +122,11 @@ Shared routing prompts live in `tests/fixtures/routing.yaml` and are surface-neu
 ```sh
 python3 scripts/run_routing_evals.py \
   --profile release \
-  --output docs/evidence/heb-109/routing-results.json
+  --expected-cli-version "2.1.226 (Claude Code)" \
+  --model claude-haiku-4-5-20251001 \
+  --expected-model claude-haiku-4-5-20251001 \
+  --max-total-budget-usd 3.00 \
+  --output /path/to/fresh-evidence/report.json
 ```
 
 The live adapter requires `ANTHROPIC_API_KEY` and incurs model usage. Its
@@ -134,6 +147,41 @@ call is capped at $0.04 and 120 seconds. Deterministic validation and the isolat
 install/reload smoke test do not require model inference. Branch protection must
 require `Plugin validation / live-routing`.
 
+Each invocation requires a fresh `--output` report and a distinct sibling `.jsonl`
+journal. Existing files are refused before any model call. The journal retains
+preregistration, a start record before each invocation, every returned draw
+(including detail, reported cost and resolved models), and terminal disposition.
+Each journal append is flushed and synced before dispatch can continue; a custody
+failure stops execution without retry. A start without a finish records an
+interrupted attempt whose outcome and charges remain unknown. A terminal failure
+may replace the summary report, but never the journal or prior invocation's files.
+This is local filesystem custody, not a claim of off-machine backup or provider
+internal retry accounting.
+
+The CLI must match `--expected-cli-version` before any model call. Every successful
+response must name exactly `--expected-model`; missing or different identity is
+retained and stops the matrix before another draw. Defaults are the workflow's
+pinned Claude Code version and resolved model shown above. Changing these values
+requires a new preregistration; it does not reuse a previous evaluation baseline.
+Retained admission additionally reads the reviewed `validation/routing-baseline.json`:
+it declares the execution source commit, adapter source digest, exact CLI/model
+identities, budget ceilings and journal digest. The selected report's sibling
+`.jsonl` must reconcile preregistration, every ordered start/finish pair and the
+terminal evaluation. Known row costs must reconcile with the total and remain
+strictly below the per-attempt and aggregate ceilings. Producer green flags are
+not sufficient. An adapter source change makes the old baseline ineligible;
+retain its original report/journal as historical evidence and qualify a new
+baseline under separately authorized execution. Do not rewrite historical draws
+or automatically update a baseline to make validation pass. This custody check
+binds the declared local execution; it is not independent provider billing proof.
+
+CI retains both files under `heb-161-routing-results`; the composed release report
+is separately selected by the deterministic gate. A PR-profile observation does
+not replace a release-profile report, and an unavailable composed report remains
+a failed gate. No live run or additional spend is authorized by these commands.
+
 Using `--case` creates an explicitly targeted report. It can prove that selected cases passed, but the report is marked ineligible as retained full-suite release evidence.
 
 `validation/executable-samples.yaml` accounts for every language-tagged skill example. `fixture-backed` entries name executable evidence; `illustrative` and `deferred` entries name the correction ticket that owns stronger proof. `docs/evidence/heb-109/manifest.yaml` ties validation claims to reproducible commands, retained evidence, and explicit deferrals.
+
+The package also ships the [local data-hygiene utility](plugins/bedrock/scripts/data-hygiene/README.md). Package availability does not deploy its machine runtime or install repository dispatchers; HEB-161 acceptance and release precede HEB-155 rollout.

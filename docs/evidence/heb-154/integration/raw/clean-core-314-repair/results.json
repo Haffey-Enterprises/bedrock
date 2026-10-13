@@ -1,0 +1,127 @@
+[
+  {
+    "name": "missing-install",
+    "command": [
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/clean-core-314-repair/agent-builder/scripts/install_core.py",
+      "--python",
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/clean-core-314-repair/venv/bin/python",
+      "--check"
+    ],
+    "returncode": 1,
+    "expected": "reject",
+    "passed": true,
+    "log": "missing-install.txt"
+  },
+  {
+    "name": "clean-install",
+    "command": [
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/clean-core-314-repair/agent-builder/scripts/install_core.py",
+      "--python",
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/clean-core-314-repair/venv/bin/python"
+    ],
+    "returncode": 0,
+    "expected": "pass",
+    "passed": true,
+    "log": "clean-install.txt"
+  },
+  {
+    "name": "reload",
+    "command": [
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/clean-core-314-repair/agent-builder/scripts/install_core.py",
+      "--python",
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/clean-core-314-repair/venv/bin/python",
+      "--check"
+    ],
+    "returncode": 0,
+    "expected": "pass",
+    "passed": true,
+    "log": "reload.txt"
+  },
+  {
+    "name": "wrong-installed-core",
+    "command": [
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/clean-core-314-repair/agent-builder/scripts/install_core.py",
+      "--python",
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/clean-core-314-repair/venv/bin/python",
+      "--check"
+    ],
+    "returncode": 1,
+    "expected": "reject",
+    "passed": true,
+    "log": "wrong-installed-core.txt"
+  },
+  {
+    "name": "restored-install",
+    "command": [
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/clean-core-314-repair/agent-builder/scripts/install_core.py",
+      "--python",
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/clean-core-314-repair/venv/bin/python",
+      "--check"
+    ],
+    "returncode": 0,
+    "expected": "pass",
+    "passed": true,
+    "log": "restored-install.txt"
+  },
+  {
+    "name": "wrong-bundled-wheel",
+    "command": [
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/venv/bin/python",
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/clean-core-314-repair/agent-builder/scripts/install_core.py",
+      "--python",
+      "/Users/thaffey/Documents/Haffey Enterprises/Working/HEB-154-2026-09-29/integration/clean-core-314-repair/venv/bin/python"
+    ],
+    "returncode": 1,
+    "expected": "reject",
+    "passed": true,
+    "log": "wrong-bundled-wheel.txt"
+  },
+  {
+    "name": "subject",
+    "python": "3.14.6 (v3.14.6:c63aec69bd5, Jun 10 2026, 08:07:54) [Clang 21.0.0 (clang-2100.1.1.101)]",
+    "component": {
+      "build_requirements_sha256": "12d95d3f58681aa8e07423fd2bf2c164f8d41af73508cbc5bf093c3b6e790f4e",
+      "distribution": "agent-core",
+      "requirements_sha256": "a7daaf5f9de005d868ec97784f24cd8aa16244c73451fdd159adacfc4ed47501",
+      "schema_version": 1,
+      "source_files": {
+        "agent_core/__init__.py": "251cd09b7a1c57fd20e36f8db262547af3443b401f34a0d7caa5d89962d4f626",
+        "agent_core/budget.py": "787865dcd1aadefca31565910dfb4bad67e783f83aa74c0b1a9f2e350b93a539",
+        "agent_core/config.py": "240d3a591926b54e2afdae92565c45840767e73aaf52e826b4b3e93e899012a2",
+        "agent_core/evidence.py": "0c275569eebeb3e262957203c546fd3c1e0704b55f90e48a209afebef3038898",
+        "agent_core/py.typed": "f0f8f2675695a10a5156fb7bd66bafbaae6a13e8d315990af862c792175e6e67",
+        "agent_core/security.py": "b0d5fd3371dd924775c4ea91a3682b5ec46c6d85a8f61857cf987df0f33d6dc9",
+        "agent_core/structured.py": "4882cdb846525d5cadb64c625e3a81aa4bc7c5fd8fba8bca842b399b48bfa839",
+        "agent_core/tools.py": "fbde0b630fe4c82fc1df9a470665a2187fda5734b867eeb6da01aed6e9607553",
+        "agent_core/types.py": "122a79d7da32003524d1fb5df64abd967be0ec9437746372a0908abdaf9bb121",
+        "agent_core/version.py": "f4ec3a0530ca113cbfe889e49ccf6a8b656e912af95926c0e65e562ee8aa0689"
+      },
+      "version": "0.2.0",
+      "wheel": "agent_core-0.2.0-py3-none-any.whl",
+      "wheel_files": {
+        "agent_core-0.2.0.dist-info/METADATA": "6bb704c5a24fdec6f5f3e1092749927fc9788725f2caffb86bb352877578aa42",
+        "agent_core-0.2.0.dist-info/RECORD": "98526eebb8a908c2470476e2fffb3bc3121f4b3a0c04152d0f74300b1dae58a3",
+        "agent_core-0.2.0.dist-info/WHEEL": "ff309ddcdd65ebd02bc724dbf2bcc4a0ff53a5b61792a44548d383e4ebb19d3b",
+        "agent_core-0.2.0.dist-info/licenses/LICENSE": "c2510fd2fcf7107265a784f8f403d34aafb874726626215a13355fae5e5af2ae",
+        "agent_core-0.2.0.dist-info/top_level.txt": "cf5d212a8fc6b0f97156bccab2cd90e4eb04a8853a172c704f1d52df4f7f2b37",
+        "agent_core/__init__.py": "251cd09b7a1c57fd20e36f8db262547af3443b401f34a0d7caa5d89962d4f626",
+        "agent_core/budget.py": "787865dcd1aadefca31565910dfb4bad67e783f83aa74c0b1a9f2e350b93a539",
+        "agent_core/config.py": "240d3a591926b54e2afdae92565c45840767e73aaf52e826b4b3e93e899012a2",
+        "agent_core/evidence.py": "0c275569eebeb3e262957203c546fd3c1e0704b55f90e48a209afebef3038898",
+        "agent_core/py.typed": "f0f8f2675695a10a5156fb7bd66bafbaae6a13e8d315990af862c792175e6e67",
+        "agent_core/security.py": "b0d5fd3371dd924775c4ea91a3682b5ec46c6d85a8f61857cf987df0f33d6dc9",
+        "agent_core/structured.py": "4882cdb846525d5cadb64c625e3a81aa4bc7c5fd8fba8bca842b399b48bfa839",
+        "agent_core/tools.py": "fbde0b630fe4c82fc1df9a470665a2187fda5734b867eeb6da01aed6e9607553",
+        "agent_core/types.py": "122a79d7da32003524d1fb5df64abd967be0ec9437746372a0908abdaf9bb121",
+        "agent_core/version.py": "f4ec3a0530ca113cbfe889e49ccf6a8b656e912af95926c0e65e562ee8aa0689"
+      },
+      "wheel_sha256": "fdeba49630b213a12d437bdd6836585f39d96eeea619d8efe7fd8cfed368cfa0"
+    },
+    "installer_sha256": "52f532bdebbc2f3ef10a0781f7723346dea1426e5aa2769e7ea27127d1773ec8"
+  }
+]
