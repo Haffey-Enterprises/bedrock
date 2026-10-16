@@ -1,6 +1,6 @@
 # bedrock
 
-**Haffey Enterprises engineering skills** — by T-Bone-Haff (Tad Haffey, Haffey Enterprises LLC).
+**Haffey Enterprises engineering skills** — by T-Bone-Haff
 
 Self-contained Claude skills distilled from the HE-Bedrock governance corpus. They carry the *content* — the engineering standard, the doctype templates, the testing and review disciplines — with none of the private self-governance machinery. Dependencies are explicit: agent-builder requires agent-code and the bundled Python core. A skill's own depth lives in its bundled `reference/` and `templates/` files (some skills are a single SKILL.md). Portable actor contracts name optional host profiles without embedding a private runner, tracker, path, or authority corpus.
 
