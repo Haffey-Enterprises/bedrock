@@ -1,13 +1,12 @@
 {
   "name": "bedrock",
-  "description": "Haffey Enterprises engineering skills spanning implementation, testing, diagnosis, authoring, review, and explicitly invoked supervised backlog assessment. Portable actor contracts separate task authority, evidence, failure behavior, and lifecycle from Haffey stack profiles and optional host capabilities. The package covers application, infrastructure, delivery, agent construction, LLM-call, and frontend code; decision records and construct specs; reusable standards; execution relays; code review; and design-record review. Mechanical enforcement or convergence is claimed only through a declared executable capability; otherwise the applicable direct or advisory profile is explicit.",
-  "version": "10.0.0",
+  "description": "Portable engineering skills for application, infrastructure, delivery, frontend, and LLM agent work; testing and diagnosis; architecture and standards; execution handoffs; code and design review; and explicitly invoked, supervised backlog assessment. Reusable actor contracts separate product authority and workflow from stack profiles and optional host capabilities.",
+  "version": "10.0.1",
   "author": {
-    "name": "T-Bone-Haff",
-    "email": "tad@tadhaffey.com"
+    "name": "Haffey Enterprises"
   },
-  "homepage": "https://github.com/T-Bone-Haff/bedrock",
-  "repository": "https://github.com/T-Bone-Haff/bedrock",
+  "homepage": "https://github.com/Haffey-Enterprises/bedrock",
+  "repository": "https://github.com/Haffey-Enterprises/bedrock",
   "license": "MIT",
   "keywords": [
     "engineering",

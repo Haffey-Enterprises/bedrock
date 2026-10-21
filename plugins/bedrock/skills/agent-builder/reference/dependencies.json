@@ -7,7 +7,7 @@
   },
   "python_core": {
     "distribution": "agent-core",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "python": ">=3.10",
     "component_manifest": "../assets/python/component.json",
     "install": "../scripts/install_core.py",

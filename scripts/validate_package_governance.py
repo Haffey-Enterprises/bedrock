@@ -52,7 +52,7 @@ EXPECTED_SKILLS = {
     "planning",
     "testing",
 }
-REPOSITORY = "https://github.com/T-Bone-Haff/bedrock"
+REPOSITORY = "https://github.com/Haffey-Enterprises/bedrock"
 REQUIRED_FILES = (
     "LICENSE",
     "SECURITY.md",

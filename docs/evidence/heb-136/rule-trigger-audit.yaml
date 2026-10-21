@@ -12,14 +12,8 @@ counting_basis:
     set is valid and does not imply that every semantic unit was a normative rule.
   limit: The semantic-unit count proves deterministic screen coverage, not an atomic normative-rule count
     or infallible semantic classification.
-  last_refreshed_at: 2026-09-30 ET
-  last_refresh: 'HEB-184: planning instruction and provenance read whole; current adoption and invocation
-    policy inspected. The accepted provenance explicitly dispositions preservation and assumed agreement
-    as known-weak internal triggers. Their source frequency is unknown; medium is this ledger taxonomy
-    mapping, not an empirical frequency estimate. Other planning rule groups are workflow events with
-    disclosed residual misses. Unchanged carriers retain prior inspections; this is not a new whole-corpus
-    semantic audit. Populations and screen units use the existing audit detector. Prior ledger and context
-    inputs are retained in the baseline archive identified by HEB-184 preflight evidence.'
+  last_refreshed_at: 2026-10-20 ET
+  last_refresh: "HEB-188: incrementally refreshed the live screen-unit count after reading the changed agent-core 0.2.1 binding whole. Its new license/version explanatory paragraph is one non-normative unit; no new internal-state rule or semantic disposition. All 65 Markdown paths and 36 structured paths remain unchanged; unchanged carriers retain prior inspections. Complete per-carrier baseline/current counts prove 1208 to 1209. Prior ledger bytes remain in Git at 210670f48384b7093cc66c62b7785185bef7e447 and in the HEB-188 audit-diagnosis receipt; this is not a new whole-corpus semantic audit."
 scope:
   markdown_root: plugins/bedrock/skills
   expected_markdown_carriers: 65
@@ -256,7 +250,7 @@ findings:
   ratification: ratified
 counts:
   carriers_examined: 65
-  semantic_units_screened: 1208
+  semantic_units_screened: 1209
   internal_state_rules: 2
   converted_to_instrument: 0
   external_detector: 0

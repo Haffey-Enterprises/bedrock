@@ -1,4 +1,4 @@
-# agent-core 0.2.0 — Usage for specialist agents
+# agent-core 0.2.1 — Usage for specialist agents
 
 The accepted source has one bounded direct-Anthropic specialist trial. New builds
 require their own package and consumer checks; other bindings remain unproved.
@@ -211,4 +211,4 @@ Both results and errors expose `diagnostics`: candidate_count (decoded occurrenc
 
 ## Version
 
-Record `agent_core.CORE_VERSION` (`"0.2.0"`) in the fleet interface and evidence records.
+Record `agent_core.CORE_VERSION` (`"0.2.1"`) in the fleet interface and evidence records.

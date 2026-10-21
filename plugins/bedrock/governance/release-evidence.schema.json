@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/T-Bone-Haff/bedrock/schemas/release-evidence.schema.json",
+  "$id": "https://github.com/Haffey-Enterprises/bedrock/schemas/release-evidence.schema.json",
   "title": "Bedrock release evidence",
   "type": "object",
   "additionalProperties": false,

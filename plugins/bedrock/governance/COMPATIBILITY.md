@@ -46,7 +46,7 @@ or capability and do not claim compatibility by similarity.
 The candidate adds agent-builder 1.0.0 as primary owner for checked fleet
 specialists; agent-code 2.0.0 remains the mechanism authority. Existing explicit
 agent-code calls remain valid for LLM-call implementation. Agent-builder checks
-its agent-code sibling identity and installs bundled agent-core 0.2.0 into the
+its agent-code sibling identity and installs bundled agent-core 0.2.1 into the
 consumer project environment before implementation. Python >=3.10 and compatible
 pinned third-party wheels are required for that operation; absence stops it.
 Plugin loading alone does not prove Python execution support.

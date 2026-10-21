@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/T-Bone-Haff/bedrock/schemas/rollout-ledger.schema.json",
+  "$id": "https://github.com/Haffey-Enterprises/bedrock/schemas/rollout-ledger.schema.json",
   "title": "Bedrock consumer-surface rollout ledger",
   "type": "object",
   "additionalProperties": false,

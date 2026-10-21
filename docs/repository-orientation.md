@@ -6,7 +6,7 @@ skill semantics, release gates, or engineering doctrine.
 
 ## Repository identity and layout
 
-`T-Bone-Haff/bedrock` contains the distributable Bedrock Claude plugin and the
+`Haffey-Enterprises/bedrock` contains the distributable Bedrock Claude plugin and the
 consumer project template. It is not the private HE-Bedrock governance corpus.
 
 - `plugins/bedrock/` is the installed package.

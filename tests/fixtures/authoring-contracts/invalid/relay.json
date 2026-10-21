@@ -1,1 +1,1 @@
-{"schema_version":1,"profile":"high-assurance","repository":"T-Bone-Haff/bedrock","base_revision":"9e8719e","touch":["README.md"],"gates":["commit"],"substrate_policy":"trusted-instructions"}
+{"schema_version":1,"profile":"high-assurance","repository":"Haffey-Enterprises/bedrock","base_revision":"9e8719e","touch":["README.md"],"gates":["commit"],"substrate_policy":"trusted-instructions"}

@@ -1,7 +1,7 @@
 """
 agent_core — mandatory shared substrate for every LLM-calling agent.
 
-Version 0.2.0. Provider transport and portable evidence mapping are adapter-owned.
+Version 0.2.1. Provider transport and portable evidence mapping are adapter-owned.
 
 Public surface is intentionally small and stable. Import only from this
 package; do not re-implement these invariants inside individual agents.

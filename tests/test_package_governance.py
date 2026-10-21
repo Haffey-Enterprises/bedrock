@@ -180,7 +180,7 @@ class PackageGovernanceTests(unittest.TestCase):
         payload = json.loads(path.read_text(encoding="utf-8"))
         payload["plugins"][0]["source"] = {
             "source": "git-subdir",
-            "url": "https://github.com/T-Bone-Haff/bedrock.git",
+            "url": "https://github.com/Haffey-Enterprises/bedrock.git",
             "path": "plugins/bedrock",
             "ref": "candidate",
         }
@@ -704,7 +704,7 @@ class PackageGovernanceTests(unittest.TestCase):
                 "commit": landing_commit,
                 "method": landing_method,
                 "merged_at": merged_at,
-                "evidence": "https://github.com/T-Bone-Haff/bedrock/pull/1",
+                "evidence": "https://github.com/Haffey-Enterprises/bedrock/pull/1",
             },
         }
         rollout = {
