@@ -31,7 +31,7 @@ def run(directory,fake=None,value=None):
         records=[json.loads(x) for x in (directory/'evidence.jsonl').read_text().splitlines()]
         matched=[x for x in records if x['record_id']==result['evidence_ref'].split('#')[-1]]
         assert len(matched)==1 and matched[0]['disposition']==result['terminal_disposition']
-        assert matched[0]['invocation_id']==result['invocation_id'] and matched[0]['core_version']=='0.2.0'
+        assert matched[0]['invocation_id']==result['invocation_id'] and matched[0]['core_version']=='0.2.1'
         journal=[json.loads(x) for x in (directory/'campaign.jsonl').read_text().splitlines()]
         reserved=[x for x in journal if x['event']=='reserve' and x.get('invocation_id')==result['invocation_id']]
         attempts=[x for x in records if x['invocation_id']==result['invocation_id'] and x['payload']['record_kind']=='model_attempt']
@@ -173,7 +173,7 @@ def test_persistence_failure(directory,monkeypatch):
     assert len(fake.requests)==1 and emergency[-1]['model_attempts']==1
 def test_core_identity():
     import agent_core
-    assert Path(agent_core.__file__).resolve()==Path(__import__('importlib.metadata',fromlist=['distribution']).distribution('agent-core').locate_file('agent_core/__init__.py')).resolve() and CORE_VERSION=='0.2.0'
+    assert Path(agent_core.__file__).resolve()==Path(__import__('importlib.metadata',fromlist=['distribution']).distribution('agent-core').locate_file('agent_core/__init__.py')).resolve() and CORE_VERSION=='0.2.1'
 def test_jsonl_readback(directory):
     path=directory/'control.jsonl';r.append_json(path,{'a':1});assert json.loads(path.read_text())=={'a':1};path.write_text('malformed\n')
     with pytest.raises(r.StorageError):r.append_json(path,{'b':2})

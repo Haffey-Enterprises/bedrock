@@ -3,6 +3,28 @@
 The package manifest is the sole authority for the current version. This file
 records candidate and released changes; a version heading is not release proof.
 
+## 10.0.1 — organization migration candidate
+
+- Shorten the matching plugin and catalog package descriptions to the ratified
+  367-character summary within Cowork's observed 500-character limit. Per-skill
+  routing descriptions are unchanged; a fresh warning-free Cowork sync remains
+  a later acceptance check.
+- Prepare HEB-188 organization ownership and current public attribution cleanup.
+  Use company-only MIT notices and attribution; remove personal contact metadata.
+  Preserve published history, accepted provenance and historical evidence.
+- Update repository locators, schema identifiers and new core-install receipts
+  for Haffey-Enterprises/bedrock. Relative marketplace distribution, skill names,
+  routing contracts and core runtime behavior are unchanged.
+- Replace the personal security contact with GitHub private vulnerability
+  reporting. Transfer, enablement and notification verification must precede
+  landing this candidate; preparation does not establish a working new channel.
+- Regenerate package identity carriers and release the corrected company-only
+  license distribution as agent-core 0.2.1, with a new wheel filename/digest.
+  Mechanism behavior is unchanged; the version identity advances so an explicit
+  consuming-project upgrade replaces 0.2.0 instead of treating it as satisfied.
+  Bedrock remains 10.0.1. Cold acceptance, explicit proceed and supported-surface
+  rollout remain required; plugin updates do not upgrade project environments.
+
 ## 10.0.0 — bundled engineering and planning candidate
 
 - Add the HEB-155 local staged-content gate, explicit runtime manager, repository

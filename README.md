@@ -1,6 +1,6 @@
 # bedrock
 
-**Haffey Enterprises engineering skills** — by T-Bone-Haff
+**Haffey Enterprises engineering skills**
 
 Self-contained Claude skills distilled from the HE-Bedrock governance corpus. They carry the *content* — the engineering standard, the doctype templates, the testing and review disciplines — with none of the private self-governance machinery. Dependencies are explicit: agent-builder requires agent-code and the bundled Python core. A skill's own depth lives in its bundled `reference/` and `templates/` files (some skills are a single SKILL.md). Portable actor contracts name optional host profiles without embedding a private runner, tracker, path, or authority corpus.
 
@@ -32,7 +32,7 @@ Bindings are declared per skill, not kit-wide. The service-side skills assume **
 Add the marketplace and install the plugin:
 
 ```
-/plugin marketplace add T-Bone-Haff/bedrock
+/plugin marketplace add Haffey-Enterprises/bedrock
 /plugin install bedrock@bedrock
 ```
 
@@ -40,7 +40,7 @@ For local development of the kit itself, point the marketplace at a clone instea
 
 ## Install — Claude.ai / Cowork
 
-Install through the plugin marketplace: Settings → Customize → Plugins → Add marketplace from repository (`T-Bone-Haff/bedrock`) → install **bedrock**. The skills load account-wide from the plugin. Do not upload skills as individual ZIPs — hand-uploaded copies are unsynced snapshots that compete with the plugin's skills for routing.
+Install through the plugin marketplace: Settings → Customize → Plugins → Add marketplace from repository (`Haffey-Enterprises/bedrock`) → install **bedrock**. The skills load account-wide from the plugin. Do not upload skills as individual ZIPs — hand-uploaded copies are unsynced snapshots that compete with the plugin's skills for routing.
 
 ## Staying current
 

@@ -98,7 +98,7 @@ def main() -> int:
         name,version=line.split()[0].split('==')
         if observed['dependencies'][name]!=version:
             raise ValueError('installed dependency differs from qualified lock: '+name)
-    record={'schema_version':1,'repository':'https://github.com/T-Bone-Haff/bedrock','bedrock_revision':args.bedrock_revision,'component':component['distribution'],'component_version':component['version'],'wheel':component['wheel'],'wheel_sha256':component['wheel_sha256'],'requirements_sha256':component['requirements_sha256'],'observed':observed}
+    record={'schema_version':1,'repository':'https://github.com/Haffey-Enterprises/bedrock','bedrock_revision':args.bedrock_revision,'component':component['distribution'],'component_version':component['version'],'wheel':component['wheel'],'wheel_sha256':component['wheel_sha256'],'requirements_sha256':component['requirements_sha256'],'observed':observed}
     if args.record:
         args.record.parent.mkdir(parents=True,exist_ok=True)
         with args.record.open('x') as output:

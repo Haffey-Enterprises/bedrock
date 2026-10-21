@@ -22,7 +22,7 @@ A future identity change requires all of:
 
 | Skill | Primary job | Decision | Portable/profile treatment | Key finding trace |
 |---|---|---|---|---|
-| `agent-builder` | Build a checked fleet specialist from requirements through handoff. | Add; explicit bounded construction route. | Requires agent-code 2.0.0 and bundled Python agent-core 0.2.0; product orchestration remains external. | HEB-154 R1-R3, D1-D4 |
+| `agent-builder` | Build a checked fleet specialist from requirements through handoff. | Add; explicit bounded construction route. | Requires agent-code 2.0.0 and bundled Python agent-core 0.2.1; product orchestration remains external. | HEB-154 R1-R3, D1-D4 |
 | `agent-code` | Author code whose central behavior is a large language model (LLM) call or bounded tool loop. | Retain; no rename. | Provider-neutral call, parse, budget, evidence, and tool-loop invariants in core; provider/transport and house Python choices are profiles. | AGT-004, AGT-011, AGT-002 |
 | `app-delivery-pipeline` | Author application-artifact continuous integration and continuous delivery (CI/CD), release, deployment, and rollout verification. | Retain; no rename. | Trusted promotion and immutable-artifact invariants in core; branch topology, CI host, and cloud are profiles. | DLV-013, DLV-002, DLV-006 |
 | `application-code` | Author conventional backend service and application behavior. | Retain; no rename. | Service safety and boundary invariants in core; FastAPI, SQLAlchemy, Python, and GCP are the Haffey service profile. | APP-002, APP-016 |

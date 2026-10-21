@@ -111,7 +111,7 @@ Checked fleet-specialist requests now route primarily to agent-builder; direct
 mechanism work remains agent-code. Install the shipped agent-core wheel into the
 project environment, pin its Bedrock revision/digest and dependencies, and run
 project checks on upgrades. No project uses plugin-cache imports. Core version
-0.2.0 and EvidenceRecord v0.1 do not share the portable-core 3.0.0 or portable
+0.2.1 and EvidenceRecord v0.1 do not share the portable-core 3.0.0 or portable
 execution evidence 2.0.0 identity. Migrate portable v1 records explicitly to
 known/unknown usage with null unknown totals and separate reservation exposure;
 absent responses have null hashes. The previous plugin and project dependency

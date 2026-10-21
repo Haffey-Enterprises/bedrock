@@ -1,4 +1,4 @@
-# agent-core 0.2.0
+# agent-core 0.2.1
 
 Mandatory shared substrate for every LLM-calling agent in the fleet.
 

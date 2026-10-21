@@ -64,11 +64,11 @@ def build(root: Path, *, check: bool) -> None:
         source = {str(p.relative_to(package / 'src')): digest(p.read_bytes()) for p in sorted((package / 'src/agent_core').rglob('*')) if p.is_file() and '__pycache__' not in p.parts}
         if {k:v for k,v in members.items() if k.startswith('agent_core/')} != source:
             raise ValueError('wheel runtime differs from authoritative source')
-        if any(not (name.startswith('agent_core/') or name.startswith('agent_core-0.2.0.dist-info/')) for name in members):
+        if any(not (name.startswith('agent_core/') or name.startswith('agent_core-0.2.1.dist-info/')) for name in members):
             raise ValueError('unexpected wheel payload')
         if package.joinpath('LICENSE').read_bytes() != root.joinpath('LICENSE').read_bytes():
             raise ValueError('core license must be Bedrock license')
-        payload = {'schema_version':1, 'distribution':'agent-core', 'version':'0.2.0', 'wheel':wheel.name, 'wheel_sha256':digest(wheel.read_bytes()), 'source_files':source, 'wheel_files':members, 'requirements_sha256':digest((package/'requirements-lock.txt').read_bytes()), 'build_requirements_sha256':digest((package/'build-requirements.txt').read_bytes())}
+        payload = {'schema_version':1, 'distribution':'agent-core', 'version':'0.2.1', 'wheel':wheel.name, 'wheel_sha256':digest(wheel.read_bytes()), 'source_files':source, 'wheel_files':members, 'requirements_sha256':digest((package/'requirements-lock.txt').read_bytes()), 'build_requirements_sha256':digest((package/'build-requirements.txt').read_bytes())}
         manifest = (json.dumps(payload, indent=2, sort_keys=True)+'\n').encode()
         expected = {wheel.name:wheel.read_bytes(), 'component.json':manifest, 'requirements-lock.txt':(package/'requirements-lock.txt').read_bytes()}
         if check:

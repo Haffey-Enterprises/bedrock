@@ -1,13 +1,16 @@
-# agent-core 0.2.0 — binding to agent-code (non-normative)
+# agent-core 0.2.1 — binding to agent-code (non-normative)
 
-This page maps the portable **agent-code** contract to the fleet’s shared Python package **agent-core 0.2.0**. It does not amend agent-code. Where the binding is narrower or uses different vocabulary, adapters must preserve portable meaning when emitting cross-host evidence.
+This page maps the portable **agent-code** contract to the fleet’s shared Python package **agent-core 0.2.1**. It does not amend agent-code. Where the binding is narrower or uses different vocabulary, adapters must preserve portable meaning when emitting cross-host evidence.
+
+The 0.2.1 distribution corrects company-only license notices and its version identity;
+mechanism behavior and evidence schemas are unchanged from 0.2.0.
 
 ## Role
 
 | Artifact | Role |
 |----------|------|
 | agent-code | Portable mechanism rules |
-| agent-core 0.2.0 | One Python implementation of a ratified subset (fleet wheel dependency) |
+| agent-core 0.2.1 | One Python implementation of a ratified subset (fleet wheel dependency) |
 | agent-builder | Process for building specialists that **depend on** agent-core |
 | `agent-execution.schema.json` | Minimum portable evidence envelope |
 
@@ -38,7 +41,7 @@ agent-core’s `EvidenceRecord` is **core-owned for v0.1** (fleet persistence). 
 
 ## Units and budget fields
 
-| Portable | agent-core 0.2.0 |
+| Portable | agent-core 0.2.1 |
 |----------|------------------|
 | Spend | US dollars (`max_spend` / `spend_used`); convert to/from micros in adapters |
 | Deadline | `max_wall_seconds` (monotonic elapsed) vs portable `deadline_ms` |
@@ -49,7 +52,7 @@ agent-core’s `EvidenceRecord` is **core-owned for v0.1** (fleet persistence). 
 
 ## Identity stamping
 
-agent-code requires context-sourced stamps including actor, invocation id, model, schema version, prompt hash, and attempt number. agent-core 0.2.0 stamps fleet identity on output (`agent_id`, `session_id`, `invocation_id`, `parent_invocation_id`, `run_id`, `project_id`) after stripping reserved keys from model data. Model, prompt hash, schema version, and per-attempt detail belong in the **profile/adapter** and/or evidence `payload` until a later core version lifts them into first-class fields. They must still not be taken from model claims.
+agent-code requires context-sourced stamps including actor, invocation id, model, schema version, prompt hash, and attempt number. agent-core 0.2.1 stamps fleet identity on output (`agent_id`, `session_id`, `invocation_id`, `parent_invocation_id`, `run_id`, `project_id`) after stripping reserved keys from model data. Model, prompt hash, schema version, and per-attempt detail belong in the **profile/adapter** and/or evidence `payload` until a later core version lifts them into first-class fields. They must still not be taken from model claims.
 
 ## Structured output (aligned behavior)
 
@@ -66,7 +69,7 @@ Provider SDKs, multi-agent orchestration, PostgreSQL clients, parallelism, circu
 
 ## Version
 
-Binding written for **agent-core 0.2.0**. Revisit this page when core major/minor mechanism surface changes.
+Binding written for **agent-core 0.2.1**. Revisit this page when core major/minor mechanism surface changes.
 
 ## Portable evidence v2 mapping
 

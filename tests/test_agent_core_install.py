@@ -14,7 +14,7 @@ spec.loader.exec_module(installer)
 
 class CoreIdentityTests(unittest.TestCase):
     def test_current_bundle(self):
-        self.assertEqual('0.2.0',installer.load_component(SKILL/'assets/python')['version'])
+        self.assertEqual('0.2.1',installer.load_component(SKILL/'assets/python')['version'])
 
     def test_changed_wheel_and_lock_are_rejected(self):
         for kind in ('wheel','requirements-lock.txt'):

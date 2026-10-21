@@ -4,8 +4,10 @@
 
 Do not file public issues containing secrets, exploit details, private consumer
 content, or active credentials. Report a suspected Bedrock package
-vulnerability privately to `tad@tadhaffey.com` with the affected manifest
-identity, reproduction, impact, and whether active exploitation is suspected.
+vulnerability through [GitHub private vulnerability reporting](https://github.com/Haffey-Enterprises/bedrock/security/advisories/new).
+On GitHub, open Security → Advisories → Report a vulnerability. Include the
+affected manifest identity, installation surface, reproduction, impact, and
+whether active exploitation is suspected.
 The package owner acknowledges receipt when available, preserves the report as
 sensitive evidence, and publishes remediation guidance only after affected
 consumers have a safe path. This is a reporting channel, not a service-level
